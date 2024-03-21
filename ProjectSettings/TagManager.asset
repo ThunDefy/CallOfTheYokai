@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Background
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - Stuff
+  - Interactables
+  - Player
+  - Enemy
+  - ProjectTile
+  - Obstacle
+  - Weapon
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Back
+    uniqueID: 1032093119
+    locked: 0
+  - name: Level
+    uniqueID: 3432552071
+    locked: 0
+  - name: Decorations
+    uniqueID: 1980525151
+    locked: 0
+  - name: Weapon
+    uniqueID: 3377672451
+    locked: 0
+  - name: "\u0421reatures"
+    uniqueID: 1725223847
+    locked: 0
