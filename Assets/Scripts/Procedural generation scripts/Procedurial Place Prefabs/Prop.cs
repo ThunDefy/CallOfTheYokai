@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "Prop", menuName = "ScriptableObjects/Prop")]
 public class Prop : ScriptableObject
 {
     [Header("Prop data:")]
     public Sprite PropSprite;
-    /// <summary>
-    /// Affects the collider size of the prop
-    /// </summary>
     public Vector2Int PropSize = Vector2Int.one;
 
     [Space, Header("Placement type:")]

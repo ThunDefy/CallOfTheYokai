@@ -9,19 +9,28 @@ public class WeaponControllers : MonoBehaviour
     public SpriteRenderer characterRenderer, weaponRenderer;
 
     [Header("Weapon Stats")]
+    public WeaponScriptableObject weaponData;
 
-    public GameObject prefab;
-    public float damage;
-    public float speed;
-    public float cooldownDuration;
-    float currentCooldown;
+    public float currentCooldown;
+    public float currentDamage;
+    public float currentSpeed;
+    public float currentColldownDuration;
+    public float currentPierce;
+
     private bool attackBlocked;
-    public int pierce;
 
     protected virtual void Start()
     {
-        currentCooldown = cooldownDuration;
+        Transform parent2 = transform.parent;
+        characterRenderer = parent2.parent.GetComponent<SpriteRenderer>();
+
+        currentCooldown = weaponData.cooldownDuration;
+        currentDamage = weaponData.damage;
+        currentSpeed = weaponData.speed;
+        currentPierce = weaponData.pierce;
+
         attackBlocked = true;
+
     }
 
     protected virtual void Update()
@@ -57,10 +66,16 @@ public class WeaponControllers : MonoBehaviour
     {
         print("Controller PEW");
         attackBlocked = true;
-        currentCooldown = cooldownDuration;
+        currentCooldown = weaponData.cooldownDuration;
     }
 
-    
+    public virtual void LevelUp()
+    {
+
+    }
+
+
+
 
 
 }

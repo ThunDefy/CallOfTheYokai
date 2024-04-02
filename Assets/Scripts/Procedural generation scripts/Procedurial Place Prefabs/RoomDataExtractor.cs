@@ -19,17 +19,15 @@ public class RoomDataExtractor : MonoBehaviour
     }
     public void ProcessRooms()
     {
-        print("ProcessRooms");
         if (dungeonData == null)
         {
-            print("No data");
             return;
         }
             
 
         foreach (Room room in dungeonData.Rooms)
         {
-            //find corener, near wall and inner tiles
+            //найти углы, около стены и внутренней плитки
             foreach (Vector2Int tilePosition in room.FloorTiles)
             {
                 int neighboursCount = 4;
@@ -55,7 +53,7 @@ public class RoomDataExtractor : MonoBehaviour
                     neighboursCount--;
                 }
 
-                //find corners
+                //найти углы
                 if (neighboursCount <= 2)
                     room.CornerTiles.Add(tilePosition);
 
@@ -69,7 +67,6 @@ public class RoomDataExtractor : MonoBehaviour
             room.NearWallTilesRight.ExceptWith(room.CornerTiles);
         }
 
-        //OnFinishedRoomProcessing?.Invoke();
         Invoke("RunEvent", 1);
     }
 

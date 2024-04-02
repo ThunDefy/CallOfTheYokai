@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Direction2D;
 
 public static class ProceduralGenerationAlgorithms 
 {
@@ -35,6 +36,8 @@ public static class ProceduralGenerationAlgorithms
 
     public static List<BoundsInt> BinarySpacePartitioning(BoundsInt spaceToSplit, int minWidth, int minHeight)
     {
+        BoundsInt initialPoint;
+        initialPoint = new BoundsInt(0, 0,0,0,0,0);
         Queue<BoundsInt> roomsQueue = new Queue<BoundsInt>();
         List<BoundsInt> roomsList = new List<BoundsInt>();
         roomsQueue.Enqueue(spaceToSplit);
@@ -76,6 +79,8 @@ public static class ProceduralGenerationAlgorithms
                 }
             }
         }
+        RoomDistanceComparer comparer = new RoomDistanceComparer(roomsList[0]);
+        roomsList.Sort(comparer);
         return roomsList;
     }
 
@@ -136,6 +141,36 @@ public static class Direction2D
     public static Vector2Int GetRandomCardinalDirection()
     {
         return cardinalDirectionList[UnityEngine.Random.Range(0, cardinalDirectionList.Count)];
+    }
+
+
+    // Код для сортировки комнат 
+    public static class RoomDistanceComparator
+    {
+        public static float CalculateDistance(Vector2Int point1, Vector2Int point2)
+        {
+            return Vector2Int.Distance(point1, point2);
+        }
+    }
+
+    public class RoomDistanceComparer : IComparer<BoundsInt>
+    {
+        private BoundsInt previousRoom;
+
+        public RoomDistanceComparer(BoundsInt prevRoom)
+        {
+            previousRoom = prevRoom;
+        }
+
+        public int Compare(BoundsInt room1, BoundsInt room2)
+        {
+            Vector2Int initialPoint = new Vector2Int(Mathf.RoundToInt(previousRoom.center.x), Mathf.RoundToInt(previousRoom.center.y));
+
+            float distance1 = RoomDistanceComparator.CalculateDistance(initialPoint, new Vector2Int(Mathf.RoundToInt(room1.center.x), Mathf.RoundToInt(room1.center.y)));
+            float distance2 = RoomDistanceComparator.CalculateDistance(initialPoint, new Vector2Int(Mathf.RoundToInt(room2.center.x), Mathf.RoundToInt(room2.center.y)));
+
+            return distance1.CompareTo(distance2);
+        }
     }
 
 }

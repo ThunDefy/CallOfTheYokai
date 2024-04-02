@@ -25,7 +25,7 @@ public class KatanaController : WeaponControllers
         print("Katana WHEEU");
         animator.SetTrigger("Attack");
 
-        hitRadius.DetectColliders(damage);
+        hitRadius.DetectColliders(weaponData.damage, weaponData.target);
     }
 
     

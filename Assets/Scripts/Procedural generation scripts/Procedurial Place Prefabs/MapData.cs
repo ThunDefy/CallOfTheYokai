@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class MapData : MonoBehaviour
 {
@@ -19,12 +21,14 @@ public class MapData : MonoBehaviour
             }
             foreach (var item in room.EnemiesInTheRoom)
             {
+                //item.GetComponent<DropRateManager>().canDrop = false;
                 Destroy(item);
             }
+
         }
         Rooms = new();
         Path = new();
-        Destroy(PlayerReference);
+        Destroy(PlayerReference);  
     }
 
     public IEnumerator TutorialCoroutine(Action code)

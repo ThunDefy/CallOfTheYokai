@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ProjectileWeaponBehaviour : MonoBehaviour
 {
+    //public WeaponScriptableObject weaponData;
+
+    protected WeaponControllers weaponData;
+
     public Transform circleOrigin;
     public float radius;
 
@@ -17,9 +21,15 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
 
     private Vector2 shootDirection;
 
+
     protected virtual void Start()
     {
+        weaponData = FindAnyObjectByType<WeaponControllers>();
         Destroy(gameObject, destroyAfterSeconds);
+    }
+    public float GetCurrentDamage()
+    {
+        return projectileDamage *= FindAnyObjectByType<PlayerStats>().CurrentPower;
     }
 
     public void SetDirection()
@@ -42,6 +52,8 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
 
     }
 
+    
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
@@ -57,8 +69,10 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
             Health health;
             if (health = collider.GetComponent<Health>())
             {
-                health.GetHit(projectileDamage, sender);
+                health.GetHit(GetCurrentDamage(), sender);
             }
+            if(collider.name != "Collector") 
+                Destroy(gameObject);
         }
     }
 }

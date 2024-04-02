@@ -86,7 +86,7 @@ public class EnemyAI : MonoBehaviour
             if (distance < attackDistance)
             {
                 //Attack logic
-                print("Rono pew");
+                //print("Rono pew");
                 movementInput = Vector2.zero;
                 OnAttack?.Invoke();
                 yield return new WaitForSeconds(attackDelay);

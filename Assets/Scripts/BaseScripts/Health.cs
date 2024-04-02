@@ -6,13 +6,19 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     [SerializeField]
-    private float currentHealth, maxHealth;
+    public float maxHealth;
+
+    public float currentHealth;
 
     public UnityEvent<GameObject> OnHitWithReference, OnDeathWithReference;
 
     [SerializeField]
-    private bool isDead = false;
+    public bool isDead = false;
 
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
     public void InitializeHealth(float healthValue)
     {
         currentHealth = healthValue;

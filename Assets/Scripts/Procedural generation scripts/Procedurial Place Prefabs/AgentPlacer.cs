@@ -4,19 +4,33 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AgentPlacer : MonoBehaviour
 {
     [SerializeField]
-    private GameObject enemyPrefab, playerPrefab;
+    private List<GameObject> enemyPrefabs;
 
     [SerializeField]
-    private int playerRoomIndex;
+    private List<float> enemySpawnChance;
+
+    [SerializeField]
+    private GameObject player;
+
+    [SerializeField]
+    private int playerRoomIndex = 0;
+
     [SerializeField]
     private CinemachineVirtualCamera vCamera;
 
     [SerializeField]
-    private List<int> roomEnemiesCount;
+    private int minRoomEnemiesCount=1;
+
+    [SerializeField]
+    private int maxRoomEnemiesCount=10;
+
+    [SerializeField]
+    private List<int> roomsWithEnemies = new List<int>();
 
     MapData dungeonData;
 
@@ -26,44 +40,60 @@ public class AgentPlacer : MonoBehaviour
     private void Awake()
     {
         dungeonData = FindObjectOfType<MapData>();
+
     }
+
+
 
     public void PlaceAgents()
     {
         if (dungeonData == null)
             return;
 
-        //Loop for each room
+        for (int i = 0; i < dungeonData.Rooms.Count; i++)
+        {
+            if (i != playerRoomIndex)
+            {
+                roomsWithEnemies.Add(Random.Range(minRoomEnemiesCount, maxRoomEnemiesCount + 1));
+            }
+            else
+            {
+                roomsWithEnemies.Add(0);
+            }
+        }
+        //÷икл дл€ каждой комнаты
         print(dungeonData.Rooms.Count);
         for (int i = 0; i < dungeonData.Rooms.Count; i++)
         {
-            //TO place eneies we need to analyze the room tiles to find those accesible from the path
+
+            // ƒл€ размещени€ врагов нужно проанализировать плитки комнаты, чтобы найти те, которые доступны с пути
             Room room = dungeonData.Rooms[i];
             RoomGraph roomGraph = new RoomGraph(room.FloorTiles);
 
-            //Find the Path inside this specific room
+            //Ќайдите ѕуть в этой конкретной комнате
             HashSet<Vector2Int> roomFloor = new HashSet<Vector2Int>(room.FloorTiles);
-            //Find the tiles belonging to both the path and the room
+
+            //Ќайдите плитки, относ€щиес€ как к пути, так и к комнате.
             roomFloor.IntersectWith(dungeonData.Path);
 
-            //Run the BFS to find all the tiles in the room accessible from the path
+            //«апустить BFS, чтобы найти все плитки в комнате, доступной с тропинки
             Dictionary<Vector2Int, Vector2Int> roomMap = roomGraph.RunBFS(roomFloor.First(), room.PropPositions);
 
-            //Positions that we can reach + path == positions where we can place enemies
+            //ѕозиции, до которых мы можем добратьс€ + путь = позиции, где мы можем разместить врагов
             room.PositionsAccessibleFromPath = roomMap.Keys.OrderBy(x => Guid.NewGuid()).ToList();
 
-            //did we add this room to the roomEnemiesCount list?
-            if (roomEnemiesCount.Count > i)
+            //добавили ли мы эту комнату в список RoomEnemiesCount?
+            if (roomsWithEnemies.Count > i)
             {
-                PlaceEnemies(room, roomEnemiesCount[i]);
+                PlaceEnemies(room, roomsWithEnemies[i]);
             }
 
-            //Place the player
+            //—павним игрока 
             if (i == playerRoomIndex)
-            {
-                GameObject player = Instantiate(playerPrefab);
+            { 
+                //GameObject player = Instantiate(playerPrefab);
                 player.transform.localPosition = dungeonData.Rooms[i].RoomCenterPos + Vector2.one * 0.5f;
-                //Make the camera follow the player
+                //«аставл€ем камеру следовать за игроком
                 vCamera.Follow = player.transform;
                 vCamera.LookAt = player.transform;
                 dungeonData.PlayerReference = player;
@@ -71,25 +101,42 @@ public class AgentPlacer : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Places enemies in the positions accessible fr the path
-    /// </summary>
-    /// <param name="room"></param>
-    /// <param name="enemysCount"></param>
+
+    // –асставл€ет врагов на позиции, доступные с пути
     private void PlaceEnemies(Room room, int enemysCount)
     {
-        for (int k = 0; k < enemysCount; k++)
+
+        float totalSpawnChance = 0f;
+        foreach (float chance in enemySpawnChance)
         {
-            if (room.PositionsAccessibleFromPath.Count <= k)
+            totalSpawnChance += chance;
+        }
+
+        for (int i = 0; i < enemysCount; i++)
+        {
+            if (room.PositionsAccessibleFromPath.Count <= i)
             {
                 return;
             }
-            GameObject enemy = Instantiate(enemyPrefab);
-            enemy.transform.localPosition = (Vector2)room.PositionsAccessibleFromPath[k] + Vector2.one * 0.5f;
-            room.EnemiesInTheRoom.Add(enemy);
+
+            float randomValue = Random.Range(0f, totalSpawnChance);
+            float cumulativeChance = 0f;
+
+            for (int j = 0; j < enemySpawnChance.Count; j++)
+            {
+                cumulativeChance += enemySpawnChance[j];
+                if (randomValue <= cumulativeChance)
+                {
+                    GameObject enemy = Instantiate(enemyPrefabs[j]);
+                    enemy.transform.localPosition = (Vector2)room.PositionsAccessibleFromPath[i] + Vector2.one * 0.5f;
+                    room.EnemiesInTheRoom.Add(enemy);
+                    break;
+                }
+            }
         }
     }
 
+    // ¬изуальное отображение доступных дл€ спавна плиток
     private void OnDrawGizmosSelected()
     {
         if (dungeonData == null || showGizmo == false)
@@ -137,35 +184,30 @@ public class RoomGraph
         }
     }
 
-    /// <summary>
-    /// Creates a map of reachable tiles in our dungeon.
-    /// </summary>
-    /// <param name="startPos">Door position or tile position on the path between rooms inside this room</param>
-    /// <param name="occupiedNodes"></param>
-    /// <returns></returns>
+    // —оздает карту доступных тайлов
     public Dictionary<Vector2Int, Vector2Int> RunBFS(Vector2Int startPos, HashSet<Vector2Int> occupiedNodes)
     {
-        //BFS related variuables
+        //ѕеременные, св€занные с BFS
         Queue<Vector2Int> nodesToVisit = new Queue<Vector2Int>();
         nodesToVisit.Enqueue(startPos);
 
         HashSet<Vector2Int> visitedNodes = new HashSet<Vector2Int>();
         visitedNodes.Add(startPos);
 
-        //The dictionary that we will return 
+        //—ловарь, который мы вернем 
         Dictionary<Vector2Int, Vector2Int> map = new Dictionary<Vector2Int, Vector2Int>();
         map.Add(startPos, startPos);
 
         while (nodesToVisit.Count > 0)
         {
-            //get the data about specific position
+            //получить данные о конкретной позиции
             Vector2Int node = nodesToVisit.Dequeue();
             List<Vector2Int> neighbours = graph[node];
 
-            //loop through each neighbour position
+            //пройдитесь по каждой соседней позиции
             foreach (Vector2Int neighbourPosition in neighbours)
             {
-                //add the neighbour position to our map if it is valid
+                //добавить позицию соседа в нашу карту, если она действительна
                 if (visitedNodes.Contains(neighbourPosition) == false &&
                     occupiedNodes.Contains(neighbourPosition) == false)
                 {

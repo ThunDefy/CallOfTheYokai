@@ -21,6 +21,7 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
     private MapData mapData;
     protected override void RunProceduralGeneration()
     {
+        
         mapData = FindObjectOfType<MapData>();
         if (mapData == null)
             mapData = gameObject.AddComponent<MapData>();
@@ -31,7 +32,6 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
 
     private void CreateRooms()
     {
-
         mapData.Reset();
 
         var roomsList = ProceduralGenerationAlgorithms.BinarySpacePartitioning(new BoundsInt((Vector3Int)startPosition, new Vector3Int(dungeonWidth, dungeonHeight, 0)), minRoomWidth, minRoomHeight);
@@ -56,7 +56,11 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
         }
 
         HashSet<Vector2Int> corridors = ConnectRooms(roomCenters, mapData);
-        floor.UnionWith(corridors);
+
+        HashSet<Vector2Int> newCorridor = new HashSet<Vector2Int>(IncreaseCorridorSizeBy3(corridors));
+
+        floor.UnionWith(newCorridor);
+
 
         tilemapVisualizer.PaintFloorTiles(floor);
         WallGenerator.CreateWalls(floor, tilemapVisualizer);
@@ -103,6 +107,7 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
             }
             mapData.Rooms.Add(new Room(roomCenter, roomTiles));
         }
+
         return floor;
     }
 
@@ -171,6 +176,23 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
         }
         return closest;
     }
+
+    private HashSet<Vector2Int> IncreaseCorridorSizeBy3(HashSet<Vector2Int> corridors)
+    {
+        HashSet<Vector2Int> newCorridor = new HashSet<Vector2Int>();
+        foreach (Vector2Int point in corridors)
+        {
+            for (int x = -1; x < 2; x++)
+            {
+                for (int y = -1; y < 2; y++)
+                {
+                    newCorridor.Add(point + new Vector2Int(x, y));
+                }
+            }
+        }
+        return newCorridor;
+    }
+
 
 
 }

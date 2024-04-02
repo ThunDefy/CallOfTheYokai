@@ -57,7 +57,6 @@ public class PropPlacementManager : MonoBehaviour
             PlaceProps(room, innerProps, room.InnerTiles, PlacementOriginCorner.BottomLeft);
         }
 
-        //OnFinished?.Invoke();
         Invoke("RunEvent", 1);
 
     }
@@ -67,11 +66,6 @@ public class PropPlacementManager : MonoBehaviour
         OnFinished?.Invoke();
     }
 
-    //private IEnumerator TutorialCoroutine(Action code)
-    //{
-    //    yield return new WaitForSeconds(3);
-    //    code();
-    //}
 
     // Размещает объекты возле стен. Нам нужно указать реквизит и точку начала размещения
     private void PlaceProps(

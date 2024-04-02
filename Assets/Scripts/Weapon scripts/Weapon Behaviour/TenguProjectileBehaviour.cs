@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class TenguProjectileBehaviour : ProjectileWeaponBehaviour
 {
-    TenguController tc;
 
     protected override void Start()
     {
         base.Start();
-        tc = FindObjectOfType<TenguController>();
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position += direction * tc.speed * Time.deltaTime;
+        transform.position += direction * weaponData.currentSpeed * Time.deltaTime;
         DetectColliders();
     }
 

@@ -98,11 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78795f4302783dc489993e83ae5cddd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  damage: 10
-  speed: 10
-  cooldownDuration: 1
-  pierce: 0
+  characterRenderer: {fileID: 0}
+  weaponRenderer: {fileID: 0}
+  weaponData: {fileID: 11400000, guid: 2b9f35e9ba23fda45884bde6f83fe894, type: 2}
   animator: {fileID: 972258640417097787}
 --- !u!95 &972258640417097787
 Animator:
