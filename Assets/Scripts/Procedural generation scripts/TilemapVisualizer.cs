@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.WSA;
+//using UnityEngine.WSA;
 using Random = UnityEngine.Random;
 
 public class TilemapVisualizer : MonoBehaviour

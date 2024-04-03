@@ -69,7 +69,7 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
             Health health;
             if (health = collider.GetComponent<Health>())
             {
-                health.GetHit(GetCurrentDamage(), sender);
+                health.GetHit(GetCurrentDamage(), sender,transform.position);
             }
             if(collider.name != "Collector") 
                 Destroy(gameObject);

@@ -9,10 +9,6 @@ public class PassiveEffect : MonoBehaviour
     public PassiveEffectScriptableObject passiveEffectData;
     public float multipler;
 
-    public virtual void ApplyModifier()
-    {
-
-    }
     void Start()
     {
         multipler = passiveEffectData.Multipler;
@@ -20,4 +16,9 @@ public class PassiveEffect : MonoBehaviour
         ApplyModifier();
     }
 
+    public virtual void ApplyModifier()
+    {
+
+    }
+    
 }

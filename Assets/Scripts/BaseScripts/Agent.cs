@@ -11,7 +11,9 @@ public class Agent : MonoBehaviour
     
     public float moveSpeed;
     protected Rigidbody2D rb;
-    
+
+    Vector2 knockbackVelocity;
+    float knockbackDuration;
 
     [HideInInspector]
     public Vector2 moveDir;
@@ -42,6 +44,13 @@ public class Agent : MonoBehaviour
         InputManagement();
         weaponParent.PointerPosition = pointerInput;
         weaponController.PointerPosition = pointerInput;
+
+        if(knockbackDuration > 0)
+        {
+            transform.position += (Vector3)knockbackVelocity * Time.deltaTime;
+            knockbackDuration -= Time.deltaTime;
+        }
+
     }
 
     // Передвежение игрока
@@ -52,7 +61,8 @@ public class Agent : MonoBehaviour
 
     void InputManagement()
     {
-        if (GameManager.instance.isGameOver || GameManager.instance.currentState == GameState.Paused)
+        if (GameManager.instance.isGameOver || GameManager.instance.currentState == GameState.Paused
+            || GameManager.instance.currentState == GameState.LevelUp)
         {
             return;
         }
@@ -60,7 +70,8 @@ public class Agent : MonoBehaviour
     }
     protected virtual void Move()
     {
-        if (GameManager.instance.isGameOver || GameManager.instance.currentState == GameState.Paused)
+        if (GameManager.instance.isGameOver || GameManager.instance.currentState == GameState.Paused
+            || GameManager.instance.currentState == GameState.LevelUp)
         {
             return;
         }
@@ -69,10 +80,20 @@ public class Agent : MonoBehaviour
 
     public void PerformAttack()
     {
-        if (GameManager.instance.isGameOver || GameManager.instance.currentState == GameState.Paused)
+        if (GameManager.instance.isGameOver || GameManager.instance.currentState == GameState.Paused
+            || GameManager.instance.currentState == GameState.LevelUp)
         {
             return;
         }
         weaponController.OnAttack();
     }
+
+    public void Knockback(Vector2 velocity, float duration)
+    {
+        if (knockbackDuration > 0) return;
+
+        knockbackVelocity = velocity;
+        knockbackDuration = duration;
+    }
+
 }

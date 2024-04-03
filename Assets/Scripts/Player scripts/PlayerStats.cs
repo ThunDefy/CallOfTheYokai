@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -140,6 +142,11 @@ public class PlayerStats : MonoBehaviour
     float invincibilityTimer;
     bool isInvincible;
 
+    [Header("UI")]
+    public Image expBar;
+    public TMP_Text levelText;
+
+
     [System.Serializable]
     public class LevelRange
     {
@@ -166,11 +173,14 @@ public class PlayerStats : MonoBehaviour
         CurrentMoveSpeed = player.moveSpeed;
         collector.SetRadius(CurrentMagnet);
         SpawnWeapon(startingWeapon);
+
     }
 
     private void Start()
     {
         experienceCap = levelRanges[0].experienceCapIncrease;
+        UpdateExpBar();
+        UpdateLevelText();
     }
 
     private void Update()
@@ -186,7 +196,9 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseExperience(int amount)
     {
         experience += amount;
+        
         LevelUpChecker();
+        UpdateExpBar();
     }
 
     void LevelUpChecker()
@@ -205,7 +217,21 @@ public class PlayerStats : MonoBehaviour
                 }    
             }
             experienceCap += experienceCapIncrease;
+
+            UpdateLevelText();
+            GameManager.instance.StartLevelUp();
+
         }
+    }
+
+    void UpdateExpBar()
+    {
+        expBar.fillAmount = (float)experience / experienceCap;
+    }
+
+    void UpdateLevelText()
+    {
+        levelText.text = level.ToString();
     }
 
     public void RestoreHealth(float amount)
@@ -219,7 +245,7 @@ public class PlayerStats : MonoBehaviour
                 healthData.currentHealth = healthData.maxHealth;
             }
 
-            //UpdateHealthBar();
+            healthData.UpdateHealthBar();
         }
         CurrentHealth = healthData.currentHealth;
     }
@@ -233,13 +259,13 @@ public class PlayerStats : MonoBehaviour
                 healthData.currentHealth = healthData.maxHealth;
         }
         CurrentHealth = healthData.currentHealth;
-        //UpdateHealthBar();
+        healthData.UpdateHealthBar();
 
     }
 
     public void SpawnWeapon(GameObject weapon)
     {
-        if(weaponIndex >= inventory.weaponSlots.Count - 1)
+        if(weaponIndex >= inventory.weaponSlots.Count)
         {
             Debug.LogError("Inventory full");
             return;
@@ -261,7 +287,10 @@ public class PlayerStats : MonoBehaviour
     {
         if (!GameManager.instance.isGameOver)
         {
+            GameManager.instance.AssignLevelReachedUI(level);
+            GameManager.instance.AssignChosenWeaponsUI(inventory.weaponUISlots);
             GameManager.instance.GameOver();
+            
         }
     }
 

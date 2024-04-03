@@ -19,6 +19,13 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
     public UnityEvent OnFinishedRoomGeneration;
 
     private MapData mapData;
+
+    private void Start()
+    {
+        GenerateMap();
+    }
+
+
     protected override void RunProceduralGeneration()
     {
         

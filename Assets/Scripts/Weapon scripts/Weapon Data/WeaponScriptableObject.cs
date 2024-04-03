@@ -8,6 +8,8 @@ public class WeaponScriptableObject : ScriptableObject
     // Базовые характеристики оружия
     [Header("Weapon Stats")]
 
+    public string weaponName;
+    public string weaponDescription;
     public GameObject prefab;
     public string target;
     public float damage;

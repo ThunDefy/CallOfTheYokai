@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerDataScriptableObject
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  maxHealth: 1
+  maxHealth: 20
   power: 1
   recovery: 0.5
   magnet: 1.6

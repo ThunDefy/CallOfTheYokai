@@ -61,6 +61,7 @@ public class Pickup : MonoBehaviour
 
     public virtual bool Collect (PlayerStats target, float speed, float lifespan = 0f)
     {
+
         if (!this.target)
         {
             this.target = target;

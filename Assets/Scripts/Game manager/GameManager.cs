@@ -16,23 +16,43 @@ public class GameManager : MonoBehaviour
     {
         Gameplay,
         Paused,
-        GameOver
+        GameOver,
+        LevelUp
     }
 
-    [Header("UI")]
+    [Header("Damage Text Settings")]
+    public Canvas damageTextCanvas;
+    public float textFontSize = 20;
+    public TMP_FontAsset textFont;
+    public Camera referenceCamera;
+
+    [Header("Screens")]
     public GameObject pauseScreen;
+    public GameObject resultScreen;
+    public GameObject levelUpScreen;
+
+    [Header("Pause Displays")]
     public TMP_Text currentRecoveryDisplay;
     public TMP_Text currentMagnetDisplay;
     public TMP_Text currentPowerDisplay;
     public TMP_Text currentMoveSpeedDisplay;
     public TMP_Text currentHealthDisplay;
+    public TMP_Text timerDisplay;
 
-    public GameObject resultScreen;
+    [Header("Result Screen Displays")]
+    public TMP_Text levelReachedDisplay;
+    public List<Image> chosenWeaponsUI = new List<Image>(2);
+    public TMP_Text gameTimeDisplay;
+
+    float timer;
 
     public bool isGameOver = false;
+    public bool choosingUpgrade;
 
     public GameState currentState;
     public GameState previousState;
+
+    public GameObject player;
 
     private void Awake()
     {
@@ -58,10 +78,12 @@ public class GameManager : MonoBehaviour
         {
             case GameState.Gameplay:
                 CheckForPauseAndResume();
+                UpdateTimer();
                 break;
 
             case GameState.Paused:
                 CheckForPauseAndResume();
+                
                 break;
 
             case GameState.GameOver:
@@ -71,6 +93,16 @@ public class GameManager : MonoBehaviour
                     Time.timeScale = 0f;
                     Debug.Log("Game over");
                     DisplayResults();
+                }
+                break;
+
+            case GameState.LevelUp:
+                if (!choosingUpgrade)
+                {
+                    choosingUpgrade = true;
+                    Time.timeScale = 0f;
+                    Debug.Log("choosing Upgrade");
+                    levelUpScreen.SetActive(true);
                 }
                 break;
 
@@ -119,6 +151,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                UpdateTimerDisplay();
                 PauseGame();
             }
         }
@@ -128,10 +161,13 @@ public class GameManager : MonoBehaviour
     {
         pauseScreen.SetActive(false);
         resultScreen.SetActive(false);
+        levelUpScreen.SetActive(false);
     }
 
     public void GameOver()
     {
+        UpdateTimerDisplay();
+        gameTimeDisplay.text = timerDisplay.text;
         ChangeState(GameState.GameOver);
     }
 
@@ -140,4 +176,103 @@ public class GameManager : MonoBehaviour
         resultScreen.SetActive(true);
     }
 
+    public void AssignLevelReachedUI(int levelReachedData)
+    {
+        levelReachedDisplay.text = levelReachedData.ToString();
+    }
+
+    public void AssignChosenWeaponsUI(List<Image> chosenWeaponsData)
+    {
+        if (chosenWeaponsData.Count != chosenWeaponsUI.Count) return;
+
+        for (int i = 0; i < chosenWeaponsUI.Count; i++)
+        {
+            if (chosenWeaponsData[i].sprite)
+            {
+                chosenWeaponsUI[i].enabled = true;
+                chosenWeaponsUI[i].sprite = chosenWeaponsData[i].sprite;
+            }
+            else
+            {
+                chosenWeaponsUI[i].enabled = false;
+            }
+        }
+    }
+
+    void UpdateTimer()
+    {
+        timer += Time.deltaTime;
+    }
+
+    void UpdateTimerDisplay()
+    {
+        int minutes = Mathf.FloorToInt(timer / 60);
+        int seconds = Mathf.FloorToInt(timer % 60);
+
+        timerDisplay.text = string.Format("{0:00}:{1:00}",minutes,seconds);
+    }
+
+    public void StartLevelUp()
+    {
+        ChangeState(GameState.LevelUp);
+        player.SendMessage("ApplyUpgradeOptions");
+    }
+
+    public void EndLevelUp()
+    {
+        choosingUpgrade = false;
+        Time.timeScale = 1f;
+        levelUpScreen.SetActive(false);
+        ChangeState(GameState.Gameplay);
+
+    }
+
+    public static void GenerateFloatingText(string text, Transform target, float duration =1f, float speed = 1f)
+    {
+        if (!instance.damageTextCanvas) return;
+
+        if (!instance.referenceCamera) instance.referenceCamera = Camera.main;
+
+        instance.StartCoroutine(instance.GenerateFloatingTextCoroutine(
+            text, target, duration, speed));
+    }
+
+    IEnumerator GenerateFloatingTextCoroutine(string text, Transform target, float duration=1f, float speed=50f)
+    {
+        GameObject textObj = new GameObject("Damage Floating Text");
+        RectTransform rect = textObj.AddComponent<RectTransform>();
+        TextMeshProUGUI textMP = textObj.AddComponent<TextMeshProUGUI>();
+
+        textMP.text = text; 
+        textMP.horizontalAlignment = HorizontalAlignmentOptions.Center;
+        textMP.verticalAlignment = VerticalAlignmentOptions.Middle;
+        textMP.fontSize = textFontSize;
+
+        if(textFont) textMP.font = textFont;
+        rect.position = referenceCamera.WorldToScreenPoint(target.position);
+
+        Destroy(textObj,duration);
+
+        textObj.transform.SetParent(instance.damageTextCanvas.transform);
+
+        // Анимация текста
+        WaitForEndOfFrame wait = new WaitForEndOfFrame();
+        float time = 0;
+        float yOffset = 0;
+        while(time < duration)
+        {
+            yield return wait;
+            time += Time.deltaTime;
+
+            textMP.color = new Color(textMP.color.r,textMP.color.g,textMP.color.b,1- time / duration);
+
+            yOffset += speed * Time.deltaTime;
+            if (target != null)
+            {
+                rect.position = referenceCamera.WorldToScreenPoint(target.position + new Vector3(0, yOffset));
+                // Объект померает быстрее чем текст берет его позицию
+            }
+        }
+
+    }
 }

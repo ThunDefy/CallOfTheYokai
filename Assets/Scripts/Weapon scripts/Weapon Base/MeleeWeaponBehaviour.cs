@@ -26,7 +26,7 @@ public class MeleeWeaponBehaviour : MonoBehaviour
             Health health;
             if (collider.name == target && (health = collider.GetComponent<Health>()))
             {
-                health.GetHit(damage, transform.parent.gameObject);
+                health.GetHit(damage, transform.parent.gameObject, transform.position);
             }
             
         }

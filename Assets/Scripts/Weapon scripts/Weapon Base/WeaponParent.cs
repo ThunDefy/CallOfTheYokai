@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
 public class WeaponParent : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class WeaponParent : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.instance.isGameOver || GameManager.instance.currentState == GameState.Paused
+            || GameManager.instance.currentState == GameState.LevelUp)
+        {
+            return;
+        }
 
         // Вращение оружия вокруг героя
 

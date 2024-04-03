@@ -7,5 +7,8 @@ public class PassiveEffectScriptableObject : ScriptableObject
 {
     [SerializeField]
     float multipler;
+    int level;
+    public string passiveEffectName;
+    public string passiveEffectDescription;
     public float Multipler { get => multipler; private set => multipler = value; }
 }
