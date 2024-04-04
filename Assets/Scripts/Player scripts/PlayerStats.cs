@@ -25,7 +25,7 @@ public class PlayerStats : MonoBehaviour
     
 
     [Header("Player stats")]
-    public PlayerDataScriptableObject player;
+    public PlayerData player;
 
     float currentRecovery;
     float currentMagnet;
@@ -165,12 +165,12 @@ public class PlayerStats : MonoBehaviour
         inventory = GetComponent<InventoryManager>();
         collector = GetComponentInChildren<PlayerCollector>();
 
-        CurrentRecovery = player.recovery;
-        CurrentMagnet = player.magnet;
-        CurrentPower = player.power;
-        CurrentMaxHealth = player.maxHealth;
-        CurrentHealth = player.maxHealth;
-        CurrentMoveSpeed = player.moveSpeed;
+        CurrentRecovery = player.stats.recovery;
+        CurrentMagnet = player.stats.magnet;
+        CurrentPower = player.stats.power;
+        CurrentMaxHealth = player.stats.maxHealth;
+        CurrentHealth = player.stats.maxHealth;
+        CurrentMoveSpeed = player.stats.moveSpeed;
         collector.SetRadius(CurrentMagnet);
         SpawnWeapon(startingWeapon);
 
@@ -193,6 +193,7 @@ public class PlayerStats : MonoBehaviour
         Recover();
     }
 
+   
     public void IncreaseExperience(int amount)
     {
         experience += amount;
@@ -293,5 +294,7 @@ public class PlayerStats : MonoBehaviour
             
         }
     }
+
+    public void RecalculateStats() { }
 
 }

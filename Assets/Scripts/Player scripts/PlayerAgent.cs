@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAgent : Agent
 {
-    public PlayerDataScriptableObject player;
+    public PlayerData player;
     public PlayerStats playerData;
     private Health hpData;
     //protected override void Move()
@@ -15,7 +15,7 @@ public class PlayerAgent : Agent
     {
         base.Awake();
         hpData = GetComponent<Health>();
-        hpData.maxHealth = player.maxHealth;
+        hpData.maxHealth = player.stats.maxHealth;
         hpData.currentHealth = hpData.maxHealth;
     }
 }

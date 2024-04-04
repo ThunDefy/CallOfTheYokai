@@ -256,10 +256,11 @@ public class GameManager : MonoBehaviour
         textObj.transform.SetParent(instance.damageTextCanvas.transform);
 
         // Анимация текста
+        Vector3 initialTargetPosition = target.position;
         WaitForEndOfFrame wait = new WaitForEndOfFrame();
         float time = 0;
         float yOffset = 0;
-        while(time < duration)
+        while(time < duration-0.1f)
         {
             yield return wait;
             time += Time.deltaTime;
@@ -267,11 +268,8 @@ public class GameManager : MonoBehaviour
             textMP.color = new Color(textMP.color.r,textMP.color.g,textMP.color.b,1- time / duration);
 
             yOffset += speed * Time.deltaTime;
-            if (target != null)
-            {
-                rect.position = referenceCamera.WorldToScreenPoint(target.position + new Vector3(0, yOffset));
-                // Объект померает быстрее чем текст берет его позицию
-            }
+            rect.position = referenceCamera.WorldToScreenPoint(initialTargetPosition + new Vector3(0, yOffset));
+
         }
 
     }

@@ -6,6 +6,6 @@ public class TenguPassiveEffect : PassiveEffect
 {
     public override void ApplyModifier()
     {
-        player.CurrentMoveSpeed = player.player.moveSpeed *( 1 + multipler / 100f);
+        player.CurrentMoveSpeed = player.player.stats.moveSpeed *( 1 + multipler / 100f);
     }
 }

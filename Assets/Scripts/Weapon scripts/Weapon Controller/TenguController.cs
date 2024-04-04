@@ -38,14 +38,14 @@ public class TenguController : WeaponControllers
     public override void LevelUp()
     {
         currentDamage += 5f;
-        print("Yokai lvl up");
+        //print("Yokai lvl up");
     }
 
     public override void LevelUpPassiveEffect()
     {
         passiveEffect.multipler += 5f;
         passiveEffect.ApplyModifier();
-        print("Passive effect lvl up");
+        //print("Passive effect lvl up");
     }
 
 }

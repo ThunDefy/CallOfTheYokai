@@ -76,6 +76,6 @@ public class WeaponControllers : MonoBehaviour
 
     public virtual void LevelUpPassiveEffect()
     {
-        throw new NotImplementedException();
+        
     }
 }
