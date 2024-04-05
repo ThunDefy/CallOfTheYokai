@@ -8,14 +8,17 @@ public class Projectile : WeaponEffect
     public DamageSource damageSource = DamageSource.projectile;
     public bool hasAutoAim = false;
     public Vector3 rotationSpeed = new Vector3(0, 0, 0);
+    public Vector3 targetPos;
 
     protected Rigidbody2D rb;
     protected int piercing;
 
     protected virtual void Start()
     {
+        transform.position = weapon.transform.position;
         rb = GetComponent<Rigidbody2D>();
         Weapon.Stats stats = weapon.GetStats();
+
         if(rb.bodyType == RigidbodyType2D.Dynamic)
         {
             rb.angularVelocity = rotationSpeed.z;
@@ -25,6 +28,7 @@ public class Projectile : WeaponEffect
         float area = stats.area == 0 ? 1 : stats.area;
         transform.localScale = new Vector3(area * Mathf.Sign(transform.localScale.x),
             area * Mathf.Sign(transform.localScale.y), 1);
+        //transform.rotation = Quaternion.Euler(0, 0, - 90);
 
         piercing = stats.pircing;
         if (stats.lifespan > 0) Destroy(gameObject, stats.lifespan);
@@ -46,7 +50,7 @@ public class Projectile : WeaponEffect
         {
             aimAngle = Random.Range(0f, 360f);
         }
-        transform.rotation = Quaternion.Euler(0, 0, aimAngle);
+        transform.rotation = Quaternion.Euler(0, 0, aimAngle - 90);
     }
 
     protected virtual void FixedUpdate()
@@ -54,7 +58,7 @@ public class Projectile : WeaponEffect
         if(rb.bodyType == RigidbodyType2D.Kinematic)
         {
             Weapon.Stats stats = weapon.GetStats();
-            transform.position += transform.right * stats.speed * Time.fixedDeltaTime;
+            transform.position += targetPos * stats.speed * Time.fixedDeltaTime;
             rb.MovePosition(transform.position);
             transform.Rotate(rotationSpeed * Time.fixedDeltaTime);
         }
@@ -63,7 +67,7 @@ public class Projectile : WeaponEffect
     protected virtual void OnTriggerEnter2D(Collider2D collider)
     {
         Health enemy = collider.GetComponent<Health>();
-        if (enemy)
+        if (enemy && !enemy.isPlayer)
         {
             Vector3 source = damageSource == DamageSource.owner && owner ? owner.transform.position : transform.position;
             enemy.GetHit(GetDamage(), this.gameObject, source);

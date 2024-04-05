@@ -69,13 +69,7 @@ public class WeaponControllers : MonoBehaviour
         currentCooldown = weaponData.cooldownDuration;
     }
 
-    public virtual void LevelUp()
-    {
+    public virtual void LevelUp(){}
 
-    }
-
-    public virtual void LevelUpPassiveEffect()
-    {
-        
-    }
+    public virtual void LevelUpPassiveEffect(){}
 }

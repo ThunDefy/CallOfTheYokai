@@ -12,7 +12,6 @@ public class Weapon : Yokai
 
         [Header("Visuals")]
         public Projectile projectilePrefab;
-        //public Aura auraPrefab;
         public ParticleSystem hitEffect;
         public Rect spawnVariance;
 
@@ -27,7 +26,6 @@ public class Weapon : Yokai
             result.name = s2.name ?? s1.name;
             result.description = s2.description ?? s1.description;
             result.projectilePrefab = s2.projectilePrefab ?? s1.projectilePrefab;
-            //result.auraPrefab = s2.auraPrefab ?? s1.auraPrefab;
             result.hitEffect = s2.hitEffect == null ? s1.hitEffect : s2.hitEffect;
             result.spawnVariance = s2.spawnVariance;
             result.lifespan = s1.lifespan+s2.lifespan;
@@ -40,8 +38,7 @@ public class Weapon : Yokai
             result.pircing = s1.pircing+s2.pircing;
             result.projectileInterval = s1.projectileInterval+s2.projectileInterval;
             result.knockback = s1.knockback + s2.knockback;
-            return result;     
-            
+            return result;      
         }
 
         public float GetDamage()
@@ -55,6 +52,9 @@ public class Weapon : Yokai
     protected float currentCoolDown;
     protected Agent player;
 
+    public Animator animator;
+    //protected bool attackBlocked;
+
     public virtual void Initialise(PlayerWeaponData data)
     {
         base.Initialise(data);
@@ -67,6 +67,7 @@ public class Weapon : Yokai
     protected virtual void Awake()
     {
         if(data) currentStats = data.baseStats;
+        animator = GetComponent<Animator>();
     }
 
     protected virtual void Start()
@@ -75,6 +76,7 @@ public class Weapon : Yokai
         {
             Initialise(data);
         }
+        //attackBlocked = true;
     }
 
     protected virtual void Update()
@@ -82,7 +84,8 @@ public class Weapon : Yokai
         currentCoolDown -= Time.deltaTime;
         if(currentCoolDown <= 0f)
         {
-            Attack(currentStats.number);
+            //attackBlocked = false;
+            //Attack(currentStats.number);
         }
     }
 
@@ -94,7 +97,7 @@ public class Weapon : Yokai
         {
             return false;
         }
-        //currentStats += data.GetLevelData(++currentLevel);
+        currentStats += data.GetLevelData(++currentLevel);
         return true;
     }
 

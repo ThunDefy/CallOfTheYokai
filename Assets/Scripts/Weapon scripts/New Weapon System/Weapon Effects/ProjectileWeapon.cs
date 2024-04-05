@@ -7,6 +7,8 @@ public class ProjectileWeapon : Weapon
     protected float currentAttackInterval;
     protected int currentAttackCount;
 
+    private Vector2 shootDirection;
+
     protected override void Update()
     {
         base.Update();
@@ -25,6 +27,7 @@ public class ProjectileWeapon : Weapon
 
     public override bool Attack(int attackCount = 1)
     {
+
         if (!currentStats.projectilePrefab)
         {
             currentCoolDown = data.baseStats.cooldown;
@@ -32,19 +35,19 @@ public class ProjectileWeapon : Weapon
         }
         if(!CanAttack()) return false;
 
+        if (animator != null) animator.SetTrigger("Attack");
+
         float spawnAngle = GetSpawnAngle();
-
-        Projectile prefab = Instantiate(currentStats.projectilePrefab, owner.transform.position + (Vector3)GetSpawnOffset(spawnAngle),
-            Quaternion.Euler(0, 0, spawnAngle)); // создаем снаряд
-
+        Projectile prefab = Instantiate(currentStats.projectilePrefab, owner.transform.position + (Vector3)GetSpawnOffset(spawnAngle),Quaternion.Euler(0, 0, spawnAngle - 90)); // создаем снаряд
+        prefab.targetPos = shootDirection;
         prefab.weapon = this;
         prefab.owner = owner;
 
-        if (currentCoolDown <= 0) currentCoolDown += currentStats.cooldown;
+        if (currentCoolDown <= 0) currentCoolDown = currentStats.cooldown;
 
         attackCount--;
 
-        if(attackCount > 0)
+        if (attackCount > 0)
         {
             currentAttackCount = attackCount;
             currentAttackInterval = data.baseStats.projectileInterval;
@@ -52,7 +55,7 @@ public class ProjectileWeapon : Weapon
         return true;
     }
 
-    private Vector2 shootDirection;
+    
     protected virtual float GetSpawnAngle()
     {
         Vector2 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

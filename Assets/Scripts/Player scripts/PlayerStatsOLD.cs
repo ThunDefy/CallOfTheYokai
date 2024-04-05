@@ -3,23 +3,16 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStatsOLD : MonoBehaviour
 {
     [HideInInspector]
     public Health healthData;
     [HideInInspector]
-    public Agent playerAgentData;
+    public Agent playerData;
     [HideInInspector]
     public WeaponParent weaponParent;
-
-
-    public PlayerData playerData;
-    public PlayerData.Stats baseStats;
-    [SerializeField] PlayerData.Stats actualStats;
-    float currentHealth;
-
+    
 
     PlayerCollector collector;
 
@@ -34,8 +27,12 @@ public class PlayerStats : MonoBehaviour
     [Header("Player stats")]
     public PlayerData player;
 
-    
-
+    float currentRecovery;
+    float currentMagnet;
+    float currentPower;
+    float currentMoveSpeed;
+    float currentHealth;
+    float currentMaxHealth;
 
     #region Current stats
     public float CurrentHealth
@@ -52,16 +49,16 @@ public class PlayerStats : MonoBehaviour
 
     public float CurrentMaxHealth
     {
-        get { return actualStats.maxHealth; }
+        get { return currentMaxHealth; }
         set
         {
-            if (actualStats.maxHealth != value)
+            if (currentMaxHealth != value)
             {
-                actualStats.maxHealth = value;
-                healthData.maxHealth = actualStats.maxHealth;
+                currentMaxHealth = value;
+                healthData.maxHealth = currentMaxHealth;
                 if (GameManager.instance != null)
                 {
-                    GameManager.instance.currentHealthDisplay.text = "Max Health: " + actualStats.maxHealth;
+                    GameManager.instance.currentHealthDisplay.text = "Max Health: " + currentMaxHealth;
                 }
 
             }
@@ -70,15 +67,15 @@ public class PlayerStats : MonoBehaviour
 
     public float CurrentRecovery
     {
-        get { return actualStats.recovery; }
+        get { return currentRecovery; }
         set
         {
-            if (actualStats.recovery != value)
+            if (currentRecovery != value)
             {
-                actualStats.recovery = value;
+                currentRecovery = value;
                 if (GameManager.instance != null)
                 {
-                    GameManager.instance.currentRecoveryDisplay.text = "Recovery: " + actualStats.recovery;
+                    GameManager.instance.currentRecoveryDisplay.text = "Recovery: " + currentRecovery;
                 }
             }
         }
@@ -86,15 +83,15 @@ public class PlayerStats : MonoBehaviour
 
     public float CurrentMagnet
     {
-        get { return actualStats.magnet; }
+        get { return currentMagnet; }
         set
         {
-            if (actualStats.magnet != value)
+            if (currentMagnet != value)
             {
-                actualStats.magnet = value;
+                currentMagnet = value;
                 if (GameManager.instance != null)
                 {
-                    GameManager.instance.currentMagnetDisplay.text = "Magnet: " + actualStats.magnet;
+                    GameManager.instance.currentMagnetDisplay.text = "Magnet: " + currentMagnet;
                 }
             }
         }
@@ -102,47 +99,31 @@ public class PlayerStats : MonoBehaviour
 
     public float CurrentPower
     {
-        get { return actualStats.power; }
+        get { return currentPower; }
         set
         {
-            if (actualStats.power != value)
+            if (currentPower != value)
             {
-                actualStats.power = value;
+                currentPower = value;
                 if (GameManager.instance != null)
                 {
-                    GameManager.instance.currentPowerDisplay.text = "Power: " + actualStats.power;
+                    GameManager.instance.currentPowerDisplay.text = "Power: " + currentPower;
                 }
             }
         }
     }
     public float CurrentMoveSpeed
     {
-        get { return actualStats.moveSpeed; }
+        get { return currentMoveSpeed; }
         set
         {
-            if (actualStats.moveSpeed != value)
+            if (currentMoveSpeed != value)
             {
-                actualStats.moveSpeed = value;
-                playerAgentData.moveSpeed = actualStats.moveSpeed;
+                currentMoveSpeed = value;
+                playerData.moveSpeed = value;
                 if (GameManager.instance != null)
                 {
-                    GameManager.instance.currentMoveSpeedDisplay.text = "Move Speed: " + actualStats.moveSpeed;
-                }
-            }
-        }
-    }
-
-    public float CurrentProjectileSpeed
-    {
-        get { return actualStats.speed; }
-        set
-        {
-            if (actualStats.speed != value)
-            {
-                actualStats.speed = value;
-                if (GameManager.instance != null)
-                {
-                    GameManager.instance.currentProjectileSpeedDisplay.text = "Projectile Speed: " + actualStats.speed;
+                    GameManager.instance.currentMoveSpeedDisplay.text = "Move Speed: " + currentMoveSpeed;
                 }
             }
         }
@@ -160,8 +141,6 @@ public class PlayerStats : MonoBehaviour
     public float invincibilityDuration;
     float invincibilityTimer;
     bool isInvincible;
-
-    PlayerInventory playerInventory;
 
     [Header("UI")]
     public Image expBar;
@@ -181,38 +160,25 @@ public class PlayerStats : MonoBehaviour
     void Awake()
     {
         healthData = GetComponent<Health>();
-        playerAgentData = GetComponent<Agent>();
+        playerData = GetComponent<Agent>();
         weaponParent = GetComponentInChildren<WeaponParent>();
         inventory = GetComponent<InventoryManager>();
         collector = GetComponentInChildren<PlayerCollector>();
 
-        //playerData = GetComponent<PlayerData>();
-        playerInventory = GetComponent<PlayerInventory>();
-        baseStats = actualStats = playerData.stats;
-        currentHealth = actualStats.maxHealth;
-        healthData.maxHealth = actualStats.maxHealth;
-        healthData.currentHealth = actualStats.maxHealth;
-        playerAgentData.moveSpeed = actualStats.moveSpeed;
-
+        CurrentRecovery = player.stats.recovery;
+        CurrentMagnet = player.stats.magnet;
+        CurrentPower = player.stats.power;
+        CurrentMaxHealth = player.stats.maxHealth;
+        CurrentHealth = player.stats.maxHealth;
+        CurrentMoveSpeed = player.stats.moveSpeed;
         collector.SetRadius(CurrentMagnet);
-
-        //SpawnWeapon(startingWeapon);
+        SpawnWeapon(startingWeapon);
 
     }
 
     private void Start()
     {
-        playerInventory.AddYokai(playerData.startingWeapon);
-
         experienceCap = levelRanges[0].experienceCapIncrease;
-
-        GameManager.instance.currentHealthDisplay.text = "Health: " + CurrentHealth;
-        GameManager.instance.currentRecoveryDisplay.text = "Recovery: " + CurrentRecovery;
-        GameManager.instance.currentMoveSpeedDisplay.text = "Move Speed: " + CurrentMoveSpeed;
-        GameManager.instance.currentPowerDisplay.text = "Power: " + CurrentPower;
-        GameManager.instance.currentProjectileSpeedDisplay.text = "Projectile Speed: " + CurrentProjectileSpeed;
-        GameManager.instance.currentMagnetDisplay.text = "Magnet: " + CurrentMagnet;
-
         UpdateExpBar();
         UpdateLevelText();
     }
@@ -223,6 +189,7 @@ public class PlayerStats : MonoBehaviour
             invincibilityTimer -= Time.deltaTime;
         else if(isInvincible) 
             isInvincible = false;
+
         Recover();
     }
 
@@ -297,10 +264,9 @@ public class PlayerStats : MonoBehaviour
 
     }
 
-
     public void SpawnWeapon(GameObject weapon)
     {
-        if (weaponIndex >= inventory.weaponSlots.Count)
+        if(weaponIndex >= inventory.weaponSlots.Count)
         {
             Debug.LogError("Inventory full");
             return;
@@ -323,23 +289,12 @@ public class PlayerStats : MonoBehaviour
         if (!GameManager.instance.isGameOver)
         {
             GameManager.instance.AssignLevelReachedUI(level);
-            //GameManager.instance.AssignChosenWeaponsUI(inventory.weaponUISlots);
+            GameManager.instance.AssignChosenWeaponsUI(inventory.weaponUISlots);
             GameManager.instance.GameOver();
             
         }
     }
 
-    public void RecalculateStats() 
-    {
-        actualStats = baseStats;
-        foreach (PlayerInventory.Slot s in playerInventory.passiveSlots)
-        {
-            Passive p = s.yokai as Passive;
-            if (p)
-            {
-                actualStats += p.GetBoosts();
-            }
-        }
-    }
+    public void RecalculateStats() { }
 
 }

@@ -35,6 +35,7 @@ public class TenguController : WeaponControllers
         spawnedTile.GetComponent<TenguProjectileBehaviour>().SetDirection();
     }
 
+
     public override void LevelUp()
     {
         currentDamage += 5f;

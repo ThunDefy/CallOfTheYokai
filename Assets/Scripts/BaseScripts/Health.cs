@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
 
     [SerializeField]
     public float maxHealth;
+    public bool isPlayer = false;
 
     public float currentHealth;
 

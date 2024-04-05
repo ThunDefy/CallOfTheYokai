@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 4203816605063914688}
   - component: {fileID: 4203816605063914689}
   - component: {fileID: 4203816605063914690}
-  - component: {fileID: 4203816605063914691}
-  - component: {fileID: 3125222936571962075}
   m_Layer: 9
   m_Name: Tengu
   m_TagString: Untagged
@@ -108,32 +106,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4203816605063914691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4203816605063914695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec055a5b6f0611e42909952f711c1c40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterRenderer: {fileID: 0}
-  weaponRenderer: {fileID: 4203816605063914689}
-  weaponData: {fileID: 11400000, guid: bb01d231e2b7f5a4692b90e23720d16c, type: 2}
-  animator: {fileID: 4203816605063914690}
---- !u!114 &3125222936571962075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4203816605063914695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71845fff6a2304e489c98e062529429a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  passiveEffectData: {fileID: 11400000, guid: 9fcd314fc25098f44804f8afb401cc8d, type: 2}

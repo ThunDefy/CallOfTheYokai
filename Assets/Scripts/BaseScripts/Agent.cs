@@ -19,6 +19,7 @@ public class Agent : MonoBehaviour
     public Vector2 moveDir;
     private Vector2 movementInput, pointerInput;
 
+    private Weapon playerWeapon;
     private WeaponControllers weaponController;
     private WeaponParent weaponParent;
     public UnityEvent OnAnimationEventTriggered, OnAttackPeformed;
@@ -31,19 +32,20 @@ public class Agent : MonoBehaviour
         
         weaponParent = GetComponentInChildren<WeaponParent>();
         rb = GetComponent<Rigidbody2D>();
-        
+
 
     }
     private void Start()
     {
         weaponController = GetComponentInChildren<WeaponControllers>();
+        playerWeapon = GetComponentInChildren<Weapon>();
     }
 
     private void Update()
     {
         InputManagement();
         weaponParent.PointerPosition = pointerInput;
-        weaponController.PointerPosition = pointerInput;
+        //weaponController.PointerPosition = pointerInput;
 
         if(knockbackDuration > 0)
         {
@@ -85,7 +87,20 @@ public class Agent : MonoBehaviour
         {
             return;
         }
-        weaponController.OnAttack();
+        if (weaponController != null)
+        {
+            weaponController.OnAttack();
+            
+        }
+        else if(playerWeapon==null)
+        {
+            playerWeapon = GetComponentInChildren<Weapon>();
+            playerWeapon.Attack();
+        }
+        else
+        {
+            playerWeapon.Attack();
+        }
     }
 
     public void Knockback(Vector2 velocity, float duration)

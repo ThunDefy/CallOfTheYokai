@@ -8,6 +8,8 @@ public class PlayerData : ScriptableObject
 {
     [SerializeField]
     public string playerName;
+    [SerializeField]
+    public PlayerWeaponData startingWeapon;
 
     [System.Serializable]
     public struct Stats

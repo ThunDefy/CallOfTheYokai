@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   maxLevel: 0
-  behaviour: 
+  behaviour: ProjectileWeapon
   baseStats:
     name: 
     description: 
@@ -39,4 +39,4 @@ MonoBehaviour:
     maxInstances: 0
   linearGrowth: []
   randomGrowth: []
-  passiveEffectData: {fileID: 0}
+  passiveEffectData: {fileID: 11400000, guid: 0924d52a79f63c1458ff624aecbc1ea3, type: 2}
