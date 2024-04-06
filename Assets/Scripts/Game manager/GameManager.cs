@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour
         levelReachedDisplay.text = levelReachedData.ToString();
     }
 
-    public void AssignChosenWeaponsUI(List<Slot> chosenWeaponsData)
+    public void AssignChosenWeaponsUI(List<PlayerInventory.Slot> chosenWeaponsData)
     {
 
         if (chosenWeaponsData.Count != chosenWeaponsUI.Count) return;
@@ -258,6 +258,7 @@ public class GameManager : MonoBehaviour
         Destroy(textObj,duration);
 
         textObj.transform.SetParent(instance.damageTextCanvas.transform);
+        textObj.transform.SetSiblingIndex(0);
 
         // Анимация текста
         Vector3 initialTargetPosition = target.position;
