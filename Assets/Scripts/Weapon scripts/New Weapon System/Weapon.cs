@@ -47,7 +47,7 @@ public class Weapon : Yokai
         }
     }
 
-    protected Stats currentStats;
+    public Stats currentStats;
     public PlayerWeaponData data;
     protected float currentCoolDown;
     protected Agent player;
@@ -90,14 +90,15 @@ public class Weapon : Yokai
     }
 
 
-    public override bool DoLevelUp()
+    public override bool DoLevelUp(int upgradeIndx)
     {
-        base.DoLevelUp();
+        base.DoLevelUp(upgradeIndx);
         if (!CanLevelUp())
         {
             return false;
         }
-        currentStats += data.GetLevelData(++currentLevel);
+        currentStats += data.GetLevelData(upgradeIndx);
+        //print("Ну по факту мощь я тебе дал, чекай");
         return true;
     }
 

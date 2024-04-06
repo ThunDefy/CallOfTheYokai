@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using static PlayerInventory;
 
 public class GameManager : MonoBehaviour
 {
@@ -182,16 +184,17 @@ public class GameManager : MonoBehaviour
         levelReachedDisplay.text = levelReachedData.ToString();
     }
 
-    public void AssignChosenWeaponsUI(List<Image> chosenWeaponsData)
+    public void AssignChosenWeaponsUI(List<Slot> chosenWeaponsData)
     {
+
         if (chosenWeaponsData.Count != chosenWeaponsUI.Count) return;
 
         for (int i = 0; i < chosenWeaponsUI.Count; i++)
         {
-            if (chosenWeaponsData[i].sprite)
+            if (chosenWeaponsData[i].image.sprite != null)
             {
                 chosenWeaponsUI[i].enabled = true;
-                chosenWeaponsUI[i].sprite = chosenWeaponsData[i].sprite;
+                chosenWeaponsUI[i].sprite = chosenWeaponsData[i].image.sprite;
             }
             else
             {

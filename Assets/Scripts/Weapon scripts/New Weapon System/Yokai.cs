@@ -5,22 +5,23 @@ using UnityEngine.UIElements;
 
 public class Yokai : MonoBehaviour
 {
-    public int currentLevel = 1, maxLevel = 1;
+    public int currentLevel = 1;//, maxLevel = 1;
 
     protected PlayerStats owner;
 
     public virtual void Initialise(YokaiData data)
     {
-        maxLevel = data.maxLevel;
+        //maxLevel = data.maxLevel;
         owner = FindObjectOfType<PlayerStats>();
     }
 
     public virtual bool CanLevelUp()
     {
-        return currentLevel <= maxLevel;
+        //return currentLevel <= maxLevel;
+        return true;
     }
 
-    public virtual bool DoLevelUp()
+    public virtual bool DoLevelUp(int upgradeIndx)
     {
         return true;
     }

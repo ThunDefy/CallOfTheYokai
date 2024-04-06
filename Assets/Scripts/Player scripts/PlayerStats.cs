@@ -28,7 +28,7 @@ public class PlayerStats : MonoBehaviour
     InventoryManager inventory;
     public int weaponIndex;
 
-    public GameObject startingWeapon;
+    //public GameObject startingWeapon;
     
 
     [Header("Player stats")]
@@ -183,13 +183,14 @@ public class PlayerStats : MonoBehaviour
         healthData = GetComponent<Health>();
         playerAgentData = GetComponent<Agent>();
         weaponParent = GetComponentInChildren<WeaponParent>();
-        inventory = GetComponent<InventoryManager>();
+        //inventory = GetComponent<InventoryManager>();
         collector = GetComponentInChildren<PlayerCollector>();
 
         //playerData = GetComponent<PlayerData>();
         playerInventory = GetComponent<PlayerInventory>();
         baseStats = actualStats = playerData.stats;
         currentHealth = actualStats.maxHealth;
+
         healthData.maxHealth = actualStats.maxHealth;
         healthData.currentHealth = actualStats.maxHealth;
         playerAgentData.moveSpeed = actualStats.moveSpeed;
@@ -202,6 +203,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
+        playerInventory.AddYokai(playerData.startingWeapon);
         playerInventory.AddYokai(playerData.startingWeapon);
 
         experienceCap = levelRanges[0].experienceCapIncrease;
@@ -313,8 +315,8 @@ public class PlayerStats : MonoBehaviour
         weaponLocalPosition.x += 0.8f;
         spawnedWeapon.transform.localPosition = weaponLocalPosition;
 
-        inventory.AddWeapon(weaponIndex, spawnedWeapon.GetComponent<WeaponControllers>(), spawnedWeapon.GetComponent<PassiveEffect>());
-        weaponIndex++;
+        //inventory.AddWeapon(weaponIndex, spawnedWeapon.GetComponent<WeaponControllers>(), spawnedWeapon.GetComponent<PassiveEffect>());
+        //weaponIndex++;
 
     }
 
@@ -323,7 +325,7 @@ public class PlayerStats : MonoBehaviour
         if (!GameManager.instance.isGameOver)
         {
             GameManager.instance.AssignLevelReachedUI(level);
-            //GameManager.instance.AssignChosenWeaponsUI(inventory.weaponUISlots);
+            GameManager.instance.AssignChosenWeaponsUI(playerInventory.weaponSlots);
             GameManager.instance.GameOver();
             
         }
@@ -340,6 +342,15 @@ public class PlayerStats : MonoBehaviour
                 actualStats += p.GetBoosts();
             }
         }
+        GameManager.instance.currentHealthDisplay.text = "Health: " + CurrentHealth;
+        GameManager.instance.currentRecoveryDisplay.text = "Recovery: " + CurrentRecovery;
+        GameManager.instance.currentMoveSpeedDisplay.text = "Move Speed: " + CurrentMoveSpeed;
+        GameManager.instance.currentPowerDisplay.text = "Power: " + CurrentPower;
+        GameManager.instance.currentProjectileSpeedDisplay.text = "Projectile Speed: " + CurrentProjectileSpeed;
+        GameManager.instance.currentMagnetDisplay.text = "Magnet: " + CurrentMagnet;
+        playerAgentData.moveSpeed = actualStats.moveSpeed;
+        healthData.maxHealth = actualStats.maxHealth;
+
     }
 
 }

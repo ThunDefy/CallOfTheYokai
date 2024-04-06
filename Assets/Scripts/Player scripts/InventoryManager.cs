@@ -88,7 +88,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    void ApplyUpgradeOptions()
+    void ApplyUpgradeOptionss()
     {
         for (int i = 0; i < weaponSlots.Count; i++)
         {

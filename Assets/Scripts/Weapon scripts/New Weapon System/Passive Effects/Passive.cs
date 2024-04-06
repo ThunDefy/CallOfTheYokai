@@ -27,14 +27,14 @@ public class Passive : Yokai
         return currentBoosts;
     }
 
-    public override bool DoLevelUp()
+    public override bool DoLevelUp(int upgradeIndx)
     {
-        base.DoLevelUp();
+        base.DoLevelUp(upgradeIndx);
         if (!CanLevelUp())
         {
             return false;
         }
-        currentBoosts += data.GetLevelData(++currentLevel).boosts;
+        currentBoosts += data.GetLevelData(upgradeIndx).boosts;
         return true;
     }
 }

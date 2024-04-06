@@ -289,7 +289,7 @@ public class PlayerStatsOLD : MonoBehaviour
         if (!GameManager.instance.isGameOver)
         {
             GameManager.instance.AssignLevelReachedUI(level);
-            GameManager.instance.AssignChosenWeaponsUI(inventory.weaponUISlots);
+            //GameManager.instance.AssignChosenWeaponsUI(inventory.weaponUISlots);
             GameManager.instance.GameOver();
             
         }
