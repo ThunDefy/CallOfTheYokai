@@ -45,12 +45,27 @@ public class Agent : MonoBehaviour
     {
         InputManagement();
         weaponParent.PointerPosition = pointerInput;
-        //weaponController.PointerPosition = pointerInput;
 
         if(knockbackDuration > 0)
         {
-            transform.position += (Vector3)knockbackVelocity * Time.deltaTime;
+            Vector3 nextPosition = transform.position + (Vector3)knockbackVelocity * Time.deltaTime;
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, knockbackVelocity, out hit, knockbackVelocity.magnitude * Time.deltaTime))
+            {
+                if (hit.collider.CompareTag("Obstacle"))
+                {
+                    // Ќайдено столкновение с коллайдером Obstacle
+                    float distanceToObstacle = hit.distance;
+                    nextPosition = transform.position + (Vector3)knockbackVelocity.normalized * distanceToObstacle;
+                }
+            }
+
+            GetComponent<Rigidbody2D>().MovePosition(nextPosition);
             knockbackDuration -= Time.deltaTime;
+
+            //transform.position += (Vector3)knockbackVelocity * Time.deltaTime;
+            //knockbackDuration -= Time.deltaTime;
         }
 
     }
@@ -92,7 +107,7 @@ public class Agent : MonoBehaviour
             weaponController.OnAttack();
             
         }
-        else if(playerWeapon==null)
+        else if(playerWeapon==null || !playerWeapon.gameObject.activeSelf)
         {
             playerWeapon = GetComponentInChildren<Weapon>();
             playerWeapon.Attack();
@@ -106,7 +121,7 @@ public class Agent : MonoBehaviour
     public void Knockback(Vector2 velocity, float duration)
     {
         if (knockbackDuration > 0) return;
-
+        
         knockbackVelocity = velocity;
         knockbackDuration = duration;
     }

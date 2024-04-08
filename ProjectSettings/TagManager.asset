@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Background
   - Pick-Ups
+  - Obstacle
   layers:
   - Default
   - TransparentFX

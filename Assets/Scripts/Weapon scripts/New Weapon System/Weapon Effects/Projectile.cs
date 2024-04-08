@@ -69,10 +69,10 @@ public class Projectile : WeaponEffect
         Health enemy = collider.GetComponent<Health>();
         if (enemy && !enemy.isPlayer)
         {
-            Vector3 source = damageSource == DamageSource.owner && owner ? owner.transform.position : transform.position;
-            enemy.GetHit(GetDamage(), this.gameObject, source);
-
             Weapon.Stats stats = weapon.GetStats();
+            Vector3 source = damageSource == DamageSource.owner && owner ? owner.transform.position : transform.position;
+            enemy.GetHit(GetDamage(), this.gameObject, source, stats.knockback);
+
             piercing--;
             if (stats.hitEffect)
             {

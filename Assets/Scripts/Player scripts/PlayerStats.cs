@@ -25,7 +25,6 @@ public class PlayerStats : MonoBehaviour
 
     //public List<GameObject> spawnedWeapons;
 
-    InventoryManager inventory;
     public int weaponIndex;
 
     //public GameObject startingWeapon;
@@ -131,22 +130,6 @@ public class PlayerStats : MonoBehaviour
             }
         }
     }
-
-    public float CurrentProjectileSpeed
-    {
-        get { return actualStats.speed; }
-        set
-        {
-            if (actualStats.speed != value)
-            {
-                actualStats.speed = value;
-                if (GameManager.instance != null)
-                {
-                    GameManager.instance.currentProjectileSpeedDisplay.text = "Projectile Speed: " + actualStats.speed;
-                }
-            }
-        }
-    }
     #endregion
 
 
@@ -197,8 +180,6 @@ public class PlayerStats : MonoBehaviour
 
         collector.SetRadius(CurrentMagnet);
 
-        //SpawnWeapon(startingWeapon);
-
     }
 
     private void Start()
@@ -208,11 +189,10 @@ public class PlayerStats : MonoBehaviour
 
         experienceCap = levelRanges[0].experienceCapIncrease;
 
-        GameManager.instance.currentHealthDisplay.text = "Health: " + CurrentHealth;
+        GameManager.instance.currentHealthDisplay.text = "Max Health: " + CurrentMaxHealth;
         GameManager.instance.currentRecoveryDisplay.text = "Recovery: " + CurrentRecovery;
         GameManager.instance.currentMoveSpeedDisplay.text = "Move Speed: " + CurrentMoveSpeed;
         GameManager.instance.currentPowerDisplay.text = "Power: " + CurrentPower;
-        GameManager.instance.currentProjectileSpeedDisplay.text = "Projectile Speed: " + CurrentProjectileSpeed;
         GameManager.instance.currentMagnetDisplay.text = "Magnet: " + CurrentMagnet;
 
         UpdateExpBar();
@@ -299,27 +279,6 @@ public class PlayerStats : MonoBehaviour
 
     }
 
-
-    public void SpawnWeapon(GameObject weapon)
-    {
-        if (weaponIndex >= inventory.weaponSlots.Count)
-        {
-            Debug.LogError("Inventory full");
-            return;
-        }
-
-        GameObject spawnedWeapon = Instantiate(weapon, weaponParent.transform.position, Quaternion.identity);
-        spawnedWeapon.transform.SetParent(weaponParent.transform);
-
-        Vector3 weaponLocalPosition = spawnedWeapon.transform.localPosition;
-        weaponLocalPosition.x += 0.8f;
-        spawnedWeapon.transform.localPosition = weaponLocalPosition;
-
-        //inventory.AddWeapon(weaponIndex, spawnedWeapon.GetComponent<WeaponControllers>(), spawnedWeapon.GetComponent<PassiveEffect>());
-        //weaponIndex++;
-
-    }
-
     public void PlayerDie()
     {
         if (!GameManager.instance.isGameOver)
@@ -342,11 +301,10 @@ public class PlayerStats : MonoBehaviour
                 actualStats += p.GetBoosts();
             }
         }
-        GameManager.instance.currentHealthDisplay.text = "Health: " + CurrentHealth;
+        GameManager.instance.currentHealthDisplay.text = "Health: " + CurrentMaxHealth;
         GameManager.instance.currentRecoveryDisplay.text = "Recovery: " + CurrentRecovery;
         GameManager.instance.currentMoveSpeedDisplay.text = "Move Speed: " + CurrentMoveSpeed;
         GameManager.instance.currentPowerDisplay.text = "Power: " + CurrentPower;
-        GameManager.instance.currentProjectileSpeedDisplay.text = "Projectile Speed: " + CurrentProjectileSpeed;
         GameManager.instance.currentMagnetDisplay.text = "Magnet: " + CurrentMagnet;
         playerAgentData.moveSpeed = actualStats.moveSpeed;
         healthData.maxHealth = actualStats.maxHealth;

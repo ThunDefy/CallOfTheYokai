@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
@@ -46,6 +47,8 @@ public class PlayerInventory : MonoBehaviour
 
     public List<Slot> weaponSlots = new List<Slot>(4);
     public List<Slot> passiveSlots = new List<Slot>(4);
+
+    int activeWeaponIndx = 0;
 
     [System.Serializable]
     public class UpgradeUI
@@ -98,7 +101,6 @@ public class PlayerInventory : MonoBehaviour
         }
         return null;
     }
-
     public Weapon Get(PlayerWeaponData type)
     {
         foreach (Slot s in weaponSlots)
@@ -143,7 +145,6 @@ public class PlayerInventory : MonoBehaviour
             weaponSlots[slotNum].Assign(spawnedWeapon, data);
 
             // Так же добавляем пассивный эффект 
-
             GameObject pas = new GameObject(data.passiveEffectData.baseStats.name + " Passive");
             Passive p = pas.AddComponent<Passive>();
             p.Initialise(data.passiveEffectData);
@@ -154,6 +155,7 @@ public class PlayerInventory : MonoBehaviour
 
             player.RecalculateStats();
 
+            SetActiveWeapon(slotNum);
             return slotNum;
         }
         else
@@ -205,8 +207,6 @@ public class PlayerInventory : MonoBehaviour
     }
 
     // Определяет, какие параметры апгрейда должны появиться
-
-
     void ApplyUpgradeOptions()
     {
 
@@ -262,6 +262,31 @@ public class PlayerInventory : MonoBehaviour
 
             }
         }
+    }
+
+    public void SwapActiveWeapon()
+    {
+        int newActiveWeaponIndx=0;
+        if (activeWeaponIndx+1 < weaponSlots.Capacity)
+        {
+            if (weaponSlots[activeWeaponIndx + 1].IsEmpty())
+            {
+                newActiveWeaponIndx = 0;
+            }
+            else
+            {
+                newActiveWeaponIndx = activeWeaponIndx+1;
+            }
+        }else newActiveWeaponIndx = 0;
+        SetActiveWeapon(newActiveWeaponIndx);
+    }
+
+    void SetActiveWeapon(int weaponIndx)
+    {
+        //print("Меняю " + activeWeaponIndx + " На "+ weaponIndx);
+        weaponSlots[activeWeaponIndx].yokai.transform.gameObject.SetActive(false);
+        weaponSlots[weaponIndx].yokai.transform.gameObject.SetActive(true);
+        activeWeaponIndx=weaponIndx;
     }
 
 }

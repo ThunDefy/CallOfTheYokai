@@ -8,9 +8,10 @@ public class PlayerInput : MonoBehaviour
 {
     public UnityEvent<Vector2> OnMovementInput, onPointerInput;
     public UnityEvent OnAttack;
+    public UnityEvent OnWeaponSwap;
 
     [SerializeField]
-    private InputActionReference movement, Attack, pointerPosition;
+    private InputActionReference movement, Attack, pointerPosition, swapActiveWeapon;
 
     private void Update()
     {
@@ -30,16 +31,23 @@ public class PlayerInput : MonoBehaviour
     private void OnEnable()
     {
         Attack.action.performed += PerformAttack;
+        swapActiveWeapon.action.performed += PerformSwap;
     }
 
     private void OnDisable()
     {
         Attack.action.performed -= PerformAttack;
+        swapActiveWeapon.action.performed -= PerformSwap;
     }
 
     private void PerformAttack(InputAction.CallbackContext obj)
     {
         OnAttack?.Invoke();
+    }
+
+    private void PerformSwap(InputAction.CallbackContext obj)
+    {
+        OnWeaponSwap?.Invoke();
     }
 
 }

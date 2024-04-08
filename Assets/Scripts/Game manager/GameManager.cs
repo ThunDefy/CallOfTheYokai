@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
     public TMP_Text currentPowerDisplay;
     public TMP_Text currentMoveSpeedDisplay;
     public TMP_Text currentHealthDisplay;
-    public TMP_Text currentProjectileSpeedDisplay;
     public TMP_Text timerDisplay;
 
     [Header("Result Screen Displays")]

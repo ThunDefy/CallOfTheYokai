@@ -34,27 +34,27 @@ public class PropPlacementManager : MonoBehaviour
         {
             //Расставить объекты по углам
             List<Prop> cornerProps = propsToPlace.Where(x => x.Corner).ToList();
-            PlaceCornerProps(room, cornerProps);
+            if(cornerProps.Count!=0) PlaceCornerProps(room, cornerProps);
 
             //Возле левой стены
             List<Prop> leftWallProps = propsToPlace.Where(x => x.NearWallLeft).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
+            if (leftWallProps.Count != 0) PlaceProps(room, leftWallProps, room.NearWallTilesLeft, PlacementOriginCorner.BottomLeft);
 
-            PlaceProps(room, leftWallProps, room.NearWallTilesLeft, PlacementOriginCorner.BottomLeft);
             //Возле правой стены
             List<Prop> rightWallProps = propsToPlace.Where(x => x.NearWallRight).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
-            PlaceProps(room, rightWallProps, room.NearWallTilesRight, PlacementOriginCorner.TopRight);
+            if (rightWallProps.Count != 0) PlaceProps(room, rightWallProps, room.NearWallTilesRight, PlacementOriginCorner.TopRight);
 
             //Возле верхней стены
             List<Prop> topWallProps = propsToPlace.Where(x => x.NearWallUP).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
-            PlaceProps(room, topWallProps, room.NearWallTilesUp, PlacementOriginCorner.TopLeft);
+            if (topWallProps.Count != 0) PlaceProps(room, topWallProps, room.NearWallTilesUp, PlacementOriginCorner.TopLeft);
 
             //Возле нижней стены
             List<Prop> downWallProps = propsToPlace.Where(x => x.NearWallDown).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
-            PlaceProps(room, downWallProps, room.NearWallTilesDown, PlacementOriginCorner.BottomLeft);
+            if (downWallProps.Count != 0) PlaceProps(room, downWallProps, room.NearWallTilesDown, PlacementOriginCorner.BottomLeft);
 
             //Внутри комнаты
             List<Prop> innerProps = propsToPlace.Where(x => x.Inner).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
-            PlaceProps(room, innerProps, room.InnerTiles, PlacementOriginCorner.BottomLeft);
+            if (innerProps.Count != 0) PlaceProps(room, innerProps, room.InnerTiles, PlacementOriginCorner.BottomLeft);
         }
 
         Invoke("RunEvent", 1);
@@ -268,34 +268,48 @@ public class PropPlacementManager : MonoBehaviour
     // Помещает объекты как новый объект GameObject в указанную позицию
     private GameObject PlacePropGameObjectAt(Room room, Vector2Int placementPostion, Prop propToPlace)
     {
-        //Создать элемент в этой позиции
-        GameObject prop = Instantiate(propPrefab);
-        SpriteRenderer propSpriteRenderer = prop.GetComponentInChildren<SpriteRenderer>();
+        
 
-        //Установить спрайт
-        propSpriteRenderer.sprite = propToPlace.PropSprite;
-
-        //Добавить коллайдер
-        CapsuleCollider2D collider
-            = propSpriteRenderer.gameObject.AddComponent<CapsuleCollider2D>();
-        collider.offset = Vector2.zero;
-        if (propToPlace.PropSize.x > propToPlace.PropSize.y)
+        //Установить спрайт или префаб 
+        if (propToPlace.PropSprite != null)
         {
-            collider.direction = CapsuleDirection2D.Horizontal;
+            //Создать элемент в этой позиции
+            GameObject prop = Instantiate(propPrefab);
+            prop.transform.localPosition = (Vector2)placementPostion;
+
+            SpriteRenderer propSpriteRenderer = prop.GetComponentInChildren<SpriteRenderer>();
+            //Установить спрайт
+            propSpriteRenderer.sprite = propToPlace.PropSprite;
+            //Добавить коллайдер
+            propSpriteRenderer.gameObject.AddComponent<PolygonCollider2D>();
+
+            //Отрегулировать положение объекта в соответствии со спрайтом
+            propSpriteRenderer.transform.localPosition = (Vector2)propToPlace.PropSize * 0.5f;
+
+            //Сохраните оъект в данных комнаты 
+            room.PropObjectReferences.Add(prop);
+            room.PropPositions.Add(placementPostion);
+            return prop;
         }
-        Vector2 size
-            = new Vector2(propToPlace.PropSize.x * 0.8f, propToPlace.PropSize.y * 0.8f);
-        collider.size = size;
+        else if(propToPlace.PropPrefab!= null)
+        {
+            GameObject PropPrefab = Instantiate(propToPlace.PropPrefab);
+            PropPrefab.transform.localPosition = (Vector2)placementPostion;
+            SpriteRenderer propSpriteRenderer = PropPrefab.GetComponentInChildren<SpriteRenderer>();
+            propSpriteRenderer.transform.localPosition = (Vector2)propToPlace.PropSize * 0.5f;
 
-        prop.transform.localPosition = (Vector2)placementPostion;
 
-        //Отрегулировать положение объекта в соответствии со спрайтом
-        propSpriteRenderer.transform.localPosition = (Vector2)propToPlace.PropSize * 0.5f;
-
-        //Сохраните оъект в данных комнаты 
-        room.PropPositions.Add(placementPostion);
-        room.PropObjectReferences.Add(prop);
-        return prop;
+            //Сохраните оъект в данных комнаты 
+            room.PropObjectReferences.Add(PropPrefab);
+            room.PropPositions.Add(placementPostion);
+            return PropPrefab;
+        }
+        else
+        {
+            Debug.LogError("Can't find sprite or prefab of prop!");
+            return null;
+        }            
+        
     }
 }
 
