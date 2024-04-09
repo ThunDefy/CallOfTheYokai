@@ -116,6 +116,16 @@ public class PlayerInventory : MonoBehaviour
     {
         int slotNum = -1;
 
+        //ќпредел€ем есть ли уже такое оружие
+        for (int i = 0; i < weaponSlots.Capacity; i++)
+        {
+            if (!weaponSlots[i].IsEmpty())
+            {
+                if (weaponSlots[i].yokaiData.icon == data.icon) return -2;
+            }
+        }
+
+
         // »щем пустой слот
         for (int i = 0; i < weaponSlots.Capacity; i++)
         {
@@ -137,7 +147,9 @@ public class PlayerInventory : MonoBehaviour
             Weapon spawnedWeapon = (Weapon)go.AddComponent(weaponType);
             spawnedWeapon.transform.SetParent(GetComponentInChildren<WeaponParent>().transform);
             spawnedWeapon.transform.localPosition = Vector2.zero;
-            spawnedWeapon.transform.position += new Vector3(0.8f, 0f, 0f);
+            spawnedWeapon.transform.localPosition += new Vector3(0.8f, 0f, 0f);
+            spawnedWeapon.transform.rotation = Quaternion.identity;
+            spawnedWeapon.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             spawnedWeapon.Initialise(data);
             spawnedWeapon.OnEquip();
 

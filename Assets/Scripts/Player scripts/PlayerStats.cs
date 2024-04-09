@@ -185,7 +185,7 @@ public class PlayerStats : MonoBehaviour
     private void Start()
     {
         playerInventory.AddYokai(playerData.startingWeapon);
-        playerInventory.AddYokai(playerData.startingWeapon);
+        //playerInventory.AddYokai(playerData.startingWeapon);
 
         experienceCap = levelRanges[0].experienceCapIncrease;
 

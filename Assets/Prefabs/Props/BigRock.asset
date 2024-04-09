@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: BigRock
   m_EditorClassIdentifier: 
   PropPrefab: {fileID: 0}
-  PropSprite: {fileID: -1921032098, guid: 0fbfa31672826c8448807e2ed9f35f90, type: 3}
-  PropSize: {x: 2, y: 2}
+  PropSprite: {fileID: 1051762435, guid: 0fbfa31672826c8448807e2ed9f35f90, type: 3}
+  PropSize: {x: 1, y: 1}
   Corner: 0
-  NearWallUP: 0
+  NearWallUP: 1
   NearWallDown: 0
-  NearWallRight: 0
+  NearWallRight: 1
   NearWallLeft: 0
-  Inner: 1
-  PlacementQuantityMin: 0
-  PlacementQuantityMax: 10
+  Inner: 0
+  PlacementQuantityMin: 1
+  PlacementQuantityMax: 6
   PlaceAsGroup: 0
   GroupMinCount: 1
   GroupMaxCount: 1

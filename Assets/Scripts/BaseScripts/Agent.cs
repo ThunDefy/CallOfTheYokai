@@ -110,7 +110,7 @@ public class Agent : MonoBehaviour
         else if(playerWeapon==null || !playerWeapon.gameObject.activeSelf)
         {
             playerWeapon = GetComponentInChildren<Weapon>();
-            playerWeapon.Attack();
+            if(playerWeapon) playerWeapon.Attack();
         }
         else
         {
