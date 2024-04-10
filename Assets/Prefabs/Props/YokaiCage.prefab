@@ -115,9 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56ef9e59b3b54d840ae6da24e7505ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yokais:
-  - {fileID: 11400000, guid: 5ea2656354c44134fb282d3be343d9e0, type: 2}
-  - {fileID: 11400000, guid: 5ea2656354c44134fb282d3be343d9e0, type: 2}
+  posibleYokais:
   - {fileID: 11400000, guid: 5ea2656354c44134fb282d3be343d9e0, type: 2}
   - {fileID: 11400000, guid: 5ea2656354c44134fb282d3be343d9e0, type: 2}
 --- !u!114 &1608459237243641542

@@ -9,15 +9,18 @@ public class Prop : ScriptableObject
     public GameObject PropPrefab;
     public Sprite PropSprite;
     public Vector2Int PropSize = Vector2Int.one;
+    public bool SpecialProp = false;
+    public RoomType RoomType;
 
 
     [Space, Header("Placement type:")]
-    public bool Corner = true;
-    public bool NearWallUP = true;
-    public bool NearWallDown = true;
-    public bool NearWallRight = true;
-    public bool NearWallLeft = true;
-    public bool Inner = true;
+    public bool Corner = false;
+    public bool NearWallUP = false;
+    public bool NearWallDown = false;
+    public bool NearWallRight = false;
+    public bool NearWallLeft = false;
+    public bool Inner = false;
+    //public bool Center = false;
     [Min(0)]
     public int PlacementQuantityMin = 1;
     [Min(1)]

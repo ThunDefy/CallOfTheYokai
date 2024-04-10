@@ -55,6 +55,7 @@ public class PropPlacementManager : MonoBehaviour
             //Внутри комнаты
             List<Prop> innerProps = propsToPlace.Where(x => x.Inner).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
             if (innerProps.Count != 0) PlaceProps(room, innerProps, room.InnerTiles, PlacementOriginCorner.BottomLeft);
+
         }
 
         Invoke("RunEvent", 1);
@@ -68,8 +69,7 @@ public class PropPlacementManager : MonoBehaviour
 
 
     // Размещает объекты возле стен. Нам нужно указать реквизит и точку начала размещения
-    private void PlaceProps(
-        Room room, List<Prop> wallProps, HashSet<Vector2Int> availableTiles, PlacementOriginCorner placement)
+    private void PlaceProps(Room room, List<Prop> wallProps, HashSet<Vector2Int> availableTiles, PlacementOriginCorner placement)
     {
         //Удалить позиции пути из начальных плиток nearWallTiles, чтобы обеспечить свободный путь для прохождения подземелья
         HashSet<Vector2Int> tempPositons = new HashSet<Vector2Int>(availableTiles);
@@ -81,24 +81,39 @@ public class PropPlacementManager : MonoBehaviour
             //хотим разместить только определенное количество каждого объекта
             int quantity = UnityEngine.Random.Range(propToPlace.PlacementQuantityMin, propToPlace.PlacementQuantityMax + 1);
 
-            for (int i = 0; i < quantity; i++)
+            if (propToPlace.SpecialProp)
             {
-                //удалить занятые позиции
-                tempPositons.ExceptWith(room.PropPositions);
-                //перетасовать позиции
-                List<Vector2Int> availablePositions = tempPositons.OrderBy(x => Guid.NewGuid()).ToList();
-                //Если размещение не удалось, нет смысла пытаться разместить тот же самый реквизит снова
-                if (TryPlacingPropBruteForce(room, propToPlace, availablePositions, placement) == false)
-                    break;
+                if(propToPlace.RoomType == room.Type)
+                {
+                    for (int i = 0; i < quantity; i++)
+                    {
+                        tempPositons.ExceptWith(room.PropPositions);
+                        List<Vector2Int> availablePositions = tempPositons.OrderBy(x => Guid.NewGuid()).ToList();
+                        if (TryPlacingPropBruteForce(room, propToPlace, availablePositions, placement) == false)break;
+                    }
+                }
             }
+            else
+            {
+                for (int i = 0; i < quantity; i++)
+                {
+                    //удалить занятые позиции
+                    tempPositons.ExceptWith(room.PropPositions);
+                    //перетасовать позиции
+                    List<Vector2Int> availablePositions = tempPositons.OrderBy(x => Guid.NewGuid()).ToList();
+                    //Если размещение не удалось, нет смысла пытаться разместить тот же самый реквизит снова
+                    if (TryPlacingPropBruteForce(room, propToPlace, availablePositions, placement) == false)
+                        break;
+                }
+            }
+            
 
         }
     }
 
 
     // Пытается разместить объект, используя грубую силу (пробуя каждую доступную позицию плитки).
-    private bool TryPlacingPropBruteForce(
-        Room room, Prop propToPlace, List<Vector2Int> availablePositions, PlacementOriginCorner placement)
+    private bool TryPlacingPropBruteForce(Room room, Prop propToPlace, List<Vector2Int> availablePositions, PlacementOriginCorner placement)
     {
         //попробуем разместить объекты, начиная с угла, указанного параметром placement
         for (int i = 0; i < availablePositions.Count; i++)
@@ -225,8 +240,7 @@ public class PropPlacementManager : MonoBehaviour
 
     // Помогает найти свободные места вокруг группыОригинальноеПоложение для размещения реквизита в группе
     // searchOffset - Смещение поиска ex 1 = мы проверим все плитки, находящиеся на расстоянии 1 единицы от исходной позиции
-    private void PlaceGroupObject(
-        Room room, Vector2Int groupOriginPosition, Prop propToPlace, int searchOffset)
+    private void PlaceGroupObject(Room room, Vector2Int groupOriginPosition, Prop propToPlace, int searchOffset)
     {
         //*Плохо работает с группами больших объектов(
 

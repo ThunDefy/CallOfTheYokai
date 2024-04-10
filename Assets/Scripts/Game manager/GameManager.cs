@@ -264,7 +264,7 @@ public class GameManager : MonoBehaviour
         WaitForEndOfFrame wait = new WaitForEndOfFrame();
         float time = 0;
         float yOffset = 0;
-        while(time < duration-0.1f)
+        while(time < duration-0.2f)
         {
             yield return wait;
             time += Time.deltaTime;

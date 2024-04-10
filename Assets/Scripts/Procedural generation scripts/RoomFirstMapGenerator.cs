@@ -112,7 +112,12 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
                     roomTiles.Add((Vector2Int)position);
                 }    
             }
-            mapData.Rooms.Add(new Room(roomCenter, roomTiles));
+            if (i == (int)roomsList.Count/2)
+                mapData.Rooms.Add(new Room(roomCenter, roomTiles, RoomType.Treasure));
+            else if (i == roomsList.Count-1)
+                mapData.Rooms.Add(new Room(roomCenter, roomTiles, RoomType.Boss));
+            else
+                mapData.Rooms.Add(new Room(roomCenter, roomTiles, RoomType.Normal));
         }
 
         return floor;

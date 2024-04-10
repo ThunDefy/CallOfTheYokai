@@ -5,6 +5,8 @@ using System.Linq;
 using UnityEngine;
 //using static UnityEditor.Progress;
 
+
+
 public class MapData : MonoBehaviour
 {
     public List<Room> Rooms { get; set; } = new List<Room>();
@@ -38,12 +40,21 @@ public class MapData : MonoBehaviour
     }
 }
 
+public enum RoomType
+{
+    Normal,
+    Boss,
+    Treasure,
+    All,
+    // Другие типы комнат по мере необходимости
+}
 
 /// <summary>
 /// Holds all the data about the room
 /// </summary>
 public class Room
 {
+    public RoomType Type { get; set; }
     public Vector2 RoomCenterPos { get; set; }
     public HashSet<Vector2Int> FloorTiles { get; private set; } = new HashSet<Vector2Int>();
 
@@ -54,6 +65,7 @@ public class Room
     public HashSet<Vector2Int> CornerTiles { get; set; } = new HashSet<Vector2Int>();
 
     public HashSet<Vector2Int> InnerTiles { get; set; } = new HashSet<Vector2Int>();
+    public HashSet<Vector2Int> CenterTiles { get; set; } = new HashSet<Vector2Int>();
 
     public HashSet<Vector2Int> PropPositions { get; set; } = new HashSet<Vector2Int>();
     public List<GameObject> PropObjectReferences { get; set; } = new List<GameObject>();
@@ -62,9 +74,10 @@ public class Room
 
     public List<GameObject> EnemiesInTheRoom { get; set; } = new List<GameObject>();
 
-    public Room(Vector2 roomCenterPos, HashSet<Vector2Int> floorTiles)
+    public Room(Vector2 roomCenterPos, HashSet<Vector2Int> floorTiles, RoomType type)
     {
         this.RoomCenterPos = roomCenterPos;
         this.FloorTiles = floorTiles;
+        this.Type = type;
     }
 }

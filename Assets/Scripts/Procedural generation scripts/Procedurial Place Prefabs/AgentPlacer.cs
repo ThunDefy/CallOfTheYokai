@@ -8,12 +8,23 @@ using Random = UnityEngine.Random;
 
 public class AgentPlacer : MonoBehaviour
 {
+    [Header("Enemys")]
     [SerializeField]
-    private List<GameObject> enemyPrefabs;
+    private List<EnemyScriptableObject> normalEnemys;
 
     [SerializeField]
-    private List<float> enemySpawnChance;
+    private List<float> normalEnemySpawnChance;
 
+    [SerializeField]
+    private List<EnemyScriptableObject> specialEnemys;
+
+    [SerializeField]
+    private List<float> specialEnemySpawnChance;
+
+    [SerializeField]
+    private EnemyScriptableObject bossEnemy;
+
+    [Header("Placer data")]
     [SerializeField]
     private GameObject player;
 
@@ -101,39 +112,62 @@ public class AgentPlacer : MonoBehaviour
         }
     }
 
-
+    List<float> actualEnemySpawnChance = new List<float>();
+    List<EnemyScriptableObject> actualEnemys = new List<EnemyScriptableObject>();
     // Расставляет врагов на позиции, доступные с пути
     private void PlaceEnemies(Room room, int enemysCount)
     {
-
-        float totalSpawnChance = 0f;
-        foreach (float chance in enemySpawnChance)
+        if(room.Type != RoomType.Boss)
         {
-            totalSpawnChance += chance;
-        }
-
-        for (int i = 0; i < enemysCount; i++)
-        {
-            if (room.PositionsAccessibleFromPath.Count <= i)
+            if (room.Type == RoomType.Normal)
             {
-                return;
+                actualEnemySpawnChance = normalEnemySpawnChance;
+                actualEnemys = normalEnemys;
+            }
+            else if (room.Type == RoomType.Treasure)
+            {
+                actualEnemySpawnChance = specialEnemySpawnChance;
+                actualEnemys = specialEnemys;
             }
 
-            float randomValue = Random.Range(0f, totalSpawnChance);
-            float cumulativeChance = 0f;
-
-            for (int j = 0; j < enemySpawnChance.Count; j++)
+            float totalSpawnChance = 0f;
+            foreach (float chance in actualEnemySpawnChance)
             {
-                cumulativeChance += enemySpawnChance[j];
-                if (randomValue <= cumulativeChance)
+                totalSpawnChance += chance;
+            }
+
+            for (int i = 0; i < enemysCount; i++)
+            {
+                if (room.PositionsAccessibleFromPath.Count <= i)
                 {
-                    GameObject enemy = Instantiate(enemyPrefabs[j]);
-                    enemy.transform.localPosition = (Vector2)room.PositionsAccessibleFromPath[i] + Vector2.one * 0.5f;
-                    room.EnemiesInTheRoom.Add(enemy);
-                    break;
+                    return;
+                }
+
+                float randomValue = Random.Range(0f, totalSpawnChance);
+                float cumulativeChance = 0f;
+
+                for (int j = 0; j < actualEnemySpawnChance.Count; j++)
+                {
+                    cumulativeChance += actualEnemySpawnChance[j];
+                    if (randomValue <= cumulativeChance)
+                    {
+                        GameObject enemy = Instantiate(actualEnemys[j].enemyPrefab);
+                        enemy.transform.localPosition = (Vector2)room.PositionsAccessibleFromPath[i] + Vector2.one * 0.5f;
+                        room.EnemiesInTheRoom.Add(enemy);
+                        break;
+                    }
                 }
             }
         }
+        else
+        {
+            GameObject enemy = Instantiate(bossEnemy.enemyPrefab);
+            enemy.transform.localPosition = (Vector2)room.PositionsAccessibleFromPath[0] + Vector2.one * 0.5f;
+            room.EnemiesInTheRoom.Add(enemy);
+        }
+        
+        
+        
     }
 
     // Визуальное отображение доступных для спавна плиток

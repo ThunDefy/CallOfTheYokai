@@ -5,7 +5,7 @@ using UnityEngine;
 public class YokaiCage : MonoBehaviour
 {
     private SpriteAnimation anim;
-    public List<PlayerWeaponData> yokais;
+    public List<PlayerWeaponData> posibleYokais;
     PlayerInventory playerInventory;
 
     private void Awake()
@@ -26,7 +26,7 @@ public class YokaiCage : MonoBehaviour
     public void GiveYokaiToPlayer()
     {
         int rndmIndexOfYokai = ChoseRandomYokai();
-        int result = playerInventory.AddYokai(yokais[rndmIndexOfYokai]);
+        int result = playerInventory.AddYokai(posibleYokais[rndmIndexOfYokai]);
 
         if(result == -2)
         {
@@ -46,7 +46,7 @@ public class YokaiCage : MonoBehaviour
     }
     private int ChoseRandomYokai()
     {
-        return Random.Range(0, yokais.Count);
+        return Random.Range(0, posibleYokais.Count);
     }
 
 }

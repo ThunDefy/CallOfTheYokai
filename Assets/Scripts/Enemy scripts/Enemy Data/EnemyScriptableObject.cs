@@ -5,7 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyScriptableObject", menuName = "ScriptableObjects/Enemy")]
 public class EnemyScriptableObject : ScriptableObject
 {
-    // Базовые статистики врагов
-    public float moveSpeed;
-    public float maxHealth;
+    public enum EnemyType
+    {
+        Noraml,
+        Boss,
+        Guardian,
+
+    }
+
+    public GameObject enemyPrefab;
+    public EnemyType enemyType;
 }
