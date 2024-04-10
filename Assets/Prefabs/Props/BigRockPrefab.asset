@@ -15,12 +15,14 @@ MonoBehaviour:
   PropPrefab: {fileID: 2697669426608529594, guid: 8033fc667679382419918132cc14296f, type: 3}
   PropSprite: {fileID: 0}
   PropSize: {x: 2, y: 2}
+  SpecialProp: 0
+  RoomType: 0
   Corner: 0
   NearWallUP: 0
   NearWallDown: 0
   NearWallRight: 0
   NearWallLeft: 0
-  Inner: 0
+  Inner: 1
   PlacementQuantityMin: 0
   PlacementQuantityMax: 1
   PlaceAsGroup: 0

@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8986f62cc25c245b14512b0ae91bc1, type: 3}
   m_Name: CageProp
   m_EditorClassIdentifier: 
-  PropPrefab: {fileID: 0}
+  PropPrefab: {fileID: 6482067668208822434, guid: fdfb440220f622b42a103786fd6ab6a2, type: 3}
   PropSprite: {fileID: 0}
   PropSize: {x: 1, y: 1}
-  SpecialProp: 0
-  RoomType: 0
+  SpecialProp: 1
+  RoomType: 2
   Corner: 0
   NearWallUP: 0
   NearWallDown: 0
   NearWallRight: 0
   NearWallLeft: 0
-  Inner: 0
+  Inner: 1
   PlacementQuantityMin: 1
   PlacementQuantityMax: 1
   PlaceAsGroup: 0

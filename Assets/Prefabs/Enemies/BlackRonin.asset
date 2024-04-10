@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac1ae8b5004dd24082fdddf691e6fcd, type: 3}
   m_Name: BlackRonin
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 1683007050878759650, guid: 65a190a8b4298cc4aab13c20b132e5c8, type: 3}
   enemyType: 0

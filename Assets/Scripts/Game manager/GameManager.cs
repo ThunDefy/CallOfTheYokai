@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
         Gameplay,
         Paused,
         GameOver,
-        LevelUp
+        LevelUp,
+        ChangeWeapon
     }
 
     [Header("Damage Text Settings")]
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseScreen;
     public GameObject resultScreen;
     public GameObject levelUpScreen;
+    public GameObject changeWeaponScreen;
 
     [Header("Pause Displays")]
     public TMP_Text currentRecoveryDisplay;
@@ -50,6 +52,7 @@ public class GameManager : MonoBehaviour
 
     public bool isGameOver = false;
     public bool choosingUpgrade;
+    public bool changingWeapon = false;
 
     public GameState currentState;
     public GameState previousState;
@@ -107,7 +110,16 @@ public class GameManager : MonoBehaviour
                     levelUpScreen.SetActive(true);
                 }
                 break;
+            case GameState.ChangeWeapon:
+                if (!changingWeapon)
+                {
+                    changingWeapon = true;
+                    Time.timeScale = 0f;
+                    Debug.Log("changing Weapon");
+                    changeWeaponScreen.SetActive(true);
 
+                }
+                break;
             default:
                 Debug.LogWarning("UNKNOWN STATE");
                 break;
@@ -226,6 +238,21 @@ public class GameManager : MonoBehaviour
         choosingUpgrade = false;
         Time.timeScale = 1f;
         levelUpScreen.SetActive(false);
+        ChangeState(GameState.Gameplay);
+
+    }
+
+    public void StartChangingWeapon()
+    {
+        ChangeState(GameState.ChangeWeapon);
+        //player.SendMessage("ApplyUpgradeOptions");
+    }
+
+    public void EndChangingWeapon()
+    {
+        changingWeapon = false;
+        Time.timeScale = 1f;
+        pauseScreen.SetActive(false);
         ChangeState(GameState.Gameplay);
 
     }

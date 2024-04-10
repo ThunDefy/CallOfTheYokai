@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
+using Random = UnityEngine.Random;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -73,8 +74,34 @@ public class PlayerInventory : MonoBehaviour
         public Button upgrade2PassiveButton;
     }
 
+    [System.Serializable]
+    public class ChangeUI
+    {
+        public GameObject upgradeWeaponPanel;
+        public Image upgradeIcon;
+
+        public TMP_Text weaponNameDisplay;
+        public TMP_Text weaponDiscription;
+
+        // Weapon active stats
+        public TMP_Text damageStatDisplay;
+        public TMP_Text areaStatDisplay;
+        public TMP_Text speedStatDisplay;
+        public TMP_Text cooldownStatDisplay;
+        public TMP_Text knockbackStatDisplay;
+        public TMP_Text pircingStattDisplay;
+
+        // Weapon passive stats
+        public GameObject passiveStats;
+
+        public Button changeButton;
+        public Button nopeButton;
+
+    }
+
     [Header("UI Elements")]
-    public List<UpgradeUI> upgradeUIOptions = new List<UpgradeUI>();    
+    public List<UpgradeUI> upgradeUIOptions = new List<UpgradeUI>();
+    public List<ChangeUI> changeUIOptions = new List<ChangeUI>();
 
     PlayerStats player;
 
@@ -117,13 +144,18 @@ public class PlayerInventory : MonoBehaviour
         int slotNum = -1;
 
         //Определяем есть ли уже такое оружие
-        for (int i = 0; i < weaponSlots.Capacity; i++)
-        {
-            if (!weaponSlots[i].IsEmpty())
-            {
-                if (weaponSlots[i].yokaiData.icon == data.icon) return -2;
-            }
-        }
+        //for (int i = 0; i < weaponSlots.Capacity; i++)
+        //{
+        //    if (!weaponSlots[i].IsEmpty())
+        //    {
+        //        if (weaponSlots[i].yokaiData.yokaiID == data.yokaiID)
+        //        {
+        //            return -2;
+                    
+        //        }
+               
+        //    }
+        //}
 
 
         // Ищем пустой слот
@@ -135,7 +167,13 @@ public class PlayerInventory : MonoBehaviour
                 break;
             }
         }
-        if (slotNum < 0) return slotNum;
+
+        if (slotNum < 0) // Если все слоты заняты
+        {
+            GameManager.instance.StartChangingWeapon();
+            ChangingWeapon();
+            return -1;
+        }
 
         Type weaponType = Type.GetType(data.behaviour);
 
@@ -176,6 +214,34 @@ public class PlayerInventory : MonoBehaviour
         }
 
         return -1;
+    }
+
+    private void ChangingWeapon()
+    {
+        int levelOfNewYokai=0;
+        int activeWeaponCount=0;
+        for (int i = 0; i < weaponSlots.Capacity; i++)
+        {
+            if (!weaponSlots[i].IsEmpty())
+            {
+                activeWeaponCount++;
+                levelOfNewYokai+=Get(weaponSlots[i].yokaiData).currentLevel;
+                
+            }
+        }
+        levelOfNewYokai += ((int)levelOfNewYokai/activeWeaponCount)+ Random.Range(-1,1); 
+        print(levelOfNewYokai);
+
+        // Теперь повысить уровень оружия случайным образом
+
+        // Вывести его статистику
+
+        // Вывести статистику имеющихся 
+
+        // Присвоить кнопке замене функцию по замене оружия (Удалить имеющиеся, поставить на его место новое)
+
+        // Присвоить кнопке отказа повышение уровня герою
+
     }
 
     public bool LevelUp(YokaiData data, int upgradeIdnx)
@@ -234,7 +300,7 @@ public class PlayerInventory : MonoBehaviour
                 upgradeUIOptions[currentIndex].upgradeWeaponPanel.SetActive(true);
                 upgradeUIOptions[currentIndex].upgradeIcon.sprite = weaponSlots[i].yokaiData.icon;
 
-                // Улучшение характеристик атаки
+                /////////////// Улучшение характеристик атаки
                 randomUpgradeWeaponIndx1 = ((PlayerWeaponData)weaponSlots[i].yokaiData).GetRandomLevelData();
                 Yokai yokai = weaponSlots[i].yokai;
                 Weapon.Stats upgradeWeaponChoise1 = ((PlayerWeaponData)weaponSlots[i].yokaiData).GetLevelData(randomUpgradeWeaponIndx1);
@@ -243,7 +309,7 @@ public class PlayerInventory : MonoBehaviour
                 upgradeUIOptions[currentIndex].upgrade1YokaiButton.onClick.RemoveAllListeners();
                 upgradeUIOptions[currentIndex].upgrade1YokaiButton.onClick.AddListener(() => LevelUp(yokai, randomUpgradeWeaponIndx1));
 
-                // 2й вариант улучшения
+                // 2й вариант улучшения характеристик атаки
                 do { randomUpgradeWeaponIndx2 = ((PlayerWeaponData)weaponSlots[i].yokaiData).GetRandomLevelData(); }while(randomUpgradeWeaponIndx1 == randomUpgradeWeaponIndx2);
                 Weapon.Stats upgradeWeaponChoise2 = ((PlayerWeaponData)weaponSlots[i].yokaiData).GetLevelData(randomUpgradeWeaponIndx2);
                 upgradeUIOptions[currentIndex].upgrade2YokaiDescriptionDisplay.text = upgradeWeaponChoise2.description;
@@ -252,8 +318,7 @@ public class PlayerInventory : MonoBehaviour
                 upgradeUIOptions[currentIndex].upgrade2YokaiButton.onClick.AddListener(() => LevelUp(yokai, randomUpgradeWeaponIndx2));
 
 
-                // Или улучшение Пассивного эффекта
-
+                /////////////// Или улучшение Пассивного эффекта
                 randomUpgradePassiveIndx1 = ((PassiveData)passiveSlots[i].yokaiData).GetRandomLevelData();
                 Yokai yokaiPassive = passiveSlots[i].yokai;
                 Passive.Modifier upgradePassiveChoise1 = ((PassiveData)passiveSlots[i].yokaiData).GetLevelData(randomUpgradePassiveIndx1);
@@ -262,7 +327,7 @@ public class PlayerInventory : MonoBehaviour
                 upgradeUIOptions[currentIndex].upgrade1PassiveButton.onClick.RemoveAllListeners();
                 upgradeUIOptions[currentIndex].upgrade1PassiveButton.onClick.AddListener(() => LevelUp(yokaiPassive, randomUpgradePassiveIndx1));
 
-                // 2й вариант улучшения
+                // 2й вариант улучшения Пассивного эффекта
                 do { randomUpgradePassiveIndx2 = ((PassiveData)passiveSlots[i].yokaiData).GetRandomLevelData(); } while (randomUpgradePassiveIndx1 == randomUpgradePassiveIndx2);
                 Passive.Modifier upgradePassiveChoise2 = ((PassiveData)passiveSlots[i].yokaiData).GetLevelData(randomUpgradePassiveIndx2);
                 upgradeUIOptions[currentIndex].upgrade2PassiveDescriptionDisplay.text = upgradePassiveChoise2.description;

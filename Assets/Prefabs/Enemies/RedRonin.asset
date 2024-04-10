@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac1ae8b5004dd24082fdddf691e6fcd, type: 3}
   m_Name: RedRonin
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
-  enemyType: 0
+  enemyPrefab: {fileID: 1209463509699998118, guid: aa2a041b204af394b8ede009dc7fd47d, type: 3}
+  enemyType: 2
