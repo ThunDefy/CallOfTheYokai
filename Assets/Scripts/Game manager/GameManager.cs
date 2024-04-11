@@ -245,14 +245,13 @@ public class GameManager : MonoBehaviour
     public void StartChangingWeapon()
     {
         ChangeState(GameState.ChangeWeapon);
-        //player.SendMessage("ApplyUpgradeOptions");
     }
 
     public void EndChangingWeapon()
     {
         changingWeapon = false;
         Time.timeScale = 1f;
-        pauseScreen.SetActive(false);
+        changeWeaponScreen.SetActive(false);
         ChangeState(GameState.Gameplay);
 
     }

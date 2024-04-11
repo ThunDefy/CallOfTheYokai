@@ -9,7 +9,13 @@ public class PlayerData : ScriptableObject
     [SerializeField]
     public string playerName;
     [SerializeField]
-    public PlayerWeaponData startingWeapon;
+    public PlayerWeaponData startingWeapon1;
+    [SerializeField]
+    public PlayerWeaponData startingWeapon2;
+    [SerializeField]
+    public PlayerWeaponData startingWeapon3;
+    [SerializeField]
+    public PlayerWeaponData startingWeapon4;
 
     [System.Serializable]
     public struct Stats

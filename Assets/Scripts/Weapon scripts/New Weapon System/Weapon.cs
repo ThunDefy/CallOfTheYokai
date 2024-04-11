@@ -50,7 +50,7 @@ public class Weapon : Yokai
     public Stats currentStats;
     public PlayerWeaponData data;
     protected float currentCoolDown;
-    protected Agent player;
+    //protected Agent player;
 
     public Animator animator;
     //protected bool attackBlocked;
@@ -60,7 +60,7 @@ public class Weapon : Yokai
         base.Initialise(data);
         this.data = data;
         currentStats = data.baseStats;
-        player = GetComponentInParent<Agent>();
+        //player = GetComponentInParent<Agent>();
         currentCoolDown = currentStats.cooldown;
     }
 
@@ -98,7 +98,6 @@ public class Weapon : Yokai
             return false;
         }
         currentStats += data.GetLevelData(upgradeIndx);
-        //print("Ну по факту мощь я тебе дал, чекай");
         return true;
     }
 

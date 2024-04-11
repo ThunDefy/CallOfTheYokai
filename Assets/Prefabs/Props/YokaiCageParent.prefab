@@ -39,6 +39,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551843285736547305}
     m_Modifications:
+    - target: {fileID: 1608459237243641537, guid: 520d330afdecb4344a91b26abe196020, type: 3}
+      propertyPath: posibleYokais.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7746cbc09f3ebe0409a65733623742e4, type: 2}
     - target: {fileID: 1608459237243641538, guid: 520d330afdecb4344a91b26abe196020, type: 3}
       propertyPath: m_RootOrder
       value: 0

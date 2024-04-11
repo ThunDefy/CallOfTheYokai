@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -16,6 +18,7 @@ public class PlayerInventory : MonoBehaviour
         public YokaiData yokaiData;
         public Yokai yokai;
         public Image image;
+        public int currentLevel=1;
 
         public void Assign(Yokai assignedItem, YokaiData assignedData)
         {
@@ -38,8 +41,11 @@ public class PlayerInventory : MonoBehaviour
         {
             yokaiData = null;
             yokai = null;
-            image.enabled = false;
-            image.sprite = null;
+            if(image != null)
+            {
+                image.sprite = null;
+                image.enabled = false;
+            }  
         }
 
         public bool IsEmpty() { return yokai == null; }
@@ -77,8 +83,8 @@ public class PlayerInventory : MonoBehaviour
     [System.Serializable]
     public class ChangeUI
     {
-        public GameObject upgradeWeaponPanel;
-        public Image upgradeIcon;
+        public GameObject weaponPanel;
+        public Image weaponIcon;
 
         public TMP_Text weaponNameDisplay;
         public TMP_Text weaponDiscription;
@@ -89,10 +95,11 @@ public class PlayerInventory : MonoBehaviour
         public TMP_Text speedStatDisplay;
         public TMP_Text cooldownStatDisplay;
         public TMP_Text knockbackStatDisplay;
-        public TMP_Text pircingStattDisplay;
+        public TMP_Text pircingStatDisplay;
 
         // Weapon passive stats
-        public GameObject passiveStats;
+        public TMP_Text PassiveEffect1Display;
+        public TMP_Text PassiveEffect2Display;
 
         public Button changeButton;
         public Button nopeButton;
@@ -144,18 +151,18 @@ public class PlayerInventory : MonoBehaviour
         int slotNum = -1;
 
         //Определяем есть ли уже такое оружие
-        //for (int i = 0; i < weaponSlots.Capacity; i++)
-        //{
-        //    if (!weaponSlots[i].IsEmpty())
-        //    {
-        //        if (weaponSlots[i].yokaiData.yokaiID == data.yokaiID)
-        //        {
-        //            return -2;
-                    
-        //        }
-               
-        //    }
-        //}
+        for (int i = 0; i < weaponSlots.Capacity; i++)
+        {
+            if (!weaponSlots[i].IsEmpty())
+            {
+                if (weaponSlots[i].yokaiData.yokaiID == data.yokaiID)
+                {
+                    return -2;
+
+                }
+
+            }
+        }
 
 
         // Ищем пустой слот
@@ -171,7 +178,7 @@ public class PlayerInventory : MonoBehaviour
         if (slotNum < 0) // Если все слоты заняты
         {
             GameManager.instance.StartChangingWeapon();
-            ChangingWeapon();
+            ChangingWeapon(data);
             return -1;
         }
 
@@ -190,6 +197,7 @@ public class PlayerInventory : MonoBehaviour
             spawnedWeapon.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             spawnedWeapon.Initialise(data);
             spawnedWeapon.OnEquip();
+
 
             // Добавляем оружие в инвентарь
             weaponSlots[slotNum].Assign(spawnedWeapon, data);
@@ -216,8 +224,31 @@ public class PlayerInventory : MonoBehaviour
         return -1;
     }
 
-    private void ChangingWeapon()
+    private void ChangingWeapon(PlayerWeaponData data)
     {
+        // Предварительно создадим объект с оружием
+
+        Type weaponType = Type.GetType(data.behaviour);
+
+        GameObject weapon = Instantiate(data.yokaiPrefab);
+        weapon.name = data.baseStats.name + " Controller";
+        Weapon w = (Weapon)weapon.AddComponent(weaponType);
+        w.transform.SetParent(GetComponentInChildren<WeaponParent>().transform);
+        w.transform.localPosition = Vector2.zero;
+        w.transform.localPosition += new Vector3(0.8f, 0f, 0f);
+        w.transform.rotation = Quaternion.identity;
+        w.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        w.Initialise(data);
+        w.OnEquip();
+
+        GameObject pas = new GameObject(data.passiveEffectData.baseStats.name + " Passive");
+        Passive p = pas.AddComponent<Passive>();
+        p.Initialise(data.passiveEffectData);
+        p.transform.SetParent(GetComponentInChildren<WeaponParent>().transform);
+        p.transform.localPosition = Vector2.zero;
+
+
+        // Определим уровень нового оружия
         int levelOfNewYokai=0;
         int activeWeaponCount=0;
         for (int i = 0; i < weaponSlots.Capacity; i++)
@@ -229,19 +260,141 @@ public class PlayerInventory : MonoBehaviour
                 
             }
         }
-        levelOfNewYokai += ((int)levelOfNewYokai/activeWeaponCount)+ Random.Range(-1,1); 
-        print(levelOfNewYokai);
+        int mod = Random.Range(-1, 2);
+        levelOfNewYokai = ((int)levelOfNewYokai / activeWeaponCount) + mod;
+        if (levelOfNewYokai <= 0) levelOfNewYokai = 1;
 
         // Теперь повысить уровень оружия случайным образом
+        int randomUpgradeIndx=0;
+        int randomValue;
+        
+        for (int i = 0; i < levelOfNewYokai-1; i++)
+        {
+            randomValue = Random.Range(0, 2);
+            if(randomValue == 0)
+            {
+                randomUpgradeIndx = ((PlayerWeaponData)data).GetRandomLevelData();
+                LevelUp(w, randomUpgradeIndx);
+            }
+            else
+            {
+                randomUpgradeIndx = (data.passiveEffectData).GetRandomLevelData();
+                LevelUp(p, randomUpgradeIndx);
+            }   
+        }
 
         // Вывести его статистику
+        changeUIOptions[0].weaponIcon.sprite = data.icon;
+        changeUIOptions[0].weaponNameDisplay.text = data.baseStats.name + " Lvl "+ levelOfNewYokai;
+        changeUIOptions[0].weaponDiscription.text = data.baseStats.description;
+        changeUIOptions[0].damageStatDisplay.text = "Damage: " + w.currentStats.damage;
+        changeUIOptions[0].areaStatDisplay.text = "Area: " + w.currentStats.area;
+        changeUIOptions[0].speedStatDisplay.text = "Speed: " + w.currentStats.speed;
+        changeUIOptions[0].cooldownStatDisplay.text = "Cooldown: " + w.currentStats.cooldown;
+        changeUIOptions[0].knockbackStatDisplay.text = "Knockback: " + w.currentStats.knockback;
+        changeUIOptions[0].pircingStatDisplay.text = "Pircing: " + w.currentStats.pircing;
 
-        // Вывести статистику имеющихся 
+        List<string> possibleBoost = p.GetBoostsInfo();
+        if (possibleBoost.Count == 1) changeUIOptions[0].PassiveEffect1Display.text = possibleBoost[0];
+        else{
+            changeUIOptions[0].PassiveEffect1Display.text = possibleBoost[0];
+            changeUIOptions[0].PassiveEffect2Display.text = possibleBoost[1];
+        }
+
+        // Вывести статистику уже имеющихся
+        for(int i = 0; i< changeUIOptions.Count-1;i++)
+        {
+            changeUIOptions[i+1].weaponPanel.SetActive(true);
+            changeUIOptions[i + 1].weaponIcon.sprite = ((PlayerWeaponData)weaponSlots[i].yokaiData).icon;
+            changeUIOptions[i + 1].weaponNameDisplay.text = ((PlayerWeaponData)weaponSlots[i].yokaiData).baseStats.name + " Lvl " + weaponSlots[i].currentLevel;
+            changeUIOptions[i + 1].weaponDiscription.text = ((PlayerWeaponData)weaponSlots[i].yokaiData).baseStats.description;
+            changeUIOptions[i + 1].damageStatDisplay.text = "Damage: " + ((Weapon)weaponSlots[i].yokai).currentStats.damage;
+            changeUIOptions[i + 1].areaStatDisplay.text = "Area: " + ((Weapon)weaponSlots[i].yokai).currentStats.area;
+            changeUIOptions[i + 1].speedStatDisplay.text = "Speed: " + ((Weapon)weaponSlots[i].yokai).currentStats.speed;
+            changeUIOptions[i + 1].cooldownStatDisplay.text = "Cooldown: " + ((Weapon)weaponSlots[i].yokai).currentStats.cooldown;
+            changeUIOptions[i + 1].knockbackStatDisplay.text = "Knockback: " + ((Weapon)weaponSlots[i].yokai).currentStats.knockback;
+            changeUIOptions[i + 1].pircingStatDisplay.text = "Pircing: " + ((Weapon)weaponSlots[i].yokai).currentStats.pircing;
+
+            List<string> boosts = p.GetBoostsInfo();
+            if (possibleBoost.Count == 1) changeUIOptions[0].PassiveEffect1Display.text = possibleBoost[0];
+            else
+            {
+                changeUIOptions[i + 1].PassiveEffect1Display.text = possibleBoost[0];
+                changeUIOptions[i + 1].PassiveEffect2Display.text = possibleBoost[1];
+            }
+        }
 
         // Присвоить кнопке замене функцию по замене оружия (Удалить имеющиеся, поставить на его место новое)
 
-        // Присвоить кнопке отказа повышение уровня герою
+        for (int i = 0; i < weaponSlots.Count; i++)
+        {
+            int currentIndex = i;
+            if (weaponSlots[i].yokai != null)
+            {
+                changeUIOptions[i + 1].changeButton.onClick.RemoveAllListeners();
+                changeUIOptions[i + 1].changeButton.onClick.AddListener(() => ApplyChangeWeapon(currentIndex,w,p,data, levelOfNewYokai));
+            }
+        }
 
+        // Присвоить кнопке отказа повышение уровня герою
+        changeUIOptions[0].nopeButton.onClick.RemoveAllListeners();
+        changeUIOptions[0].nopeButton.onClick.AddListener(() => CancelChangeWeapon(data));
+
+    }
+
+    private void ApplyChangeWeapon(int slotNum, Weapon w, Passive p, PlayerWeaponData data,int levelOfNewYokai)
+    {
+        // Удалить объекты со сцены
+        weaponSlots[slotNum].yokai.transform.gameObject.SetActive(true);
+        GameObject weaponForRemove = GameObject.Find(((PlayerWeaponData)weaponSlots[slotNum].yokaiData).baseStats.name + " Controller");
+        if (weaponForRemove != null)
+        {
+            Destroy(weaponForRemove);
+            print(((PlayerWeaponData)weaponSlots[slotNum].yokaiData).baseStats.name + " Controller has DESTROY"); 
+        }
+
+
+        GameObject passiveForRemove = GameObject.Find(((PassiveData)passiveSlots[slotNum].yokaiData).baseStats.name + " Passive");
+        if (passiveForRemove != null)
+        {
+            Destroy(passiveForRemove);
+            print(((PassiveData)passiveSlots[slotNum].yokaiData).baseStats.name + " Passive has DESTROY");
+        }
+
+        // Очистить слоты
+        weaponSlots[slotNum].Clear();
+        passiveSlots[slotNum].Clear();
+
+        // На их место добавить новое оружие
+        weaponSlots[slotNum].Assign(w, data);
+        passiveSlots[slotNum].Assign(p, data.passiveEffectData);
+
+        weaponSlots[slotNum].currentLevel = levelOfNewYokai;
+
+        player.RecalculateStats();
+
+        SetActiveWeapon(slotNum);
+        if (GameManager.instance != null && GameManager.instance.changingWeapon) GameManager.instance.EndChangingWeapon();
+        
+    }
+
+    private void CancelChangeWeapon(PlayerWeaponData data)
+    {
+        GameObject weaponForRemove = GameObject.Find(data.baseStats.name + " Controller");
+        if (weaponForRemove != null)
+        {
+            Destroy(weaponForRemove);
+        }
+
+
+        GameObject passiveForRemove = GameObject.Find(data.passiveEffectData.baseStats.name + " Passive");
+        if (passiveForRemove != null)
+        {
+            Destroy(passiveForRemove);
+        }
+        if (GameManager.instance != null && GameManager.instance.changingWeapon) GameManager.instance.EndChangingWeapon();
+        player.IncreaseExperience(player.experienceCap);
+        
     }
 
     public bool LevelUp(YokaiData data, int upgradeIdnx)
@@ -252,7 +405,7 @@ public class PlayerInventory : MonoBehaviour
     }
 
     // Увеличить уровень выбранного Йокая
-    public bool LevelUp(Yokai yokai, int upgradeIdnx)
+    public bool LevelUp(Yokai yokai, int upgradeIdnx, int slotIndx = -1)
     {
         // Tries to level up the yokai.
         if (!yokai.DoLevelUp(upgradeIdnx))
@@ -268,6 +421,11 @@ public class PlayerInventory : MonoBehaviour
         if (yokai is Passive)
         {
             player.RecalculateStats();
+        }
+        if (slotIndx >= 0)
+        {
+            print("slotIndx = " + slotIndx);
+            weaponSlots[slotIndx].currentLevel++;
         }
         return true;
     }
@@ -307,7 +465,7 @@ public class PlayerInventory : MonoBehaviour
                 upgradeUIOptions[currentIndex].upgrade1YokaiDescriptionDisplay.text = upgradeWeaponChoise1.description;
                 upgradeUIOptions[currentIndex].upgrade1YokaiNameDisplay.text = upgradeWeaponChoise1.name;
                 upgradeUIOptions[currentIndex].upgrade1YokaiButton.onClick.RemoveAllListeners();
-                upgradeUIOptions[currentIndex].upgrade1YokaiButton.onClick.AddListener(() => LevelUp(yokai, randomUpgradeWeaponIndx1));
+                upgradeUIOptions[currentIndex].upgrade1YokaiButton.onClick.AddListener(() => LevelUp(yokai, randomUpgradeWeaponIndx1, currentIndex));
 
                 // 2й вариант улучшения характеристик атаки
                 do { randomUpgradeWeaponIndx2 = ((PlayerWeaponData)weaponSlots[i].yokaiData).GetRandomLevelData(); }while(randomUpgradeWeaponIndx1 == randomUpgradeWeaponIndx2);
@@ -315,7 +473,7 @@ public class PlayerInventory : MonoBehaviour
                 upgradeUIOptions[currentIndex].upgrade2YokaiDescriptionDisplay.text = upgradeWeaponChoise2.description;
                 upgradeUIOptions[currentIndex].upgrade2YokaiNameDisplay.text = upgradeWeaponChoise2.name;
                 upgradeUIOptions[currentIndex].upgrade2YokaiButton.onClick.RemoveAllListeners();
-                upgradeUIOptions[currentIndex].upgrade2YokaiButton.onClick.AddListener(() => LevelUp(yokai, randomUpgradeWeaponIndx2));
+                upgradeUIOptions[currentIndex].upgrade2YokaiButton.onClick.AddListener(() => LevelUp(yokai, randomUpgradeWeaponIndx2, currentIndex));
 
 
                 /////////////// Или улучшение Пассивного эффекта
@@ -325,7 +483,7 @@ public class PlayerInventory : MonoBehaviour
                 upgradeUIOptions[currentIndex].upgrade1PassiveDescriptionDisplay.text = upgradePassiveChoise1.description;
                 upgradeUIOptions[currentIndex].upgrade1PassiveNameDisplay.text = upgradePassiveChoise1.name;
                 upgradeUIOptions[currentIndex].upgrade1PassiveButton.onClick.RemoveAllListeners();
-                upgradeUIOptions[currentIndex].upgrade1PassiveButton.onClick.AddListener(() => LevelUp(yokaiPassive, randomUpgradePassiveIndx1));
+                upgradeUIOptions[currentIndex].upgrade1PassiveButton.onClick.AddListener(() => LevelUp(yokaiPassive, randomUpgradePassiveIndx1, currentIndex));
 
                 // 2й вариант улучшения Пассивного эффекта
                 do { randomUpgradePassiveIndx2 = ((PassiveData)passiveSlots[i].yokaiData).GetRandomLevelData(); } while (randomUpgradePassiveIndx1 == randomUpgradePassiveIndx2);
@@ -333,11 +491,8 @@ public class PlayerInventory : MonoBehaviour
                 upgradeUIOptions[currentIndex].upgrade2PassiveDescriptionDisplay.text = upgradePassiveChoise2.description;
                 upgradeUIOptions[currentIndex].upgrade2PassiveNameDisplay.text = upgradePassiveChoise2.name;
                 upgradeUIOptions[currentIndex].upgrade2PassiveButton.onClick.RemoveAllListeners();
-                upgradeUIOptions[currentIndex].upgrade2PassiveButton.onClick.AddListener(() => LevelUp(yokaiPassive, randomUpgradePassiveIndx2));
-
-
-
-            }
+                upgradeUIOptions[currentIndex].upgrade2PassiveButton.onClick.AddListener(() => LevelUp(yokaiPassive, randomUpgradePassiveIndx2, currentIndex));
+            }           
         }
     }
 

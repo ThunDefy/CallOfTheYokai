@@ -116,8 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   posibleYokais:
-  - {fileID: 11400000, guid: 5ea2656354c44134fb282d3be343d9e0, type: 2}
-  - {fileID: 11400000, guid: 5ea2656354c44134fb282d3be343d9e0, type: 2}
+  - {fileID: 11400000, guid: 7746cbc09f3ebe0409a65733623742e4, type: 2}
 --- !u!114 &1608459237243641542
 MonoBehaviour:
   m_ObjectHideFlags: 0

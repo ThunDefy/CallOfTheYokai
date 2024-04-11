@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a9566c59bc49ca478edaf282d3d425e, type: 3}
-  m_Name: TenguData
+  m_Name: TenguData 1
   m_EditorClassIdentifier: 
-  yokaiID: 0
-  icon: {fileID: -848624017, guid: 2e7f3da684debd74f87677964da8e344, type: 3}
+  yokaiID: 1
+  icon: {fileID: -1037926960, guid: 2e7f3da684debd74f87677964da8e344, type: 3}
   maxLevel: 4
   behaviour: ProjectileWeapon
   yokaiPrefab: {fileID: 4203816605063914695, guid: 7741d93e57837614689397712f8f7074, type: 3}
   baseStats:
-    name: Tengu1
+    name: Tengu2
     description: Shoot katana in to face
     projectilePrefab: {fileID: 2468026514079993384, guid: 2631025a56e6c4447ad276794c287462, type: 3}
     hitEffect: {fileID: 0}
@@ -37,7 +37,7 @@ MonoBehaviour:
     projectileInterval: 0.1
     knockback: 0.5
     number: 1
-    pircing: 1
+    pircing: 2
     maxInstances: 70
   linearGrowth:
   - name: Tengu
@@ -188,4 +188,4 @@ MonoBehaviour:
     number: 0
     pircing: 0
     maxInstances: 0
-  passiveEffectData: {fileID: 11400000, guid: a70d022309ce94d4fbf66105fd67ea2b, type: 2}
+  passiveEffectData: {fileID: 11400000, guid: 10216dc598ec4884991ead95c823a3c3, type: 2}
