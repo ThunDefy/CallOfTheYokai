@@ -6,5 +6,5 @@ public abstract class YokaiData : ScriptableObject
 {
     public int yokaiID;
     public Sprite icon;
-    public int maxLevel;
+    public int maxRisingLevel;
 }

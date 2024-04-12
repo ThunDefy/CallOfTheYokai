@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9566c59bc49ca478edaf282d3d425e, type: 3}
   m_Name: TenguData 3
   m_EditorClassIdentifier: 
-  yokaiID: 3
+  yokaiID: 4
   icon: {fileID: 327107110, guid: 2e7f3da684debd74f87677964da8e344, type: 3}
   maxLevel: 4
   behaviour: ProjectileWeapon
@@ -188,4 +188,4 @@ MonoBehaviour:
     number: 0
     pircing: 0
     maxInstances: 0
-  passiveEffectData: {fileID: 11400000, guid: 18a2fccc3bc5e464aa47d8d87c937bc9, type: 2}
+  passiveEffectData: {fileID: 11400000, guid: 294569e1c5ec49f4183b128723e086e7, type: 2}

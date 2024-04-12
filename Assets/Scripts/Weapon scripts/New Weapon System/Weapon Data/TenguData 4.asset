@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9566c59bc49ca478edaf282d3d425e, type: 3}
   m_Name: TenguData 4
   m_EditorClassIdentifier: 
-  yokaiID: 3
+  yokaiID: 5
   icon: {fileID: 327107110, guid: 2e7f3da684debd74f87677964da8e344, type: 3}
-  maxLevel: 4
+  maxLevel: 10
   behaviour: ProjectileWeapon
   yokaiPrefab: {fileID: 4203816605063914695, guid: 7741d93e57837614689397712f8f7074, type: 3}
   baseStats:
-    name: Tengu4
+    name: Tengu5
     description: Shoot katana in to face
     projectilePrefab: {fileID: 2468026514079993384, guid: 2631025a56e6c4447ad276794c287462, type: 3}
     hitEffect: {fileID: 0}

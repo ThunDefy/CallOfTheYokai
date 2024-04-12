@@ -16,6 +16,13 @@ public class Passive : Yokai
         public string name, description;
         public PlayerData.Stats boosts;
     }
+    protected virtual void Awake()
+    {
+        if (data)
+        {
+            Initialise(data);
+        }
+    }
 
     public virtual void Initialise(PassiveData data)
     {
@@ -31,11 +38,10 @@ public class Passive : Yokai
 
     public override bool DoLevelUp(int upgradeIndx)
     {
-        base.DoLevelUp(upgradeIndx);
-        if (!CanLevelUp())
-        {
-            return false;
-        }
+        //if (!CanLevelUp())
+        //{
+        //    return false;
+        //}
         currentBoosts += data.GetLevelData(upgradeIndx).boosts;
         return true;
     }

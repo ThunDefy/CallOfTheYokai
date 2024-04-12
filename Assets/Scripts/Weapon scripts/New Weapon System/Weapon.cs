@@ -66,18 +66,22 @@ public class Weapon : Yokai
 
     protected virtual void Awake()
     {
-        if(data) currentStats = data.baseStats;
-        animator = GetComponent<Animator>();
-    }
-
-    protected virtual void Start()
-    {
         if (data)
         {
             Initialise(data);
+            //currentStats = data.baseStats;
         }
-        //attackBlocked = true;
+        animator = GetComponent<Animator>();
     }
+
+    //protected virtual void Start()
+    //{
+    //    if (data)
+    //    {
+    //        Initialise(data);
+    //    }
+    //    //attackBlocked = true;
+    //}
 
     protected virtual void Update()
     {
@@ -92,15 +96,20 @@ public class Weapon : Yokai
 
     public override bool DoLevelUp(int upgradeIndx)
     {
-        base.DoLevelUp(upgradeIndx);
+        
+        currentStats += data.GetLevelData(upgradeIndx);
+        return true;
+    }
+    public override bool RisingUpYokai() 
+    {
+        currentRisingLevel++;
         if (!CanLevelUp())
         {
             return false;
         }
-        currentStats += data.GetLevelData(upgradeIndx);
+        currentStats += data.GetRisingLevelData(currentRisingLevel);
         return true;
     }
-
     public virtual bool CanAttack()
     {
         return currentCoolDown <= 0;

@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
         Paused,
         GameOver,
         LevelUp,
-        ChangeWeapon
+        ChangeWeapon,
+        RisingWeapon
     }
 
     [Header("Damage Text Settings")]
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
     public GameObject resultScreen;
     public GameObject levelUpScreen;
     public GameObject changeWeaponScreen;
+    public GameObject risingWeaponScreen;
 
     [Header("Pause Displays")]
     public TMP_Text currentRecoveryDisplay;
@@ -53,6 +55,7 @@ public class GameManager : MonoBehaviour
     public bool isGameOver = false;
     public bool choosingUpgrade;
     public bool changingWeapon = false;
+    public bool risingWeapon = false;
 
     public GameState currentState;
     public GameState previousState;
@@ -120,6 +123,16 @@ public class GameManager : MonoBehaviour
 
                 }
                 break;
+            case GameState.RisingWeapon:
+                if (!changingWeapon)
+                {
+                    risingWeapon = true;
+                    Time.timeScale = 0f;
+                    Debug.Log("rising Up Weapon");
+                    risingWeaponScreen.SetActive(true);
+
+                }
+                break;
             default:
                 Debug.LogWarning("UNKNOWN STATE");
                 break;
@@ -176,7 +189,9 @@ public class GameManager : MonoBehaviour
         pauseScreen.SetActive(false);
         resultScreen.SetActive(false);
         levelUpScreen.SetActive(false);
-    }
+        changeWeaponScreen.SetActive(false);
+        risingWeaponScreen.SetActive(false);
+}
 
     public void GameOver()
     {
@@ -252,6 +267,19 @@ public class GameManager : MonoBehaviour
         changingWeapon = false;
         Time.timeScale = 1f;
         changeWeaponScreen.SetActive(false);
+        ChangeState(GameState.Gameplay);
+    }
+
+    public void StartRisingWeapon()
+    {
+        ChangeState(GameState.RisingWeapon);
+    }
+
+    public void EndRisingWeapon()
+    {
+        risingWeapon = false;
+        Time.timeScale = 1f;
+        risingWeaponScreen.SetActive(false);
         ChangeState(GameState.Gameplay);
 
     }

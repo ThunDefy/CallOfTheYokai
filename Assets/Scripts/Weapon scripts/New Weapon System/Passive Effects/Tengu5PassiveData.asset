@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b995c0ccfdb9c418e184cf6c59eb62, type: 3}
   m_Name: Tengu5PassiveData
   m_EditorClassIdentifier: 
-  yokaiID: 0
+  yokaiID: 5
   icon: {fileID: 21300000, guid: 0779ad3feec52124e97114bcbb12ef13, type: 3}
   maxLevel: 10
   baseStats:
-    name: Tengu4 PassiveEffect
+    name: Tengu5 PassiveEffect
     description: incrise move speed
     boosts:
       maxHealth: 0
