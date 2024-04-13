@@ -23,6 +23,7 @@ public class PlayerData : ScriptableObject
         public float maxHealth, recovery, moveSpeed;
         public float power, speed, magnet;
 
+
         public Stats(float maxHealth = 10, float recovery = 0.5f, float moveSpeed = 1f, float power = 1f, float speed = 3f, float magnet = 1.6f)
         {
             this.maxHealth = maxHealth;

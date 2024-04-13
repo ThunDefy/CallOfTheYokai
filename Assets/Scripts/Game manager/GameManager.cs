@@ -21,7 +21,8 @@ public class GameManager : MonoBehaviour
         GameOver,
         LevelUp,
         ChangeWeapon,
-        RisingWeapon
+        RisingWeapon,
+        ShowNewWeapon
     }
 
     [Header("Damage Text Settings")]
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
     public GameObject levelUpScreen;
     public GameObject changeWeaponScreen;
     public GameObject risingWeaponScreen;
+    public GameObject newWeaponScreen;
 
     [Header("Pause Displays")]
     public TMP_Text currentRecoveryDisplay;
@@ -56,6 +58,7 @@ public class GameManager : MonoBehaviour
     public bool choosingUpgrade;
     public bool changingWeapon = false;
     public bool risingWeapon = false;
+    public bool newWeapon = false;
 
     public GameState currentState;
     public GameState previousState;
@@ -99,7 +102,7 @@ public class GameManager : MonoBehaviour
                 {
                     isGameOver = true;
                     Time.timeScale = 0f;
-                    Debug.Log("Game over");
+                    //Debug.Log("Game over");
                     DisplayResults();
                 }
                 break;
@@ -109,7 +112,7 @@ public class GameManager : MonoBehaviour
                 {
                     choosingUpgrade = true;
                     Time.timeScale = 0f;
-                    Debug.Log("choosing Upgrade");
+                    //Debug.Log("choosing Upgrade");
                     levelUpScreen.SetActive(true);
                 }
                 break;
@@ -118,7 +121,7 @@ public class GameManager : MonoBehaviour
                 {
                     changingWeapon = true;
                     Time.timeScale = 0f;
-                    Debug.Log("changing Weapon");
+                    //Debug.Log("changing Weapon");
                     changeWeaponScreen.SetActive(true);
 
                 }
@@ -128,8 +131,17 @@ public class GameManager : MonoBehaviour
                 {
                     risingWeapon = true;
                     Time.timeScale = 0f;
-                    Debug.Log("rising Up Weapon");
+                    //Debug.Log("rising Up Weapon");
                     risingWeaponScreen.SetActive(true);
+
+                }
+                break;
+            case GameState.ShowNewWeapon:
+                if (!changingWeapon)
+                {
+                    newWeapon = true;
+                    Time.timeScale = 0f;
+                    newWeaponScreen.SetActive(true);
 
                 }
                 break;
@@ -146,6 +158,7 @@ public class GameManager : MonoBehaviour
             previousState = currentState;
             ChangeState(GameState.Paused);
             pauseScreen.SetActive(true);
+            player.SendMessage("ShowWeaponsStatInPauseMenu");
             Time.timeScale = 0f;
             Debug.Log("Paused");
         }
@@ -246,6 +259,7 @@ public class GameManager : MonoBehaviour
     {
         ChangeState(GameState.LevelUp);
         player.SendMessage("ApplyUpgradeOptions");
+        
     }
 
     public void EndLevelUp()
@@ -253,6 +267,19 @@ public class GameManager : MonoBehaviour
         choosingUpgrade = false;
         Time.timeScale = 1f;
         levelUpScreen.SetActive(false);
+        ChangeState(GameState.Gameplay);
+
+    }
+    public void StartShowNewWeapon()
+    {
+        ChangeState(GameState.ShowNewWeapon);
+    }
+
+    public void EndShowNewWeapon()
+    {
+        newWeapon = false;
+        Time.timeScale = 1f;
+        newWeaponScreen.SetActive(false);
         ChangeState(GameState.Gameplay);
 
     }

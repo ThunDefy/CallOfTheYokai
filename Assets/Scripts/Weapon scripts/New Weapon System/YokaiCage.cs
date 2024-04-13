@@ -42,6 +42,7 @@ public class YokaiCage : MonoBehaviour
             Debug.LogWarning("Нет места для нового Ёкая");
             // Открыть окно выбора на кого заменить ёкая или сделать с ним что то
         }
+        Destroy(gameObject);
 
     }
     private int ChoseRandomYokai()

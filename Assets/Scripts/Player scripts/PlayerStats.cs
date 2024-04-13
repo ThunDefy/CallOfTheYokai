@@ -32,9 +32,7 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Player stats")]
     public PlayerData player;
-
-    
-
+    public int availableSlotsCount;
 
     #region Current stats
     public float CurrentHealth
@@ -184,10 +182,10 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
-        playerInventory.AddYokai(playerData.startingWeapon1);
-        playerInventory.AddYokai(playerData.startingWeapon2);
-        playerInventory.AddYokai(playerData.startingWeapon3);
-        playerInventory.AddYokai(playerData.startingWeapon4);
+        //playerInventory.AddYokai(playerData.startingWeapon1);
+        //playerInventory.AddYokai(playerData.startingWeapon2);
+        //playerInventory.AddYokai(playerData.startingWeapon3);
+        //playerInventory.AddYokai(playerData.startingWeapon4);
 
         experienceCap = levelRanges[0].experienceCapIncrease;
 
