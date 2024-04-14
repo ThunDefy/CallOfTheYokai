@@ -10,6 +10,8 @@ public class Yokai : MonoBehaviour
 
     protected PlayerStats owner;
 
+    public PlayerStats Owner { get { return owner; } }
+
     public virtual void Initialise(YokaiData data)
     {
         maxRisingLevel = data.maxRisingLevel;

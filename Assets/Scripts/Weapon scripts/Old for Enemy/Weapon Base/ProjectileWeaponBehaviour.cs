@@ -29,7 +29,7 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
     }
     public float GetCurrentDamage()
     {
-        return projectileDamage *= FindAnyObjectByType<PlayerStats>().CurrentPower;
+        return projectileDamage *= FindAnyObjectByType<PlayerStats>().actualStats.power;
     }
 
     public void SetDirection()
@@ -63,16 +63,29 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
 
     public void DetectColliders()
     {
-        foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position, radius))
+        //foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position, radius))
+        //{
+        //    Debug.Log(collider.name);
+        //    Health health;
+        //    if (health = collider.GetComponent<Health>())
+        //    {
+        //        health.GetHit(GetCurrentDamage(), sender,transform.position);
+        //    }
+        //    if(collider.name != "Collector") 
+        //        Destroy(gameObject);
+        //}
+
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, radius))
         {
             Debug.Log(collider.name);
-            Health health;
-            if (health = collider.GetComponent<Health>())
+            PlayerStats player;
+            if (collider.tag == "player" && (player = collider.GetComponent<PlayerStats>()))
             {
-                health.GetHit(GetCurrentDamage(), sender,transform.position);
-            }
-            if(collider.name != "Collector") 
+                player.TakeDamage(GetCurrentDamage(), transform.parent.gameObject, transform.position);
                 Destroy(gameObject);
+            }
+            else Destroy(gameObject);
+
         }
     }
 }

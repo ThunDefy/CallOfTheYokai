@@ -39,12 +39,6 @@ public class GameManager : MonoBehaviour
     public GameObject risingWeaponScreen;
     public GameObject newWeaponScreen;
 
-    [Header("Pause Displays")]
-    public TMP_Text currentRecoveryDisplay;
-    public TMP_Text currentMagnetDisplay;
-    public TMP_Text currentPowerDisplay;
-    public TMP_Text currentMoveSpeedDisplay;
-    public TMP_Text currentHealthDisplay;
     public TMP_Text timerDisplay;
 
     [Header("Result Screen Displays")]

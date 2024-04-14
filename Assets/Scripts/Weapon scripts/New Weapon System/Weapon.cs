@@ -57,11 +57,12 @@ public class Weapon : Yokai
 
     public virtual void Initialise(PlayerWeaponData data)
     {
+        print(name + "Initialised");
         base.Initialise(data);
         this.data = data;
         currentStats = data.baseStats;
         //player = GetComponentInParent<Agent>();
-        currentCoolDown = currentStats.cooldown;
+        ActivateCoolDown();
     }
 
     protected virtual void Awake()
@@ -119,7 +120,7 @@ public class Weapon : Yokai
     {
         if (CanAttack())
         {
-            currentCoolDown += currentStats.cooldown;
+            ActivateCoolDown();
             return true;
         }
         return false;
@@ -127,8 +128,23 @@ public class Weapon : Yokai
 
     public virtual float GetDamage()
     {
-        return currentStats.GetDamage() * owner.CurrentPower;
+        return currentStats.GetDamage() * owner.actualStats.power;
+    }
+
+    public virtual float GetArea()
+    {
+        return currentStats.area + Owner.actualStats.area;
     }
 
     public virtual Stats GetStats() { return currentStats; }
+
+    public virtual bool ActivateCoolDown(bool strict = false)
+    {
+        if (strict && currentCoolDown > 0) return false;
+
+        float actualCooldown = currentStats.cooldown * Owner.actualStats.cooldown;
+
+        currentCoolDown = Mathf.Min(actualCooldown, currentCoolDown + actualCooldown);
+        return true;
+    }
 }

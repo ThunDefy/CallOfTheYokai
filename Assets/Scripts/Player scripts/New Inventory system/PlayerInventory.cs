@@ -408,12 +408,12 @@ public class PlayerInventory : MonoBehaviour
         weaponInfo.weaponIcon.sprite = ((PlayerWeaponData)weaponSlots[slotNum].yokaiData).icon;
         weaponInfo.weaponNameDisplay.text = ((PlayerWeaponData)weaponSlots[slotNum].yokaiData).baseStats.name + " Lvl " + weaponSlots[slotNum].currentLevel;
         if(weaponInfo.weaponDiscription!=null) weaponInfo.weaponDiscription.text = ((PlayerWeaponData)weaponSlots[slotNum].yokaiData).baseStats.description;
-        weaponInfo.damageStatDisplay.text = !onlyStat ?"Damage: ":"" + ((Weapon)weaponSlots[slotNum].yokai).currentStats.damage;
-        weaponInfo.areaStatDisplay.text = !onlyStat ? "Area: ":"" + ((Weapon)weaponSlots[slotNum].yokai).currentStats.area;
-        weaponInfo.speedStatDisplay.text = !onlyStat ? "Speed: ":"" + ((Weapon)weaponSlots[slotNum].yokai).currentStats.speed;
-        weaponInfo.cooldownStatDisplay.text = !onlyStat ? "Cooldown: ":"" + ((Weapon)weaponSlots[slotNum].yokai).currentStats.cooldown;
-        weaponInfo.knockbackStatDisplay.text = !onlyStat ? "Knockback: ":"" + ((Weapon)weaponSlots[slotNum].yokai).currentStats.knockback;
-        weaponInfo.pircingStatDisplay.text = !onlyStat ? "Pircing: ":"" + ((Weapon)weaponSlots[slotNum].yokai).currentStats.pircing;
+        weaponInfo.damageStatDisplay.text = (!onlyStat ?"Damage: ":"") + ((Weapon)weaponSlots[slotNum].yokai).currentStats.damage;
+        weaponInfo.areaStatDisplay.text = (!onlyStat ? "Area: ":"") + ((Weapon)weaponSlots[slotNum].yokai).currentStats.area;
+        weaponInfo.speedStatDisplay.text = (!onlyStat ? "Speed: ":"") + ((Weapon)weaponSlots[slotNum].yokai).currentStats.speed;
+        weaponInfo.cooldownStatDisplay.text = (!onlyStat ? "Cooldown: ":"") + ((Weapon)weaponSlots[slotNum].yokai).currentStats.cooldown;
+        weaponInfo.knockbackStatDisplay.text = (!onlyStat ? "Knockback: ":"") + ((Weapon)weaponSlots[slotNum].yokai).currentStats.knockback;
+        weaponInfo.pircingStatDisplay.text = (!onlyStat ? "Pircing: ":"") + ((Weapon)weaponSlots[slotNum].yokai).currentStats.pircing;
         List<string> boosts = ((Passive)passiveSlots[slotNum].yokai).GetBoostsInfo();
         if(boosts.Count == 1) weaponInfo.PassiveEffect1Display.text = boosts[0];
         else
@@ -479,7 +479,7 @@ public class PlayerInventory : MonoBehaviour
 
     void ShowWeaponsStatInPauseMenu()
     {
-        print("Нахуй иди");
+        
         for (int i = 0; i < weaponsStatsPauseUI.Count; i++)
         {
             if (!weaponSlots[i].IsEmpty())

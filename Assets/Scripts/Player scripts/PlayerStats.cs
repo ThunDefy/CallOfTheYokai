@@ -17,7 +17,8 @@ public class PlayerStats : MonoBehaviour
 
     public PlayerData playerData;
     public PlayerData.Stats baseStats;
-    [SerializeField] PlayerData.Stats actualStats;
+    [SerializeField] 
+    public PlayerData.Stats actualStats;
     float currentHealth;
 
 
@@ -56,59 +57,6 @@ public class PlayerStats : MonoBehaviour
             {
                 actualStats.maxHealth = value;
                 healthData.maxHealth = actualStats.maxHealth;
-                if (GameManager.instance != null)
-                {
-                    GameManager.instance.currentHealthDisplay.text = "Max Health: " + actualStats.maxHealth;
-                }
-
-            }
-        }
-    }
-
-    public float CurrentRecovery
-    {
-        get { return actualStats.recovery; }
-        set
-        {
-            if (actualStats.recovery != value)
-            {
-                actualStats.recovery = value;
-                if (GameManager.instance != null)
-                {
-                    GameManager.instance.currentRecoveryDisplay.text = "Recovery: " + actualStats.recovery;
-                }
-            }
-        }
-    }
-
-    public float CurrentMagnet
-    {
-        get { return actualStats.magnet; }
-        set
-        {
-            if (actualStats.magnet != value)
-            {
-                actualStats.magnet = value;
-                if (GameManager.instance != null)
-                {
-                    GameManager.instance.currentMagnetDisplay.text = "Magnet: " + actualStats.magnet;
-                }
-            }
-        }
-    }
-
-    public float CurrentPower
-    {
-        get { return actualStats.power; }
-        set
-        {
-            if (actualStats.power != value)
-            {
-                actualStats.power = value;
-                if (GameManager.instance != null)
-                {
-                    GameManager.instance.currentPowerDisplay.text = "Power: " + actualStats.power;
-                }
             }
         }
     }
@@ -121,10 +69,7 @@ public class PlayerStats : MonoBehaviour
             {
                 actualStats.moveSpeed = value;
                 playerAgentData.moveSpeed = actualStats.moveSpeed;
-                if (GameManager.instance != null)
-                {
-                    GameManager.instance.currentMoveSpeedDisplay.text = "Move Speed: " + actualStats.moveSpeed;
-                }
+
             }
         }
     }
@@ -141,6 +86,9 @@ public class PlayerStats : MonoBehaviour
     public float invincibilityDuration;
     float invincibilityTimer;
     bool isInvincible;
+
+    [Header("Visuals")]
+    public ParticleSystem blockedEffect;
 
     PlayerInventory playerInventory;
 
@@ -176,7 +124,7 @@ public class PlayerStats : MonoBehaviour
         healthData.currentHealth = actualStats.maxHealth;
         playerAgentData.moveSpeed = actualStats.moveSpeed;
 
-        collector.SetRadius(CurrentMagnet);
+        collector.SetRadius(actualStats.magnet);
 
     }
 
@@ -189,11 +137,11 @@ public class PlayerStats : MonoBehaviour
 
         experienceCap = levelRanges[0].experienceCapIncrease;
 
-        GameManager.instance.currentHealthDisplay.text = "Max Health: " + CurrentMaxHealth;
-        GameManager.instance.currentRecoveryDisplay.text = "Recovery: " + CurrentRecovery;
-        GameManager.instance.currentMoveSpeedDisplay.text = "Move Speed: " + CurrentMoveSpeed;
-        GameManager.instance.currentPowerDisplay.text = "Power: " + CurrentPower;
-        GameManager.instance.currentMagnetDisplay.text = "Magnet: " + CurrentMagnet;
+        //GameManager.instance.currentHealthDisplay.text = "Max Health: " + CurrentMaxHealth;
+        //GameManager.instance.currentRecoveryDisplay.text = "Recovery: " + CurrentRecovery;
+        //GameManager.instance.currentMoveSpeedDisplay.text = "Move Speed: " + CurrentMoveSpeed;
+        //GameManager.instance.currentPowerDisplay.text = "Power: " + CurrentPower;
+        //GameManager.instance.currentMagnetDisplay.text = "Magnet: " + CurrentMagnet;
 
         UpdateExpBar();
         UpdateLevelText();
@@ -270,7 +218,7 @@ public class PlayerStats : MonoBehaviour
     {
         if(healthData.currentHealth < healthData.maxHealth)
         {
-            healthData.currentHealth += CurrentRecovery * Time.deltaTime;
+            healthData.currentHealth += actualStats.recovery * Time.deltaTime;
             if (healthData.currentHealth > healthData.maxHealth)
                 healthData.currentHealth = healthData.maxHealth;
         }
@@ -301,14 +249,33 @@ public class PlayerStats : MonoBehaviour
                 actualStats += p.GetBoosts();
             }
         }
-        GameManager.instance.currentHealthDisplay.text = "Health: " + CurrentMaxHealth;
-        GameManager.instance.currentRecoveryDisplay.text = "Recovery: " + CurrentRecovery;
-        GameManager.instance.currentMoveSpeedDisplay.text = "Move Speed: " + CurrentMoveSpeed;
-        GameManager.instance.currentPowerDisplay.text = "Power: " + CurrentPower;
-        GameManager.instance.currentMagnetDisplay.text = "Magnet: " + CurrentMagnet;
+        //GameManager.instance.currentHealthDisplay.text = "Health: " + CurrentMaxHealth;
+        //GameManager.instance.currentRecoveryDisplay.text = "Recovery: " + CurrentRecovery;
+        //GameManager.instance.currentMoveSpeedDisplay.text = "Move Speed: " + CurrentMoveSpeed;
+        //GameManager.instance.currentPowerDisplay.text = "Power: " + CurrentPower;
+        //GameManager.instance.currentMagnetDisplay.text = "Magnet: " + CurrentMagnet;
+
         playerAgentData.moveSpeed = actualStats.moveSpeed;
         healthData.maxHealth = actualStats.maxHealth;
 
     }
 
+    internal void TakeDamage(float dmg, GameObject gameObject, Vector3 position)
+    {
+        if (!isInvincible)
+        {
+            dmg -= actualStats.armor;
+            if(dmg > 0)
+            {
+                healthData.GetHit(dmg, gameObject, position);
+            }
+            else
+            {
+                //if (blockedEffect) Destroy(Instantiate(blockedEffect, transform.position, Quaternion.identity), 5f);
+            }
+            invincibilityTimer = invincibilityDuration;
+            isInvincible = true;
+        }
+        
+    }
 }

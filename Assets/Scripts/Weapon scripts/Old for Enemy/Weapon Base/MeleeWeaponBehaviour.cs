@@ -23,10 +23,10 @@ public class MeleeWeaponBehaviour : MonoBehaviour
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, radius))
         {
             Debug.Log(collider.name);
-            Health health;
-            if (collider.name == target && (health = collider.GetComponent<Health>()))
+            PlayerStats player;
+            if (collider.name == target && (player = collider.GetComponent<PlayerStats>()))
             {
-                health.GetHit(damage, transform.parent.gameObject, transform.position);
+                player.TakeDamage(damage, transform.parent.gameObject, transform.position);
             }
             
         }

@@ -8,6 +8,7 @@ using static GameManager;
 
 public class Agent : MonoBehaviour
 {
+    public const float DEFUALT_MOVESPEED = 4f;
     
     public float moveSpeed;
     protected Rigidbody2D rb;
@@ -92,7 +93,8 @@ public class Agent : MonoBehaviour
         {
             return;
         }
-        rb.velocity = new Vector2(moveDir.x * moveSpeed, moveDir.y * moveSpeed);
+        rb.velocity = moveDir * DEFUALT_MOVESPEED * moveSpeed;
+        //rb.velocity = new Vector2(moveDir.x * moveSpeed, moveDir.y * moveSpeed);
     }
 
     public void PerformAttack()
@@ -110,7 +112,7 @@ public class Agent : MonoBehaviour
         else if(playerWeapon==null || !playerWeapon.gameObject.activeSelf)
         {
             playerWeapon = GetComponentInChildren<Weapon>();
-            if(playerWeapon) playerWeapon.Attack();
+            if(playerWeapon) playerWeapon.Attack(playerWeapon.Owner.actualStats.amount);
         }
         else
         {

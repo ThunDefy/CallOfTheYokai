@@ -20,7 +20,17 @@ MonoBehaviour:
   stats:
     maxHealth: 200
     recovery: 0.5
-    moveSpeed: 5
+    armor: 0
+    moveSpeed: 1
     power: 2
-    speed: 100
+    area: 1
+    speed: 1
+    duration: 1
+    amount: 0
+    cooldown: 1
+    luck: 1
+    growth: 1
+    greed: 1
+    curse: 1
     magnet: 3
+    revival: 0

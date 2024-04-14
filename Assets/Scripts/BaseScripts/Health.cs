@@ -24,6 +24,8 @@ public class Health : MonoBehaviour
     public float damageFlashDuration = 0.2f;
     public float deathFadeTime = 0.1f;
 
+    
+
     Color originalColor;
     SpriteRenderer sr;
     Agent agent;
