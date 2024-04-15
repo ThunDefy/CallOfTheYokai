@@ -271,7 +271,7 @@ public class PlayerStats : MonoBehaviour
             }
             else
             {
-                //if (blockedEffect) Destroy(Instantiate(blockedEffect, transform.position, Quaternion.identity), 5f);
+                if (blockedEffect) Destroy(Instantiate(blockedEffect, transform.position, Quaternion.identity), 5f);
             }
             invincibilityTimer = invincibilityDuration;
             isInvincible = true;

@@ -10,6 +10,8 @@ public class Projectile : WeaponEffect
     public Vector3 rotationSpeed = new Vector3(0, 0, 0);
     public Vector3 targetPos;
 
+    
+
     protected Rigidbody2D rb;
     protected int piercing;
 
@@ -17,6 +19,7 @@ public class Projectile : WeaponEffect
     {
         transform.position = weapon.transform.position;
         rb = GetComponent<Rigidbody2D>();
+        
         Weapon.Stats stats = weapon.GetStats();
 
         if(rb.bodyType == RigidbodyType2D.Dynamic)
@@ -27,9 +30,9 @@ public class Projectile : WeaponEffect
 
         //float area = stats.area == 0 ? 1 : stats.area;
         float area = weapon.GetArea();
-        if (area <= 0) area = 1;
-        transform.localScale = new Vector3(area * Mathf.Sign(transform.localScale.x),
-            area * Mathf.Sign(transform.localScale.y), 1);
+        //if (area <= 0) area = 1;
+        //transform.localScale = new Vector3(area * Mathf.Sign(transform.localScale.x),
+        //    area * Mathf.Sign(transform.localScale.y), 1);
         //transform.rotation = Quaternion.Euler(0, 0, - 90);
 
         piercing = stats.pircing;

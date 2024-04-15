@@ -7,7 +7,7 @@ public class ProjectileWeapon : Weapon
     protected float currentAttackInterval;
     protected int currentAttackCount;
 
-    private Vector2 shootDirection;
+    protected Vector2 shootDirection;
 
     protected override void Update()
     {
