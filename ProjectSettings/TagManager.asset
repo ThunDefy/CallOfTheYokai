@@ -59,3 +59,6 @@ TagManager:
   - name: "\u0421reatures"
     uniqueID: 1725223847
     locked: 0
+  - name: Effects
+    uniqueID: 3148354109
+    locked: 0

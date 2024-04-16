@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleWeapon : ProjectileWeapon
+public class VFXProjectileWeapon : ProjectileWeapon
 {
     private ParticleSystem ps;
     public override bool Attack(int attackCount = 1)

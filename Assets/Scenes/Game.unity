@@ -30478,6 +30478,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 9d96e993ac909f940b3c02562352dcec, type: 2}
     - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: blockedEffect
+      value: 
+      objectReference: {fileID: 3593505527381391966, guid: defc5db1658e69343bcc367b1b9569de, type: 3}
+    - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
       propertyPath: startingWeapon
       value: 
       objectReference: {fileID: 4203816605063914695, guid: 26f91f04095ce5449aa0bf6e562d469b, type: 3}
@@ -115723,7 +115727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446133057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.344398, y: 30.218952, z: -0.3283206}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -120922,7 +120926,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761216413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.344398, y: 30.218952, z: -0.3283206}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -30,10 +30,10 @@ public class Projectile : WeaponEffect
 
         //float area = stats.area == 0 ? 1 : stats.area;
         float area = weapon.GetArea();
-        //if (area <= 0) area = 1;
-        //transform.localScale = new Vector3(area * Mathf.Sign(transform.localScale.x),
-        //    area * Mathf.Sign(transform.localScale.y), 1);
-        //transform.rotation = Quaternion.Euler(0, 0, - 90);
+        if (area <= 0) area = 1;
+        transform.localScale = new Vector3(area * Mathf.Sign(transform.localScale.x),
+            area * Mathf.Sign(transform.localScale.y), 1);
+        transform.rotation = Quaternion.Euler(0, 0, -90);
 
         piercing = stats.pircing;
         if (stats.lifespan > 0) Destroy(gameObject, stats.lifespan);
