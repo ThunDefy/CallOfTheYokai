@@ -112,11 +112,11 @@ public class Agent : MonoBehaviour
         else if(playerWeapon==null || !playerWeapon.gameObject.activeSelf)
         {
             playerWeapon = GetComponentInChildren<Weapon>();
-            if(playerWeapon) playerWeapon.Attack(playerWeapon.Owner.actualStats.amount);
+            if(playerWeapon) playerWeapon.Attack(playerWeapon.currentStats.number);
         }
         else
         {
-            playerWeapon.Attack();
+            playerWeapon.Attack(playerWeapon.currentStats.number);
         }
     }
 

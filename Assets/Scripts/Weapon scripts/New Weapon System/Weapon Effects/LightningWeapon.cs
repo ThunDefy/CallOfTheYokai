@@ -9,12 +9,15 @@ public class LightningWeapon : ProjectileWeapon
     public override bool Attack(int attackCount = 1)
     {
 
-        if (!currentStats.projectilePrefab)
+        if (!currentStats.hitEffect)
         {
             ActivateCoolDown();
             return false;
         }
-        if (!CanAttack()) return false;
+        if (!CanAttack())
+        {
+            return false;
+        }
 
         targerPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         targerPosition.z = transform.position.z;

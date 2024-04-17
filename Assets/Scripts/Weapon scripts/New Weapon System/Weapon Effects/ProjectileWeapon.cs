@@ -65,8 +65,10 @@ public class ProjectileWeapon : Weapon
 
     protected virtual Vector2 GetSpawnOffset(float spawnAngle = 0)
     {
-        return Quaternion.Euler(0, 0, spawnAngle) * new Vector2(
+        var res = Quaternion.Euler(0, 0, spawnAngle) * new Vector2(
             Random.Range(currentStats.spawnVariance.xMin, currentStats.spawnVariance.xMax),
             Random.Range(currentStats.spawnVariance.yMin, currentStats.spawnVariance.yMax));
+        print(res);
+        return res;
     }
 }

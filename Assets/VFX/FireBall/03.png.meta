@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f2df6c586837a714d883358c78f75240
+guid: 358b44f46d0a16e40a426e3c832bd016
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mist-particles_0
+      name: 03_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 863599e0440ae524b9c71e2bd45690bf
-      internalID: 1658424726
+      spriteID: e2445084c329275499d8d430ac92cff1
+      internalID: -1326087947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mist-particles_1
+      name: 03_1
       rect:
         serializedVersion: 2
         x: 32
@@ -164,14 +164,98 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 630ee11e77ba0be4ab296356ca4bb96d
-      internalID: -2115844881
+      spriteID: 82e20f74ff03d674b8c24f1b807ac22d
+      internalID: -1287545208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mist-particles_2
+      name: 03_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 378780cc30464bd4da114e17541b73bb
+      internalID: 1999449872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a57eada9c6c94d40a6d5f9a35d124e9
+      internalID: -354632741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21a56f46738dd3c4fa9e575e18dd4997
+      internalID: 1790879135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f20949ce70c39545849fbd6779094cf
+      internalID: -1732655050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03_6
       rect:
         serializedVersion: 2
         x: 0
@@ -185,14 +269,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89e32982f391274499a8a1705650c9cc
-      internalID: -213727553
+      spriteID: 3e24c489cc0f041448e2435b56782d2a
+      internalID: 1666095402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mist-particles_3
+      name: 03_7
       rect:
         serializedVersion: 2
         x: 32
@@ -206,8 +290,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2aeda6f27d4fa94dbfd75d15c0c79e1
-      internalID: 307352223
+      spriteID: c3c813aa342d50b439a58ebc3f6c4dcd
+      internalID: 1557408035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbe1e8fc5fa3e774a9596bf0e04c8837
+      internalID: 1294276797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c289e57ef8098634bb873d6aa37681d6
+      internalID: -715653626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcd103bbc70b30f4f9828f64827e8459
+      internalID: -999007660
       vertices: []
       indices: 
       edges: []
@@ -223,10 +370,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mist-particles_0: 1658424726
-      mist-particles_1: -2115844881
-      mist-particles_2: -213727553
-      mist-particles_3: 307352223
+      03_0: -1326087947
+      03_1: -1287545208
+      03_10: -999007660
+      03_2: 1999449872
+      03_3: -354632741
+      03_4: 1790879135
+      03_5: -1732655050
+      03_6: 1666095402
+      03_7: 1557408035
+      03_8: 1294276797
+      03_9: -715653626
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

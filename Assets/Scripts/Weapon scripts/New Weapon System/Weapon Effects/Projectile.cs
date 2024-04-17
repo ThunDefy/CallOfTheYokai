@@ -11,13 +11,12 @@ public class Projectile : WeaponEffect
     public Vector3 targetPos;
 
     
-
     protected Rigidbody2D rb;
     protected int piercing;
 
     protected virtual void Start()
     {
-        transform.position = weapon.transform.position;
+        //transform.position = weapon.transform.position;
         rb = GetComponent<Rigidbody2D>();
         
         Weapon.Stats stats = weapon.GetStats();
@@ -28,12 +27,12 @@ public class Projectile : WeaponEffect
             rb.velocity = transform.right * stats.speed * weapon.Owner.actualStats.speed;
         }
 
-        //float area = stats.area == 0 ? 1 : stats.area;
         float area = weapon.GetArea();
         if (area <= 0) area = 1;
-        transform.localScale = new Vector3(area * Mathf.Sign(transform.localScale.x),
-            area * Mathf.Sign(transform.localScale.y), 1);
-        transform.rotation = Quaternion.Euler(0, 0, -90);
+        transform.localScale = new Vector3(area * transform.localScale.x,area * transform.localScale.y, 1);
+        
+
+        //transform.localRotation = Quaternion.Euler(0, 0, -90);
 
         piercing = stats.pircing;
         if (stats.lifespan > 0) Destroy(gameObject, stats.lifespan);
@@ -81,11 +80,12 @@ public class Projectile : WeaponEffect
             piercing--;
             if (stats.hitEffect)
             {
+                print("AAAAAAAAAHAHHA");
                 Destroy(Instantiate(stats.hitEffect, transform.position, Quaternion.identity), 5f);
             }
         }
         if(piercing <=0) Destroy(gameObject);
-
        
     }
+
 }

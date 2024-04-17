@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f2df6c586837a714d883358c78f75240
+guid: a06463ae51d9dba4689dcf06d52e54b4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,85 +129,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mist-particles_0
+      name: fire_0
       rect:
         serializedVersion: 2
         x: 0
         y: 32
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.875, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 863599e0440ae524b9c71e2bd45690bf
-      internalID: 1658424726
+      spriteID: 5e75aa0035e11fb4f961d1d0233f35e6
+      internalID: -1496739101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mist-particles_1
+      name: fire_1
       rect:
         serializedVersion: 2
         x: 32
         y: 32
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.875, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 630ee11e77ba0be4ab296356ca4bb96d
-      internalID: -2115844881
+      spriteID: 061d44cdbbf373343bde0ce757ad27be
+      internalID: -605439287
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mist-particles_2
+      name: fire_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.875, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99ca46eadf312914d8b403096fb713ff
+      internalID: -2116926041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.875, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7949a0bad5340246bd7182c66573745
+      internalID: -1856707692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.875, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c30026d635f03e64b9caff97aa705004
+      internalID: -1642097534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.875, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bf69d65da1aec74199bcd9fb3aec2c4
+      internalID: -1558314573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.875, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89e32982f391274499a8a1705650c9cc
-      internalID: -213727553
+      spriteID: f5f26629b08c36149be7b0b2862a23e2
+      internalID: -1238394587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mist-particles_3
+      name: fire_7
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.875, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2aeda6f27d4fa94dbfd75d15c0c79e1
-      internalID: 307352223
+      spriteID: 8fd4d60da52eb7441991ec363c5facce
+      internalID: 780000140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.875, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82924dd465ee9c24ca9566e31d79337f
+      internalID: -679580493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.875, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aae1d95c2456864b89a22147efea848
+      internalID: 1979278889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.875, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae5691552573d6c4f87195d4fd335bff
+      internalID: -36708308
       vertices: []
       indices: 
       edges: []
@@ -223,10 +370,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mist-particles_0: 1658424726
-      mist-particles_1: -2115844881
-      mist-particles_2: -213727553
-      mist-particles_3: 307352223
+      fire_0: -1496739101
+      fire_1: -605439287
+      fire_10: -36708308
+      fire_2: -2116926041
+      fire_3: -1856707692
+      fire_4: -1642097534
+      fire_5: -1558314573
+      fire_6: -1238394587
+      fire_7: 780000140
+      fire_8: -679580493
+      fire_9: 1979278889
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

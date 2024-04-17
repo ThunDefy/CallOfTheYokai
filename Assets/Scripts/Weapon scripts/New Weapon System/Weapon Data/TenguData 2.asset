@@ -20,7 +20,7 @@ MonoBehaviour:
   baseStats:
     name: Tengu3
     description: lightning!!
-    projectilePrefab: {fileID: 2468026514079993384, guid: 2631025a56e6c4447ad276794c287462, type: 3}
+    projectilePrefab: {fileID: 0}
     hitEffect: {fileID: 65010614052783265, guid: 3e696dd44dbe98245b56106d8a3d02d6, type: 3}
     spawnVariance:
       serializedVersion: 2
@@ -31,7 +31,7 @@ MonoBehaviour:
     lifespan: 2
     damage: 10
     damageVariance: 2
-    area: 1
+    area: 2
     speed: 10
     cooldown: 1
     projectileInterval: 0.1

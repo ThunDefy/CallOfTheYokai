@@ -18,10 +18,10 @@ MonoBehaviour:
   behaviour: VFXProjectileWeapon
   yokaiPrefab: {fileID: 4203816605063914695, guid: 7741d93e57837614689397712f8f7074, type: 3}
   baseStats:
-    name: Tengu2
+    name: Tengu2 WIND
     description: Shoot katana in to face
     projectilePrefab: {fileID: 7924484217912911803, guid: b20e122d2087e2c439138431bdc02162, type: 3}
-    hitEffect: {fileID: 0}
+    hitEffect: {fileID: 1321733344444259620, guid: 3e98ce35e5c095040bf83434e2229a5e, type: 3}
     spawnVariance:
       serializedVersion: 2
       x: 1
@@ -31,7 +31,7 @@ MonoBehaviour:
     lifespan: 2
     damage: 10
     damageVariance: 2
-    area: 1
+    area: 0
     speed: 0
     cooldown: 1
     projectileInterval: 0.1
