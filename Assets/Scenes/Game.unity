@@ -30491,7 +30491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
       propertyPath: availableSlotsCount
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
       propertyPath: actualStats.duration

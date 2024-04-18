@@ -59,13 +59,17 @@ public class Projectile : WeaponEffect
 
     protected virtual void FixedUpdate()
     {
-        if(rb.bodyType == RigidbodyType2D.Kinematic)
+        if (rb != null)
         {
-            Weapon.Stats stats = weapon.GetStats();
-            transform.position += targetPos * stats.speed * weapon.Owner.actualStats.speed* Time.fixedDeltaTime;
-            rb.MovePosition(transform.position);
-            transform.Rotate(rotationSpeed * Time.fixedDeltaTime);
+            if (rb.bodyType == RigidbodyType2D.Kinematic)
+            {
+                Weapon.Stats stats = weapon.GetStats();
+                transform.position += targetPos * stats.speed * weapon.Owner.actualStats.speed * Time.fixedDeltaTime;
+                rb.MovePosition(transform.position);
+                transform.Rotate(rotationSpeed * Time.fixedDeltaTime);
+            }
         }
+       
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collider)
@@ -80,11 +84,10 @@ public class Projectile : WeaponEffect
             piercing--;
             if (stats.hitEffect)
             {
-                print("AAAAAAAAAHAHHA");
                 Destroy(Instantiate(stats.hitEffect, transform.position, Quaternion.identity), 5f);
             }
         }
-        if(piercing <=0) Destroy(gameObject);
+        if(piercing <0) Destroy(gameObject);
        
     }
 

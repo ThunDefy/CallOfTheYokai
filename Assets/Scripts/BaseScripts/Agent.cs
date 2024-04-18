@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -27,6 +28,8 @@ public class Agent : MonoBehaviour
 
     public Vector2 MovementInput { get => movementInput; set => movementInput = value; }
     public Vector2 PointerInput { get => pointerInput; set => pointerInput = value; }
+
+    private bool moveIsBlock = false;
 
     protected virtual void Awake()
     {
@@ -88,7 +91,7 @@ public class Agent : MonoBehaviour
     }
     protected virtual void Move()
     {
-        if (GameManager.instance.isGameOver || GameManager.instance.currentState == GameState.Paused
+        if (moveIsBlock || GameManager.instance.isGameOver || GameManager.instance.currentState == GameState.Paused
             || GameManager.instance.currentState == GameState.LevelUp)
         {
             return;
@@ -128,4 +131,8 @@ public class Agent : MonoBehaviour
         knockbackDuration = duration;
     }
 
+    public void BlockMovement(bool block)
+    {
+        moveIsBlock = block;
+    }
 }
