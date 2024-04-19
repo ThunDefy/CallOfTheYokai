@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a9566c59bc49ca478edaf282d3d425e, type: 3}
+  m_Name: 7
+  m_EditorClassIdentifier: 
+  yokaiID: 7
+  icon: {fileID: -634080699, guid: d99f01911d477e5478271316f09c37ad, type: 3}
+  maxRisingLevel: 0
+  behaviour: IllusionWariorSpawnerWeapon
+  yokaiPrefab: {fileID: 4203816605063914695, guid: 7741d93e57837614689397712f8f7074, type: 3}
+  baseStats:
+    name: spawn Illusion warior
+    description: He attack
+    prefab: {fileID: 7553775948631733786, guid: 9325dd6b01da2d54ca4616a300b70e29, type: 3}
+    projectilePrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 10
+    damage: 10
+    damageVariance: 2
+    area: 1
+    speed: 3
+    cooldown: 1
+    projectileInterval: 1
+    knockback: 0
+    number: 0
+    pircing: 0
+    maxInstances: 0
+  risingGrowth: []
+  randomGrowth:
+  - name: more dmg
+    description: +5
+    prefab: {fileID: 7553775948631733786, guid: 9325dd6b01da2d54ca4616a300b70e29, type: 3}
+    projectilePrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 5
+    damageVariance: 0
+    area: 0
+    speed: 0
+    cooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 0
+    pircing: 0
+    maxInstances: 0
+  - name: more dmg
+    description: +5
+    prefab: {fileID: 7553775948631733786, guid: 9325dd6b01da2d54ca4616a300b70e29, type: 3}
+    projectilePrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 5
+    damageVariance: 0
+    area: 0
+    speed: 0
+    cooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 0
+    pircing: 0
+    maxInstances: 0
+  passiveEffectData: {fileID: 11400000, guid: a70d022309ce94d4fbf66105fd67ea2b, type: 2}

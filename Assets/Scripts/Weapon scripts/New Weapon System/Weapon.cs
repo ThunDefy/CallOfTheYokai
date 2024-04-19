@@ -11,6 +11,7 @@ public class Weapon : Yokai
         public string name, description;
 
         [Header("Visuals")]
+        public GameObject prefab;
         public Projectile projectilePrefab;
         public ParticleSystem hitEffect;
         public Rect spawnVariance;

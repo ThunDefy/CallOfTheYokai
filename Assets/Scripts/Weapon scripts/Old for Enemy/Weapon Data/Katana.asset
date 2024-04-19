@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12e2546fcc0e72479b59cb2a7ec52e3, type: 3}
   m_Name: Katana
   m_EditorClassIdentifier: 
+  weaponName: 
+  weaponDescription: 
   prefab: {fileID: 6871592463286859803, guid: 82a8b4debf752cf44b7f47dbe47e12f2, type: 3}
   target: Player
   damage: 2

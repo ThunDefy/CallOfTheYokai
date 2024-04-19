@@ -15,9 +15,8 @@ public class YokaiCage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && (playerInventory = collision.GetComponent<PlayerInventory>()))
         {
-            playerInventory = collision.GetComponent<PlayerInventory>();
             if (playerInventory!=null) anim.EndingAnimation();
             else Debug.LogError("Player don't have inventory");
         }
