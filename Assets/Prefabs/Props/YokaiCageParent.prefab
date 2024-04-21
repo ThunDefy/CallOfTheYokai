@@ -46,7 +46,7 @@ PrefabInstance:
     - target: {fileID: 1608459237243641537, guid: 520d330afdecb4344a91b26abe196020, type: 3}
       propertyPath: posibleYokais.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: f3f3e856028a1ad4ab4f568c67903f0a, type: 2}
+      objectReference: {fileID: 11400000, guid: 8035c769c99e67e499a5e5cc9219c4e8, type: 2}
     - target: {fileID: 1608459237243641537, guid: 520d330afdecb4344a91b26abe196020, type: 3}
       propertyPath: posibleYokais.Array.data[1]
       value: 

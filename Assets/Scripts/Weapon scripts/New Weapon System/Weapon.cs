@@ -87,12 +87,16 @@ public class Weapon : Yokai
 
     protected virtual void Update()
     {
-        currentCoolDown -= Time.deltaTime;
-        if(currentCoolDown <= 0f)
+        if (currentCoolDown >= 0)
         {
-            //attackBlocked = false;
-            //Attack(currentStats.number);
+            currentCoolDown -= Time.deltaTime;
         }
+        //currentCoolDown -= Time.deltaTime;
+        //if(currentCoolDown <= 0f)
+        //{
+        //    //attackBlocked = false;
+        //    //Attack(currentStats.number);
+        //}
     }
 
 
@@ -146,6 +150,8 @@ public class Weapon : Yokai
         float actualCooldown = currentStats.cooldown * Owner.actualStats.cooldown;
 
         currentCoolDown = Mathf.Min(actualCooldown, currentCoolDown + actualCooldown);
+
+        print(actualCooldown + " " + (currentCoolDown + actualCooldown) + " " + Mathf.Min(actualCooldown, currentCoolDown + actualCooldown) + " " + currentCoolDown);
         return true;
     }
 }

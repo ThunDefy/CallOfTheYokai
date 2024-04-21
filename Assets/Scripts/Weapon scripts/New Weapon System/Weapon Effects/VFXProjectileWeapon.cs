@@ -5,7 +5,7 @@ using UnityEngine;
 public class VFXProjectileWeapon : ProjectileWeapon
 {
     protected ParticleSystem ps;
-    //private ParticleSystem[] dopPs;
+
     public override bool Attack(int attackCount = 1)
     {
         if (!currentStats.projectilePrefab)
@@ -19,19 +19,13 @@ public class VFXProjectileWeapon : ProjectileWeapon
 
         float spawnAngle = GetSpawnAngle();
 
-        Projectile prefab = Instantiate(currentStats.projectilePrefab, owner.transform.position + (Vector3)GetSpawnOffset(spawnAngle), Quaternion.Euler(0, 0, spawnAngle)); // создаем снаряд
+        Projectile prefab = Instantiate(currentStats.projectilePrefab, this.transform.position + (Vector3)GetSpawnOffset(spawnAngle), Quaternion.Euler(0, 0, spawnAngle)); // создаем снаряд
         prefab.targetPos = shootDirection;
         prefab.weapon = this;
         prefab.owner = owner;
         if(data.baseStats.speed == 0) prefab.transform.SetParent(transform);
 
-        // Поворачиваем партикл по направлению мыши 
-        ps = prefab.transform.GetComponent<ParticleSystem>();
-        var main = ps.main;
-        float agle = prefab.transform.rotation.eulerAngles.z;
-        float angleInRadians = agle * Mathf.Deg2Rad;
-        angleInRadians = Mathf.Repeat(angleInRadians, Mathf.PI * 2);
-        main.startRotation = angleInRadians;
+        RotateVFX(prefab);
 
 
         ActivateCoolDown(true);
@@ -44,5 +38,16 @@ public class VFXProjectileWeapon : ProjectileWeapon
             currentAttackInterval = data.baseStats.projectileInterval;
         }
         return true;
+    }
+
+    protected void RotateVFX(WeaponEffect prefab)
+    {
+        // Поворачиваем партикл по направлению мыши 
+        ps = prefab.transform.GetComponent<ParticleSystem>();
+        var main = ps.main;
+        float agle = prefab.transform.rotation.eulerAngles.z;
+        float angleInRadians = agle * Mathf.Deg2Rad;
+        angleInRadians = Mathf.Repeat(angleInRadians, Mathf.PI * 2);
+        main.startRotation = angleInRadians;
     }
 }

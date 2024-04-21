@@ -12,6 +12,7 @@ public class Agent : MonoBehaviour
     public const float DEFUALT_MOVESPEED = 4f;
     
     public float moveSpeed;
+    float originalSpeed;
     protected Rigidbody2D rb;
 
     Vector2 knockbackVelocity;
@@ -33,7 +34,7 @@ public class Agent : MonoBehaviour
 
     protected virtual void Awake()
     {
-        
+        originalSpeed = moveSpeed;
         weaponParent = GetComponentInChildren<WeaponParent>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -134,5 +135,13 @@ public class Agent : MonoBehaviour
     public void BlockMovement(bool block)
     {
         moveIsBlock = block;
+    }
+    
+    internal void SlowedDown(float by)
+    {
+        if(by >0)
+            moveSpeed *= by;
+        else
+            moveSpeed = originalSpeed;
     }
 }

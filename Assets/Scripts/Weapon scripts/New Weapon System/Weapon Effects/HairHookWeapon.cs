@@ -6,6 +6,8 @@ public class HairHookWeapon : VFXProjectileWeapon
 {
     public override bool Attack(int attackCount = 1)
     {
+        print("ATAAAAAAAAAAAAAAAAKKGFSDKkgfdkjgd");
+
         if (!currentStats.projectilePrefab)
         {
             ActivateCoolDown();
@@ -17,19 +19,13 @@ public class HairHookWeapon : VFXProjectileWeapon
 
         float spawnAngle = GetSpawnAngle();
 
-        Projectile prefab = Instantiate(currentStats.projectilePrefab, owner.transform.position + (Vector3)GetSpawnOffset(spawnAngle), Quaternion.Euler(0, 0, spawnAngle)); // создаем снаряд
+        Projectile prefab = Instantiate(currentStats.projectilePrefab, this.transform.position + (Vector3)GetSpawnOffset(spawnAngle), Quaternion.Euler(0, 0, spawnAngle)); // создаем снаряд
         prefab.targetPos = shootDirection;
         prefab.weapon = this;
         prefab.owner = owner;
         if (data.baseStats.speed == 0) prefab.transform.SetParent(transform);
 
-        // Поворачиваем партикл по направлению мыши 
-        ps = prefab.transform.GetComponent<ParticleSystem>();
-        var main = ps.main;
-        float agle = prefab.transform.rotation.eulerAngles.z;
-        float angleInRadians = agle * Mathf.Deg2Rad;
-        angleInRadians = Mathf.Repeat(angleInRadians, Mathf.PI * 2);
-        main.startRotation = angleInRadians;
+        RotateVFX(prefab);
 
 
         ActivateCoolDown(true);

@@ -16,7 +16,7 @@ public class Projectile : WeaponEffect
 
     protected virtual void Start()
     {
-        //transform.position = weapon.transform.position;
+       
         rb = GetComponent<Rigidbody2D>();
         
         Weapon.Stats stats = weapon.GetStats();
@@ -28,8 +28,8 @@ public class Projectile : WeaponEffect
         }
 
         float area = weapon.GetArea();
-        if (area <= 0) area = 1;
-        transform.localScale = new Vector3(area * transform.localScale.x,area * transform.localScale.y, 1);
+        //if (area <= 0) area = 1;
+        //transform.localScale = new Vector3(area * transform.localScale.x,area * transform.localScale.y, 1);
         
 
         //transform.localRotation = Quaternion.Euler(0, 0, -90);
@@ -59,6 +59,9 @@ public class Projectile : WeaponEffect
 
     protected virtual void FixedUpdate()
     {
+        //transform.position = weapon.transform.position;
+        //transform.rotation = weapon.transform.rotation;
+
         if (rb != null)
         {
             if (rb.bodyType == RigidbodyType2D.Kinematic)

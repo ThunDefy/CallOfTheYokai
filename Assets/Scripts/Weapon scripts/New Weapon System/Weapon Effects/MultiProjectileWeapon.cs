@@ -7,6 +7,7 @@ public class MultiProjectileWeapon : VFXProjectileWeapon
 
     public override bool Attack(int attackCount = 1)
     {
+        
         if (!currentStats.projectilePrefab)
         {
             ActivateCoolDown();
@@ -24,7 +25,7 @@ public class MultiProjectileWeapon : VFXProjectileWeapon
         while (attackCount > 0)
         {
 
-            Projectile prefab = Instantiate(currentStats.projectilePrefab, owner.transform.position + (Vector3)GetSpawnOffset(spawnAngle), Quaternion.Euler(0, 0, spawnAngle)); // создаем снаряд
+            Projectile prefab = Instantiate(currentStats.projectilePrefab, this.transform.position + (Vector3)GetSpawnOffset(spawnAngle), Quaternion.Euler(0, 0, spawnAngle)); // создаем снаряд
             prefab.targetPos = spreads[num++];
             prefab.weapon = this;
             prefab.owner = owner;

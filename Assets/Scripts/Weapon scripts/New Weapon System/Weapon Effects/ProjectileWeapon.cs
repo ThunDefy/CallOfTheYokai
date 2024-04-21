@@ -9,19 +9,15 @@ public class ProjectileWeapon : Weapon
 
     protected Vector2 shootDirection;
 
-    protected override void Update()
-    {
-        base.Update();
-        if(currentAttackInterval > 0)
-        {
-            currentAttackInterval -= Time.deltaTime;
-            if(currentAttackInterval <= 0) Attack(currentAttackCount);
-        }
-    }
+    //protected override void Update()
+    //{
+    //    base.Update();
+
+    //}
 
     public override bool CanAttack()
     {
-        if (currentAttackCount > 0) return true;
+        //if (currentAttackCount > 0) return true;
         return base.CanAttack();
     }
 
@@ -45,13 +41,13 @@ public class ProjectileWeapon : Weapon
 
         ActivateCoolDown(true);
 
-        attackCount--;
+        //attackCount--;
 
-        if (attackCount > 0)
-        {
-            currentAttackCount = attackCount;
-            currentAttackInterval = data.baseStats.projectileInterval;
-        }
+        //if (attackCount > 0)
+        //{
+        //    currentAttackCount = attackCount;
+        //    currentAttackInterval = data.baseStats.projectileInterval;
+        //}
         return true;
     }
 

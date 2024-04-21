@@ -14,8 +14,9 @@ public class IllusionWarior : WeaponEffect
         Weapon.Stats stats = weapon.GetStats();
 
         float area = weapon.GetArea();
-        if (area <= 0) area = 1;
-        transform.localScale = new Vector3(area * transform.localScale.x, area * transform.localScale.y, 1);
+        //if (area <= 0) area = 1;
+        //transform.localScale = new Vector3(area * transform.localScale.x, area * transform.localScale.y, 1);
+
 
         if (stats.lifespan > 0)
         {

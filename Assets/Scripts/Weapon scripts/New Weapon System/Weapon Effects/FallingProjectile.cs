@@ -22,10 +22,9 @@ public class FallingProjectile : Projectile
 
     private void CallFalling()
     {
-        print("WOPODSFKSDF");
         FallDamageArea();
         InvokeRepeating("BiteDamageArea", 0f, stats.projectileInterval);
-        Invoke("DestroyObjectWithDelay1", stats.lifespan);
+        Invoke("DestroyObjectWithDelay", stats.lifespan);
     }
 
     private void FallDamageArea()
@@ -62,9 +61,8 @@ public class FallingProjectile : Projectile
         }
     }
 
-    private void DestroyObjectWithDelay1()
+    private void DestroyObjectWithDelay()
     {
-        print("’”…À» ﬂ ¬€«¬¿À—ﬂ");
         CancelInvoke();
         Destroy(gameObject);
     }

@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a9566c59bc49ca478edaf282d3d425e, type: 3}
-  m_Name: TenguData 2
+  m_Name: TenguData 7
   m_EditorClassIdentifier: 
-  yokaiID: 3
+  yokaiID: 8
   icon: {fileID: -1607263603, guid: 2e7f3da684debd74f87677964da8e344, type: 3}
   maxRisingLevel: 0
-  behaviour: LightningWeapon
+  behaviour: SpiderWebWeapon
   yokaiPrefab: {fileID: 4203816605063914695, guid: 7741d93e57837614689397712f8f7074, type: 3}
   baseStats:
-    name: Tengu3
+    name: WEB SPIDERS
     description: lightning!!
-    prefab: {fileID: 0}
+    prefab: {fileID: 4687139396354397350, guid: 9b972e1681b13e74da7ba06e1003d298, type: 3}
     projectilePrefab: {fileID: 0}
-    hitEffect: {fileID: 65010614052783265, guid: 3e696dd44dbe98245b56106d8a3d02d6, type: 3}
+    hitEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -30,13 +30,13 @@ MonoBehaviour:
       width: 0
       height: 0
     lifespan: 2
-    damage: 10
+    damage: 1
     damageVariance: 2
-    area: 2
-    speed: 10
+    area: 1
+    speed: 1
     cooldown: 1
-    projectileInterval: 0.1
-    knockback: 0.5
+    projectileInterval: 0.2
+    knockback: 0
     number: 1
     pircing: 3
     maxInstances: 70
@@ -44,9 +44,9 @@ MonoBehaviour:
   randomGrowth:
   - name: "\u0411\u043E\u043B\u044C\u0448\u0435 \u043C\u043E\u0449\u0438!"
     description: "+10 \u043A \u0434\u0430\u043C\u0430\u0433\u0443"
-    prefab: {fileID: 0}
+    prefab: {fileID: 4687139396354397350, guid: 9b972e1681b13e74da7ba06e1003d298, type: 3}
     projectilePrefab: {fileID: 0}
-    hitEffect: {fileID: 65010614052783265, guid: 3e696dd44dbe98245b56106d8a3d02d6, type: 3}
+    hitEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -66,9 +66,9 @@ MonoBehaviour:
     maxInstances: 0
   - name: "\u0411\u043E\u043B\u044C\u0448\u0435 \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438!!"
     description: "+10 \u043A \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438 \u0441\u043D\u0430\u0440\u044F\u0434\u0430"
-    prefab: {fileID: 0}
+    prefab: {fileID: 4687139396354397350, guid: 9b972e1681b13e74da7ba06e1003d298, type: 3}
     projectilePrefab: {fileID: 0}
-    hitEffect: {fileID: 65010614052783265, guid: 3e696dd44dbe98245b56106d8a3d02d6, type: 3}
+    hitEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
     damage: 0
     damageVariance: 0
     area: 0
-    speed: 10
+    speed: 0
     cooldown: 0
     projectileInterval: 0
     knockback: 0
@@ -88,9 +88,9 @@ MonoBehaviour:
     maxInstances: 0
   - name: "\u0411\u043E\u043B\u044C\u0448\u0435 \u043A\u043D\u043E\u043A\u0431\u0435\u043A\u0430!"
     description: "+1 \u043A \u0441\u0438\u043B\u0435 \u043E\u0442\u0442\u0430\u043B\u043A\u0438\u0432\u0430\u043D\u0438\u044F"
-    prefab: {fileID: 0}
+    prefab: {fileID: 4687139396354397350, guid: 9b972e1681b13e74da7ba06e1003d298, type: 3}
     projectilePrefab: {fileID: 0}
-    hitEffect: {fileID: 65010614052783265, guid: 3e696dd44dbe98245b56106d8a3d02d6, type: 3}
+    hitEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
       x: 0

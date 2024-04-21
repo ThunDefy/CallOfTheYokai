@@ -15,11 +15,12 @@ MonoBehaviour:
   yokaiID: 5
   icon: {fileID: 327107110, guid: 2e7f3da684debd74f87677964da8e344, type: 3}
   maxRisingLevel: 0
-  behaviour: VFXProjectileWeapon
+  behaviour: HairHookWeapon
   yokaiPrefab: {fileID: 4203816605063914695, guid: 7741d93e57837614689397712f8f7074, type: 3}
   baseStats:
-    name: Tengu5
+    name: Tengu5 HAIRR
     description: Shoot katana in to face
+    prefab: {fileID: 0}
     projectilePrefab: {fileID: 2490563873545524358, guid: d5b30cb73b699e141b07cfbec559d0b8, type: 3}
     hitEffect: {fileID: 0}
     spawnVariance:
@@ -43,6 +44,7 @@ MonoBehaviour:
   randomGrowth:
   - name: "\u0411\u043E\u043B\u044C\u0448\u0435 \u043C\u043E\u0449\u0438!"
     description: "+10 \u043A \u0434\u0430\u043C\u0430\u0433\u0443"
+    prefab: {fileID: 0}
     projectilePrefab: {fileID: 2490563873545524358, guid: d5b30cb73b699e141b07cfbec559d0b8, type: 3}
     hitEffect: {fileID: 0}
     spawnVariance:
@@ -64,6 +66,7 @@ MonoBehaviour:
     maxInstances: 0
   - name: "\u0411\u043E\u043B\u044C\u0448\u0435 \u043C\u043E\u0449\u0438!"
     description: "+10 \u043A \u0434\u0430\u043C\u0430\u0433\u0443"
+    prefab: {fileID: 0}
     projectilePrefab: {fileID: 2490563873545524358, guid: d5b30cb73b699e141b07cfbec559d0b8, type: 3}
     hitEffect: {fileID: 0}
     spawnVariance:
@@ -85,6 +88,7 @@ MonoBehaviour:
     maxInstances: 0
   - name: "\u0411\u043E\u043B\u044C\u0448\u0435 \u043C\u043E\u0449\u0438!"
     description: "+10 \u043A \u0434\u0430\u043C\u0430\u0433\u0443"
+    prefab: {fileID: 0}
     projectilePrefab: {fileID: 2490563873545524358, guid: d5b30cb73b699e141b07cfbec559d0b8, type: 3}
     hitEffect: {fileID: 0}
     spawnVariance:
