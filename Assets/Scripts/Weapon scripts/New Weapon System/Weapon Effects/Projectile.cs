@@ -16,7 +16,7 @@ public class Projectile : WeaponEffect
 
     protected virtual void Start()
     {
-       
+        print(transform.localScale);
         rb = GetComponent<Rigidbody2D>();
         
         Weapon.Stats stats = weapon.GetStats();
@@ -28,15 +28,17 @@ public class Projectile : WeaponEffect
         }
 
         float area = weapon.GetArea();
-        //if (area <= 0) area = 1;
-        //transform.localScale = new Vector3(area * transform.localScale.x,area * transform.localScale.y, 1);
-        
+
+        if (area <= 0) area = 1;
+        transform.localScale = new Vector3(area,area, 1);
+
 
         //transform.localRotation = Quaternion.Euler(0, 0, -90);
 
         piercing = stats.pircing;
         if (stats.lifespan > 0) Destroy(gameObject, stats.lifespan);
         if (hasAutoAim) AcquireAutoAimFacing();
+        
     }
 
     public virtual void AcquireAutoAimFacing()
@@ -57,6 +59,7 @@ public class Projectile : WeaponEffect
         transform.rotation = Quaternion.Euler(0, 0, aimAngle - 90);
     }
 
+
     protected virtual void FixedUpdate()
     {
         //transform.position = weapon.transform.position;
@@ -72,7 +75,7 @@ public class Projectile : WeaponEffect
                 transform.Rotate(rotationSpeed * Time.fixedDeltaTime);
             }
         }
-       
+
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collider)

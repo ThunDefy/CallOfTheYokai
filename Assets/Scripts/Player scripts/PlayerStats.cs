@@ -137,12 +137,6 @@ public class PlayerStats : MonoBehaviour
 
         experienceCap = levelRanges[0].experienceCapIncrease;
 
-        //GameManager.instance.currentHealthDisplay.text = "Max Health: " + CurrentMaxHealth;
-        //GameManager.instance.currentRecoveryDisplay.text = "Recovery: " + CurrentRecovery;
-        //GameManager.instance.currentMoveSpeedDisplay.text = "Move Speed: " + CurrentMoveSpeed;
-        //GameManager.instance.currentPowerDisplay.text = "Power: " + CurrentPower;
-        //GameManager.instance.currentMagnetDisplay.text = "Magnet: " + CurrentMagnet;
-
         UpdateExpBar();
         UpdateLevelText();
     }

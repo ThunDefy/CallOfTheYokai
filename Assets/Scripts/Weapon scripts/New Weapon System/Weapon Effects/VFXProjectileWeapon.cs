@@ -20,10 +20,11 @@ public class VFXProjectileWeapon : ProjectileWeapon
         float spawnAngle = GetSpawnAngle();
 
         Projectile prefab = Instantiate(currentStats.projectilePrefab, this.transform.position + (Vector3)GetSpawnOffset(spawnAngle), Quaternion.Euler(0, 0, spawnAngle)); // создаем снаряд
+        
         prefab.targetPos = shootDirection;
         prefab.weapon = this;
         prefab.owner = owner;
-        if(data.baseStats.speed == 0) prefab.transform.SetParent(transform);
+        if(data.baseStats.speed == 0) prefab.transform.SetParent(this.transform);
 
         RotateVFX(prefab);
 

@@ -151,7 +151,7 @@ public class Weapon : Yokai
 
         currentCoolDown = Mathf.Min(actualCooldown, currentCoolDown + actualCooldown);
 
-        print(actualCooldown + " " + (currentCoolDown + actualCooldown) + " " + Mathf.Min(actualCooldown, currentCoolDown + actualCooldown) + " " + currentCoolDown);
+        //print(actualCooldown + " " + (currentCoolDown + actualCooldown) + " " + Mathf.Min(actualCooldown, currentCoolDown + actualCooldown) + " " + currentCoolDown);
         return true;
     }
 }
