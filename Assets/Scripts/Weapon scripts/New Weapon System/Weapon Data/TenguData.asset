@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9566c59bc49ca478edaf282d3d425e, type: 3}
   m_Name: TenguData
   m_EditorClassIdentifier: 
-  yokaiID: 1
-  icon: {fileID: -848624017, guid: 2e7f3da684debd74f87677964da8e344, type: 3}
+  yokaiID: 2
+  icon: {fileID: -1037926960, guid: 2e7f3da684debd74f87677964da8e344, type: 3}
   maxRisingLevel: 5
   behaviour: VFXProjectileWeapon
   yokaiPrefab: {fileID: 4203816605063914695, guid: 7741d93e57837614689397712f8f7074, type: 3}
   baseStats:
-    name: Tengu1 FIRE BALL
-    description: Shoot katana in to face
+    name: Tengu
+    description: Releases a stream of wind that knocks back enemies
     prefab: {fileID: 0}
-    projectilePrefab: {fileID: 7924484217912911803, guid: 6860a7af87ba28d40bf4aee8f39dff37, type: 3}
+    projectilePrefab: {fileID: 4742822842378266817, guid: b20e122d2087e2c439138431bdc02162, type: 3}
     hitEffect: {fileID: 1321733344444259620, guid: 3e98ce35e5c095040bf83434e2229a5e, type: 3}
     spawnVariance:
       serializedVersion: 2
@@ -32,130 +32,20 @@ MonoBehaviour:
     lifespan: 2
     damage: 10
     damageVariance: 2
-    area: 1
-    speed: 10
+    area: 0
+    speed: 0
     cooldown: 1
     projectileInterval: 0.1
-    knockback: 0.5
+    knockback: 10
     number: 1
-    pircing: 1
+    pircing: 2
     maxInstances: 70
-  risingGrowth:
-  - name: Tengu1 risingLevel 1
-    description: 
-    prefab: {fileID: 0}
-    projectilePrefab: {fileID: 7924484217912911803, guid: 6860a7af87ba28d40bf4aee8f39dff37, type: 3}
-    hitEffect: {fileID: 1321733344444259620, guid: 3e98ce35e5c095040bf83434e2229a5e, type: 3}
-    spawnVariance:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0
-      height: 0
-    lifespan: 0.5
-    damage: 15
-    damageVariance: 3
-    area: 5
-    speed: 5
-    cooldown: 0
-    projectileInterval: -1
-    knockback: 10
-    number: 2
-    pircing: 1
-    maxInstances: 100
-  - name: Tengu1 risingLevel 2
-    description: 
-    prefab: {fileID: 0}
-    projectilePrefab: {fileID: 7924484217912911803, guid: 6860a7af87ba28d40bf4aee8f39dff37, type: 3}
-    hitEffect: {fileID: 0}
-    spawnVariance:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0
-      height: 0
-    lifespan: 0.5
-    damage: 15
-    damageVariance: 3
-    area: 1
-    speed: 2
-    cooldown: -1
-    projectileInterval: -1
-    knockback: 10
-    number: 2
-    pircing: 1
-    maxInstances: 1
-  - name: Tengu1 risingLevel 3
-    description: 
-    prefab: {fileID: 0}
-    projectilePrefab: {fileID: 7924484217912911803, guid: 6860a7af87ba28d40bf4aee8f39dff37, type: 3}
-    hitEffect: {fileID: 0}
-    spawnVariance:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0
-      height: 0
-    lifespan: 0.5
-    damage: 10
-    damageVariance: 3
-    area: 1
-    speed: 2
-    cooldown: -1
-    projectileInterval: -1
-    knockback: 2
-    number: 2
-    pircing: 1
-    maxInstances: 1
-  - name: Tengu1 risingLevel 4
-    description: 
-    prefab: {fileID: 0}
-    projectilePrefab: {fileID: 7924484217912911803, guid: 6860a7af87ba28d40bf4aee8f39dff37, type: 3}
-    hitEffect: {fileID: 0}
-    spawnVariance:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0
-      height: 0
-    lifespan: 0.5
-    damage: 10
-    damageVariance: 3
-    area: 1
-    speed: 2
-    cooldown: -1
-    projectileInterval: -1
-    knockback: 2
-    number: 2
-    pircing: 1
-    maxInstances: 1
-  - name: Tengu1 risingLevel 5
-    description: 
-    prefab: {fileID: 0}
-    projectilePrefab: {fileID: 7924484217912911803, guid: 6860a7af87ba28d40bf4aee8f39dff37, type: 3}
-    hitEffect: {fileID: 0}
-    spawnVariance:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0
-      height: 0
-    lifespan: 0.5
-    damage: 10
-    damageVariance: 3
-    area: 1
-    speed: 2
-    cooldown: -1
-    projectileInterval: -1
-    knockback: 2
-    number: 2
-    pircing: 1
-    maxInstances: 1
+  risingGrowth: []
   randomGrowth:
   - name: "\u0411\u043E\u043B\u044C\u0448\u0435 \u043C\u043E\u0449\u0438!"
     description: "+10 \u043A \u0434\u0430\u043C\u0430\u0433\u0443"
     prefab: {fileID: 0}
-    projectilePrefab: {fileID: 7924484217912911803, guid: 6860a7af87ba28d40bf4aee8f39dff37, type: 3}
+    projectilePrefab: {fileID: 4742822842378266817, guid: b20e122d2087e2c439138431bdc02162, type: 3}
     hitEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
@@ -177,7 +67,7 @@ MonoBehaviour:
   - name: "\u0411\u043E\u043B\u044C\u0448\u0435 \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438!!"
     description: "+10 \u043A \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438 \u0441\u043D\u0430\u0440\u044F\u0434\u0430"
     prefab: {fileID: 0}
-    projectilePrefab: {fileID: 7924484217912911803, guid: 6860a7af87ba28d40bf4aee8f39dff37, type: 3}
+    projectilePrefab: {fileID: 4742822842378266817, guid: b20e122d2087e2c439138431bdc02162, type: 3}
     hitEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
@@ -199,7 +89,7 @@ MonoBehaviour:
   - name: "\u0411\u043E\u043B\u044C\u0448\u0435 \u043A\u043D\u043E\u043A\u0431\u0435\u043A\u0430!"
     description: "+1 \u043A \u0441\u0438\u043B\u0435 \u043E\u0442\u0442\u0430\u043B\u043A\u0438\u0432\u0430\u043D\u0438\u044F"
     prefab: {fileID: 0}
-    projectilePrefab: {fileID: 7924484217912911803, guid: 6860a7af87ba28d40bf4aee8f39dff37, type: 3}
+    projectilePrefab: {fileID: 4742822842378266817, guid: b20e122d2087e2c439138431bdc02162, type: 3}
     hitEffect: {fileID: 0}
     spawnVariance:
       serializedVersion: 2
@@ -218,4 +108,4 @@ MonoBehaviour:
     number: 0
     pircing: 0
     maxInstances: 0
-  passiveEffectData: {fileID: 11400000, guid: a70d022309ce94d4fbf66105fd67ea2b, type: 2}
+  passiveEffectData: {fileID: 11400000, guid: 10216dc598ec4884991ead95c823a3c3, type: 2}

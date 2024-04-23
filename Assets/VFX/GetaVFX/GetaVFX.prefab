@@ -9618,33 +9618,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clearBehavior: 2
   cameraShake:
-    enabled: 0
+    enabled: 1
     useMainCamera: 1
     cameras: []
-    delay: 0
-    duration: 1
+    delay: 0.4
+    duration: 0.2
     shakeSpace: 0
     shakeStrength: {x: 0.1, y: 0.1, z: 0.1}
     shakeCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
+        time: -0.0083351135
+        value: 0.50707626
         inSlope: 0
-        outSlope: -1
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
         time: 1
-        value: 0
-        inSlope: -1
-        outSlope: 0
+        value: -0.0023498535
+        inSlope: -0.48315233
+        outSlope: -0.48315233
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.16942121
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -14475,7 +14475,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

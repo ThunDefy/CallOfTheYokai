@@ -64,7 +64,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -253,9 +253,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnWeaponSwap:
+    m_PersistentCalls:
+      m_Calls: []
   movement: {fileID: 1167488368386784613, guid: ae71ffd13ca57ad4fa7b7dad2fd1c2bd, type: 3}
   Attack: {fileID: -4408451209855023314, guid: ae71ffd13ca57ad4fa7b7dad2fd1c2bd, type: 3}
   pointerPosition: {fileID: -2467167441334188498, guid: ae71ffd13ca57ad4fa7b7dad2fd1c2bd, type: 3}
+  swapActiveWeapon: {fileID: 0}
 --- !u!70 &1921645335932540549
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -284,8 +288,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8bc881d00f2e4c4a9fe11c46707f382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 10
+  healthBar: {fileID: 0}
   maxHealth: 10
+  isPlayer: 0
+  currentHealth: 10
   OnHitWithReference:
     m_PersistentCalls:
       m_Calls: []
@@ -293,6 +299,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   isDead: 0
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  damageFlashDuration: 0.2
+  deathFadeTime: 0.1
 --- !u!114 &-1205129498488766201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,17 +315,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthData: {fileID: 0}
-  playerData: {fileID: 0}
+  playerAgentData: {fileID: 0}
   weaponParent: {fileID: 0}
+  playerData: {fileID: 0}
+  baseStats:
+    maxHealth: 0
+    recovery: 0
+    armor: 0
+    moveSpeed: 0
+    power: 0
+    area: 0
+    speed: 0
+    duration: 0
+    amount: 0
+    cooldown: 0
+    luck: 0
+    growth: 0
+    greed: 0
+    curse: 0
+    magnet: 0
+    revival: 0
+  actualStats:
+    maxHealth: 0
+    recovery: 0
+    armor: 0
+    moveSpeed: 0
+    power: 0
+    area: 0
+    speed: 0
+    duration: 0
+    amount: 0
+    cooldown: 0
+    luck: 0
+    growth: 0
+    greed: 0
+    curse: 0
+    magnet: 0
+    revival: 0
   weaponIndex: 0
-  startingWeapon: {fileID: 4203816605063914695, guid: 26f91f04095ce5449aa0bf6e562d469b, type: 3}
-  currentRecovery: 0.5
-  currentMagnet: 1.6
-  currentPower: 1
+  player: {fileID: 0}
+  availableSlotsCount: 0
   experience: 0
   level: 1
   experienceCap: 200
   invincibilityDuration: 0
+  blockedEffect: {fileID: 0}
+  expBar: {fileID: 0}
+  levelText: {fileID: 0}
   levelRanges:
   - startLevel: 1
     endLevel: 3
@@ -345,6 +390,7 @@ MonoBehaviour:
   weaponUISlots:
   - {fileID: 6752911906458245752, guid: 7f2ddd86976f8bb44a57c056e2eccdc7, type: 3}
   weaponLevels: 0000000000000000
+  upgradeUIOptions: []
 --- !u!1 &6927289800359976362
 GameObject:
   m_ObjectHideFlags: 0

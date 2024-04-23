@@ -19364,21 +19364,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clearBehavior: 2
   cameraShake:
-    enabled: 0
+    enabled: 1
     useMainCamera: 1
     cameras: []
-    delay: 0
-    duration: 1
+    delay: 0.9
+    duration: 0.8
     shakeSpace: 0
     shakeStrength: {x: 0.1, y: 0.1, z: 0.1}
     shakeCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
+        time: -0.0041656494
+        value: 0.82547
         inSlope: 0
-        outSlope: -1
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
@@ -19387,7 +19387,7 @@ MonoBehaviour:
         time: 1
         value: 0
         inSlope: -1
-        outSlope: 0
+        outSlope: -1
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
