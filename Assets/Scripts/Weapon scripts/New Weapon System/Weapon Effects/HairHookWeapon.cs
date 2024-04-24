@@ -6,7 +6,6 @@ public class HairHookWeapon : VFXProjectileWeapon
 {
     public override bool Attack(int attackCount = 1)
     {
-        print("ATAAAAAAAAAAAAAAAAKKGFSDKkgfdkjgd");
 
         if (!currentStats.projectilePrefab)
         {
@@ -23,18 +22,17 @@ public class HairHookWeapon : VFXProjectileWeapon
         prefab.targetPos = shootDirection;
         prefab.weapon = this;
         prefab.owner = owner;
-        if (data.baseStats.speed == 0) prefab.transform.SetParent(transform);
 
         RotateVFX(prefab);
 
 
         ActivateCoolDown(true);
 
-        if (attackCount > 0)
-        {
-            currentAttackCount = attackCount;
-            currentAttackInterval = data.baseStats.projectileInterval;
-        }
+        //if (attackCount > 0)
+        //{
+        //    currentAttackCount = attackCount;
+        //    currentAttackInterval = data.baseStats.projectileInterval;
+        //}
 
         return true;
     }

@@ -5,6 +5,19 @@ using UnityEngine;
 public class FlamethrowerWeapon : VFXProjectileWeapon
 {
     public bool isAttacking = false;
+
+    protected override void Update()
+    {
+        if (currentCoolDown > 0)
+        {
+            currentCoolDown -= Time.deltaTime;
+        }
+        if (currentCoolDown <= 0f)
+        {
+            animator.SetBool("CoolDown", false);
+        }
+    }
+
     public override bool Attack(int attackCount = 1)
     {
         if (isAttacking) return false;
@@ -17,8 +30,25 @@ public class FlamethrowerWeapon : VFXProjectileWeapon
 
         if (!CanAttack()) return false;   
 
-        if (animator != null) animator.SetTrigger("Attack");
+        if (animator != null) 
+            animator.SetTrigger("Attack");
 
+        isAttacking = true;
+
+        StartCoroutine(WaitForAnimation());
+       
+        return true;
+    }
+
+    IEnumerator WaitForAnimation()
+    {
+
+        // Подождать, пока анимация не завершится
+        while (!animator.GetCurrentAnimatorStateInfo(0).IsName("GotokoNekoStartAttack"))
+            yield return null;
+        while (animator.GetCurrentAnimatorStateInfo(0).IsName("GotokoNekoStartAttack"))
+            yield return null;
+      
         float spawnAngle = GetSpawnAngle();
 
         GameObject prefab = Instantiate(currentStats.prefab, owner.transform.position + (Vector3)GetSpawnOffset(spawnAngle), Quaternion.Euler(0, 0, spawnAngle)); // создаем снаряд
@@ -26,12 +56,11 @@ public class FlamethrowerWeapon : VFXProjectileWeapon
         flame.targetPos = shootDirection;
         flame.weapon = this;
         flame.owner = owner;
-        if (data.baseStats.speed == 0) prefab.transform.SetParent(transform);
+        flame.animator = animator;
 
-        isAttacking = true;
+        prefab.transform.SetParent(transform);
 
         RotateVFX(flame);
-
-        return true;
     }
+
 }

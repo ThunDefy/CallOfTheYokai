@@ -8,6 +8,7 @@ public class MeleeWeaponBehaviour : MonoBehaviour
     public WeaponScriptableObject weaponData;
     public float radius;
     public bool drawGizmo;
+
     private void OnDrawGizmosSelected()
     {
         if (drawGizmo) { 
@@ -34,7 +35,7 @@ public class MeleeWeaponBehaviour : MonoBehaviour
                 }
                 else
                 {
-                    collider.GetComponent<Health>().GetHit(damage, transform.parent.gameObject, transform.position);
+                    collider.GetComponent<Health>().GetHit(damage, transform.parent.gameObject, transform.position, weaponData.knockback);
                 }
             }
             

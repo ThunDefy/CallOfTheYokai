@@ -138,7 +138,7 @@ public class Weapon : Yokai
 
     public virtual float GetArea()
     {
-       return currentStats.area + Owner.actualStats.area;
+       return currentStats.area * Owner.actualStats.area; // В какое то число раз больше
     }
 
     public virtual Stats GetStats() { return currentStats; }

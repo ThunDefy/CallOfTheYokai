@@ -33,11 +33,6 @@ public class SpiderWebWeapon : ProjectileWeapon
 
         attackCount--;
 
-        if (attackCount > 0)
-        {
-            currentAttackCount = attackCount;
-            currentAttackInterval = data.baseStats.projectileInterval;
-        }
         return true;
     }
 

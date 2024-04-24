@@ -62,8 +62,6 @@ public class Projectile : WeaponEffect
 
     protected virtual void FixedUpdate()
     {
-        //transform.position = weapon.transform.position;
-        //transform.rotation = weapon.transform.rotation;
 
         if (rb != null)
         {

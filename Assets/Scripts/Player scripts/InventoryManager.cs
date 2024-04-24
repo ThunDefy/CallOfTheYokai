@@ -54,7 +54,7 @@ public class InventoryManager : MonoBehaviour
     {
         weaponSlots[slotIndex] = weapon;
         passiveEffects[slotIndex] = passiveEffect;
-        weaponLevels[slotIndex] = weapon.weaponData.Level;
+        //weaponLevels[slotIndex] = weapon.weaponData.Level;
         weaponUISlots[slotIndex].enabled = true;
         weaponUISlots[slotIndex].sprite = weapon.weaponData.Icon;
 

@@ -32,8 +32,24 @@ public class MeleProjectile : Projectile
             alreadyScaled = true;
         }
         else if (parentTransform.localScale == new Vector3(1f, 1f, 0f)) alreadyScaled = false;
+    }
 
+    protected override void OnTriggerEnter2D(Collider2D collider) // ѕока ничего не изменилось, но надо что то сделать с piercing
+    {
+        Health enemy = collider.GetComponent<Health>();
+        if (enemy && !enemy.isPlayer)
+        {
+            Weapon.Stats stats = weapon.GetStats();
+            Vector3 source = damageSource == DamageSource.owner && owner ? owner.transform.position : transform.position;
+            enemy.GetHit(GetDamage(), this.gameObject, source, stats.knockback);
 
+            piercing--;
+            if (stats.hitEffect)
+            {
+                Destroy(Instantiate(stats.hitEffect, transform.position, Quaternion.identity), 5f);
+            }
+        }
+        if (piercing < 0) Destroy(gameObject);
 
     }
 }

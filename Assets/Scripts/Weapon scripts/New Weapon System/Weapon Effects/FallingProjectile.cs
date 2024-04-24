@@ -54,7 +54,7 @@ public class FallingProjectile : Projectile
             {
                 if (!eh.isPlayer)
                 {
-                    eh.GetHit(GetDamage(), this.gameObject, transform.position, stats.knockback);
+                    eh.GetHit(GetDamage(), this.gameObject, transform.position, 0.5f);
                 }
 
             }

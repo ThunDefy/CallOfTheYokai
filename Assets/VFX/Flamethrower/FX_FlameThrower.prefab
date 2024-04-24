@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -6.7, y: -5.1, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4860,9 +4860,10 @@ PolygonCollider2D:
       - {x: 0.3429104, y: -0.96024764}
       - {x: 2.7905118, y: -1.7424053}
       - {x: 6.8985977, y: -1.9139718}
-      - {x: 10.565665, y: -0.9170448}
-      - {x: 12.322059, y: 0.16142556}
-      - {x: 10.58396, y: 1.0813218}
+      - {x: 11.332336, y: -1.211918}
+      - {x: 13.059243, y: -0.3398588}
+      - {x: 12.434372, y: 1.3246734}
+      - {x: 11.674991, y: 1.5531191}
       - {x: 8.249597, y: 1.9692135}
 --- !u!114 &7789465333085556710
 MonoBehaviour:
@@ -4881,6 +4882,7 @@ MonoBehaviour:
   damageSource: 1
   rotationSpeed: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
+  animator: {fileID: 0}
 --- !u!1 &7090905033084741368
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,10 +32,17 @@ public class EnemyAI : MonoBehaviour
 
     bool following = false;
 
+    WeaponControllers wc;
+
     private void Start()
     {
+        wc = GetComponentInChildren<WeaponControllers>();
+        attackDelay = wc.weaponData.cooldownDuration;
+
         //Detecting Player and Obstacles around
         InvokeRepeating("PerformDetection", 0, detectionDelay);
+
+        
     }
 
     private void PerformDetection()
@@ -86,7 +93,6 @@ public class EnemyAI : MonoBehaviour
             if (distance < attackDistance)
             {
                 //Attack logic
-                //print("Rono pew");
                 movementInput = Vector2.zero;
                 OnAttack?.Invoke();
                 yield return new WaitForSeconds(attackDelay);

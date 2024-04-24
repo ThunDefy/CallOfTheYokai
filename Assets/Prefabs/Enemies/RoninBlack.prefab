@@ -218,7 +218,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   maxHealth: 50
   isPlayer: 0
-  currentHealth: 2
+  currentHealth: 50
   OnHitWithReference:
     m_PersistentCalls:
       m_Calls: []

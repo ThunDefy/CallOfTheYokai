@@ -15,6 +15,10 @@ public class SpiderWepProjectile : Projectile
 
         stats = weapon.GetStats();
 
+        float area = weapon.GetArea();
+        if (area <= 0) area = 1;
+        transform.localScale = new Vector3(area, area, 1);
+
         InvokeRepeating("BiteDamage", 0f, stats.projectileInterval);
         Invoke("DestroyObjectWithDelay", stats.lifespan);
 

@@ -28,7 +28,6 @@ public class IllusionWarior : WeaponEffect
         weaponStat.currentDamage = GetDamage();
         weaponStat.currentCooldown = stats.projectileInterval;
         weaponStat.currentPierce = stats.pircing;
-        weaponStat.currentSpeed = stats.speed;
         GetComponent<Agent>().moveSpeed = stats.speed;  
 
     }

@@ -69,8 +69,6 @@ public class Agent : MonoBehaviour
             GetComponent<Rigidbody2D>().MovePosition(nextPosition);
             knockbackDuration -= Time.deltaTime;
 
-            //transform.position += (Vector3)knockbackVelocity * Time.deltaTime;
-            //knockbackDuration -= Time.deltaTime;
         }
 
     }
@@ -83,12 +81,12 @@ public class Agent : MonoBehaviour
 
     void InputManagement()
     {
-        if (GameManager.instance.isGameOver || GameManager.instance.currentState == GameState.Paused
+        if (moveIsBlock || GameManager.instance.isGameOver || GameManager.instance.currentState == GameState.Paused
             || GameManager.instance.currentState == GameState.LevelUp)
         {
             return;
         }
-        moveDir = movementInput;
+        else moveDir = movementInput;
     }
     protected virtual void Move()
     {
@@ -97,8 +95,8 @@ public class Agent : MonoBehaviour
         {
             return;
         }
-        rb.velocity = moveDir * DEFUALT_MOVESPEED * moveSpeed;
-        //rb.velocity = new Vector2(moveDir.x * moveSpeed, moveDir.y * moveSpeed);
+        else rb.velocity = moveDir * DEFUALT_MOVESPEED * moveSpeed;
+
     }
 
     public void PerformAttack()
@@ -132,9 +130,11 @@ public class Agent : MonoBehaviour
         knockbackDuration = duration;
     }
 
-    public void BlockMovement(bool block)
+    public void BlockMovement(bool freez)
     {
-        moveIsBlock = block;
+        rb.velocity = Vector2.zero;
+        rb.isKinematic = freez;
+        moveIsBlock = freez;
     }
     
     internal void SlowedDown(float by)
