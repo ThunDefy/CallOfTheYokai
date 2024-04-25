@@ -20,6 +20,7 @@ public class PlayerInventory : MonoBehaviour
         public Yokai yokai;
         public Image image;
         public int currentLevel=1;
+        public GameObject cooldownSensor;
 
         public void Assign(Yokai assignedItem, YokaiData assignedData)
         {
@@ -124,6 +125,7 @@ public class PlayerInventory : MonoBehaviour
         availableSlotsCount = player.availableSlotsCount;
     }
 
+
     public bool Has(YokaiData type) { return Get(type); }
 
     public Yokai Get(YokaiData type)
@@ -203,9 +205,9 @@ public class PlayerInventory : MonoBehaviour
             spawnedWeapon.Initialise(data);
             spawnedWeapon.OnEquip();
 
-
             // Добавляем оружие в инвентарь
             weaponSlots[slotNum].Assign(spawnedWeapon, data);
+            spawnedWeapon.ActivateCoolDown();
 
             // Так же добавляем пассивный эффект 
             GameObject pas = new GameObject(data.passiveEffectData.baseStats.name + " Passive");
@@ -613,5 +615,51 @@ public class PlayerInventory : MonoBehaviour
         weaponSlots[weaponIndx].yokai.transform.gameObject.SetActive(true);
         activeWeaponIndx=weaponIndx;
     }
+
+    public void YokaiActivateColldown(Weapon sender, float cooldown)
+    {
+        print("STAAAART");
+        for (int i = 0; i < availableSlotsCount; i++)
+        {
+            if (!weaponSlots[i].IsEmpty())
+            {
+                if(weaponSlots[i].yokaiData.yokaiID == sender.data.yokaiID)
+                {
+                    StartCooldownAnimation(cooldown, i);
+                }
+            }
+        }
+    }
+
+    private void StartCooldownAnimation(float cooldownTime, int slotIndex)
+    {
+        StartCoroutine(CooldownAnimationTimer(cooldownTime, slotIndex));
+        
+    }
+
+    private IEnumerator CooldownAnimationTimer(float cooldownTime, int slotIndex)
+    {
+        float timer = cooldownTime;
+        Image detector;
+        while (timer > 0)
+        {
+            if (!weaponSlots[slotIndex].cooldownSensor.activeSelf)
+            {
+                weaponSlots[slotIndex].cooldownSensor.SetActive(true);  
+            }
+            detector = weaponSlots[slotIndex].cooldownSensor.GetComponentInChildren<Image>();
+            detector.fillAmount = timer / cooldownTime;
+
+
+            timer -= Time.deltaTime;
+            yield return null;
+        }
+
+        if (weaponSlots[slotIndex].cooldownSensor.activeSelf)
+            weaponSlots[slotIndex].cooldownSensor.SetActive(false);
+
+        ((Weapon)weaponSlots[slotIndex].yokai).currentCoolDown = 0;
+    }
+
 
 }

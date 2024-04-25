@@ -30,15 +30,15 @@ MonoBehaviour:
       width: 0
       height: 0
     lifespan: 1.5
-    damage: 2
-    damageVariance: 0
-    area: 0
-    speed: 10
+    damage: 3
+    damageVariance: 3
+    area: 0.15
+    speed: 12
     cooldown: 1
-    projectileInterval: 0.1
-    knockback: 0
+    projectileInterval: 0
+    knockback: 2
     number: 5
-    pircing: 1
+    pircing: 0
     maxInstances: 70
   risingGrowth: []
   randomGrowth:

@@ -29,16 +29,16 @@ MonoBehaviour:
       y: 0
       width: 0
       height: 0
-    lifespan: 2
-    damage: 10
-    damageVariance: 2
+    lifespan: 0
+    damage: 5
+    damageVariance: 5
     area: 2
-    speed: 10
-    cooldown: 1
-    projectileInterval: 0.1
-    knockback: 0.5
+    speed: 0
+    cooldown: 1.25
+    projectileInterval: 0
+    knockback: 6
     number: 1
-    pircing: 3
+    pircing: 0
     maxInstances: 70
   risingGrowth: []
   randomGrowth:

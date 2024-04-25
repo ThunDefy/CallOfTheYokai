@@ -29,17 +29,17 @@ MonoBehaviour:
       y: 0
       width: 0
       height: 0
-    lifespan: 2
+    lifespan: 2.5
     damage: 2
     damageVariance: 0
-    area: 0
-    speed: 10
-    cooldown: 1
-    projectileInterval: 0.1
-    knockback: 0.5
+    area: 1
+    speed: 15
+    cooldown: 2
+    projectileInterval: 0.3
+    knockback: 0
     number: 1
     pircing: 0
-    maxInstances: 6
+    maxInstances: 99
   risingGrowth: []
   randomGrowth:
   - name: "\u0411\u043E\u043B\u044C\u0448\u0435 \u043C\u043E\u0449\u0438!"

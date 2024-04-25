@@ -4918,7 +4918,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7936457592612885267}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0.66, y: -0.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10959,7 +10959,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 6.283185
+      scalar: 6.981317
       minScalar: 0.7853982
       maxCurve:
         serializedVersion: 2
@@ -14539,8 +14539,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.43, y: 0.41}
-  m_Size: {x: 1.32, y: 1.38}
+  m_Offset: {x: 0.43000007, y: 0.40999985}
+  m_Size: {x: 2, y: 2}
   m_Direction: 0
 --- !u!50 &8717628249392243622
 Rigidbody2D:

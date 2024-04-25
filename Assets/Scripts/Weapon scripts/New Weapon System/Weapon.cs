@@ -50,20 +50,23 @@ public class Weapon : Yokai
 
     public Stats currentStats;
     public PlayerWeaponData data;
-    protected float currentCoolDown;
+    public float currentCoolDown;
     //protected Agent player;
 
     public Animator animator;
     //protected bool attackBlocked;
 
+    PlayerInventory inventory;
     public virtual void Initialise(PlayerWeaponData data)
     {
-        print(name + "Initialised");
+        print(name + " Initialised");
         base.Initialise(data);
         this.data = data;
         currentStats = data.baseStats;
         //player = GetComponentInParent<Agent>();
-        ActivateCoolDown();
+        inventory = GetComponentInParent<PlayerInventory>();
+        animator = GetComponent<Animator>();
+       
     }
 
     protected virtual void Awake()
@@ -71,19 +74,9 @@ public class Weapon : Yokai
         if (data)
         {
             Initialise(data);
-            //currentStats = data.baseStats;
         }
-        animator = GetComponent<Animator>();
-    }
 
-    //protected virtual void Start()
-    //{
-    //    if (data)
-    //    {
-    //        Initialise(data);
-    //    }
-    //    //attackBlocked = true;
-    //}
+    }
 
     protected virtual void Update()
     {
@@ -91,12 +84,6 @@ public class Weapon : Yokai
         {
             currentCoolDown -= Time.deltaTime;
         }
-        //currentCoolDown -= Time.deltaTime;
-        //if(currentCoolDown <= 0f)
-        //{
-        //    //attackBlocked = false;
-        //    //Attack(currentStats.number);
-        //}
     }
 
 
@@ -151,7 +138,31 @@ public class Weapon : Yokai
 
         currentCoolDown = Mathf.Min(actualCooldown, currentCoolDown + actualCooldown);
 
-        //print(actualCooldown + " " + (currentCoolDown + actualCooldown) + " " + Mathf.Min(actualCooldown, currentCoolDown + actualCooldown) + " " + currentCoolDown);
+        if(inventory!=null) inventory.YokaiActivateColldown(this, currentCoolDown);
+
         return true;
     }
+
+
+    //protected virtual void OnDisable()
+    //{
+    //    StartCoroutine(CoolDownTimer());
+    //}
+
+    //protected virtual void OnEnable()
+    //{
+    //    StopAllCoroutines();
+    //}
+
+    //IEnumerator CoolDownTimer()
+    //{
+    //    while (true)
+    //    {
+    //        if (currentCoolDown >= 0)
+    //        {
+    //            currentCoolDown -= Time.deltaTime;
+    //        }
+    //        yield return null;
+    //    }
+    //}
 }

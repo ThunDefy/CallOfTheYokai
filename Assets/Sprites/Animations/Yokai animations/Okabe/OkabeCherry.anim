@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GotokoNekoAttacking
+  m_Name: OkabeCherry
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 557261236, guid: 35b9b1e0e46acd147abe66589f4bfa37, type: 3}
+      value: {fileID: -1819647085, guid: 9e48f1b6ff3d8fe4cba6e648c4f11b7b, type: 3}
     - time: 0.11111111
-      value: {fileID: 999834154, guid: 35b9b1e0e46acd147abe66589f4bfa37, type: 3}
+      value: {fileID: 1069087545, guid: 9e48f1b6ff3d8fe4cba6e648c4f11b7b, type: 3}
     - time: 0.22222222
-      value: {fileID: 93469683, guid: 35b9b1e0e46acd147abe66589f4bfa37, type: 3}
+      value: {fileID: 1867217401, guid: 9e48f1b6ff3d8fe4cba6e648c4f11b7b, type: 3}
     - time: 0.33333334
-      value: {fileID: 97731816, guid: 35b9b1e0e46acd147abe66589f4bfa37, type: 3}
+      value: {fileID: 1553773800, guid: 9e48f1b6ff3d8fe4cba6e648c4f11b7b, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,10 +46,10 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 557261236, guid: 35b9b1e0e46acd147abe66589f4bfa37, type: 3}
-    - {fileID: 999834154, guid: 35b9b1e0e46acd147abe66589f4bfa37, type: 3}
-    - {fileID: 93469683, guid: 35b9b1e0e46acd147abe66589f4bfa37, type: 3}
-    - {fileID: 97731816, guid: 35b9b1e0e46acd147abe66589f4bfa37, type: 3}
+    - {fileID: -1819647085, guid: 9e48f1b6ff3d8fe4cba6e648c4f11b7b, type: 3}
+    - {fileID: 1069087545, guid: 9e48f1b6ff3d8fe4cba6e648c4f11b7b, type: 3}
+    - {fileID: 1867217401, guid: 9e48f1b6ff3d8fe4cba6e648c4f11b7b, type: 3}
+    - {fileID: 1553773800, guid: 9e48f1b6ff3d8fe4cba6e648c4f11b7b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

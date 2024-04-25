@@ -16,9 +16,9 @@ MonoBehaviour:
   weaponDescription: 
   prefab: {fileID: 6871592463286859803, guid: 82a8b4debf752cf44b7f47dbe47e12f2, type: 3}
   target: Enemy
-  damage: 2
+  damage: 1
   speed: 10
-  cooldownDuration: 1
+  cooldownDuration: 0.5
   pierce: 0
-  Level: 1
+  knockback: 5
   Icon: {fileID: 0}
