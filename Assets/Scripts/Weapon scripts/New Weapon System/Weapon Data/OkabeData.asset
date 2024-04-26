@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: OkabeData
   m_EditorClassIdentifier: 
   yokaiID: 5
-  icon: {fileID: 327107110, guid: 2e7f3da684debd74f87677964da8e344, type: 3}
+  icon: {fileID: -1819647085, guid: 9e48f1b6ff3d8fe4cba6e648c4f11b7b, type: 3}
   maxRisingLevel: 0
   behaviour: HairHookWeapon
-  yokaiPrefab: {fileID: 4203816605063914695, guid: 7741d93e57837614689397712f8f7074, type: 3}
+  yokaiPrefab: {fileID: 4203816605063914695, guid: 2e29f0e5e397f98419c53b31383f8473, type: 3}
   baseStats:
     name: Okabe
     description: Launches strands of hair that stop enemys and damage
@@ -34,7 +34,7 @@ MonoBehaviour:
     damageVariance: 0
     area: 1
     speed: 15
-    cooldown: 2
+    cooldown: 3
     projectileInterval: 0.3
     knockback: 0
     number: 1

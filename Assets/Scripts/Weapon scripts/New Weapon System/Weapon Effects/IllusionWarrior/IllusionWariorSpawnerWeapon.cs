@@ -29,7 +29,7 @@ public class IllusionWariorSpawnerWeapon : Weapon
         warior.weapon = this;
         warior.owner = owner;
 
-        ActivateCoolDown(true);
+        ActivateCoolDown();
 
         return true;
     }

@@ -73,8 +73,8 @@ public class HookProjectile : Projectile
 
     void DestroyObjectWithDelay()
     {
-        if(enemyAgent!=null) enemyAgent.BlockMovement(false);
         CancelInvoke();
+        if (enemyAgent!=null) enemyAgent.BlockMovement(false);
         Destroy(gameObject);
     }
 

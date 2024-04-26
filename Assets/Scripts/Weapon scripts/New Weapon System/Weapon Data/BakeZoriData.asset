@@ -36,7 +36,7 @@ MonoBehaviour:
     speed: 0
     cooldown: 1.5
     projectileInterval: 0
-    knockback: 5
+    knockback: 10
     number: 1
     pircing: 0
     maxInstances: 70

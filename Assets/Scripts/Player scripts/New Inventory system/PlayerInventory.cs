@@ -634,7 +634,6 @@ public class PlayerInventory : MonoBehaviour
     private void StartCooldownAnimation(float cooldownTime, int slotIndex)
     {
         StartCoroutine(CooldownAnimationTimer(cooldownTime, slotIndex));
-        
     }
 
     private IEnumerator CooldownAnimationTimer(float cooldownTime, int slotIndex)
@@ -659,6 +658,11 @@ public class PlayerInventory : MonoBehaviour
             weaponSlots[slotIndex].cooldownSensor.SetActive(false);
 
         ((Weapon)weaponSlots[slotIndex].yokai).currentCoolDown = 0;
+    }
+
+    public void RisingActiveYokai()
+    {
+        OnRisingYokai(activeWeaponIndx);
     }
 
 

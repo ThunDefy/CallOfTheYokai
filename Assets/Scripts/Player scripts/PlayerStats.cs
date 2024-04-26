@@ -159,9 +159,9 @@ public class PlayerStats : MonoBehaviour
         UpdateExpBar();
     }
 
-    public void LevelUpChecker()
+    public void LevelUpChecker(bool force = false)
     {
-        if(experience >= experienceCap)
+        if(force || experience >= experienceCap)
         {
             level++;
             experience -= experienceCap;

@@ -26,6 +26,7 @@ public class Weapon : Yokai
             Stats result = new Stats();
             result.name = s2.name ?? s1.name;
             result.description = s2.description ?? s1.description;
+            result.prefab = s2.prefab ?? s1.prefab;
             result.projectilePrefab = s2.projectilePrefab ?? s1.projectilePrefab;
             result.hitEffect = s2.hitEffect == null ? s1.hitEffect : s2.hitEffect;
             result.spawnVariance = s2.spawnVariance;
@@ -34,10 +35,10 @@ public class Weapon : Yokai
             result.damageVariance = s1.damageVariance+s2.damageVariance;
             result.area = s1.area+s2.area;
             result.speed = s1.speed+s2.speed;
-            result.cooldown = s1.cooldown+s2.cooldown;
+            result.cooldown = (s1.cooldown + s2.cooldown) < 0 ? 0 : s1.cooldown + s2.cooldown;
             result.number = s1.number+s2.number;
             result.pircing = s1.pircing+s2.pircing;
-            result.projectileInterval = s1.projectileInterval+s2.projectileInterval;
+            result.projectileInterval = (s1.projectileInterval+s2.projectileInterval) < 0.01f ? 0.01f : s1.projectileInterval + s2.projectileInterval;
             result.knockback = s1.knockback + s2.knockback;
             return result;      
         }
@@ -120,18 +121,23 @@ public class Weapon : Yokai
 
     public virtual float GetDamage()
     {
-        return currentStats.GetDamage() * owner.actualStats.power;
+        return currentStats.GetDamage() + (currentStats.GetDamage() * owner.actualStats.power);
     }
 
     public virtual float GetArea()
     {
-       return currentStats.area * Owner.actualStats.area; // В какое то число раз больше
+        //return currentStats.area * Owner.actualStats.area; 
+        float percentageIncrease = Owner.actualStats.area; // Значение процентного увеличения (например, 0.05 - что соответствует 5%)
+        float currentArea = currentStats.area; 
+        float increaseAmount = currentArea * percentageIncrease; 
+        return currentArea + increaseAmount;
     }
 
     public virtual Stats GetStats() { return currentStats; }
 
     public virtual bool ActivateCoolDown(bool strict = false)
     {
+        print("Вызываю куладун");
         if (strict && currentCoolDown > 0) return false;
 
         float actualCooldown = currentStats.cooldown * Owner.actualStats.cooldown;

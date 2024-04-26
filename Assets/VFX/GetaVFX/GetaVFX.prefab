@@ -14540,7 +14540,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.43000007, y: 0.40999985}
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 3, y: 3}
   m_Direction: 0
 --- !u!50 &8717628249392243622
 Rigidbody2D:
@@ -14577,7 +14577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
   weapon: {fileID: 0}
-  damageSource: 1
+  damageSource: 0
   hasAutoAim: 0
   rotationSpeed: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
