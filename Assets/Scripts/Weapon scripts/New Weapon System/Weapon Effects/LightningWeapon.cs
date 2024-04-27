@@ -6,6 +6,7 @@ using UnityEngine;
 public class LightningWeapon : ProjectileWeapon
 {
     private Vector3 targerPosition;
+    public ParticleSystem zoneVfx;
     public override bool Attack(int attackCount = 1)
     {
 
@@ -29,19 +30,21 @@ public class LightningWeapon : ProjectileWeapon
 
         ActivateCoolDown(true);
 
-        //attackCount--;
 
-        //if (attackCount > 0)
-        //{
-        //    currentAttackCount = attackCount;
-        //    currentAttackInterval = data.baseStats.projectileInterval;
-        //}
         return true;
     }
 
     private void DamageArea(Vector2 targerPosition, float radius, float damage)
     {
         Collider2D[] targets = Physics2D.OverlapCircleAll(targerPosition, radius);
+
+        if (currentStats.prefab)
+        {
+            zoneVfx = Instantiate(currentStats.prefab.GetComponent<ParticleSystem>(), targerPosition, Quaternion.identity);
+            zoneVfx.transform.localScale = new Vector3(radius * 2, radius * 2, 0);
+            Destroy(zoneVfx, 0.2f);
+        }
+
         foreach (Collider2D t in targets)
         {
             Health eh = t.GetComponent<Health>();

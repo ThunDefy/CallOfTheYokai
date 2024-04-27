@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: PlayerDataScriptableObject
   m_EditorClassIdentifier: 
   playerName: Player1
-  startingWeapon1: {fileID: 11400000, guid: 5ea2656354c44134fb282d3be343d9e0, type: 2}
-  startingWeapon2: {fileID: 11400000, guid: d32bbfbcd2af49a45a973cf5f8493869, type: 2}
-  startingWeapon3: {fileID: 11400000, guid: 8035c769c99e67e499a5e5cc9219c4e8, type: 2}
-  startingWeapon4: {fileID: 11400000, guid: 12a896b957cee1c43ba85e9f6ab7eab5, type: 2}
+  startingWeapon1: {fileID: 11400000, guid: 8035c769c99e67e499a5e5cc9219c4e8, type: 2}
+  startingWeapon2: {fileID: 11400000, guid: 6a81c5a7691858c40b846c1988aadb29, type: 2}
+  startingWeapon3: {fileID: 11400000, guid: f3f3e856028a1ad4ab4f568c67903f0a, type: 2}
+  startingWeapon4: {fileID: 11400000, guid: 7f10338b817be8b45a71bae6aaecf54b, type: 2}
   stats:
     maxHealth: 100
     recovery: 0
     armor: 0
     moveSpeed: 1
-    power: 1
-    area: 1
+    power: 0
+    area: 0
     speed: 1
     duration: 1
     amount: 0

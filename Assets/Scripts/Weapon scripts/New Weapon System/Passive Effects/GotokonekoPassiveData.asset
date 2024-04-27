@@ -12,17 +12,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b995c0ccfdb9c418e184cf6c59eb62, type: 3}
   m_Name: GotokonekoPassiveData
   m_EditorClassIdentifier: 
-  yokaiID: 0
+  yokaiID: 7
   icon: {fileID: 0}
   maxRisingLevel: 0
   baseStats:
-    name: 
-    description: 
+    name: Gotokoneko Passive
+    description: + 10% power
     boosts:
       maxHealth: 0
       recovery: 0
       armor: 0
       moveSpeed: 0
+      power: 0.15
+      area: 0
+      speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
+      magnet: 0
+      revival: 0
+  growth:
+  - name: More Power
+    description: + 5% power
+    boosts:
+      maxHealth: 0
+      recovery: 0
+      armor: 0
+      moveSpeed: 0
+      power: 0.05
+      area: 0
+      speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
+      magnet: 0
+      revival: 0
+  - name: More move speed
+    description: + 3% move speed
+    boosts:
+      maxHealth: 0
+      recovery: 0
+      armor: 0
+      moveSpeed: 0.03
       power: 0
       area: 0
       speed: 0
@@ -35,4 +74,3 @@ MonoBehaviour:
       curse: 0
       magnet: 0
       revival: 0
-  growth: []

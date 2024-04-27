@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yokaiID: 7
   icon: {fileID: -156681416, guid: dddcd2016c88bb846b6993783a987dbf, type: 3}
-  maxRisingLevel: 0
+  maxRisingLevel: 3
   behaviour: IllusionWariorSpawnerWeapon
   yokaiPrefab: {fileID: 4203816605063914695, guid: ff63c55673ac566449048b5e3d049b45, type: 3}
   baseStats:
@@ -34,16 +34,82 @@ MonoBehaviour:
     damageVariance: 3
     area: 1
     speed: 1.2
-    cooldown: 5
+    cooldown: 8
     projectileInterval: 0.5
     knockback: 0
     number: 0
     pircing: 0
     maxInstances: 0
-  risingGrowth: []
+  risingGrowth:
+  - name: Obusarity Rising 1
+    description: 
+    prefab: {fileID: 7553775948631733786, guid: 9325dd6b01da2d54ca4616a300b70e29, type: 3}
+    projectilePrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 0
+    damageVariance: 0
+    area: 0
+    speed: 0
+    cooldown: -1
+    projectileInterval: -0.1
+    knockback: 0
+    number: 0
+    pircing: 0
+    maxInstances: 0
+  - name: Obusarity Rising 2
+    description: 
+    prefab: {fileID: 7553775948631733786, guid: 9325dd6b01da2d54ca4616a300b70e29, type: 3}
+    projectilePrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 0
+    damageVariance: 2
+    area: 0
+    speed: 0
+    cooldown: -1
+    projectileInterval: 0
+    knockback: 0
+    number: 0
+    pircing: 0
+    maxInstances: 0
+  - name: Obusarity Rising 3
+    description: 
+    prefab: {fileID: 7553775948631733786, guid: 9325dd6b01da2d54ca4616a300b70e29, type: 3}
+    projectilePrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 0
+    damageVariance: 2
+    area: 0
+    speed: 0
+    cooldown: 0
+    projectileInterval: -0.1
+    knockback: 0
+    number: 0
+    pircing: 0
+    maxInstances: 0
   randomGrowth:
-  - name: more dmg
-    description: +5
+  - name: More lifespan
+    description: + 0.15  lifespan
     prefab: {fileID: 7553775948631733786, guid: 9325dd6b01da2d54ca4616a300b70e29, type: 3}
     projectilePrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -53,8 +119,8 @@ MonoBehaviour:
       y: 0
       width: 0
       height: 0
-    lifespan: 0
-    damage: 5
+    lifespan: 0.15
+    damage: 0
     damageVariance: 0
     area: 0
     speed: 0
@@ -65,7 +131,7 @@ MonoBehaviour:
     pircing: 0
     maxInstances: 0
   - name: more dmg
-    description: +5
+    description: +1 damage
     prefab: {fileID: 7553775948631733786, guid: 9325dd6b01da2d54ca4616a300b70e29, type: 3}
     projectilePrefab: {fileID: 0}
     hitEffect: {fileID: 0}
@@ -76,7 +142,7 @@ MonoBehaviour:
       width: 0
       height: 0
     lifespan: 0
-    damage: 5
+    damage: 1
     damageVariance: 0
     area: 0
     speed: 0
@@ -86,4 +152,48 @@ MonoBehaviour:
     number: 0
     pircing: 0
     maxInstances: 0
-  passiveEffectData: {fileID: 11400000, guid: a70d022309ce94d4fbf66105fd67ea2b, type: 2}
+  - name: More speed
+    description: +0.025 speed
+    prefab: {fileID: 7553775948631733786, guid: 9325dd6b01da2d54ca4616a300b70e29, type: 3}
+    projectilePrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 0
+    damageVariance: 0
+    area: 0
+    speed: 0.025
+    cooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 0
+    pircing: 0
+    maxInstances: 0
+  - name: More variance
+    description: +2 variance
+    prefab: {fileID: 7553775948631733786, guid: 9325dd6b01da2d54ca4616a300b70e29, type: 3}
+    projectilePrefab: {fileID: 0}
+    hitEffect: {fileID: 0}
+    spawnVariance:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    lifespan: 0
+    damage: 0
+    damageVariance: 2
+    area: 0
+    speed: 0
+    cooldown: 0
+    projectileInterval: 0
+    knockback: 0
+    number: 0
+    pircing: 0
+    maxInstances: 0
+  passiveEffectData: {fileID: 11400000, guid: c40825898ede049488a9d393abde656a, type: 2}

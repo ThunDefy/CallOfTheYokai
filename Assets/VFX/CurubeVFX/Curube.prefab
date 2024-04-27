@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039903194389677065}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.020000001}
+  m_LocalPosition: {x: 0, y: 0, z: -0.269}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11188,7 +11188,7 @@ ParticleSystem:
     enabled: 1
     mode: 1
     timeMode: 2
-    fps: 30
+    fps: 9
     frameOverTime:
       serializedVersion: 2
       minMaxState: 1
@@ -11304,10 +11304,10 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 326695945, guid: 8a9bbaf8df8d5124ebe506e469106b03, type: 3}
-    - sprite: {fileID: -1974627816, guid: 8a9bbaf8df8d5124ebe506e469106b03, type: 3}
-    - sprite: {fileID: -609163036, guid: 8a9bbaf8df8d5124ebe506e469106b03, type: 3}
-    - sprite: {fileID: -251926528, guid: 8a9bbaf8df8d5124ebe506e469106b03, type: 3}
+    - sprite: {fileID: 1290279789, guid: e6d45425773b1154f8b24f39748d2372, type: 3}
+    - sprite: {fileID: 2119220318, guid: e6d45425773b1154f8b24f39748d2372, type: 3}
+    - sprite: {fileID: 886506551, guid: e6d45425773b1154f8b24f39748d2372, type: 3}
+    - sprite: {fileID: 558643743, guid: e6d45425773b1154f8b24f39748d2372, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -20825,8 +20825,8 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     mode: 1
-    timeMode: 0
-    fps: 30
+    timeMode: 2
+    fps: 10
     frameOverTime:
       serializedVersion: 2
       minMaxState: 1
@@ -20942,7 +20942,10 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: bcfc6627bd2225d4891549d92383af91, type: 3}
+    - sprite: {fileID: -567316721, guid: e6d45425773b1154f8b24f39748d2372, type: 3}
+    - sprite: {fileID: 697404424, guid: e6d45425773b1154f8b24f39748d2372, type: 3}
+    - sprite: {fileID: 1620175087, guid: e6d45425773b1154f8b24f39748d2372, type: 3}
+    - sprite: {fileID: -352849520, guid: e6d45425773b1154f8b24f39748d2372, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:

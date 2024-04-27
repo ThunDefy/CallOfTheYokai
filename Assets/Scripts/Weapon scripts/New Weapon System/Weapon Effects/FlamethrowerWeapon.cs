@@ -8,10 +8,6 @@ public class FlamethrowerWeapon : VFXProjectileWeapon
 
     protected override void Update()
     {
-        if (currentCoolDown > 0)
-        {
-            currentCoolDown -= Time.deltaTime;
-        }
         if (currentCoolDown <= 0f)
         {
             animator.SetBool("CoolDown", false);

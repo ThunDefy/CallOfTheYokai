@@ -10,34 +10,53 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b995c0ccfdb9c418e184cf6c59eb62, type: 3}
-  m_Name: ObusarityPassiveData
+  m_Name: BakeZoriPassiveData
   m_EditorClassIdentifier: 
-  yokaiID: 7
-  icon: {fileID: -1842734656, guid: dddcd2016c88bb846b6993783a987dbf, type: 3}
+  yokaiID: 10
+  icon: {fileID: 0}
   maxRisingLevel: 0
   baseStats:
-    name: Obusarity Passive
-    description: + 20% Luck
+    name: Bake Zori Passive
+    description: + 20% moove speed
     boosts:
       maxHealth: 0
       recovery: 0
       armor: 0
-      moveSpeed: 0
+      moveSpeed: 0.2
       power: 0
       area: 0
       speed: 0
       duration: 0
       amount: 0
       cooldown: 0
-      luck: 0.2
+      luck: 0
       growth: 0
       greed: 0
       curse: 0
       magnet: 0
       revival: 0
   growth:
-  - name: Luck
-    description: + 5% Luck
+  - name: More moove speed
+    description: +5% moove speed
+    boosts:
+      maxHealth: 0
+      recovery: 0
+      armor: 0
+      moveSpeed: 0.05
+      power: 0
+      area: 0
+      speed: 0
+      duration: 0
+      amount: 0
+      cooldown: 0
+      luck: 0
+      growth: 0
+      greed: 0
+      curse: 0
+      magnet: 0
+      revival: 0
+  - name: Less cooldown
+    description: -3% cooldown
     boosts:
       maxHealth: 0
       recovery: 0
@@ -48,26 +67,7 @@ MonoBehaviour:
       speed: 0
       duration: 0
       amount: 0
-      cooldown: 0
-      luck: 0.05
-      growth: 0
-      greed: 0
-      curse: 0
-      magnet: 0
-      revival: 0
-  - name: Armor
-    description: + 1 armor
-    boosts:
-      maxHealth: 0
-      recovery: 0
-      armor: 1
-      moveSpeed: 0
-      power: 0
-      area: 0
-      speed: 0
-      duration: 0
-      amount: 0
-      cooldown: 0
+      cooldown: -0.03
       luck: 0
       growth: 0
       greed: 0

@@ -12,23 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b995c0ccfdb9c418e184cf6c59eb62, type: 3}
   m_Name: RaidzinPassiveData
   m_EditorClassIdentifier: 
-  yokaiID: 0
+  yokaiID: 3
   icon: {fileID: 21300000, guid: 0779ad3feec52124e97114bcbb12ef13, type: 3}
   maxRisingLevel: 0
   baseStats:
-    name: Tengu Passive
-    description: + 20% move speed
+    name: Raidzin Passive
+    description: '- 20% cooldown'
     boosts:
       maxHealth: 0
       recovery: 0
       armor: 0
-      moveSpeed: 0.2
+      moveSpeed: 0
       power: 0
       area: 0
       speed: 0
       duration: 0
       amount: 0
-      cooldown: 0
+      cooldown: -0.2
       luck: 0
       growth: 0
       greed: 0
@@ -36,27 +36,27 @@ MonoBehaviour:
       magnet: 0
       revival: 0
   growth:
-  - name: Wind at your back
-    description: +5% moove speed
+  - name: Attack at lightning speed
+    description: '- 5% cooldown'
     boosts:
       maxHealth: 0
       recovery: 0
       armor: 0
-      moveSpeed: 0.05
+      moveSpeed: 0
       power: 0
       area: 0
       speed: 0
       duration: 0
       amount: 0
-      cooldown: 0
+      cooldown: -0.05
       luck: 0
       growth: 0
       greed: 0
       curse: 0
       magnet: 0
       revival: 0
-  - name: Getting bigger and bigger
-    description: +5% area
+  - name: Static voltage
+    description: + 1 magnet power
     boosts:
       maxHealth: 0
       recovery: 0
@@ -72,5 +72,5 @@ MonoBehaviour:
       growth: 0
       greed: 0
       curse: 0
-      magnet: 0
+      magnet: 1
       revival: 0

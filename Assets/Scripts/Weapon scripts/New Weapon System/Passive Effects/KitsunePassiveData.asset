@@ -17,12 +17,12 @@ MonoBehaviour:
   maxRisingLevel: 0
   baseStats:
     name: Kitsune Passive
-    description: incrise recovery
+    description: 3 recovery
     boosts:
       maxHealth: 0
       recovery: 1.5
       armor: 0
-      moveSpeed: 0.1
+      moveSpeed: 0
       power: 0
       area: 0
       speed: 0
@@ -40,9 +40,9 @@ MonoBehaviour:
     description: +0.5 recovery
     boosts:
       maxHealth: 0
-      recovery: 0.5
+      recovery: 0.8
       armor: 0
-      moveSpeed: 0.1
+      moveSpeed: 0
       power: 0
       area: 0
       speed: 0

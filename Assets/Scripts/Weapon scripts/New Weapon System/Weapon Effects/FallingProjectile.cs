@@ -9,6 +9,8 @@ public class FallingProjectile : Projectile
     [HideInInspector]
     public Vector3 targerPosition;
 
+    ParticleSystem zone;
+
     protected override void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,6 +32,13 @@ public class FallingProjectile : Projectile
     private void FallDamageArea()
     {
         Collider2D[] targets = Physics2D.OverlapCircleAll(targerPosition, stats.area);
+        if (stats.hitEffect)
+        {
+            zone = Instantiate(stats.hitEffect, transform.position, Quaternion.identity);
+            zone.transform.localScale = new Vector3(stats.area * 2, stats.area * 2, 0);
+            Destroy(zone, stats.lifespan);
+        }
+
         foreach (Collider2D t in targets)
         {
             Health eh = t.GetComponent<Health>();
@@ -38,6 +47,7 @@ public class FallingProjectile : Projectile
                 if (!eh.isPlayer)
                 {
                     eh.GetHit(GetDamage() * 10, this.gameObject, transform.position, stats.knockback);
+
                 }
 
             }

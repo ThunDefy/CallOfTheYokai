@@ -81,10 +81,10 @@ public class Weapon : Yokai
 
     protected virtual void Update()
     {
-        if (currentCoolDown >= 0)
-        {
-            currentCoolDown -= Time.deltaTime;
-        }
+        //if (currentCoolDown >= 0)
+        //{
+        //    currentCoolDown -= Time.deltaTime;
+        //}
     }
 
 

@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b995c0ccfdb9c418e184cf6c59eb62, type: 3}
-  m_Name: ObusarityPassiveData
+  m_Name: OgumoPassiveData
   m_EditorClassIdentifier: 
-  yokaiID: 7
-  icon: {fileID: -1842734656, guid: dddcd2016c88bb846b6993783a987dbf, type: 3}
+  yokaiID: 9
+  icon: {fileID: 0}
   maxRisingLevel: 0
   baseStats:
-    name: Obusarity Passive
-    description: + 20% Luck
+    name: Ogumo Passive
+    description: +50 max health
     boosts:
-      maxHealth: 0
+      maxHealth: 50
       recovery: 0
       armor: 0
       moveSpeed: 0
@@ -29,17 +29,17 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: 0
-      luck: 0.2
+      luck: 0
       growth: 0
       greed: 0
       curse: 0
       magnet: 0
       revival: 0
   growth:
-  - name: Luck
-    description: + 5% Luck
+  - name: More health
+    description: +15 max health
     boosts:
-      maxHealth: 0
+      maxHealth: 15
       recovery: 0
       armor: 0
       moveSpeed: 0
@@ -49,23 +49,23 @@ MonoBehaviour:
       duration: 0
       amount: 0
       cooldown: 0
-      luck: 0.05
+      luck: 0
       growth: 0
       greed: 0
       curse: 0
       magnet: 0
       revival: 0
-  - name: Armor
-    description: + 1 armor
+  - name: More duration
+    description: +5% duration
     boosts:
       maxHealth: 0
       recovery: 0
-      armor: 1
+      armor: 0
       moveSpeed: 0
       power: 0
       area: 0
       speed: 0
-      duration: 0
+      duration: 0.05
       amount: 0
       cooldown: 0
       luck: 0

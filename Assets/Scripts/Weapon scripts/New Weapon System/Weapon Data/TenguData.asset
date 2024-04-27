@@ -34,7 +34,7 @@ MonoBehaviour:
     damageVariance: 2
     area: 1
     speed: 0
-    cooldown: 1.25
+    cooldown: 1.8
     projectileInterval: 0
     knockback: 15
     number: 1
@@ -153,7 +153,7 @@ MonoBehaviour:
     pircing: 0
     maxInstances: 0
   - name: They have no chance to stand
-    description: +2 knockback
+    description: +3 knockback
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 4742822842378266817, guid: b20e122d2087e2c439138431bdc02162, type: 3}
     hitEffect: {fileID: 0}
@@ -170,7 +170,7 @@ MonoBehaviour:
     speed: 0
     cooldown: 0
     projectileInterval: 0
-    knockback: 2
+    knockback: 3
     number: 0
     pircing: 0
     maxInstances: 0
@@ -196,4 +196,4 @@ MonoBehaviour:
     number: 0
     pircing: 1
     maxInstances: 0
-  passiveEffectData: {fileID: 11400000, guid: 10216dc598ec4884991ead95c823a3c3, type: 2}
+  passiveEffectData: {fileID: 11400000, guid: 871c8ad282be9ea47a33b5bd79ef676e, type: 2}
