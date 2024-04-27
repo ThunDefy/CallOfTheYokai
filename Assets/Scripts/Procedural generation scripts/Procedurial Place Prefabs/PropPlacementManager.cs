@@ -20,9 +20,12 @@ public class PropPlacementManager : MonoBehaviour
 
     public UnityEvent OnFinished;
 
+    PlayerStats ps;
+
     private void Awake()
     {
         dungeonData = FindObjectOfType<MapData>();
+        ps = FindObjectOfType <PlayerStats>();
     }
 
     public void ProcessRooms()
@@ -67,7 +70,7 @@ public class PropPlacementManager : MonoBehaviour
         OnFinished?.Invoke();
     }
 
-
+    
     // Размещает объекты возле стен. Нам нужно указать реквизит и точку начала размещения
     private void PlaceProps(Room room, List<Prop> wallProps, HashSet<Vector2Int> availableTiles, PlacementOriginCorner placement)
     {
@@ -83,7 +86,10 @@ public class PropPlacementManager : MonoBehaviour
 
             if (propToPlace.SpecialProp)
             {
-                if(propToPlace.RoomType == room.Type)
+                // взять удачу игрока и с таким процентом прибавить 1 доп копию объекта
+                quantity+= UnityEngine.Random.Range(0, 100) < (ps.actualStats.luck % 1) *100 ? 1 : 0 ;
+
+                if (propToPlace.RoomType == room.Type)
                 {
                     for (int i = 0; i < quantity; i++)
                     {

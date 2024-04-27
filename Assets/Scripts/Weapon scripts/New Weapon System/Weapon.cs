@@ -121,16 +121,17 @@ public class Weapon : Yokai
 
     public virtual float GetDamage()
     {
-        return currentStats.GetDamage() + (currentStats.GetDamage() * owner.actualStats.power);
+        return currentStats.GetDamage() * owner.actualStats.power;
     }
 
     public virtual float GetArea()
     {
         //return currentStats.area * Owner.actualStats.area; 
         float percentageIncrease = Owner.actualStats.area; // Значение процентного увеличения (например, 0.05 - что соответствует 5%)
-        float currentArea = currentStats.area; 
-        float increaseAmount = currentArea * percentageIncrease; 
-        return currentArea + increaseAmount;
+        float currentArea = currentStats.area * Owner.actualStats.area; 
+        float increaseAmount = currentArea * percentageIncrease;
+        //return currentArea + increaseAmount;
+        return currentStats.area * Owner.actualStats.area;
     }
 
     public virtual Stats GetStats() { return currentStats; }

@@ -20,12 +20,14 @@ public class LightningWeapon : ProjectileWeapon
             return false;
         }
 
+        float area = GetArea();
+
         targerPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         targerPosition.z = transform.position.z;
 
         if (animator != null) animator.SetTrigger("Attack");
 
-        DamageArea(targerPosition, currentStats.area, GetDamage());
+        DamageArea(targerPosition, area, GetDamage());
         Instantiate(currentStats.hitEffect, targerPosition, Quaternion.identity);
 
         ActivateCoolDown(true);

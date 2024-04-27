@@ -10,12 +10,14 @@ public class FallingProjectile : Projectile
     public Vector3 targerPosition;
 
     ParticleSystem zone;
+    float area;
 
     protected override void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         
         stats = weapon.GetStats();
+        area = weapon.GetArea();
 
         Invoke("CallFalling", 0.8f);
 
@@ -31,11 +33,12 @@ public class FallingProjectile : Projectile
 
     private void FallDamageArea()
     {
-        Collider2D[] targets = Physics2D.OverlapCircleAll(targerPosition, stats.area);
+
+        Collider2D[] targets = Physics2D.OverlapCircleAll(targerPosition, area);
         if (stats.hitEffect)
         {
             zone = Instantiate(stats.hitEffect, transform.position, Quaternion.identity);
-            zone.transform.localScale = new Vector3(stats.area * 2, stats.area * 2, 0);
+            zone.transform.localScale = new Vector3(area * 2, area * 2, 0);
             Destroy(zone, stats.lifespan);
         }
 
@@ -56,7 +59,7 @@ public class FallingProjectile : Projectile
 
     private void BiteDamageArea()
     {
-        Collider2D[] targets = Physics2D.OverlapCircleAll(targerPosition, stats.area);
+        Collider2D[] targets = Physics2D.OverlapCircleAll(targerPosition, area);
         foreach (Collider2D t in targets)
         {
             Health eh = t.GetComponent<Health>();

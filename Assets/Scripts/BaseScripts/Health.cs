@@ -85,8 +85,12 @@ public class Health : MonoBehaviour
         else
         {
             OnDeathWithReference?.Invoke(sender);
-            isDead = true;
-            StartCoroutine(KillFade());
+
+            if (!isPlayer)
+            {
+                isDead = true;
+                StartCoroutine(KillFade());
+            }
             //Destroy(gameObject);
         }
         UpdateHealthBar();

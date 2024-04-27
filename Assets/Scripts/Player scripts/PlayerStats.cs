@@ -153,8 +153,7 @@ public class PlayerStats : MonoBehaviour
    
     public void IncreaseExperience(int amount)
     {
-        experience += amount;
-        
+        experience += (int)Mathf.Round(amount * actualStats.growth);
         LevelUpChecker();
         UpdateExpBar();
     }
@@ -223,8 +222,15 @@ public class PlayerStats : MonoBehaviour
 
     public void PlayerDie()
     {
-        if (!GameManager.instance.isGameOver)
+        if(actualStats.revival > 0)
         {
+            actualStats.revival -= 1;
+            
+            healthData.currentHealth = actualStats.maxHealth * 0.5f;
+        }
+        else if (!GameManager.instance.isGameOver)
+        {
+            healthData.isDead = true;
             GameManager.instance.AssignLevelReachedUI(level);
             GameManager.instance.AssignChosenWeaponsUI(playerInventory.weaponSlots);
             GameManager.instance.GameOver();
