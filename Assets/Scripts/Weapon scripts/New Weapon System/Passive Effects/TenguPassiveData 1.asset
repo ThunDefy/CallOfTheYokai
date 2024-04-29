@@ -56,14 +56,14 @@ MonoBehaviour:
       magnet: 0
       revival: 0
   - name: Getting bigger and bigger
-    description: +5% area
+    description: +3% area
     boosts:
       maxHealth: 0
       recovery: 0
       armor: 0
       moveSpeed: 0
       power: 0
-      area: 0.05
+      area: 0.03
       speed: 0
       duration: 0
       amount: 0

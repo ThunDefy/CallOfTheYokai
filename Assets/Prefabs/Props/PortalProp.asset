@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8986f62cc25c245b14512b0ae91bc1, type: 3}
+  m_Name: PortalProp
+  m_EditorClassIdentifier: 
+  PropPrefab: {fileID: 7701580103501846109, guid: 31fae805afca00e4ba9f86e5e8335f51, type: 3}
+  PropSprite: {fileID: 0}
+  PropSize: {x: 1, y: 1}
+  SpecialProp: 1
+  RoomType: 1
+  Corner: 0
+  NearWallUP: 0
+  NearWallDown: 0
+  NearWallRight: 1
+  NearWallLeft: 1
+  Inner: 0
+  PlacementQuantityMin: 1
+  PlacementQuantityMax: 1
+  PlaceAsGroup: 0
+  GroupMinCount: 1
+  GroupMaxCount: 1

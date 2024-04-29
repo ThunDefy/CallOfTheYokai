@@ -20,7 +20,7 @@ MonoBehaviour:
     description: 3 recovery
     boosts:
       maxHealth: 0
-      recovery: 1.5
+      recovery: 3
       armor: 0
       moveSpeed: 0
       power: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
     description: +0.5 recovery
     boosts:
       maxHealth: 0
-      recovery: 0.8
+      recovery: 0.5
       armor: 0
       moveSpeed: 0
       power: 0
@@ -72,5 +72,5 @@ MonoBehaviour:
       growth: 0
       greed: 0
       curse: 0
-      magnet: 0.1
+      magnet: 0
       revival: 0

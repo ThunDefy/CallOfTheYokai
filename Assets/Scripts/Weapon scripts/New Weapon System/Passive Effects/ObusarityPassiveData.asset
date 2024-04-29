@@ -17,39 +17,39 @@ MonoBehaviour:
   maxRisingLevel: 0
   baseStats:
     name: Obusarity Passive
-    description: + 20% Luck
+    description: + 20% area
     boosts:
       maxHealth: 0
       recovery: 0
       armor: 0
       moveSpeed: 0
       power: 0
-      area: 0
+      area: 0.2
       speed: 0
       duration: 0
       amount: 0
       cooldown: 0
-      luck: 0.2
+      luck: 0
       growth: 0
       greed: 0
       curse: 0
       magnet: 0
       revival: 0
   growth:
-  - name: Luck
-    description: + 5% Luck
+  - name: Area
+    description: + 5% area
     boosts:
       maxHealth: 0
       recovery: 0
       armor: 0
       moveSpeed: 0
       power: 0
-      area: 0
+      area: 0.05
       speed: 0
       duration: 0
       amount: 0
       cooldown: 0
-      luck: 0.05
+      luck: 0
       growth: 0
       greed: 0
       curse: 0

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511ecd52941cd7a4b909c1f2c7f34974, type: 3}
+  m_Name: Level1Data
+  m_EditorClassIdentifier: 
+  biomeData: {fileID: 11400000, guid: 0e977bc93cc7ba2448eaf8671d76b51a, type: 2}
+  propsToPlace:
+  - {fileID: 11400000, guid: 210405e3b74c4f445b9a8bbcd12beb81, type: 2}
+  - {fileID: 11400000, guid: 9412c81a9c930b74981786823378bb87, type: 2}
+  - {fileID: 11400000, guid: 0a91c0861836c9f488508f79f5b749f7, type: 2}
+  - {fileID: 11400000, guid: fb59f363bd42b5a458474455cac216ac, type: 2}
+  normalEnemys:
+  - {fileID: 11400000, guid: 8d245f492523abe499214a63c9086af6, type: 2}
+  - {fileID: 11400000, guid: c433268e326f8434fa3ac08f80c19501, type: 2}
+  normalEnemySpawnChance:
+  - 0.5
+  - 0.5
+  specialEnemys:
+  - {fileID: 11400000, guid: fb6f34afb53e06e458bbf7433d000001, type: 2}
+  specialEnemySpawnChance:
+  - 1
+  bossEnemy: {fileID: 11400000, guid: 1d5468d827dfe854c9636f458b6ddd38, type: 2}

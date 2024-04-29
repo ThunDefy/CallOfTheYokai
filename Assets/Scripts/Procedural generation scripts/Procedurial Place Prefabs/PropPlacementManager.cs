@@ -8,9 +8,11 @@ using UnityEngine.Events;
 public class PropPlacementManager : MonoBehaviour
 {
     MapData dungeonData;
+    MapManager mapManager;
+    LevelData currentLevelData;
 
-    [SerializeField]
-    private List<Prop> propsToPlace;
+    //[SerializeField]
+    //private List<Prop> propsToPlace;
 
     [SerializeField, Range(0, 1)]
     private float cornerPropPlacementChance = 0.7f; // Шанс размещения объекта в углу
@@ -28,6 +30,20 @@ public class PropPlacementManager : MonoBehaviour
         ps = FindObjectOfType <PlayerStats>();
     }
 
+    private void Start()
+    {
+        if (mapManager == null)
+        {
+            mapManager = FindObjectOfType<MapManager>();
+        }
+        UpdateLevelData();
+       
+    }
+    public void UpdateLevelData()
+    {
+        currentLevelData = mapManager.GetCurrentLevelData();
+    }
+
     public void ProcessRooms()
     {
         if (dungeonData == null)
@@ -36,27 +52,27 @@ public class PropPlacementManager : MonoBehaviour
         foreach (Room room in dungeonData.Rooms)
         {
             //Расставить объекты по углам
-            List<Prop> cornerProps = propsToPlace.Where(x => x.Corner).ToList();
+            List<Prop> cornerProps = currentLevelData.propsToPlace.Where(x => x.Corner).ToList();
             if(cornerProps.Count!=0) PlaceCornerProps(room, cornerProps);
 
             //Возле левой стены
-            List<Prop> leftWallProps = propsToPlace.Where(x => x.NearWallLeft).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
+            List<Prop> leftWallProps = currentLevelData.propsToPlace.Where(x => x.NearWallLeft).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
             if (leftWallProps.Count != 0) PlaceProps(room, leftWallProps, room.NearWallTilesLeft, PlacementOriginCorner.BottomLeft);
 
             //Возле правой стены
-            List<Prop> rightWallProps = propsToPlace.Where(x => x.NearWallRight).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
+            List<Prop> rightWallProps = currentLevelData.propsToPlace.Where(x => x.NearWallRight).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
             if (rightWallProps.Count != 0) PlaceProps(room, rightWallProps, room.NearWallTilesRight, PlacementOriginCorner.TopRight);
 
             //Возле верхней стены
-            List<Prop> topWallProps = propsToPlace.Where(x => x.NearWallUP).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
+            List<Prop> topWallProps = currentLevelData.propsToPlace.Where(x => x.NearWallUP).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
             if (topWallProps.Count != 0) PlaceProps(room, topWallProps, room.NearWallTilesUp, PlacementOriginCorner.TopLeft);
 
             //Возле нижней стены
-            List<Prop> downWallProps = propsToPlace.Where(x => x.NearWallDown).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
+            List<Prop> downWallProps = currentLevelData.propsToPlace.Where(x => x.NearWallDown).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
             if (downWallProps.Count != 0) PlaceProps(room, downWallProps, room.NearWallTilesDown, PlacementOriginCorner.BottomLeft);
 
             //Внутри комнаты
-            List<Prop> innerProps = propsToPlace.Where(x => x.Inner).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
+            List<Prop> innerProps = currentLevelData.propsToPlace.Where(x => x.Inner).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
             if (innerProps.Count != 0) PlaceProps(room, innerProps, room.InnerTiles, PlacementOriginCorner.BottomLeft);
 
         }

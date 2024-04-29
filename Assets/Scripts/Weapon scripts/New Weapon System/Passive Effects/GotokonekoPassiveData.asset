@@ -23,7 +23,7 @@ MonoBehaviour:
       recovery: 0
       armor: 0
       moveSpeed: 0
-      power: 0.15
+      power: 0.1
       area: 0
       speed: 0
       duration: 0

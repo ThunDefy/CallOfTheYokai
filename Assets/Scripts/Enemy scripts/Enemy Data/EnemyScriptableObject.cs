@@ -7,7 +7,7 @@ public class EnemyScriptableObject : ScriptableObject
 {
     public enum EnemyType
     {
-        Noraml,
+        Normal,
         Boss,
         Guardian,
 

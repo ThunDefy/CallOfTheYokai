@@ -37,7 +37,7 @@ MonoBehaviour:
       revival: 0
   growth:
   - name: More growth
-    description: +2.5% growth
+    description: +5% growth
     boosts:
       maxHealth: 0
       recovery: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
       amount: 0
       cooldown: 0
       luck: 0
-      growth: 0.025
+      growth: 0.05
       greed: 0
       curse: 0
       magnet: 0

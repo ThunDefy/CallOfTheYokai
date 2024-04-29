@@ -39,6 +39,7 @@ public class TargetIndicator : MonoBehaviour
 
     public void FindAllTargetObjects()
     {
+        targetObjects.Clear();
         GameObject[] allObjects = GameObject.FindGameObjectsWithTag("YokaiCage"); 
 
         foreach (GameObject obj in allObjects)

@@ -23,14 +23,17 @@ public class MapData : MonoBehaviour
             }
             foreach (var item in room.EnemiesInTheRoom)
             {
-                //item.GetComponent<DropRateManager>().canDrop = false;
-                Destroy(item);
+                if (item != null)
+                {
+                    item.GetComponent<DropRateManager>().canDrop = false;
+                    Destroy(item);
+                }
             }
 
         }
         Rooms = new();
         Path = new();
-        Destroy(PlayerReference);  
+        //Destroy(PlayerReference);  
     }
 
     public IEnumerator TutorialCoroutine(Action code)

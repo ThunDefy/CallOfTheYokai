@@ -11,18 +11,36 @@ public class TilemapVisualizer : MonoBehaviour
 {
     [SerializeField]
     private Tilemap floorTilemap, wallTilemap;
-    [SerializeField]
-    private List<TileBase> floorTiles;
-    [SerializeField]
-    private TileBase floorTile, wallTop, wallSideRight, wallSideLeft, wallBottom, wall, wallFloor,
-        wallInnerCornerDownLeft, wallInnerCornerDownRight,
-        wallDiagonalCornerDownRight, wallDiagonalCornerDownLeft, 
-        wallDiagonalCornerUpRight, wallDiagonalCornerUpLeft,
-        wallTopRightEnd;
+    //[SerializeField]
+    //private List<TileBase> floorTiles;
+    //[SerializeField]
+    //private TileBase floorTile, wallTop, wallSideRight, wallSideLeft, wallBottom, wall, wallFloor,
+    //    wallInnerCornerDownLeft, wallInnerCornerDownRight,
+    //    wallDiagonalCornerDownRight, wallDiagonalCornerDownLeft,
+    //    wallDiagonalCornerUpRight, wallDiagonalCornerUpLeft,
+    //    wallTopRightEnd;
+
+    private MapManager mapManager;
+    BiomeData currentBiomeData;
+
+    private void Start()
+    {
+        if (mapManager == null)
+        {
+            mapManager = FindObjectOfType<MapManager>(); 
+        }
+        UpdateLevelData();
+    }
+
+    public void UpdateLevelData()
+    {
+        LevelData currentLevelData = mapManager.GetCurrentLevelData();
+        currentBiomeData = currentLevelData.biomeData;
+    }
 
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
     {
-        PaintTiles(floorPositions, floorTilemap, floorTiles);
+        PaintTiles(floorPositions, floorTilemap, currentBiomeData.floorTiles);
     }
 
     private void PaintTiles(IEnumerable<Vector2Int> positions, Tilemap tilemap, List<TileBase> tiles)
@@ -51,29 +69,29 @@ public class TilemapVisualizer : MonoBehaviour
         TileBase tile = null;
         if (WallTypesHelper.wallTop.Contains(typeAsInt))
         {
-            tile = wallTop;
+            tile = currentBiomeData.wallTop;
         }
         else if (WallTypesHelper.wallSideRight.Contains(typeAsInt))
         {
-            tile = wallSideRight;
+            tile = currentBiomeData.wallSideRight;
         }
         else if (WallTypesHelper.wallSideLeft.Contains(typeAsInt))
         {
-            tile = wallSideLeft;
+            tile = currentBiomeData.wallSideLeft;
         }
         else if (WallTypesHelper.wallBottm.Contains(typeAsInt))
         {
-            tile = wallBottom;
+            tile = currentBiomeData.wallBottom;
         }
         else if (WallTypesHelper.wallFull.Contains(typeAsInt))
         {
-            tile = wall;
+            tile = currentBiomeData.wall;
         }
 
         if (tile != null)
         {
             PaintSingleTile(wallTilemap, tile, position);
-            PaintSingleTile(floorTilemap, wallFloor, position);
+            PaintSingleTile(floorTilemap, currentBiomeData.wallFloor, position);
         }
     }
 
@@ -84,45 +102,45 @@ public class TilemapVisualizer : MonoBehaviour
 
         if (WallTypesHelper.wallInnerCornerDownLeft.Contains(typeASInt))
         {
-            tile = wallInnerCornerDownLeft;
+            tile = currentBiomeData.wallInnerCornerDownLeft;
         }
         else if (WallTypesHelper.wallInnerCornerDownRight.Contains(typeASInt))
         {
-            tile = wallInnerCornerDownRight;
+            tile = currentBiomeData.wallInnerCornerDownRight;
         }
         else if (WallTypesHelper.wallDiagonalCornerDownLeft.Contains(typeASInt))
         {
-            tile = wallDiagonalCornerDownLeft;
+            tile = currentBiomeData.wallDiagonalCornerDownLeft;
         }
         else if (WallTypesHelper.wallDiagonalCornerDownRight.Contains(typeASInt))
         {
-            tile = wallDiagonalCornerDownRight;
+            tile = currentBiomeData.wallDiagonalCornerDownRight;
         }
         else if (WallTypesHelper.wallDiagonalCornerUpRight.Contains(typeASInt))
         {
-            tile = wallDiagonalCornerUpRight;
+            tile = currentBiomeData.wallDiagonalCornerUpRight;
         }
         else if (WallTypesHelper.wallDiagonalCornerUpLeft.Contains(typeASInt))
         {
-            tile = wallDiagonalCornerUpLeft;
+            tile = currentBiomeData.wallDiagonalCornerUpLeft;
         }
         else if (WallTypesHelper.wallFullEightDirections.Contains(typeASInt))
         {
-            tile = wall;
+            tile = currentBiomeData.wall;
         }
         else if (WallTypesHelper.wallBottmEightDirections.Contains(typeASInt))
         {
-            tile = wallBottom;
+            tile = currentBiomeData.wallBottom;
         }
         else if (WallTypesHelper.wallTopRightEnd.Contains(typeASInt))
         {
-            tile = wallTopRightEnd;
+            tile = currentBiomeData.wallTopRightEnd;
         }
 
         if (tile != null)
         {
             PaintSingleTile(wallTilemap, tile, position);
-            PaintSingleTile(floorTilemap, wallFloor, position);
+            PaintSingleTile(floorTilemap, currentBiomeData.wallFloor, position);
         }
     }
 }

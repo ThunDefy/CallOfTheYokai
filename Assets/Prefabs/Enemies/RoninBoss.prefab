@@ -244,9 +244,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fc24e9b020207946bc9080f4154bd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canDrop: 1
+  randomDrop: 0
   drops:
   - name: PurpleSoul
     itemPrefab: {fileID: 5001092401595562335, guid: d4e282f0318657e4a88d452a6eceaff9, type: 3}
+    dropRate: 100
+  - name: Portal
+    itemPrefab: {fileID: 7701580103501846109, guid: 31fae805afca00e4ba9f86e5e8335f51, type: 3}
     dropRate: 100
 --- !u!114 &6298447236141341691
 MonoBehaviour:
@@ -261,9 +266,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
-  maxHealth: 250
+  maxHealth: 2
   isPlayer: 0
-  currentHealth: 250
+  currentHealth: 2
   OnHitWithReference:
     m_PersistentCalls:
       m_Calls: []

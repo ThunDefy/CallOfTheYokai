@@ -8,21 +8,21 @@ using Random = UnityEngine.Random;
 
 public class AgentPlacer : MonoBehaviour
 {
-    [Header("Enemys")]
-    [SerializeField]
-    private List<EnemyScriptableObject> normalEnemys;
+    //[Header("Enemys")]
+    //[SerializeField]
+    //private List<EnemyScriptableObject> normalEnemys;
 
-    [SerializeField]
-    private List<float> normalEnemySpawnChance;
+    //[SerializeField]
+    //private List<float> normalEnemySpawnChance;
 
-    [SerializeField]
-    private List<EnemyScriptableObject> specialEnemys;
+    //[SerializeField]
+    //private List<EnemyScriptableObject> specialEnemys;
 
-    [SerializeField]
-    private List<float> specialEnemySpawnChance;
+    //[SerializeField]
+    //private List<float> specialEnemySpawnChance;
 
-    [SerializeField]
-    private EnemyScriptableObject bossEnemy;
+    //[SerializeField]
+    //private EnemyScriptableObject bossEnemy;
 
     [Header("Placer data")]
     [SerializeField]
@@ -44,17 +44,31 @@ public class AgentPlacer : MonoBehaviour
     private List<int> roomsWithEnemies = new List<int>();
 
     MapData dungeonData;
+    MapManager mapManager;
+    LevelData currentLevelData;
 
     [SerializeField]
     private bool showGizmo = false;
 
+
     private void Awake()
     {
         dungeonData = FindObjectOfType<MapData>();
-
     }
 
+    private void Start()
+    {
+        if (mapManager == null)
+        {
+            mapManager = FindObjectOfType<MapManager>();
+        }
+        UpdateLevelData();
+    }
 
+    public void UpdateLevelData()
+    {
+        currentLevelData = mapManager.GetCurrentLevelData();
+    }
 
     public void PlaceAgents()
     {
@@ -121,13 +135,13 @@ public class AgentPlacer : MonoBehaviour
         {
             if (room.Type == RoomType.Normal)
             {
-                actualEnemySpawnChance = normalEnemySpawnChance;
-                actualEnemys = normalEnemys;
+                actualEnemySpawnChance = currentLevelData.normalEnemySpawnChance;
+                actualEnemys = currentLevelData.normalEnemys;
             }
             else if (room.Type == RoomType.Treasure)
             {
-                actualEnemySpawnChance = specialEnemySpawnChance;
-                actualEnemys = specialEnemys;
+                actualEnemySpawnChance = currentLevelData.specialEnemySpawnChance;
+                actualEnemys = currentLevelData.specialEnemys;
             }
 
             float totalSpawnChance = 0f;
@@ -161,7 +175,7 @@ public class AgentPlacer : MonoBehaviour
         }
         else
         {
-            GameObject enemy = Instantiate(bossEnemy.enemyPrefab);
+            GameObject enemy = Instantiate(currentLevelData.bossEnemy.enemyPrefab);
             enemy.transform.localPosition = (Vector2)room.PositionsAccessibleFromPath[0] + Vector2.one * 0.5f;
             room.EnemiesInTheRoom.Add(enemy);
         }

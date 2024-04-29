@@ -64,7 +64,7 @@ MonoBehaviour:
       moveSpeed: 0
       power: 0.03
       area: 0
-      speed: 0.1
+      speed: 0
       duration: 0
       amount: 0
       cooldown: 0
