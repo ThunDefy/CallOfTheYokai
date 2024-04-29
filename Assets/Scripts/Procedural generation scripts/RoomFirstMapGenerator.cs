@@ -19,11 +19,25 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
     public UnityEvent OnFinishedRoomGeneration;
 
     private MapData mapData;
+    MapManager mapManager;
+    LevelData currentLevelData;
+
+    int currentTresureRoomCount;
+    List<int> treasureRoomIndexes = new List<int>();
 
     private void Start()
     {
+        mapManager = FindObjectOfType<MapManager>();
+        UpdateLevelData();
         GenerateMap();
     }
+    public void UpdateLevelData()
+    {
+        currentLevelData = mapManager.GetCurrentLevelData();
+        currentTresureRoomCount = currentLevelData.tresureRoomCount;
+        if (mapManager.CurrentLevelIndex == 0) currentTresureRoomCount -= 1;
+    }
+
 
 
     protected override void RunProceduralGeneration()
@@ -44,6 +58,8 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
         var roomsList = ProceduralGenerationAlgorithms.BinarySpacePartitioning(new BoundsInt((Vector3Int)startPosition, new Vector3Int(dungeonWidth, dungeonHeight, 0)), minRoomWidth, minRoomHeight);
 
         HashSet<Vector2Int> floor = new HashSet<Vector2Int>();
+
+        RandomlyPlaceTresures(roomsList.Count);
 
         if (randomWalkRooms)
         {
@@ -93,9 +109,24 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
         return floor;
     }
 
+
+    private void RandomlyPlaceTresures(int roomCount)
+    {
+        System.Random random = new System.Random(); 
+
+        while (treasureRoomIndexes.Count < currentTresureRoomCount) 
+        {
+            int index = random.Next(2, roomCount-1); 
+            if (!treasureRoomIndexes.Contains(index)) 
+            {
+                treasureRoomIndexes.Add(index); 
+            }
+        }
+    }
     private HashSet<Vector2Int> CreateRoomsRandomly(List<BoundsInt> roomsList, MapData mapData)
     {
         HashSet<Vector2Int> floor = new HashSet<Vector2Int>();
+        
         for (int i = 0; i < roomsList.Count; i++)
         {
             var roomBounds = roomsList[i];
@@ -112,12 +143,23 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
                     roomTiles.Add((Vector2Int)position);
                 }    
             }
-            if (i == 0)
+            if (i == 0 && mapManager.CurrentLevelIndex == 0) // Спавн первого оружия
+            {
                 mapData.Rooms.Add(new Room(roomCenter, roomTiles, RoomType.Treasure));
-            else if (i == roomsList.Count-1)
-                mapData.Rooms.Add(new Room(roomCenter, roomTiles, RoomType.Boss));
-            else
-                mapData.Rooms.Add(new Room(roomCenter, roomTiles, RoomType.Normal));
+            }
+            else if (treasureRoomIndexes.Contains(i)) // Проверьте, содержит ли текущий индекс комнаты сокровища
+            {
+                mapData.Rooms.Add(new Room(roomCenter, roomTiles, RoomType.Treasure)); // Добавьте комнату с сокровищами
+            }
+            else if (i == roomsList.Count - 1)
+            {
+                if (currentLevelData.haveBoss)
+                    mapData.Rooms.Add(new Room(roomCenter, roomTiles, RoomType.Boss));
+                else
+                    mapData.Rooms.Add(new Room(roomCenter, roomTiles, RoomType.Portal));
+            }
+               
+            else mapData.Rooms.Add(new Room(roomCenter, roomTiles, RoomType.Normal));
         }
 
         return floor;

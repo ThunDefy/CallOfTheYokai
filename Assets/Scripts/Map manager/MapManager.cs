@@ -7,12 +7,13 @@ public class MapManager : MonoBehaviour
 {
     public List<LevelData> levelsData;
     private int currentLevelIndex = 0;
+    public int CurrentLevelIndex { get => currentLevelIndex; }
 
     RoomFirstMapGenerator roomFirstMapGenerator;
     TilemapVisualizer tilemapVisualizer;
     AgentPlacer agentPlacer;
     PropPlacementManager propPlacementManager;
-
+    
     private void Awake()
     {
         roomFirstMapGenerator = FindObjectOfType<RoomFirstMapGenerator>();
@@ -44,6 +45,7 @@ public class MapManager : MonoBehaviour
             tilemapVisualizer.UpdateLevelData();
             agentPlacer.UpdateLevelData();
             propPlacementManager.UpdateLevelData();
+            roomFirstMapGenerator.UpdateLevelData();
             roomFirstMapGenerator.GenerateMap();
         }
     }

@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - Enemy
   - YokaiCage
+  - Boss
   layers:
   - Default
   - TransparentFX

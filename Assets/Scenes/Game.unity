@@ -27993,11 +27993,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1bc2ca34d9770e47aff144d4819a515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1196761415
+--- !u!114 &1196761415 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+  m_PrefabInstance: {fileID: 1293243056}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196761412}
   m_Enabled: 1
@@ -28005,335 +28004,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7cdc519a84ecb44beb6241dc6dc00e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSlots:
-  - yokaiData: {fileID: 0}
-    yokai: {fileID: 0}
-    image: {fileID: 1044698409}
-    currentLevel: 1
-    cooldownSensor: {fileID: 1653145506}
-  - yokaiData: {fileID: 0}
-    yokai: {fileID: 0}
-    image: {fileID: 371514059}
-    currentLevel: 1
-    cooldownSensor: {fileID: 1771055705}
-  - yokaiData: {fileID: 0}
-    yokai: {fileID: 0}
-    image: {fileID: 908465810}
-    currentLevel: 1
-    cooldownSensor: {fileID: 1892030169}
-  - yokaiData: {fileID: 0}
-    yokai: {fileID: 0}
-    image: {fileID: 1406919619}
-    currentLevel: 1
-    cooldownSensor: {fileID: 322613775}
-  passiveSlots:
-  - yokaiData: {fileID: 0}
-    yokai: {fileID: 0}
-    image: {fileID: 0}
-    currentLevel: 1
-    cooldownSensor: {fileID: 0}
-  - yokaiData: {fileID: 0}
-    yokai: {fileID: 0}
-    image: {fileID: 0}
-    currentLevel: 1
-    cooldownSensor: {fileID: 0}
-  - yokaiData: {fileID: 0}
-    yokai: {fileID: 0}
-    image: {fileID: 0}
-    currentLevel: 1
-    cooldownSensor: {fileID: 0}
-  - yokaiData: {fileID: 0}
-    yokai: {fileID: 0}
-    image: {fileID: 0}
-    currentLevel: 1
-    cooldownSensor: {fileID: 0}
-  newWeaponInfo:
-    weaponPanel: {fileID: 1087349819}
-    weaponIcon: {fileID: 305230184}
-    weaponNameDisplay: {fileID: 459504389}
-    risingLevelDisplay: {fileID: 1111628466}
-    weaponDiscription: {fileID: 1691254475}
-    damageStatDisplay: {fileID: 722111258}
-    areaStatDisplay: {fileID: 604644213}
-    speedStatDisplay: {fileID: 1637845062}
-    cooldownStatDisplay: {fileID: 1239274329}
-    knockbackStatDisplay: {fileID: 617970523}
-    pircingStatDisplay: {fileID: 1043296245}
-    PassiveEffect1Display: {fileID: 2130477966}
-    PassiveEffect2Display: {fileID: 1276509946}
-    changeButton: {fileID: 796756445}
-    nopeButton: {fileID: 0}
-  upgradeUIOptions:
-  - upgradeWeaponPanel: {fileID: 1742791507}
-    upgradeIcon: {fileID: 159710178}
-    upgrade1YokaiNameDisplay: {fileID: 1024446227}
-    upgrade1YokaiDescriptionDisplay: {fileID: 1495294322}
-    upgrade1YokaiButton: {fileID: 1918168003}
-    upgrade1PassiveNameDisplay: {fileID: 90371805}
-    upgrade1PassiveDescriptionDisplay: {fileID: 1256290043}
-    upgrade1PassiveButton: {fileID: 175209442}
-    upgrade2YokaiNameDisplay: {fileID: 528208490}
-    upgrade2YokaiDescriptionDisplay: {fileID: 814369186}
-    upgrade2YokaiButton: {fileID: 1203829743}
-    upgrade2PassiveNameDisplay: {fileID: 1803626648}
-    upgrade2PassiveDescriptionDisplay: {fileID: 1960603605}
-    upgrade2PassiveButton: {fileID: 994218908}
-  - upgradeWeaponPanel: {fileID: 647537797}
-    upgradeIcon: {fileID: 52513031}
-    upgrade1YokaiNameDisplay: {fileID: 886821021}
-    upgrade1YokaiDescriptionDisplay: {fileID: 572870236}
-    upgrade1YokaiButton: {fileID: 667961735}
-    upgrade1PassiveNameDisplay: {fileID: 1968980000}
-    upgrade1PassiveDescriptionDisplay: {fileID: 1136090845}
-    upgrade1PassiveButton: {fileID: 169773184}
-    upgrade2YokaiNameDisplay: {fileID: 221200622}
-    upgrade2YokaiDescriptionDisplay: {fileID: 1930193805}
-    upgrade2YokaiButton: {fileID: 1161439016}
-    upgrade2PassiveNameDisplay: {fileID: 397665693}
-    upgrade2PassiveDescriptionDisplay: {fileID: 1688311152}
-    upgrade2PassiveButton: {fileID: 591535868}
-  - upgradeWeaponPanel: {fileID: 312819183}
-    upgradeIcon: {fileID: 902466520}
-    upgrade1YokaiNameDisplay: {fileID: 1390376949}
-    upgrade1YokaiDescriptionDisplay: {fileID: 1911679633}
-    upgrade1YokaiButton: {fileID: 725211899}
-    upgrade1PassiveNameDisplay: {fileID: 416704378}
-    upgrade1PassiveDescriptionDisplay: {fileID: 1358805952}
-    upgrade1PassiveButton: {fileID: 1056222320}
-    upgrade2YokaiNameDisplay: {fileID: 299495388}
-    upgrade2YokaiDescriptionDisplay: {fileID: 173384996}
-    upgrade2YokaiButton: {fileID: 139702024}
-    upgrade2PassiveNameDisplay: {fileID: 487800149}
-    upgrade2PassiveDescriptionDisplay: {fileID: 1904577257}
-    upgrade2PassiveButton: {fileID: 152013998}
-  - upgradeWeaponPanel: {fileID: 256214181}
-    upgradeIcon: {fileID: 1327791049}
-    upgrade1YokaiNameDisplay: {fileID: 1446091156}
-    upgrade1YokaiDescriptionDisplay: {fileID: 989880018}
-    upgrade1YokaiButton: {fileID: 782152377}
-    upgrade1PassiveNameDisplay: {fileID: 1074702892}
-    upgrade1PassiveDescriptionDisplay: {fileID: 1097490204}
-    upgrade1PassiveButton: {fileID: 1857418648}
-    upgrade2YokaiNameDisplay: {fileID: 1484628139}
-    upgrade2YokaiDescriptionDisplay: {fileID: 430309200}
-    upgrade2YokaiButton: {fileID: 941889695}
-    upgrade2PassiveNameDisplay: {fileID: 2081951847}
-    upgrade2PassiveDescriptionDisplay: {fileID: 2118429734}
-    upgrade2PassiveButton: {fileID: 649289346}
-  changeUIOptions:
-  - weaponPanel: {fileID: 1212766952}
-    weaponIcon: {fileID: 278573769}
-    weaponNameDisplay: {fileID: 1786994601}
-    risingLevelDisplay: {fileID: 2120466106}
-    weaponDiscription: {fileID: 131002104}
-    damageStatDisplay: {fileID: 132991403}
-    areaStatDisplay: {fileID: 2062118074}
-    speedStatDisplay: {fileID: 1328446445}
-    cooldownStatDisplay: {fileID: 1132053757}
-    knockbackStatDisplay: {fileID: 1420110753}
-    pircingStatDisplay: {fileID: 873479260}
-    PassiveEffect1Display: {fileID: 1054281442}
-    PassiveEffect2Display: {fileID: 398185527}
-    changeButton: {fileID: 0}
-    nopeButton: {fileID: 1790004373}
-  - weaponPanel: {fileID: 1291549711}
-    weaponIcon: {fileID: 1474145066}
-    weaponNameDisplay: {fileID: 1199963879}
-    risingLevelDisplay: {fileID: 334743477}
-    weaponDiscription: {fileID: 1973226469}
-    damageStatDisplay: {fileID: 497410550}
-    areaStatDisplay: {fileID: 1145212797}
-    speedStatDisplay: {fileID: 155639178}
-    cooldownStatDisplay: {fileID: 534971406}
-    knockbackStatDisplay: {fileID: 473477329}
-    pircingStatDisplay: {fileID: 291213891}
-    PassiveEffect1Display: {fileID: 1719185805}
-    PassiveEffect2Display: {fileID: 16051372}
-    changeButton: {fileID: 1633523309}
-    nopeButton: {fileID: 0}
-  - weaponPanel: {fileID: 1946700636}
-    weaponIcon: {fileID: 1901258522}
-    weaponNameDisplay: {fileID: 1149637080}
-    risingLevelDisplay: {fileID: 1393439765}
-    weaponDiscription: {fileID: 1834804459}
-    damageStatDisplay: {fileID: 1928033057}
-    areaStatDisplay: {fileID: 506337714}
-    speedStatDisplay: {fileID: 1749340306}
-    cooldownStatDisplay: {fileID: 411365876}
-    knockbackStatDisplay: {fileID: 749211692}
-    pircingStatDisplay: {fileID: 752572658}
-    PassiveEffect1Display: {fileID: 46159473}
-    PassiveEffect2Display: {fileID: 1568909181}
-    changeButton: {fileID: 1158563044}
-    nopeButton: {fileID: 0}
-  - weaponPanel: {fileID: 682554946}
-    weaponIcon: {fileID: 1620772657}
-    weaponNameDisplay: {fileID: 981328479}
-    risingLevelDisplay: {fileID: 1845441219}
-    weaponDiscription: {fileID: 2088683433}
-    damageStatDisplay: {fileID: 792538892}
-    areaStatDisplay: {fileID: 1959470927}
-    speedStatDisplay: {fileID: 1351924108}
-    cooldownStatDisplay: {fileID: 869731789}
-    knockbackStatDisplay: {fileID: 1328710647}
-    pircingStatDisplay: {fileID: 897728316}
-    PassiveEffect1Display: {fileID: 713689105}
-    PassiveEffect2Display: {fileID: 1419084640}
-    changeButton: {fileID: 1692763894}
-    nopeButton: {fileID: 0}
-  - weaponPanel: {fileID: 2040592419}
-    weaponIcon: {fileID: 249385776}
-    weaponNameDisplay: {fileID: 114289262}
-    risingLevelDisplay: {fileID: 1845441219}
-    weaponDiscription: {fileID: 327478256}
-    damageStatDisplay: {fileID: 746009921}
-    areaStatDisplay: {fileID: 1543594574}
-    speedStatDisplay: {fileID: 241905657}
-    cooldownStatDisplay: {fileID: 1137676435}
-    knockbackStatDisplay: {fileID: 1754469035}
-    pircingStatDisplay: {fileID: 823948436}
-    PassiveEffect1Display: {fileID: 1667712560}
-    PassiveEffect2Display: {fileID: 1521159503}
-    changeButton: {fileID: 82241524}
-    nopeButton: {fileID: 0}
-  risingWeaponUI:
-  - weaponPanel: {fileID: 29461608}
-    weaponIcon: {fileID: 1958124323}
-    weaponNameDisplay: {fileID: 412466011}
-    risingLevelDisplay: {fileID: 1665712968}
-    weaponDiscription: {fileID: 713362296}
-    damageStatDisplay: {fileID: 1478313978}
-    areaStatDisplay: {fileID: 87106626}
-    speedStatDisplay: {fileID: 1727684471}
-    cooldownStatDisplay: {fileID: 687620231}
-    knockbackStatDisplay: {fileID: 1919283854}
-    pircingStatDisplay: {fileID: 1209362343}
-    PassiveEffect1Display: {fileID: 2000273023}
-    PassiveEffect2Display: {fileID: 1324365415}
-    changeButton: {fileID: 514162554}
-    nopeButton: {fileID: 0}
-  - weaponPanel: {fileID: 187987823}
-    weaponIcon: {fileID: 2008668457}
-    weaponNameDisplay: {fileID: 608975295}
-    risingLevelDisplay: {fileID: 1667591344}
-    weaponDiscription: {fileID: 961906059}
-    damageStatDisplay: {fileID: 1891477299}
-    areaStatDisplay: {fileID: 1280470311}
-    speedStatDisplay: {fileID: 1832901927}
-    cooldownStatDisplay: {fileID: 380792794}
-    knockbackStatDisplay: {fileID: 131555472}
-    pircingStatDisplay: {fileID: 323371352}
-    PassiveEffect1Display: {fileID: 414291608}
-    PassiveEffect2Display: {fileID: 901678990}
-    changeButton: {fileID: 0}
-    nopeButton: {fileID: 0}
-  weaponsStatsPauseUI:
-  - weaponPanel: {fileID: 426784753}
-    weaponIcon: {fileID: 1035849005}
-    weaponNameDisplay: {fileID: 1452170491}
-    risingLevelDisplay: {fileID: 511740653}
-    weaponDiscription: {fileID: 0}
-    damageStatDisplay: {fileID: 144829398}
-    areaStatDisplay: {fileID: 404201171}
-    speedStatDisplay: {fileID: 1255162571}
-    cooldownStatDisplay: {fileID: 189446016}
-    knockbackStatDisplay: {fileID: 870611017}
-    pircingStatDisplay: {fileID: 1553059972}
-    PassiveEffect1Display: {fileID: 1155577699}
-    PassiveEffect2Display: {fileID: 1215176460}
-    changeButton: {fileID: 0}
-    nopeButton: {fileID: 0}
-  - weaponPanel: {fileID: 1708214638}
-    weaponIcon: {fileID: 1847516907}
-    weaponNameDisplay: {fileID: 800362012}
-    risingLevelDisplay: {fileID: 1045592088}
-    weaponDiscription: {fileID: 0}
-    damageStatDisplay: {fileID: 677758013}
-    areaStatDisplay: {fileID: 511251495}
-    speedStatDisplay: {fileID: 315647216}
-    cooldownStatDisplay: {fileID: 2057287990}
-    knockbackStatDisplay: {fileID: 736344362}
-    pircingStatDisplay: {fileID: 1402730456}
-    PassiveEffect1Display: {fileID: 738760190}
-    PassiveEffect2Display: {fileID: 711944266}
-    changeButton: {fileID: 0}
-    nopeButton: {fileID: 0}
-  - weaponPanel: {fileID: 1214647497}
-    weaponIcon: {fileID: 1941019570}
-    weaponNameDisplay: {fileID: 113747324}
-    risingLevelDisplay: {fileID: 413097613}
-    weaponDiscription: {fileID: 0}
-    damageStatDisplay: {fileID: 1441406485}
-    areaStatDisplay: {fileID: 1849693173}
-    speedStatDisplay: {fileID: 1781439766}
-    cooldownStatDisplay: {fileID: 1136789389}
-    knockbackStatDisplay: {fileID: 2111363387}
-    pircingStatDisplay: {fileID: 568631773}
-    PassiveEffect1Display: {fileID: 1811433378}
-    PassiveEffect2Display: {fileID: 1108317566}
-    changeButton: {fileID: 0}
-    nopeButton: {fileID: 0}
-  - weaponPanel: {fileID: 1275206738}
-    weaponIcon: {fileID: 360441259}
-    weaponNameDisplay: {fileID: 951858081}
-    risingLevelDisplay: {fileID: 1574599487}
-    weaponDiscription: {fileID: 0}
-    damageStatDisplay: {fileID: 1642199504}
-    areaStatDisplay: {fileID: 743527159}
-    speedStatDisplay: {fileID: 1168381163}
-    cooldownStatDisplay: {fileID: 1884633649}
-    knockbackStatDisplay: {fileID: 2145801076}
-    pircingStatDisplay: {fileID: 889946876}
-    PassiveEffect1Display: {fileID: 417702954}
-    PassiveEffect2Display: {fileID: 1470829293}
-    changeButton: {fileID: 0}
-    nopeButton: {fileID: 0}
 --- !u!4 &1196761424 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6927289799995080488, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
   m_PrefabInstance: {fileID: 1293243056}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1196761433
+--- !u!114 &1196761442 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1196761412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_ComponentVersion: 1
-  m_HasRenderer: 1
-  m_UseRendererSilhouette: 1
-  m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_ApplyToSortingLayers: 00000000bf7d843d879698cc5f6a0c76033153c9a7d3d4663d12a8bb
-  m_ShapePath:
-  - {x: -0.13360977, y: -0.37281322, z: 0}
-  - {x: -0.1634512, y: -0.13455868, z: 0}
-  - {x: -0.12587261, y: 0.041463852, z: 0}
-  - {x: -0.1378746, y: 0.22809124, z: 0}
-  - {x: -0.07464123, y: 0.37779045, z: 0}
-  - {x: 0.11314678, y: 0.36816406, z: 0}
-  - {x: 0.17361927, y: 0.21879387, z: 0}
-  - {x: 0.1466999, y: 0.03416252, z: 0}
-  - {x: 0.1968584, y: -0.143857, z: 0}
-  - {x: 0.16736507, y: -0.3809986, z: 0}
-  m_ShapePathHash: -1106941395
-  m_Mesh: {fileID: 1236140739}
-  m_InstanceId: 30446
-  m_LocalBounds:
-    m_Center: {x: 0.016703606, y: -0.0016040802, z: 0}
-    m_Extent: {x: 0.1801548, y: 0.37939453, z: 0}
---- !u!114 &1196761442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1196761442, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+  m_PrefabInstance: {fileID: 1293243056}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196761412}
   m_Enabled: 1
@@ -28341,8 +28020,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f327010f8b2d9b940aaf77bb720b2de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistance: 1
-  arrowImg: {fileID: 960819122}
 --- !u!1 &1197594929
 GameObject:
   m_ObjectHideFlags: 0
@@ -30995,225 +30672,921 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: weaponSlots.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: weaponLevels.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: weaponUISlots.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: passiveEffects.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: upgradeUIOptions.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: weaponUISlots.Array.data[0]
-      value: 
-      objectReference: {fileID: 1044698409}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: weaponUISlots.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: weaponUISlots.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: weaponUISlots.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: weaponUpgradesOptions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: weaponPassiveEffectUpgradeOptions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: upgradeUIOptions.Array.data[0].upgradeWeaponPanel
-      value: 
-      objectReference: {fileID: 1742791507}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: upgradeUIOptions.Array.data[1].upgradeWeaponPanel
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: upgradeUIOptions.Array.data[2].upgradeWeaponPanel
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: upgradeUIOptions.Array.data[3].upgradeWeaponPanel
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: upgradeUIOptions.Array.data[0].upgradeWeaponStatsButton
-      value: 
-      objectReference: {fileID: 1918168003}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: upgradeUIOptions.Array.data[1].upgradeWeaponStatsButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: upgradeUIOptions.Array.data[2].upgradeWeaponStatsButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: upgradeUIOptions.Array.data[3].upgradeWeaponStatsButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: upgradeUIOptions.Array.data[0].upgradePassivEffectButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: upgradeUIOptions.Array.data[1].upgradePassivEffectButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: upgradeUIOptions.Array.data[2].upgradePassivEffectButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: upgradeUIOptions.Array.data[3].upgradePassivEffectButton
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
       propertyPath: expBar
       value: 
       objectReference: {fileID: 685709685}
     - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 11400000, guid: 9d96e993ac909f940b3c02562352dcec, type: 2}
-    - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
       propertyPath: levelText
       value: 
       objectReference: {fileID: 119833265}
-    - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: experience
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: playerData
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: newWeaponInfo.weaponIcon
       value: 
-      objectReference: {fileID: 11400000, guid: 9d96e993ac909f940b3c02562352dcec, type: 2}
-    - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: blockedEffect
+      objectReference: {fileID: 305230184}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: newWeaponInfo.weaponPanel
       value: 
-      objectReference: {fileID: 3593505527381391966, guid: defc5db1658e69343bcc367b1b9569de, type: 3}
-    - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: experienceCap
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: startingWeapon
+      objectReference: {fileID: 1087349819}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: newWeaponInfo.changeButton
       value: 
-      objectReference: {fileID: 4203816605063914695, guid: 26f91f04095ce5449aa0bf6e562d469b, type: 3}
-    - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: actualStats.power
-      value: 2.63
-      objectReference: {fileID: 0}
-    - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: availableSlotsCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: actualStats.duration
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: actualStats.moveSpeed
-      value: 4.35
-      objectReference: {fileID: 0}
-    - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: invincibilityDuration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: levelRanges.Array.data[0].endLevel
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: levelRanges.Array.data[1].endLevel
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: levelRanges.Array.data[1].startLevel
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: levelRanges.Array.data[0].experienceCapIncrease
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: -1205129498488766201, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: levelRanges.Array.data[1].experienceCapIncrease
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1921645335932540546, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: isPlayer
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 796756445}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: newWeaponInfo.areaStatDisplay
+      value: 
+      objectReference: {fileID: 604644213}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: newWeaponInfo.speedStatDisplay
+      value: 
+      objectReference: {fileID: 1637845062}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: newWeaponInfo.damageStatDisplay
+      value: 
+      objectReference: {fileID: 722111258}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: newWeaponInfo.weaponDiscription
+      value: 
+      objectReference: {fileID: 1691254475}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: newWeaponInfo.weaponNameDisplay
+      value: 
+      objectReference: {fileID: 459504389}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponSlots.Array.data[0].image
+      value: 
+      objectReference: {fileID: 1044698409}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponSlots.Array.data[1].image
+      value: 
+      objectReference: {fileID: 371514059}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponSlots.Array.data[2].image
+      value: 
+      objectReference: {fileID: 908465810}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponSlots.Array.data[3].image
+      value: 
+      objectReference: {fileID: 1406919619}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: newWeaponInfo.pircingStatDisplay
+      value: 
+      objectReference: {fileID: 1043296245}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: newWeaponInfo.risingLevelDisplay
+      value: 
+      objectReference: {fileID: 1111628466}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: newWeaponInfo.cooldownStatDisplay
+      value: 
+      objectReference: {fileID: 1239274329}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: newWeaponInfo.knockbackStatDisplay
+      value: 
+      objectReference: {fileID: 617970523}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: newWeaponInfo.PassiveEffect1Display
+      value: 
+      objectReference: {fileID: 2130477966}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: newWeaponInfo.PassiveEffect2Display
+      value: 
+      objectReference: {fileID: 1276509946}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[0].weaponIcon
+      value: 
+      objectReference: {fileID: 1958124323}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[1].weaponIcon
+      value: 
+      objectReference: {fileID: 2008668457}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[0].nopeButton
+      value: 
+      objectReference: {fileID: 1790004373}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[0].weaponIcon
+      value: 
+      objectReference: {fileID: 278573769}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[1].weaponIcon
+      value: 
+      objectReference: {fileID: 1474145066}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[2].weaponIcon
+      value: 
+      objectReference: {fileID: 1901258522}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[3].weaponIcon
+      value: 
+      objectReference: {fileID: 1620772657}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[4].weaponIcon
+      value: 
+      objectReference: {fileID: 249385776}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[0].weaponPanel
+      value: 
+      objectReference: {fileID: 29461608}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[1].weaponPanel
+      value: 
+      objectReference: {fileID: 187987823}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponSlots.Array.data[0].cooldownSensor
+      value: 
+      objectReference: {fileID: 1653145506}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponSlots.Array.data[1].cooldownSensor
+      value: 
+      objectReference: {fileID: 1771055705}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponSlots.Array.data[2].cooldownSensor
+      value: 
+      objectReference: {fileID: 1892030169}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponSlots.Array.data[3].cooldownSensor
+      value: 
+      objectReference: {fileID: 322613775}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[0].weaponPanel
+      value: 
+      objectReference: {fileID: 1212766952}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[1].weaponPanel
+      value: 
+      objectReference: {fileID: 1291549711}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[2].weaponPanel
+      value: 
+      objectReference: {fileID: 1946700636}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[3].weaponPanel
+      value: 
+      objectReference: {fileID: 682554946}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[4].weaponPanel
+      value: 
+      objectReference: {fileID: 2040592419}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[0].changeButton
+      value: 
+      objectReference: {fileID: 514162554}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[1].changeButton
+      value: 
+      objectReference: {fileID: 1633523309}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[2].changeButton
+      value: 
+      objectReference: {fileID: 1158563044}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[3].changeButton
+      value: 
+      objectReference: {fileID: 1692763894}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[4].changeButton
+      value: 
+      objectReference: {fileID: 82241524}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[0].upgradeIcon
+      value: 
+      objectReference: {fileID: 159710178}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[1].upgradeIcon
+      value: 
+      objectReference: {fileID: 52513031}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[2].upgradeIcon
+      value: 
+      objectReference: {fileID: 902466520}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[3].upgradeIcon
+      value: 
+      objectReference: {fileID: 1327791049}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[0].areaStatDisplay
+      value: 
+      objectReference: {fileID: 87106626}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[1].areaStatDisplay
+      value: 
+      objectReference: {fileID: 1280470311}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[0].weaponIcon
+      value: 
+      objectReference: {fileID: 1035849005}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[1].weaponIcon
+      value: 
+      objectReference: {fileID: 1847516907}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[2].weaponIcon
+      value: 
+      objectReference: {fileID: 1941019570}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[3].weaponIcon
+      value: 
+      objectReference: {fileID: 360441259}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[0].areaStatDisplay
+      value: 
+      objectReference: {fileID: 2062118074}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[1].areaStatDisplay
+      value: 
+      objectReference: {fileID: 1145212797}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[2].areaStatDisplay
+      value: 
+      objectReference: {fileID: 506337714}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[3].areaStatDisplay
+      value: 
+      objectReference: {fileID: 1959470927}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[4].areaStatDisplay
+      value: 
+      objectReference: {fileID: 1543594574}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[0].speedStatDisplay
+      value: 
+      objectReference: {fileID: 1727684471}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[1].speedStatDisplay
+      value: 
+      objectReference: {fileID: 1832901927}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[0].weaponPanel
+      value: 
+      objectReference: {fileID: 426784753}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[1].weaponPanel
+      value: 
+      objectReference: {fileID: 1708214638}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[2].weaponPanel
+      value: 
+      objectReference: {fileID: 1214647497}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[3].weaponPanel
+      value: 
+      objectReference: {fileID: 1275206738}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[0].speedStatDisplay
+      value: 
+      objectReference: {fileID: 1328446445}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[1].speedStatDisplay
+      value: 
+      objectReference: {fileID: 155639178}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[2].speedStatDisplay
+      value: 
+      objectReference: {fileID: 1749340306}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[3].speedStatDisplay
+      value: 
+      objectReference: {fileID: 1351924108}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[4].speedStatDisplay
+      value: 
+      objectReference: {fileID: 241905657}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[0].damageStatDisplay
+      value: 
+      objectReference: {fileID: 1478313978}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[0].weaponDiscription
+      value: 
+      objectReference: {fileID: 713362296}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[0].weaponNameDisplay
+      value: 
+      objectReference: {fileID: 412466011}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[1].damageStatDisplay
+      value: 
+      objectReference: {fileID: 1891477299}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[1].weaponDiscription
+      value: 
+      objectReference: {fileID: 961906059}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[1].weaponNameDisplay
+      value: 
+      objectReference: {fileID: 608975295}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[0].damageStatDisplay
+      value: 
+      objectReference: {fileID: 132991403}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[0].weaponDiscription
+      value: 
+      objectReference: {fileID: 131002104}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[0].weaponNameDisplay
+      value: 
+      objectReference: {fileID: 1786994601}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[1].damageStatDisplay
+      value: 
+      objectReference: {fileID: 497410550}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[1].weaponDiscription
+      value: 
+      objectReference: {fileID: 1973226469}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[1].weaponNameDisplay
+      value: 
+      objectReference: {fileID: 1199963879}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[2].damageStatDisplay
+      value: 
+      objectReference: {fileID: 1928033057}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[2].weaponDiscription
+      value: 
+      objectReference: {fileID: 1834804459}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[2].weaponNameDisplay
+      value: 
+      objectReference: {fileID: 1149637080}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[3].damageStatDisplay
+      value: 
+      objectReference: {fileID: 792538892}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[3].weaponDiscription
+      value: 
+      objectReference: {fileID: 2088683433}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[3].weaponNameDisplay
+      value: 
+      objectReference: {fileID: 981328479}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[4].damageStatDisplay
+      value: 
+      objectReference: {fileID: 746009921}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[4].weaponDiscription
+      value: 
+      objectReference: {fileID: 327478256}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[4].weaponNameDisplay
+      value: 
+      objectReference: {fileID: 114289262}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[0].pircingStatDisplay
+      value: 
+      objectReference: {fileID: 1209362343}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[0].risingLevelDisplay
+      value: 
+      objectReference: {fileID: 1665712968}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[1].pircingStatDisplay
+      value: 
+      objectReference: {fileID: 323371352}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[1].risingLevelDisplay
+      value: 
+      objectReference: {fileID: 1667591344}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[0].pircingStatDisplay
+      value: 
+      objectReference: {fileID: 873479260}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[0].risingLevelDisplay
+      value: 
+      objectReference: {fileID: 2120466106}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[1].pircingStatDisplay
+      value: 
+      objectReference: {fileID: 291213891}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[1].risingLevelDisplay
+      value: 
+      objectReference: {fileID: 334743477}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[2].pircingStatDisplay
+      value: 
+      objectReference: {fileID: 752572658}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[2].risingLevelDisplay
+      value: 
+      objectReference: {fileID: 1393439765}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[3].pircingStatDisplay
+      value: 
+      objectReference: {fileID: 897728316}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[3].risingLevelDisplay
+      value: 
+      objectReference: {fileID: 1845441219}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[4].pircingStatDisplay
+      value: 
+      objectReference: {fileID: 823948436}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[4].risingLevelDisplay
+      value: 
+      objectReference: {fileID: 1845441219}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[0].cooldownStatDisplay
+      value: 
+      objectReference: {fileID: 687620231}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[1].cooldownStatDisplay
+      value: 
+      objectReference: {fileID: 380792794}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[0].cooldownStatDisplay
+      value: 
+      objectReference: {fileID: 1132053757}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[1].cooldownStatDisplay
+      value: 
+      objectReference: {fileID: 534971406}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[2].cooldownStatDisplay
+      value: 
+      objectReference: {fileID: 411365876}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[3].cooldownStatDisplay
+      value: 
+      objectReference: {fileID: 869731789}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[4].cooldownStatDisplay
+      value: 
+      objectReference: {fileID: 1137676435}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[0].knockbackStatDisplay
+      value: 
+      objectReference: {fileID: 1919283854}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[1].knockbackStatDisplay
+      value: 
+      objectReference: {fileID: 131555472}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[0].upgradeWeaponPanel
+      value: 
+      objectReference: {fileID: 1742791507}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[1].upgradeWeaponPanel
+      value: 
+      objectReference: {fileID: 647537797}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[2].upgradeWeaponPanel
+      value: 
+      objectReference: {fileID: 312819183}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[3].upgradeWeaponPanel
+      value: 
+      objectReference: {fileID: 256214181}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[0].areaStatDisplay
+      value: 
+      objectReference: {fileID: 404201171}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[1].areaStatDisplay
+      value: 
+      objectReference: {fileID: 511251495}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[2].areaStatDisplay
+      value: 
+      objectReference: {fileID: 1849693173}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[3].areaStatDisplay
+      value: 
+      objectReference: {fileID: 743527159}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[0].knockbackStatDisplay
+      value: 
+      objectReference: {fileID: 1420110753}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[1].knockbackStatDisplay
+      value: 
+      objectReference: {fileID: 473477329}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[2].knockbackStatDisplay
+      value: 
+      objectReference: {fileID: 749211692}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[3].knockbackStatDisplay
+      value: 
+      objectReference: {fileID: 1328710647}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[4].knockbackStatDisplay
+      value: 
+      objectReference: {fileID: 1754469035}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[0].PassiveEffect1Display
+      value: 
+      objectReference: {fileID: 2000273023}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[0].PassiveEffect2Display
+      value: 
+      objectReference: {fileID: 1324365415}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[1].PassiveEffect1Display
+      value: 
+      objectReference: {fileID: 414291608}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: risingWeaponUI.Array.data[1].PassiveEffect2Display
+      value: 
+      objectReference: {fileID: 901678990}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[0].upgrade1YokaiButton
+      value: 
+      objectReference: {fileID: 1918168003}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[0].upgrade2YokaiButton
+      value: 
+      objectReference: {fileID: 1203829743}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[1].upgrade1YokaiButton
+      value: 
+      objectReference: {fileID: 667961735}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[1].upgrade2YokaiButton
+      value: 
+      objectReference: {fileID: 1161439016}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[2].upgrade1YokaiButton
+      value: 
+      objectReference: {fileID: 725211899}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[2].upgrade2YokaiButton
+      value: 
+      objectReference: {fileID: 139702024}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[3].upgrade1YokaiButton
+      value: 
+      objectReference: {fileID: 782152377}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[3].upgrade2YokaiButton
+      value: 
+      objectReference: {fileID: 941889695}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[0].speedStatDisplay
+      value: 
+      objectReference: {fileID: 1255162571}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[1].speedStatDisplay
+      value: 
+      objectReference: {fileID: 315647216}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[2].speedStatDisplay
+      value: 
+      objectReference: {fileID: 1781439766}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[3].speedStatDisplay
+      value: 
+      objectReference: {fileID: 1168381163}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[0].PassiveEffect1Display
+      value: 
+      objectReference: {fileID: 1054281442}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[0].PassiveEffect2Display
+      value: 
+      objectReference: {fileID: 398185527}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[1].PassiveEffect1Display
+      value: 
+      objectReference: {fileID: 1719185805}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[1].PassiveEffect2Display
+      value: 
+      objectReference: {fileID: 16051372}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[2].PassiveEffect1Display
+      value: 
+      objectReference: {fileID: 46159473}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[2].PassiveEffect2Display
+      value: 
+      objectReference: {fileID: 1568909181}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[3].PassiveEffect1Display
+      value: 
+      objectReference: {fileID: 713689105}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[3].PassiveEffect2Display
+      value: 
+      objectReference: {fileID: 1419084640}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[4].PassiveEffect1Display
+      value: 
+      objectReference: {fileID: 1667712560}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: changeUIOptions.Array.data[4].PassiveEffect2Display
+      value: 
+      objectReference: {fileID: 1521159503}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[0].damageStatDisplay
+      value: 
+      objectReference: {fileID: 144829398}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[0].weaponNameDisplay
+      value: 
+      objectReference: {fileID: 1452170491}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[1].damageStatDisplay
+      value: 
+      objectReference: {fileID: 677758013}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[1].weaponNameDisplay
+      value: 
+      objectReference: {fileID: 800362012}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[2].damageStatDisplay
+      value: 
+      objectReference: {fileID: 1441406485}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[2].weaponNameDisplay
+      value: 
+      objectReference: {fileID: 113747324}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[3].damageStatDisplay
+      value: 
+      objectReference: {fileID: 1642199504}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[3].weaponNameDisplay
+      value: 
+      objectReference: {fileID: 951858081}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[0].upgrade1PassiveButton
+      value: 
+      objectReference: {fileID: 175209442}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[0].upgrade2PassiveButton
+      value: 
+      objectReference: {fileID: 994218908}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[1].upgrade1PassiveButton
+      value: 
+      objectReference: {fileID: 169773184}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[1].upgrade2PassiveButton
+      value: 
+      objectReference: {fileID: 591535868}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[2].upgrade1PassiveButton
+      value: 
+      objectReference: {fileID: 1056222320}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[2].upgrade2PassiveButton
+      value: 
+      objectReference: {fileID: 152013998}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[3].upgrade1PassiveButton
+      value: 
+      objectReference: {fileID: 1857418648}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[3].upgrade2PassiveButton
+      value: 
+      objectReference: {fileID: 649289346}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[0].pircingStatDisplay
+      value: 
+      objectReference: {fileID: 1553059972}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[0].risingLevelDisplay
+      value: 
+      objectReference: {fileID: 511740653}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[1].pircingStatDisplay
+      value: 
+      objectReference: {fileID: 1402730456}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[1].risingLevelDisplay
+      value: 
+      objectReference: {fileID: 1045592088}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[2].pircingStatDisplay
+      value: 
+      objectReference: {fileID: 568631773}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[2].risingLevelDisplay
+      value: 
+      objectReference: {fileID: 413097613}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[3].pircingStatDisplay
+      value: 
+      objectReference: {fileID: 889946876}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[3].risingLevelDisplay
+      value: 
+      objectReference: {fileID: 1574599487}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[0].cooldownStatDisplay
+      value: 
+      objectReference: {fileID: 189446016}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[1].cooldownStatDisplay
+      value: 
+      objectReference: {fileID: 2057287990}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[2].cooldownStatDisplay
+      value: 
+      objectReference: {fileID: 1136789389}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[3].cooldownStatDisplay
+      value: 
+      objectReference: {fileID: 1884633649}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[0].knockbackStatDisplay
+      value: 
+      objectReference: {fileID: 870611017}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[1].knockbackStatDisplay
+      value: 
+      objectReference: {fileID: 736344362}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[2].knockbackStatDisplay
+      value: 
+      objectReference: {fileID: 2111363387}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[3].knockbackStatDisplay
+      value: 
+      objectReference: {fileID: 2145801076}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[0].upgrade1YokaiNameDisplay
+      value: 
+      objectReference: {fileID: 1024446227}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[0].upgrade2YokaiNameDisplay
+      value: 
+      objectReference: {fileID: 528208490}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[1].upgrade1YokaiNameDisplay
+      value: 
+      objectReference: {fileID: 886821021}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[1].upgrade2YokaiNameDisplay
+      value: 
+      objectReference: {fileID: 221200622}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[2].upgrade1YokaiNameDisplay
+      value: 
+      objectReference: {fileID: 1390376949}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[2].upgrade2YokaiNameDisplay
+      value: 
+      objectReference: {fileID: 299495388}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[3].upgrade1YokaiNameDisplay
+      value: 
+      objectReference: {fileID: 1446091156}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[3].upgrade2YokaiNameDisplay
+      value: 
+      objectReference: {fileID: 1484628139}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[0].PassiveEffect1Display
+      value: 
+      objectReference: {fileID: 1155577699}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[0].PassiveEffect2Display
+      value: 
+      objectReference: {fileID: 1215176460}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[1].PassiveEffect1Display
+      value: 
+      objectReference: {fileID: 738760190}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[1].PassiveEffect2Display
+      value: 
+      objectReference: {fileID: 711944266}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[2].PassiveEffect1Display
+      value: 
+      objectReference: {fileID: 1811433378}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[2].PassiveEffect2Display
+      value: 
+      objectReference: {fileID: 1108317566}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[3].PassiveEffect1Display
+      value: 
+      objectReference: {fileID: 417702954}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: weaponsStatsPauseUI.Array.data[3].PassiveEffect2Display
+      value: 
+      objectReference: {fileID: 1470829293}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[0].upgrade1PassiveNameDisplay
+      value: 
+      objectReference: {fileID: 90371805}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[0].upgrade2PassiveNameDisplay
+      value: 
+      objectReference: {fileID: 1803626648}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[1].upgrade1PassiveNameDisplay
+      value: 
+      objectReference: {fileID: 1968980000}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[1].upgrade2PassiveNameDisplay
+      value: 
+      objectReference: {fileID: 397665693}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[2].upgrade1PassiveNameDisplay
+      value: 
+      objectReference: {fileID: 416704378}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[2].upgrade2PassiveNameDisplay
+      value: 
+      objectReference: {fileID: 487800149}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[3].upgrade1PassiveNameDisplay
+      value: 
+      objectReference: {fileID: 1074702892}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[3].upgrade2PassiveNameDisplay
+      value: 
+      objectReference: {fileID: 2081951847}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[0].upgrade1YokaiDescriptionDisplay
+      value: 
+      objectReference: {fileID: 1495294322}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[0].upgrade2YokaiDescriptionDisplay
+      value: 
+      objectReference: {fileID: 814369186}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[1].upgrade1YokaiDescriptionDisplay
+      value: 
+      objectReference: {fileID: 572870236}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[1].upgrade2YokaiDescriptionDisplay
+      value: 
+      objectReference: {fileID: 1930193805}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[2].upgrade1YokaiDescriptionDisplay
+      value: 
+      objectReference: {fileID: 1911679633}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[2].upgrade2YokaiDescriptionDisplay
+      value: 
+      objectReference: {fileID: 173384996}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[3].upgrade1YokaiDescriptionDisplay
+      value: 
+      objectReference: {fileID: 989880018}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[3].upgrade2YokaiDescriptionDisplay
+      value: 
+      objectReference: {fileID: 430309200}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[0].upgrade1PassiveDescriptionDisplay
+      value: 
+      objectReference: {fileID: 1256290043}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[0].upgrade2PassiveDescriptionDisplay
+      value: 
+      objectReference: {fileID: 1960603605}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[1].upgrade1PassiveDescriptionDisplay
+      value: 
+      objectReference: {fileID: 1136090845}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[1].upgrade2PassiveDescriptionDisplay
+      value: 
+      objectReference: {fileID: 1688311152}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[2].upgrade1PassiveDescriptionDisplay
+      value: 
+      objectReference: {fileID: 1358805952}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[2].upgrade2PassiveDescriptionDisplay
+      value: 
+      objectReference: {fileID: 1904577257}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[3].upgrade1PassiveDescriptionDisplay
+      value: 
+      objectReference: {fileID: 1097490204}
+    - target: {fileID: 1196761415, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: upgradeUIOptions.Array.data[3].upgrade2PassiveDescriptionDisplay
+      value: 
+      objectReference: {fileID: 2118429734}
+    - target: {fileID: 1196761433, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1236140739}
+    - target: {fileID: 1196761442, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+      propertyPath: arrowImg
+      value: 
+      objectReference: {fileID: 960819122}
     - target: {fileID: 1921645335932540546, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1392288708}
-    - target: {fileID: 1921645335932540546, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: maxHealth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1921645335932540546, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnDeathWithReference.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1921645335932540546, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnDeathWithReference.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1921645335932540546, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnDeathWithReference.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1196761414}
-    - target: {fileID: 1921645335932540546, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnDeathWithReference.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1921645335932540546, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnDeathWithReference.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayerDie
-      objectReference: {fileID: 0}
-    - target: {fileID: 1921645335932540546, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnDeathWithReference.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerStats, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1921645335932540546, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnDeathWithReference.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4712450972000036068, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: m_Radius
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6927289799995080484, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6927289799995080484, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6927289799995080488, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
       propertyPath: m_RootOrder
@@ -31259,57 +31632,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6927289799995080492, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: swapActiveWeapon
-      value: 
-      objectReference: {fileID: -151096615108634254, guid: ae71ffd13ca57ad4fa7b7dad2fd1c2bd, type: 3}
-    - target: {fileID: 6927289799995080492, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6927289799995080492, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnWeaponSwap.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6927289799995080492, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6927289799995080492, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnWeaponSwap.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6927289799995080492, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6927289799995080492, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnWeaponSwap.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1196761415}
-    - target: {fileID: 6927289799995080492, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnWeaponSwap.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6927289799995080492, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnWeaponSwap.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SwapActiveWeapon
-      objectReference: {fileID: 0}
-    - target: {fileID: 6927289799995080492, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnAttack.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Agent, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6927289799995080492, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnWeaponSwap.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerInventory, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6927289799995080492, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-      propertyPath: OnWeaponSwap.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6927289799995080485, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
-    - {fileID: -5409453213845871117, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3965102d8145de944ae7ae3acedbbd16, type: 3}
 --- !u!1 &1298073553
 GameObject:

@@ -5,6 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LevelData", menuName = "ScriptableObjects/LevelData")]
 public class LevelData : ScriptableObject
 {
+    [Header("Level data\n")]
+    public int tresureRoomCount;
+    public bool haveBoss = false;
+
     [Header("Tilemap Visuallizer Data\n")]
     public BiomeData biomeData;
 

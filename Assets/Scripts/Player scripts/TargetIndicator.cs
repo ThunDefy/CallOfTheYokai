@@ -11,10 +11,18 @@ public class TargetIndicator : MonoBehaviour
     public float minDistance = 1f; // минимальное расстояние для считания цели достигнутой
     public Image arrowImg; // индикатор цели
 
+    GameObject boss;
+    Portal portal;
+
+    //private void Start()
+    //{
+    //    portal = FindObjectOfType<Portal>();
+    //}
     void Update()
     {
         if (currentTarget != null)
         {
+            arrowImg.enabled = true;
             float distanceToTarget = Vector3.Distance(transform.position, currentTarget.position); // расстояние до текущей цели
 
             if (distanceToTarget <= minDistance)
@@ -27,14 +35,22 @@ public class TargetIndicator : MonoBehaviour
                 }
                 else
                 {
-                    arrowImg.enabled = false; // иначе отключаем индикатор
+                    if(boss = GameObject.FindWithTag("Boss"))
+                    {
+                        currentTarget = boss.transform;
+                    }else if(portal = FindObjectOfType<Portal>()) currentTarget = portal.transform;
+                    else
+                        arrowImg.enabled = false; // иначе отключаем индикатор
                 }
             }
             else
             {
                 UpdateIndicator();// обновляем индикатор, чтобы он всегда указывал на текущую цель
             }
-        } 
+        }
+        else
+            arrowImg.enabled = false; // иначе отключаем индикатор
+
     }
 
     public void FindAllTargetObjects()
@@ -73,9 +89,13 @@ public class TargetIndicator : MonoBehaviour
     void UpdateIndicator()
     {
         // Вычисляем направление к цели
-        Vector3 directionToTarget = currentTarget.transform.position - transform.position;
-        // Поворачиваем стрелку, чтобы она смотрела на цель
-        arrowImg.transform.up = directionToTarget.normalized;
+        if (currentTarget != null)
+        {
+            Vector3 directionToTarget = currentTarget.transform.position - transform.position;
+            // Поворачиваем стрелку, чтобы она смотрела на цель
+            arrowImg.transform.up = directionToTarget.normalized;
+        }
+        
 
     }
 

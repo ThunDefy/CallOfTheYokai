@@ -49,6 +49,7 @@ public enum RoomType
     Boss,
     Treasure,
     All,
+    Portal,
     // Другие типы комнат по мере необходимости
 }
 

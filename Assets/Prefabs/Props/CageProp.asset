@@ -23,8 +23,8 @@ MonoBehaviour:
   NearWallRight: 0
   NearWallLeft: 0
   Inner: 1
-  PlacementQuantityMin: 4
-  PlacementQuantityMax: 4
+  PlacementQuantityMin: 1
+  PlacementQuantityMax: 1
   PlaceAsGroup: 0
   GroupMinCount: 1
   GroupMaxCount: 1

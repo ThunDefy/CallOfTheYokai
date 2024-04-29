@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6927289799995080488}
   - component: {fileID: 6927289799995080491}
   - component: {fileID: 6927289799995080490}
-  - component: {fileID: 6927289799995080485}
   - component: {fileID: 6927289799995080489}
   - component: {fileID: 6927289799995080495}
   - component: {fileID: 6927289799995080494}
@@ -19,7 +18,9 @@ GameObject:
   - component: {fileID: 1921645335932540549}
   - component: {fileID: 1921645335932540546}
   - component: {fileID: -1205129498488766201}
-  - component: {fileID: -5409453213845871117}
+  - component: {fileID: 1196761415}
+  - component: {fileID: 1196761433}
+  - component: {fileID: 1196761442}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -117,32 +118,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &6927289799995080485
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6927289799995080484}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.65625, y: 0.78125}
-    newSize: {x: 0.65625, y: 0.78125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.36, y: 0.64}
-  m_EdgeRadius: 0
 --- !u!114 &6927289799995080489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,11 +230,23 @@ MonoBehaviour:
         m_CallState: 2
   OnWeaponSwap:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1196761415}
+        m_TargetAssemblyTypeName: PlayerInventory, Assembly-CSharp
+        m_MethodName: SwapActiveWeapon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   movement: {fileID: 1167488368386784613, guid: ae71ffd13ca57ad4fa7b7dad2fd1c2bd, type: 3}
   Attack: {fileID: -4408451209855023314, guid: ae71ffd13ca57ad4fa7b7dad2fd1c2bd, type: 3}
   pointerPosition: {fileID: -2467167441334188498, guid: ae71ffd13ca57ad4fa7b7dad2fd1c2bd, type: 3}
-  swapActiveWeapon: {fileID: 0}
+  swapActiveWeapon: {fileID: -151096615108634254, guid: ae71ffd13ca57ad4fa7b7dad2fd1c2bd, type: 3}
 --- !u!70 &1921645335932540549
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -290,14 +277,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   maxHealth: 10
-  isPlayer: 0
+  isPlayer: 1
   currentHealth: 10
   OnHitWithReference:
     m_PersistentCalls:
       m_Calls: []
   OnDeathWithReference:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -1205129498488766201}
+        m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
+        m_MethodName: PlayerDie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   isDead: 0
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   damageFlashDuration: 0.2
@@ -317,7 +316,7 @@ MonoBehaviour:
   healthData: {fileID: 0}
   playerAgentData: {fileID: 0}
   weaponParent: {fileID: 0}
-  playerData: {fileID: 0}
+  playerData: {fileID: 11400000, guid: 9d96e993ac909f940b3c02562352dcec, type: 2}
   baseStats:
     maxHealth: 0
     recovery: 0
@@ -339,11 +338,11 @@ MonoBehaviour:
     maxHealth: 0
     recovery: 0
     armor: 0
-    moveSpeed: 0
-    power: 0
+    moveSpeed: 4.35
+    power: 2.63
     area: 0
     speed: 0
-    duration: 0
+    duration: 1.5
     amount: 0
     cooldown: 0
     luck: 0
@@ -353,23 +352,23 @@ MonoBehaviour:
     magnet: 0
     revival: 0
   weaponIndex: 0
-  player: {fileID: 0}
-  availableSlotsCount: 0
+  player: {fileID: 11400000, guid: 9d96e993ac909f940b3c02562352dcec, type: 2}
+  availableSlotsCount: 4
   experience: 0
   level: 1
-  experienceCap: 200
-  invincibilityDuration: 0
-  blockedEffect: {fileID: 0}
+  experienceCap: 10
+  invincibilityDuration: 1
+  blockedEffect: {fileID: 3593505527381391966, guid: defc5db1658e69343bcc367b1b9569de, type: 3}
   expBar: {fileID: 0}
   levelText: {fileID: 0}
   levelRanges:
   - startLevel: 1
-    endLevel: 3
-    experienceCapIncrease: 100
-  - startLevel: 4
     endLevel: 5
-    experienceCapIncrease: 200
---- !u!114 &-5409453213845871117
+    experienceCapIncrease: 10
+  - startLevel: 6
+    endLevel: 10
+    experienceCapIncrease: 20
+--- !u!114 &1196761415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -378,19 +377,342 @@ MonoBehaviour:
   m_GameObject: {fileID: 6927289799995080484}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48d85d3bac2552441bbb862bc0152cf6, type: 3}
+  m_Script: {fileID: 11500000, guid: ae7cdc519a84ecb44beb6241dc6dc00e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  passiveEffects:
-  - {fileID: 0}
-  - {fileID: 0}
-  weaponUISlots:
-  - {fileID: 6752911906458245752, guid: 7f2ddd86976f8bb44a57c056e2eccdc7, type: 3}
-  weaponLevels: 0000000000000000
-  upgradeUIOptions: []
+  - yokaiData: {fileID: 0}
+    yokai: {fileID: 0}
+    image: {fileID: 0}
+    currentLevel: 1
+    cooldownSensor: {fileID: 0}
+  - yokaiData: {fileID: 0}
+    yokai: {fileID: 0}
+    image: {fileID: 0}
+    currentLevel: 1
+    cooldownSensor: {fileID: 0}
+  - yokaiData: {fileID: 0}
+    yokai: {fileID: 0}
+    image: {fileID: 0}
+    currentLevel: 1
+    cooldownSensor: {fileID: 0}
+  - yokaiData: {fileID: 0}
+    yokai: {fileID: 0}
+    image: {fileID: 0}
+    currentLevel: 1
+    cooldownSensor: {fileID: 0}
+  passiveSlots:
+  - yokaiData: {fileID: 0}
+    yokai: {fileID: 0}
+    image: {fileID: 0}
+    currentLevel: 1
+    cooldownSensor: {fileID: 0}
+  - yokaiData: {fileID: 0}
+    yokai: {fileID: 0}
+    image: {fileID: 0}
+    currentLevel: 1
+    cooldownSensor: {fileID: 0}
+  - yokaiData: {fileID: 0}
+    yokai: {fileID: 0}
+    image: {fileID: 0}
+    currentLevel: 1
+    cooldownSensor: {fileID: 0}
+  - yokaiData: {fileID: 0}
+    yokai: {fileID: 0}
+    image: {fileID: 0}
+    currentLevel: 1
+    cooldownSensor: {fileID: 0}
+  newWeaponInfo:
+    weaponPanel: {fileID: 0}
+    weaponIcon: {fileID: 0}
+    weaponNameDisplay: {fileID: 0}
+    risingLevelDisplay: {fileID: 0}
+    weaponDiscription: {fileID: 0}
+    damageStatDisplay: {fileID: 0}
+    areaStatDisplay: {fileID: 0}
+    speedStatDisplay: {fileID: 0}
+    cooldownStatDisplay: {fileID: 0}
+    knockbackStatDisplay: {fileID: 0}
+    pircingStatDisplay: {fileID: 0}
+    PassiveEffect1Display: {fileID: 0}
+    PassiveEffect2Display: {fileID: 0}
+    changeButton: {fileID: 0}
+    nopeButton: {fileID: 0}
+  upgradeUIOptions:
+  - upgradeWeaponPanel: {fileID: 0}
+    upgradeIcon: {fileID: 0}
+    upgrade1YokaiNameDisplay: {fileID: 0}
+    upgrade1YokaiDescriptionDisplay: {fileID: 0}
+    upgrade1YokaiButton: {fileID: 0}
+    upgrade1PassiveNameDisplay: {fileID: 0}
+    upgrade1PassiveDescriptionDisplay: {fileID: 0}
+    upgrade1PassiveButton: {fileID: 0}
+    upgrade2YokaiNameDisplay: {fileID: 0}
+    upgrade2YokaiDescriptionDisplay: {fileID: 0}
+    upgrade2YokaiButton: {fileID: 0}
+    upgrade2PassiveNameDisplay: {fileID: 0}
+    upgrade2PassiveDescriptionDisplay: {fileID: 0}
+    upgrade2PassiveButton: {fileID: 0}
+  - upgradeWeaponPanel: {fileID: 0}
+    upgradeIcon: {fileID: 0}
+    upgrade1YokaiNameDisplay: {fileID: 0}
+    upgrade1YokaiDescriptionDisplay: {fileID: 0}
+    upgrade1YokaiButton: {fileID: 0}
+    upgrade1PassiveNameDisplay: {fileID: 0}
+    upgrade1PassiveDescriptionDisplay: {fileID: 0}
+    upgrade1PassiveButton: {fileID: 0}
+    upgrade2YokaiNameDisplay: {fileID: 0}
+    upgrade2YokaiDescriptionDisplay: {fileID: 0}
+    upgrade2YokaiButton: {fileID: 0}
+    upgrade2PassiveNameDisplay: {fileID: 0}
+    upgrade2PassiveDescriptionDisplay: {fileID: 0}
+    upgrade2PassiveButton: {fileID: 0}
+  - upgradeWeaponPanel: {fileID: 0}
+    upgradeIcon: {fileID: 0}
+    upgrade1YokaiNameDisplay: {fileID: 0}
+    upgrade1YokaiDescriptionDisplay: {fileID: 0}
+    upgrade1YokaiButton: {fileID: 0}
+    upgrade1PassiveNameDisplay: {fileID: 0}
+    upgrade1PassiveDescriptionDisplay: {fileID: 0}
+    upgrade1PassiveButton: {fileID: 0}
+    upgrade2YokaiNameDisplay: {fileID: 0}
+    upgrade2YokaiDescriptionDisplay: {fileID: 0}
+    upgrade2YokaiButton: {fileID: 0}
+    upgrade2PassiveNameDisplay: {fileID: 0}
+    upgrade2PassiveDescriptionDisplay: {fileID: 0}
+    upgrade2PassiveButton: {fileID: 0}
+  - upgradeWeaponPanel: {fileID: 0}
+    upgradeIcon: {fileID: 0}
+    upgrade1YokaiNameDisplay: {fileID: 0}
+    upgrade1YokaiDescriptionDisplay: {fileID: 0}
+    upgrade1YokaiButton: {fileID: 0}
+    upgrade1PassiveNameDisplay: {fileID: 0}
+    upgrade1PassiveDescriptionDisplay: {fileID: 0}
+    upgrade1PassiveButton: {fileID: 0}
+    upgrade2YokaiNameDisplay: {fileID: 0}
+    upgrade2YokaiDescriptionDisplay: {fileID: 0}
+    upgrade2YokaiButton: {fileID: 0}
+    upgrade2PassiveNameDisplay: {fileID: 0}
+    upgrade2PassiveDescriptionDisplay: {fileID: 0}
+    upgrade2PassiveButton: {fileID: 0}
+  changeUIOptions:
+  - weaponPanel: {fileID: 0}
+    weaponIcon: {fileID: 0}
+    weaponNameDisplay: {fileID: 0}
+    risingLevelDisplay: {fileID: 0}
+    weaponDiscription: {fileID: 0}
+    damageStatDisplay: {fileID: 0}
+    areaStatDisplay: {fileID: 0}
+    speedStatDisplay: {fileID: 0}
+    cooldownStatDisplay: {fileID: 0}
+    knockbackStatDisplay: {fileID: 0}
+    pircingStatDisplay: {fileID: 0}
+    PassiveEffect1Display: {fileID: 0}
+    PassiveEffect2Display: {fileID: 0}
+    changeButton: {fileID: 0}
+    nopeButton: {fileID: 0}
+  - weaponPanel: {fileID: 0}
+    weaponIcon: {fileID: 0}
+    weaponNameDisplay: {fileID: 0}
+    risingLevelDisplay: {fileID: 0}
+    weaponDiscription: {fileID: 0}
+    damageStatDisplay: {fileID: 0}
+    areaStatDisplay: {fileID: 0}
+    speedStatDisplay: {fileID: 0}
+    cooldownStatDisplay: {fileID: 0}
+    knockbackStatDisplay: {fileID: 0}
+    pircingStatDisplay: {fileID: 0}
+    PassiveEffect1Display: {fileID: 0}
+    PassiveEffect2Display: {fileID: 0}
+    changeButton: {fileID: 0}
+    nopeButton: {fileID: 0}
+  - weaponPanel: {fileID: 0}
+    weaponIcon: {fileID: 0}
+    weaponNameDisplay: {fileID: 0}
+    risingLevelDisplay: {fileID: 0}
+    weaponDiscription: {fileID: 0}
+    damageStatDisplay: {fileID: 0}
+    areaStatDisplay: {fileID: 0}
+    speedStatDisplay: {fileID: 0}
+    cooldownStatDisplay: {fileID: 0}
+    knockbackStatDisplay: {fileID: 0}
+    pircingStatDisplay: {fileID: 0}
+    PassiveEffect1Display: {fileID: 0}
+    PassiveEffect2Display: {fileID: 0}
+    changeButton: {fileID: 0}
+    nopeButton: {fileID: 0}
+  - weaponPanel: {fileID: 0}
+    weaponIcon: {fileID: 0}
+    weaponNameDisplay: {fileID: 0}
+    risingLevelDisplay: {fileID: 0}
+    weaponDiscription: {fileID: 0}
+    damageStatDisplay: {fileID: 0}
+    areaStatDisplay: {fileID: 0}
+    speedStatDisplay: {fileID: 0}
+    cooldownStatDisplay: {fileID: 0}
+    knockbackStatDisplay: {fileID: 0}
+    pircingStatDisplay: {fileID: 0}
+    PassiveEffect1Display: {fileID: 0}
+    PassiveEffect2Display: {fileID: 0}
+    changeButton: {fileID: 0}
+    nopeButton: {fileID: 0}
+  - weaponPanel: {fileID: 0}
+    weaponIcon: {fileID: 0}
+    weaponNameDisplay: {fileID: 0}
+    risingLevelDisplay: {fileID: 0}
+    weaponDiscription: {fileID: 0}
+    damageStatDisplay: {fileID: 0}
+    areaStatDisplay: {fileID: 0}
+    speedStatDisplay: {fileID: 0}
+    cooldownStatDisplay: {fileID: 0}
+    knockbackStatDisplay: {fileID: 0}
+    pircingStatDisplay: {fileID: 0}
+    PassiveEffect1Display: {fileID: 0}
+    PassiveEffect2Display: {fileID: 0}
+    changeButton: {fileID: 0}
+    nopeButton: {fileID: 0}
+  risingWeaponUI:
+  - weaponPanel: {fileID: 0}
+    weaponIcon: {fileID: 0}
+    weaponNameDisplay: {fileID: 0}
+    risingLevelDisplay: {fileID: 0}
+    weaponDiscription: {fileID: 0}
+    damageStatDisplay: {fileID: 0}
+    areaStatDisplay: {fileID: 0}
+    speedStatDisplay: {fileID: 0}
+    cooldownStatDisplay: {fileID: 0}
+    knockbackStatDisplay: {fileID: 0}
+    pircingStatDisplay: {fileID: 0}
+    PassiveEffect1Display: {fileID: 0}
+    PassiveEffect2Display: {fileID: 0}
+    changeButton: {fileID: 0}
+    nopeButton: {fileID: 0}
+  - weaponPanel: {fileID: 0}
+    weaponIcon: {fileID: 0}
+    weaponNameDisplay: {fileID: 0}
+    risingLevelDisplay: {fileID: 0}
+    weaponDiscription: {fileID: 0}
+    damageStatDisplay: {fileID: 0}
+    areaStatDisplay: {fileID: 0}
+    speedStatDisplay: {fileID: 0}
+    cooldownStatDisplay: {fileID: 0}
+    knockbackStatDisplay: {fileID: 0}
+    pircingStatDisplay: {fileID: 0}
+    PassiveEffect1Display: {fileID: 0}
+    PassiveEffect2Display: {fileID: 0}
+    changeButton: {fileID: 0}
+    nopeButton: {fileID: 0}
+  weaponsStatsPauseUI:
+  - weaponPanel: {fileID: 0}
+    weaponIcon: {fileID: 0}
+    weaponNameDisplay: {fileID: 0}
+    risingLevelDisplay: {fileID: 0}
+    weaponDiscription: {fileID: 0}
+    damageStatDisplay: {fileID: 0}
+    areaStatDisplay: {fileID: 0}
+    speedStatDisplay: {fileID: 0}
+    cooldownStatDisplay: {fileID: 0}
+    knockbackStatDisplay: {fileID: 0}
+    pircingStatDisplay: {fileID: 0}
+    PassiveEffect1Display: {fileID: 0}
+    PassiveEffect2Display: {fileID: 0}
+    changeButton: {fileID: 0}
+    nopeButton: {fileID: 0}
+  - weaponPanel: {fileID: 0}
+    weaponIcon: {fileID: 0}
+    weaponNameDisplay: {fileID: 0}
+    risingLevelDisplay: {fileID: 0}
+    weaponDiscription: {fileID: 0}
+    damageStatDisplay: {fileID: 0}
+    areaStatDisplay: {fileID: 0}
+    speedStatDisplay: {fileID: 0}
+    cooldownStatDisplay: {fileID: 0}
+    knockbackStatDisplay: {fileID: 0}
+    pircingStatDisplay: {fileID: 0}
+    PassiveEffect1Display: {fileID: 0}
+    PassiveEffect2Display: {fileID: 0}
+    changeButton: {fileID: 0}
+    nopeButton: {fileID: 0}
+  - weaponPanel: {fileID: 0}
+    weaponIcon: {fileID: 0}
+    weaponNameDisplay: {fileID: 0}
+    risingLevelDisplay: {fileID: 0}
+    weaponDiscription: {fileID: 0}
+    damageStatDisplay: {fileID: 0}
+    areaStatDisplay: {fileID: 0}
+    speedStatDisplay: {fileID: 0}
+    cooldownStatDisplay: {fileID: 0}
+    knockbackStatDisplay: {fileID: 0}
+    pircingStatDisplay: {fileID: 0}
+    PassiveEffect1Display: {fileID: 0}
+    PassiveEffect2Display: {fileID: 0}
+    changeButton: {fileID: 0}
+    nopeButton: {fileID: 0}
+  - weaponPanel: {fileID: 0}
+    weaponIcon: {fileID: 0}
+    weaponNameDisplay: {fileID: 0}
+    risingLevelDisplay: {fileID: 0}
+    weaponDiscription: {fileID: 0}
+    damageStatDisplay: {fileID: 0}
+    areaStatDisplay: {fileID: 0}
+    speedStatDisplay: {fileID: 0}
+    cooldownStatDisplay: {fileID: 0}
+    knockbackStatDisplay: {fileID: 0}
+    pircingStatDisplay: {fileID: 0}
+    PassiveEffect1Display: {fileID: 0}
+    PassiveEffect2Display: {fileID: 0}
+    changeButton: {fileID: 0}
+    nopeButton: {fileID: 0}
+--- !u!114 &1196761433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6927289799995080484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000bf7d843d879698cc5f6a0c76033153c9a7d3d4663d12a8bb
+  m_ShapePath:
+  - {x: -0.13360977, y: -0.37281322, z: 0}
+  - {x: -0.1634512, y: -0.13455868, z: 0}
+  - {x: -0.12587261, y: 0.041463852, z: 0}
+  - {x: -0.1378746, y: 0.22809124, z: 0}
+  - {x: -0.07464123, y: 0.37779045, z: 0}
+  - {x: 0.11314678, y: 0.36816406, z: 0}
+  - {x: 0.17361927, y: 0.21879387, z: 0}
+  - {x: 0.1466999, y: 0.03416252, z: 0}
+  - {x: 0.1968584, y: -0.143857, z: 0}
+  - {x: 0.16736507, y: -0.3809986, z: 0}
+  m_ShapePathHash: -1106941395
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 30446
+  m_LocalBounds:
+    m_Center: {x: 0.016703606, y: -0.0016040802, z: 0}
+    m_Extent: {x: 0.1801548, y: 0.37939453, z: 0}
+--- !u!114 &1196761442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6927289799995080484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f327010f8b2d9b940aaf77bb720b2de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 1
+  arrowImg: {fileID: 0}
 --- !u!1 &6927289800359976362
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,4 +818,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.5
