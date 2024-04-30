@@ -27,6 +27,7 @@ public class PlayerStats : MonoBehaviour
     //public List<GameObject> spawnedWeapons;
 
     public int weaponIndex;
+    public List<PlayerWeaponData> allWeapons;
 
     //public GameObject startingWeapon;
     
@@ -115,10 +116,11 @@ public class PlayerStats : MonoBehaviour
         //inventory = GetComponent<InventoryManager>();
         collector = GetComponentInChildren<PlayerCollector>();
 
-        //playerData = GetComponent<PlayerData>();
+        playerData.stats = SaveAndLoadManager.LoadPlayerData(); // Загружаем сохраненную статистику  (если нет сохр. то одни нули)
         playerInventory = GetComponent<PlayerInventory>();
         baseStats = actualStats = playerData.stats;
         currentHealth = actualStats.maxHealth;
+        availableSlotsCount = baseStats.availableSlotsNumber;
 
         healthData.maxHealth = actualStats.maxHealth;
         healthData.currentHealth = actualStats.maxHealth;
@@ -130,10 +132,14 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
-        playerInventory.AddYokai(playerData.startingWeapon1);
-        playerInventory.AddYokai(playerData.startingWeapon2);
-        playerInventory.AddYokai(playerData.startingWeapon3);
-        playerInventory.AddYokai(playerData.startingWeapon4);
+        //playerInventory.AddYokai(playerData.startingWeapon1);
+        //playerInventory.AddYokai(playerData.startingWeapon2);
+        //playerInventory.AddYokai(playerData.startingWeapon3);
+        //playerInventory.AddYokai(playerData.startingWeapon4);
+
+        weaponIndex = allWeapons.FindIndex(weapon => weapon.yokaiID == playerData.stats.startingWeaponID);
+        if(weaponIndex != -1)
+            playerInventory.AddYokai(allWeapons[weaponIndex]);
 
         experienceCap = levelRanges[0].experienceCapIncrease;
 

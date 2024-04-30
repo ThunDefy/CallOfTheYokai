@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
     public GameState previousState;
 
     public GameObject player;
+    PlayerStats pd;
 
     private void Awake()
     {
@@ -73,6 +75,7 @@ public class GameManager : MonoBehaviour
         }
 
         DisableScreens();
+        pd = player.GetComponent<PlayerStats>();
     }
 
     
@@ -205,6 +208,7 @@ public class GameManager : MonoBehaviour
         UpdateTimerDisplay();
         gameTimeDisplay.text = timerDisplay.text;
         ChangeState(GameState.GameOver);
+        SavePlayerProgress();
     }
 
     void DisplayResults()
@@ -351,5 +355,18 @@ public class GameManager : MonoBehaviour
 
         }
 
+
+    }
+
+    
+    public void SavePlayerProgress()
+    {
+        SaveAndLoadManager.SaveRunProgress(pd.actualStats.specialSouls);
+    }
+
+    public void LoadPlayerProgress()
+    {
+        pd.playerData.stats = SaveAndLoadManager.LoadPlayerData();
+        print("now specialSouls = " + pd.playerData.stats.specialSouls);
     }
 }

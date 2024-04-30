@@ -55,14 +55,16 @@ public class Passive : Yokai
         {
             //value is int ? (int)value : (float)value;
             //float value = (float)field.GetValue(currentBoosts); // Получаем значение поля
-
-            object value = field.GetValue(currentBoosts);
-            float fval = value is int ? (int)value : (float)value;
-
-            if (fval != 0)
+            if (field.FieldType != typeof(List<int>))
             {
-                string formattedFieldName = FormatFieldName(field.Name);
-                boostsInfo.Add($"{formattedFieldName}: {value}");
+                object value = field.GetValue(currentBoosts);
+                float fval = value is int ? (int)value : (float)value;
+
+                if (fval != 0)
+                {
+                    string formattedFieldName = FormatFieldName(field.Name);
+                    boostsInfo.Add($"{formattedFieldName}: {value}");
+                }
             }
         }
         return boostsInfo;
