@@ -120,7 +120,7 @@ public class PlayerStats : MonoBehaviour
         playerInventory = GetComponent<PlayerInventory>();
         baseStats = actualStats = playerData.stats;
         currentHealth = actualStats.maxHealth;
-        availableSlotsCount = baseStats.availableSlotsNumber;
+        availableSlotsCount = baseStats.availableSlots;
 
         healthData.maxHealth = actualStats.maxHealth;
         healthData.currentHealth = actualStats.maxHealth;
@@ -137,7 +137,7 @@ public class PlayerStats : MonoBehaviour
         //playerInventory.AddYokai(playerData.startingWeapon3);
         //playerInventory.AddYokai(playerData.startingWeapon4);
 
-        weaponIndex = allWeapons.FindIndex(weapon => weapon.yokaiID == playerData.stats.startingWeaponID);
+        weaponIndex = allWeapons.FindIndex(weapon => weapon.yokaiID == playerData.stats.startingYokaiID);
         if(weaponIndex != -1)
             playerInventory.AddYokai(allWeapons[weaponIndex]);
 

@@ -19,7 +19,7 @@ public class Weapon : Yokai
         [Header("Values")]
         public float lifespan;
         public float damage, damageVariance, area, speed, cooldown, projectileInterval, knockback;
-        public int number, pircing, maxInstances;
+        public int number, pircing;
 
         public static Stats operator +(Stats s1, Stats s2)
         {

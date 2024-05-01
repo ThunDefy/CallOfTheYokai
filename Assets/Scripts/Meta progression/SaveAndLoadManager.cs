@@ -36,4 +36,11 @@ public class SaveAndLoadManager
         playerStats.specialSouls = specialSoulsCount;
         SavePlayerData(playerStats);
     }
+
+    public static void SaveStartYokai(int yokaiID)
+    {
+        PlayerData.Stats playerStats = LoadPlayerData();
+        playerStats.startingYokaiID = yokaiID;
+        SavePlayerData(playerStats);
+    }
 }
