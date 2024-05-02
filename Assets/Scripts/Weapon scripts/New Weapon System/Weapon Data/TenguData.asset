@@ -29,17 +29,16 @@ MonoBehaviour:
       y: 0
       width: 0
       height: 0
-    lifespan: 0.25
+    lifespan: -1
     damage: 10
     damageVariance: 2
     area: 1
-    speed: 0
+    speed: -1
     cooldown: 1.8
-    projectileInterval: 0
+    projectileInterval: -1
     knockback: 15
-    number: 1
+    number: -1
     pircing: 4
-    maxInstances: 70
   risingGrowth:
   - name: Tengu Rising 1
     description: Whole gale
@@ -62,7 +61,6 @@ MonoBehaviour:
     knockback: 2
     number: 0
     pircing: 1
-    maxInstances: 0
   - name: Tengu Rising 2
     description: Storm
     prefab: {fileID: 0}
@@ -84,7 +82,6 @@ MonoBehaviour:
     knockback: 2
     number: 0
     pircing: 1
-    maxInstances: 0
   - name: Tengu Rising 3
     description: Hurricane
     prefab: {fileID: 0}
@@ -106,7 +103,6 @@ MonoBehaviour:
     knockback: 5
     number: 0
     pircing: 5
-    maxInstances: 0
   randomGrowth:
   - name: Increase wind strength
     description: +1 dmg
@@ -129,7 +125,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: The hurricane is getting bigger
     description: +0.15 area
     prefab: {fileID: 0}
@@ -151,7 +146,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: They have no chance to stand
     description: +3 knockback
     prefab: {fileID: 0}
@@ -173,7 +167,6 @@ MonoBehaviour:
     knockback: 3
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: The wind is blowing through.
     description: +1 pircing
     prefab: {fileID: 0}
@@ -195,5 +188,4 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 1
-    maxInstances: 0
   passiveEffectData: {fileID: 11400000, guid: 871c8ad282be9ea47a33b5bd79ef676e, type: 2}

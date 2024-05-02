@@ -33,13 +33,12 @@ MonoBehaviour:
     damage: 5
     damageVariance: 0
     area: 0.3
-    speed: 0
+    speed: -1
     cooldown: 10
     projectileInterval: 0.1
     knockback: 1
-    number: 1
-    pircing: 0
-    maxInstances: 70
+    number: -1
+    pircing: -1
   risingGrowth:
   - name: Gotokoneko Rising 1
     description: 
@@ -62,7 +61,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: Gotokoneko Rising 1
     description: 
     prefab: {fileID: 182542, guid: b2b847564ed232d4eba240d3fff9eccf, type: 3}
@@ -84,7 +82,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: Gotokoneko Rising 1
     description: 
     prefab: {fileID: 182542, guid: b2b847564ed232d4eba240d3fff9eccf, type: 3}
@@ -106,7 +103,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   randomGrowth:
   - name: More lifespan
     description: + 0.1 lifespan
@@ -129,7 +125,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: More variance
     description: + 0.25 dmg variance
     prefab: {fileID: 182542, guid: b2b847564ed232d4eba240d3fff9eccf, type: 3}
@@ -151,7 +146,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: Less cooldown
     description: '- 0.25 cooldown'
     prefab: {fileID: 182542, guid: b2b847564ed232d4eba240d3fff9eccf, type: 3}
@@ -173,7 +167,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: More knockback
     description: + 1 knockback
     prefab: {fileID: 182542, guid: b2b847564ed232d4eba240d3fff9eccf, type: 3}
@@ -195,5 +188,4 @@ MonoBehaviour:
     knockback: 1
     number: 0
     pircing: 0
-    maxInstances: 0
   passiveEffectData: {fileID: 11400000, guid: de87915b0ff996c4bbd0882a73d12725, type: 2}

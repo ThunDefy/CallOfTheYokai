@@ -35,11 +35,10 @@ MonoBehaviour:
     area: 1.5
     speed: 0
     cooldown: 1.8
-    projectileInterval: 0
+    projectileInterval: -1
     knockback: 10
-    number: 1
-    pircing: 0
-    maxInstances: 70
+    number: -1
+    pircing: -1
   risingGrowth:
   - name: Bake Zori Rising 1
     description: 
@@ -62,7 +61,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: Bake Zori Rising 2
     description: 
     prefab: {fileID: 0}
@@ -84,7 +82,6 @@ MonoBehaviour:
     knockback: 5
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: Bake Zori Rising 3
     description: 
     prefab: {fileID: 0}
@@ -106,7 +103,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   randomGrowth:
   - name: More dmage
     description: +2 damage
@@ -129,7 +125,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: More dmg variance
     description: +3 dmg variance
     prefab: {fileID: 0}
@@ -151,7 +146,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: More area
     description: +0.1 area
     prefab: {fileID: 0}
@@ -173,7 +167,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: More knockback
     description: +2  knockback
     prefab: {fileID: 0}
@@ -195,5 +188,4 @@ MonoBehaviour:
     knockback: 2
     number: 0
     pircing: 0
-    maxInstances: 0
   passiveEffectData: {fileID: 11400000, guid: 57fa7b7d36caccd4887b6b6397ebdf46, type: 2}

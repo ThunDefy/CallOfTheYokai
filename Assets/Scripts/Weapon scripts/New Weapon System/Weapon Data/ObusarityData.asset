@@ -32,14 +32,13 @@ MonoBehaviour:
     lifespan: 5
     damage: 5
     damageVariance: 3
-    area: 1
+    area: -1
     speed: 1.2
     cooldown: 8
     projectileInterval: 0.5
     knockback: 0
-    number: 0
-    pircing: 0
-    maxInstances: 0
+    number: -1
+    pircing: -1
   risingGrowth:
   - name: Obusarity Rising 1
     description: 
@@ -62,7 +61,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: Obusarity Rising 2
     description: 
     prefab: {fileID: 7553775948631733786, guid: 9325dd6b01da2d54ca4616a300b70e29, type: 3}
@@ -84,7 +82,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: Obusarity Rising 3
     description: 
     prefab: {fileID: 7553775948631733786, guid: 9325dd6b01da2d54ca4616a300b70e29, type: 3}
@@ -106,7 +103,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   randomGrowth:
   - name: More lifespan
     description: + 0.15  lifespan
@@ -129,7 +125,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: more dmg
     description: +1 damage
     prefab: {fileID: 7553775948631733786, guid: 9325dd6b01da2d54ca4616a300b70e29, type: 3}
@@ -151,7 +146,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: More speed
     description: +0.025 speed
     prefab: {fileID: 7553775948631733786, guid: 9325dd6b01da2d54ca4616a300b70e29, type: 3}
@@ -173,7 +167,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: More variance
     description: +2 variance
     prefab: {fileID: 7553775948631733786, guid: 9325dd6b01da2d54ca4616a300b70e29, type: 3}
@@ -195,5 +188,4 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   passiveEffectData: {fileID: 11400000, guid: c40825898ede049488a9d393abde656a, type: 2}

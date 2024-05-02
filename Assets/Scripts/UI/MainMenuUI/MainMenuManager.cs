@@ -10,8 +10,9 @@ public class MainMenuManager : MonoBehaviour
 {
     public PlayerData defaultPlayerData;
     [Header("UI Panels")]
-    public GameObject mainMenu;
-    public GameObject choosingYokai;
+    public GameObject mainMenuScreen;
+    public GameObject choosingYokaiScreen;
+    public GameObject playerProgressionScreen;
 
     [Header("Chose yokai UI elements")]
     public Image yokaiImage;
@@ -64,18 +65,20 @@ public class MainMenuManager : MonoBehaviour
 
     public void ShowChoosingYokai(bool show)
     {
-        if (show)
-        {
-            mainMenu.SetActive(false);
-            choosingYokai.SetActive(true);
-            ShowYokaiDiscription(0);
-        }
+        HideAllScreens();
+        if(show)
+            choosingYokaiScreen.SetActive(true);
         else
-        {
-            mainMenu.SetActive(true);
-            choosingYokai.SetActive(false);
-        }
-        
+            mainMenuScreen.SetActive(true);
+    }
+
+    public void ShowPlayerProgression(bool show)
+    {
+        HideAllScreens();
+        if (show)
+            playerProgressionScreen.SetActive(true);
+        else
+            mainMenuScreen.SetActive(true);
     }
 
     public void StartGameButton()
@@ -123,6 +126,12 @@ public class MainMenuManager : MonoBehaviour
         SaveAndLoadManager.SaveStartYokai(chosenStartYokai);  
     }
 
+    private void HideAllScreens()
+    {
+        mainMenuScreen.SetActive(false);
+        choosingYokaiScreen.SetActive(false);
+        playerProgressionScreen.SetActive(false);
+    }
 
 
 

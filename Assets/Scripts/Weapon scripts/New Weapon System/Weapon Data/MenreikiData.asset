@@ -35,11 +35,10 @@ MonoBehaviour:
     area: 0.15
     speed: 12
     cooldown: 2
-    projectileInterval: 0
+    projectileInterval: -1
     knockback: 2
     number: 5
     pircing: 0
-    maxInstances: 70
   risingGrowth:
   - name: Menreiki Rising 1
     description: 
@@ -62,7 +61,6 @@ MonoBehaviour:
     knockback: 0
     number: 1
     pircing: 1
-    maxInstances: 0
   - name: Menreiki Rising 2
     description: 
     prefab: {fileID: 0}
@@ -84,7 +82,6 @@ MonoBehaviour:
     knockback: 0
     number: 2
     pircing: 0
-    maxInstances: 0
   - name: Menreiki Rising 3
     description: 
     prefab: {fileID: 0}
@@ -106,7 +103,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 2
-    maxInstances: 0
   randomGrowth:
   - name: +0.5 damage
     description: +0.5 damage
@@ -129,7 +125,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: dmg variance
     description: +1 dmg variance
     prefab: {fileID: 0}
@@ -151,7 +146,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: speed
     description: +0.5 speed
     prefab: {fileID: 0}
@@ -173,7 +167,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: ' knockback'
     description: +1 knockback
     prefab: {fileID: 0}
@@ -195,5 +188,4 @@ MonoBehaviour:
     knockback: 1
     number: 0
     pircing: 0
-    maxInstances: 0
   passiveEffectData: {fileID: 11400000, guid: 223c4fb4d8d1f2e40af64682c46e3c83, type: 2}

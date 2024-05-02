@@ -29,17 +29,16 @@ MonoBehaviour:
       y: 0
       width: 0
       height: 0
-    lifespan: 0
+    lifespan: -1
     damage: 500
     damageVariance: 5
     area: 1
-    speed: 0
+    speed: -1
     cooldown: 2
-    projectileInterval: 0
+    projectileInterval: -1
     knockback: 6
-    number: 1
-    pircing: 0
-    maxInstances: 70
+    number: -1
+    pircing: -1
   risingGrowth:
   - name: Raidzin Rising 1
     description: Thunder crashes
@@ -62,7 +61,6 @@ MonoBehaviour:
     knockback: 2
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: Raidzin Rising 2
     description: The power of Megavolt
     prefab: {fileID: 4152205884951408478, guid: f7fedeb30df6e6d41baa599787972bce, type: 3}
@@ -84,7 +82,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: Raidzin Rising 3
     description: Electronic Hurricane
     prefab: {fileID: 4152205884951408478, guid: f7fedeb30df6e6d41baa599787972bce, type: 3}
@@ -106,7 +103,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   randomGrowth:
   - name: Static electricity
     description: + 3 dmg variance
@@ -129,7 +125,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: More amperage
     description: '+ 1.5 dmg '
     prefab: {fileID: 4152205884951408478, guid: f7fedeb30df6e6d41baa599787972bce, type: 3}
@@ -151,7 +146,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: Bigger shocking wave
     description: + 0.05 area
     prefab: {fileID: 4152205884951408478, guid: f7fedeb30df6e6d41baa599787972bce, type: 3}
@@ -173,7 +167,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: The shock wave is stronger
     description: + 2.5  Knockback
     prefab: {fileID: 4152205884951408478, guid: f7fedeb30df6e6d41baa599787972bce, type: 3}
@@ -195,5 +188,4 @@ MonoBehaviour:
     knockback: 2.5
     number: 0
     pircing: 0
-    maxInstances: 0
   passiveEffectData: {fileID: 11400000, guid: 10216dc598ec4884991ead95c823a3c3, type: 2}

@@ -35,11 +35,10 @@ MonoBehaviour:
     area: 2
     speed: 10
     cooldown: 1.8
-    projectileInterval: 0
+    projectileInterval: -1
     knockback: 0.5
-    number: 1
+    number: -1
     pircing: 1
-    maxInstances: 70
   risingGrowth:
   - name: Kitsune Rising 1
     description: The flames burn through them!
@@ -62,7 +61,6 @@ MonoBehaviour:
     knockback: 1
     number: 0
     pircing: 2
-    maxInstances: 0
   - name: Kitsune Rising 2
     description: They won't have time to realize anything
     prefab: {fileID: 0}
@@ -84,7 +82,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: Kitsune Rising 3
     description: Now it's a real fireball
     prefab: {fileID: 0}
@@ -106,7 +103,6 @@ MonoBehaviour:
     knockback: 2
     number: 0
     pircing: 2
-    maxInstances: 0
   randomGrowth:
   - name: Make the fire hotter
     description: +2  damage
@@ -129,7 +125,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: Need a larger fireball
     description: + 0.25 area
     prefab: {fileID: 0}
@@ -151,7 +146,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: That's enough of a break
     description: '- 0.05 cooldown'
     prefab: {fileID: 0}
@@ -173,7 +167,6 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: Fear my fire!
     description: + 0.5 knockback
     prefab: {fileID: 0}
@@ -195,7 +188,6 @@ MonoBehaviour:
     knockback: 0.5
     number: 0
     pircing: 0
-    maxInstances: 0
   - name: The flame is not stable
     description: + 3 dmg variance
     prefab: {fileID: 0}
@@ -217,5 +209,4 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-    maxInstances: 0
   passiveEffectData: {fileID: 11400000, guid: a70d022309ce94d4fbf66105fd67ea2b, type: 2}
