@@ -38,10 +38,6 @@ public class Passive : Yokai
 
     public override bool DoLevelUp(int upgradeIndx)
     {
-        //if (!CanLevelUp())
-        //{
-        //    return false;
-        //}
         currentBoosts += data.GetLevelData(upgradeIndx).boosts;
         return true;
     }
@@ -53,8 +49,6 @@ public class Passive : Yokai
 
         foreach (FieldInfo field in fields)
         {
-            //value is int ? (int)value : (float)value;
-            //float value = (float)field.GetValue(currentBoosts); // Получаем значение поля
             if (field.FieldType != typeof(List<int>))
             {
                 object value = field.GetValue(currentBoosts);

@@ -157,9 +157,18 @@ public class PlayerStats : MonoBehaviour
     }
 
    
-    public void IncreaseExperience(int amount)
+    public void IncreaseExperience(int amount, bool isRareSoul = false)
     {
         experience += (int)Mathf.Round(amount * actualStats.growth);
+        if (isRareSoul)
+        {
+            actualStats.specialSouls += amount;
+        }
+        else
+        {
+            actualStats.commonSouls += amount;
+        }
+        
         LevelUpChecker();
         UpdateExpBar();
     }

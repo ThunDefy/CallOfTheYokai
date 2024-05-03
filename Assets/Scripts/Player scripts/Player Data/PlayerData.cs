@@ -29,7 +29,7 @@ public class PlayerData : ScriptableObject
         [Min(-1)] public float luck, growth;
         public float magnet;
         public int revival;
-        public int specialSouls, availableSlots, startingYokaiID;
+        public int commonSouls, specialSouls,  availableSlots, startingYokaiID;
         //public List<int> startingWeaponsID;
         public List<int> availableStartingWeaponsID;
 
@@ -47,6 +47,7 @@ public class PlayerData : ScriptableObject
             s1.growth += s2.growth;
             s1.revival += s2.revival;
             s1.area += s2.area;
+            s1.commonSouls += s2.commonSouls;
             s1.specialSouls += s2.specialSouls;
             s1.availableSlots += s2.availableSlots;
 
@@ -59,7 +60,7 @@ public class PlayerData : ScriptableObject
         maxHealth = 100, moveSpeed = 1, recovery = 1, power = 1, 
         area = 1, speed = 1,  cooldown = 1,
         luck = 1,  growth = 1, 
-        specialSouls = 0,
+        specialSouls = 0, commonSouls = 0,
         availableSlots = 2,
         startingYokaiID = 0
     };

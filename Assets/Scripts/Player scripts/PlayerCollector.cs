@@ -12,13 +12,8 @@ public class PlayerCollector : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<PlayerStats>();
-        //magnetCollider = GetComponent<CircleCollider2D>();
     }
 
-    //private void Update()
-    //{
-    //    magnetCollider.radius = player.currentMagnet;
-    //}
 
     public void SetRadius(float r)
     {
@@ -30,28 +25,8 @@ public class PlayerCollector : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Pickup p))
         {
-            //Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
-            //Vector2 forceDirection = (transform.position - collision.transform.position).normalized;
-            //float angle = Mathf.Atan2(forceDirection.y, forceDirection.x) * Mathf.Rad2Deg;
-            //collision.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            //rb.AddForce(forceDirection * pullSpeed);
-
             p.Collect(player,pullSpeed);
         }
     }
-
-
-    //void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.TryGetComponent(out ICollectible collectible))
-    //    {
-    //        Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
-    //        Vector2 forceDirection = (transform.position - collision.transform.position).normalized;
-    //        float angle = Mathf.Atan2(forceDirection.y, forceDirection.x) * Mathf.Rad2Deg;
-    //        collision.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-    //        rb.AddForce(-forceDirection * pullSpeed);
-    //        collectible.Collect();
-    //    }
-    //}
 
 }

@@ -361,7 +361,7 @@ public class GameManager : MonoBehaviour
     
     public void SavePlayerProgress()
     {
-        SaveAndLoadManager.SaveRunProgress(pd.actualStats.specialSouls);
+        SaveAndLoadManager.SaveRunProgress(pd.actualStats.specialSouls, pd.actualStats.commonSouls);
     }
 
     public void LoadPlayerProgress()

@@ -39,35 +39,39 @@ public class UIStatsDisplay : MonoBehaviour
 
         foreach (FieldInfo field in fields)
         {
-            names.AppendLine(field.Name);
-
-            object value = field.GetValue(player.actualStats);
-            float fval = value is int ? (int)value : (float)value;
-
-            //ѕрипишем % если значение имеет атрибут и оно float
-
-            PropertyAttribute attribure = (PropertyAttribute)PropertyAttribute.GetCustomAttribute(field, typeof(PropertyAttribute));
-            if (attribure != null && field.FieldType == typeof(float))
+            if (field.FieldType != typeof(List<int>))
             {
-                float percentage = Mathf.Round(fval * 100 - 100);
-                if (Mathf.Approximately(percentage, 0))
+                if (field.Name == "availableSlots" || field.Name == "startingYokaiID") continue;
+
+                names.AppendLine(field.Name);
+                object value = field.GetValue(player.actualStats);
+                float fval = value is int ? (int)value : (float)value; 
+
+                //ѕрипишем % если значение имеет атрибут и оно float
+
+                PropertyAttribute attribure = (PropertyAttribute)PropertyAttribute.GetCustomAttribute(field, typeof(PropertyAttribute));
+                if (attribure != null && field.FieldType == typeof(float))
                 {
-                    values.Append("-").Append("\n");
+                    float percentage = Mathf.Round(fval * 100 - 100);
+                    if (Mathf.Approximately(percentage, 0))
+                    {
+                        values.Append("-").Append("\n");
+                    }
+                    else
+                    {
+                        if (percentage > 0) values.Append("+");
+
+                        values.Append(percentage).Append("%").Append("\n");
+                    }
                 }
                 else
                 {
-                    if (percentage > 0) values.Append("+");
-                    
-                    values.Append(percentage).Append("%").Append("\n");
+                    values.Append(fval).Append("\n");
                 }
-            }
-            else
-            {
-                values.Append(fval).Append("\n");
-            }
 
-            statNames.text = PrettifyNames(names);
-            statValues.text = values.ToString();
+                statNames.text = PrettifyNames(names);
+                statValues.text = values.ToString();
+            }
         }
 
     }

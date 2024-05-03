@@ -6,8 +6,6 @@ using UnityEngine.InputSystem.Utilities;
 public class Pickup : MonoBehaviour
 {
     private SpriteAnimation anim;
-    //private Rigidbody2D rb;
-    //public float lifespan = 0.5f;
     protected PlayerStats target;
     protected float speed;
     Vector2 initialPosition;
@@ -27,6 +25,7 @@ public class Pickup : MonoBehaviour
     };
 
     [Header("Bonuses")]
+    public bool isRareSoul = false;
     public int experience;
     public int health;
 
@@ -67,8 +66,6 @@ public class Pickup : MonoBehaviour
             this.target = target;
             this.speed = speed;
             anim.EndingAnimation();
-            //if (lifespan > 0) this.lifespan = lifespan;
-            //Destroy(gameObject, Mathf.Max(0.01f, this.lifespan)); 
             return true;
         }
         return false;
@@ -77,17 +74,7 @@ public class Pickup : MonoBehaviour
     protected virtual void OnDestroy()
     {
         if (!target) return;
-        if (experience != 0) target.IncreaseExperience(experience);
+        if (experience != 0) target.IncreaseExperience(experience, isRareSoul);
         if(health!=0) target.RestoreHealth(health);
     }
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.CompareTag("Player"))
-    //    {
-    //        anim.EndingAnimation();
-    //        //rb.constraints = RigidbodyConstraints2D.FreezeAll;
-    //        //Destroy(gameObject);
-    //    }
-    //}
 }

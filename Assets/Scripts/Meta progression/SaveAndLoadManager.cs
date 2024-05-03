@@ -30,10 +30,11 @@ public class SaveAndLoadManager
         return loadedStats;
     }
 
-    public static void SaveRunProgress(int specialSoulsCount)
+    public static void SaveRunProgress(int specialSoulsCount, int commonSoulsCount)
     {
         PlayerData.Stats playerStats = LoadPlayerData();
         playerStats.specialSouls = specialSoulsCount;
+        playerStats.commonSouls = commonSoulsCount;
         SavePlayerData(playerStats);
     }
 

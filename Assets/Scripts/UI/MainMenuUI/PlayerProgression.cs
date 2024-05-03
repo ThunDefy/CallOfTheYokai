@@ -48,7 +48,7 @@ public class PlayerProgression : MonoBehaviour
 
         public void SetCurrentValue(float value)
         {
-            print(defaultValue);
+            //print(defaultValue);
             currentValue = value;
             newValue = currentValue;
             currentPrice = increasePrice;
@@ -231,10 +231,7 @@ public class PlayerProgression : MonoBehaviour
         playerSpecialStatsUpgradeUI[2].defaultValue = defaultPlayerStats.stats.availableSlots;
         playerSpecialStatsUpgradeUI[2].SetCurrentValue(currentPlayerStats.availableSlots);
         
-        
-        
-
-        currentCommonSoulCount = currentPlayerStats.specialSouls; // поменять на обынче души 
+        currentCommonSoulCount = currentPlayerStats.commonSouls; 
         currentRareSoulCount = currentPlayerStats.specialSouls;
 
         //print("NOW SOULS = " + currentCommonSoulCount);
@@ -263,6 +260,7 @@ public class PlayerProgression : MonoBehaviour
         newPlayerStats.availableSlots = (int)playerSpecialStatsUpgradeUI[2].GetNewValue();
 
         newPlayerStats.specialSouls = currentRareSoulCount;
+        newPlayerStats.commonSouls = currentCommonSoulCount;
 
         SaveAndLoadManager.SavePlayerData(newPlayerStats);
         SetCurrentValues();
@@ -272,7 +270,7 @@ public class PlayerProgression : MonoBehaviour
     public void UndoChanges()
     {
         currentRareSoulCount = currentPlayerStats.specialSouls;
-        currentCommonSoulCount = currentPlayerStats.specialSouls;
+        currentCommonSoulCount = currentPlayerStats.commonSouls;
 
         if (playerCommonStatsUpgradeUI != null && playerSpecialStatsUpgradeUI != null)
         {
