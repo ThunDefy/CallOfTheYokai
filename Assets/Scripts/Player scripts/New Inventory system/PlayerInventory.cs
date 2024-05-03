@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using TMPro;
@@ -8,7 +9,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements.Experimental;
+using static Cinemachine.DocumentationSortingAttribute;
+using static PlayerInventory;
 using static UnityEditor.Progress;
+using Color = UnityEngine.Color;
 using Random = UnityEngine.Random;
 
 public class PlayerInventory : MonoBehaviour
@@ -106,7 +110,20 @@ public class PlayerInventory : MonoBehaviour
 
         public Button changeButton;
         public Button nopeButton;
+    }
 
+    [System.Serializable]
+    public class PermanentPassiveBonusUI
+    {
+        public GameObject weaponPanel;
+        public Image weaponIcon;
+
+        public TMP_Text weaponNameDisplay;
+        public TMP_Text risingLevelDisplay;
+        public TMP_Text levelDisplay;
+
+        public TMP_Text PassiveEffectDisplay;
+        public Button saveButton;
     }
 
     [Header("UI Elements")]
@@ -115,6 +132,7 @@ public class PlayerInventory : MonoBehaviour
     public List<WeaponInfoUI> changeUIOptions = new List<WeaponInfoUI>();
     public List<WeaponInfoUI> risingWeaponUI = new List<WeaponInfoUI>(2);
     public List<WeaponInfoUI> weaponsStatsPauseUI = new List<WeaponInfoUI>();
+    public List<PermanentPassiveBonusUI> possiblePermBonusUI = new List<PermanentPassiveBonusUI>();
 
     PlayerStats player;
     int availableSlotsCount;
@@ -489,6 +507,89 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    private void SetPossiblePermanentPassiveBonuses()
+    {
+        // опеределяем Ёкая с наивысшим уровнем
+        int maxLevel = -1;
+        List<int> indOfHighestLevelWeapons = new List<int>();
+        for (int i = 0; i < availableSlotsCount; i++)
+        {
+            if (!weaponSlots[i].IsEmpty())
+            {
+                if (player.actualStats.availableStartingWeaponsID.Contains(weaponSlots[i].yokaiData.yokaiID))
+                {
+                    continue;
+                }
+                int lvl = weaponSlots[i].currentLevel;
+                if (lvl > maxLevel)
+                {
+                    maxLevel = lvl;
+                    indOfHighestLevelWeapons.Clear(); // Очищаем список перед добавлением нового наивысшего уровня
+                    indOfHighestLevelWeapons.Add(i); // Добавляем индекс нового оружия с наивысшим уровнем
+                }
+                else if (lvl == maxLevel)
+                {
+                    indOfHighestLevelWeapons.Add(i); // Добавляем индекс оружия с равным уровнем
+                }
+            }
+        }
+
+        // для каждого из них выводим информацию в possiblePermBonusUI
+        
+        if(indOfHighestLevelWeapons.Count > 0)
+        {
+            int currentIndUi = 0;
+            foreach (var i in indOfHighestLevelWeapons)
+            {
+                possiblePermBonusUI[currentIndUi].weaponPanel.SetActive(true);
+                possiblePermBonusUI[currentIndUi].weaponNameDisplay.text = ((PlayerWeaponData)weaponSlots[i].yokaiData).baseStats.name;
+                possiblePermBonusUI[currentIndUi].weaponIcon.sprite = ((PlayerWeaponData)weaponSlots[i].yokaiData).icon;
+                if (((Weapon)weaponSlots[i].yokai).currentRisingLevel > 0)
+                {
+                    possiblePermBonusUI[currentIndUi].risingLevelDisplay.transform.parent.gameObject.SetActive(true);
+                    possiblePermBonusUI[currentIndUi].risingLevelDisplay.text = ((Weapon)weaponSlots[i].yokai).currentRisingLevel.ToString();
+                }
+                else possiblePermBonusUI[currentIndUi].risingLevelDisplay.transform.parent.gameObject.SetActive(false);
+                possiblePermBonusUI[currentIndUi].levelDisplay.text = weaponSlots[i].currentLevel.ToString();
+                List<string> boosts = ((Passive)passiveSlots[i].yokai).GetBoostsInfo(true);
+                possiblePermBonusUI[currentIndUi].PassiveEffectDisplay.text = boosts[0];
+
+                // Кнопка в PermanentPassiveBonusUI вызывает сохранение бонуса и вызов гейм овера
+                possiblePermBonusUI[currentIndUi].saveButton.onClick.RemoveAllListeners();
+                possiblePermBonusUI[currentIndUi].saveButton.onClick.AddListener(() => ConfirmPermanentBoost(i));
+
+                currentIndUi++;
+            }
+        }
+        else
+        {
+            int consolationSoul = 5;                             // Подумать как это высчитывать
+            print("A крч у тебя они все уже есть, увы, ахаха");
+            possiblePermBonusUI[4].weaponPanel.SetActive(true);
+            possiblePermBonusUI[4].PassiveEffectDisplay.text = consolationSoul.ToString();
+            possiblePermBonusUI[4].saveButton.onClick.RemoveAllListeners();
+            possiblePermBonusUI[4].saveButton.onClick.AddListener(() => TakeConsolationBonus(consolationSoul));
+            
+        }
+        
+    }
+
+    private void ConfirmPermanentBoost(int ind)
+    {
+        SaveAndLoadManager.SavePermanentPassiveBonus(((PlayerWeaponData)weaponSlots[ind].yokaiData).passiveEffectData.baseStats.boosts,
+                                                     ((PlayerWeaponData)weaponSlots[ind].yokaiData).yokaiID);
+        GameManager.instance.AssignLevelReachedUI(player.level);
+        GameManager.instance.AssignChosenWeaponsUI(weaponSlots);
+        GameManager.instance.EndChosePermanentPassiveBoost();
+    }
+
+    private void TakeConsolationBonus(int amount)
+    {
+        player.actualStats.specialSouls += amount;
+        GameManager.instance.AssignLevelReachedUI(player.level);
+        GameManager.instance.AssignChosenWeaponsUI(weaponSlots);
+        GameManager.instance.EndChosePermanentPassiveBoost();
+    }
     public bool LevelUp(YokaiData data, int upgradeIdnx)
     {
         Yokai yokai = Get(data);
@@ -618,7 +719,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void YokaiActivateColldown(Weapon sender, float cooldown)
     {
-        print("STAAAART");
+        //print("STAAAART");
         for (int i = 0; i < availableSlotsCount; i++)
         {
             if (!weaponSlots[i].IsEmpty())
@@ -635,6 +736,12 @@ public class PlayerInventory : MonoBehaviour
     {
         StartCoroutine(CooldownAnimationTimer(cooldownTime, slotIndex));
     }
+
+    public void RisingActiveYokai()
+    {
+        OnRisingYokai(activeWeaponIndx);
+    }
+
 
     private IEnumerator CooldownAnimationTimer(float cooldownTime, int slotIndex)
     {
@@ -660,10 +767,7 @@ public class PlayerInventory : MonoBehaviour
         ((Weapon)weaponSlots[slotIndex].yokai).currentCoolDown = 0;
     }
 
-    public void RisingActiveYokai()
-    {
-        OnRisingYokai(activeWeaponIndx);
-    }
+   
 
 
 }

@@ -138,7 +138,6 @@ public class PlayerProgression : MonoBehaviour
         private void RecalculatePrice()
         {
             currentPrice += Mathf.FloorToInt((currentValue - defaultValue) / increaseValue) * increaseCup;
-            
         }
     }
 

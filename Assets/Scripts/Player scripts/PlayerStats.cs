@@ -132,10 +132,10 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
-        //playerInventory.AddYokai(playerData.startingWeapon1);
-        //playerInventory.AddYokai(playerData.startingWeapon2);
-        //playerInventory.AddYokai(playerData.startingWeapon3);
-        //playerInventory.AddYokai(playerData.startingWeapon4);
+        playerInventory.AddYokai(playerData.startingWeapon1);
+        playerInventory.AddYokai(playerData.startingWeapon2);
+        playerInventory.AddYokai(playerData.startingWeapon3);
+        playerInventory.AddYokai(playerData.startingWeapon4);
 
         weaponIndex = allWeapons.FindIndex(weapon => weapon.yokaiID == playerData.stats.startingYokaiID);
         if(weaponIndex != -1)

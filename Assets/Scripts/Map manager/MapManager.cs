@@ -37,9 +37,10 @@ public class MapManager : MonoBehaviour
         currentLevelIndex++;
         if (currentLevelIndex >= levelsData.Count)
         {
-            currentLevelIndex = 0;
+            // Удачное завершение забега!
+            GameManager.instance.StartChosePermanentPassiveBoost();
         }
-        if (roomFirstMapGenerator != null)
+        else if (roomFirstMapGenerator != null)
         {
             print("currentLevelIndex "+currentLevelIndex);
             tilemapVisualizer.UpdateLevelData();

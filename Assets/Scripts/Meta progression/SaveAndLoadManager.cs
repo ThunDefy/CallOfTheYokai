@@ -44,4 +44,12 @@ public class SaveAndLoadManager
         playerStats.startingYokaiID = yokaiID;
         SavePlayerData(playerStats);
     }
+
+    public static void SavePermanentPassiveBonus(PlayerData.Stats bonus, int yokaiID)
+    {
+        PlayerData.Stats playerStats = LoadPlayerData();
+        playerStats += bonus;
+        playerStats.availableStartingWeaponsID.Add(yokaiID);
+        SavePlayerData(playerStats);
+    }
 }

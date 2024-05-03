@@ -42,7 +42,7 @@ public class Passive : Yokai
         return true;
     }
 
-    public List<string> GetBoostsInfo()
+    public List<string> GetBoostsInfo(bool onlyDefault = false)
     {
         FieldInfo[] fields = typeof(PlayerData.Stats).GetFields();
         List<string> boostsInfo = new List<string>(2);
@@ -51,7 +51,11 @@ public class Passive : Yokai
         {
             if (field.FieldType != typeof(List<int>))
             {
-                object value = field.GetValue(currentBoosts);
+                object value;
+                if (!onlyDefault)
+                    value = field.GetValue(currentBoosts);
+                else value = field.GetValue(data.baseStats.boosts);
+
                 float fval = value is int ? (int)value : (float)value;
 
                 if (fval != 0)

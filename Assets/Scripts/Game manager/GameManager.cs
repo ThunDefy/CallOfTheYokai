@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
         Gameplay,
         Paused,
         GameOver,
+        SuccessfulEnd,
         LevelUp,
         ChangeWeapon,
         RisingWeapon,
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
     [Header("Screens")]
     public GameObject pauseScreen;
     public GameObject resultScreen;
+    public GameObject getPassiveBonusScreen;
     public GameObject levelUpScreen;
     public GameObject changeWeaponScreen;
     public GameObject risingWeaponScreen;
@@ -50,6 +52,7 @@ public class GameManager : MonoBehaviour
     float timer;
 
     public bool isGameOver = false;
+    public bool isSuccessfulEnd = false;
     public bool choosingUpgrade;
     public bool changingWeapon = false;
     public bool risingWeapon = false;
@@ -99,8 +102,17 @@ public class GameManager : MonoBehaviour
                 {
                     isGameOver = true;
                     Time.timeScale = 0f;
-                    //Debug.Log("Game over");
+                    //Debug.Log("Game over"); 
                     DisplayResults();
+                }
+                break;
+
+            case GameState.SuccessfulEnd:
+                if (!isSuccessfulEnd)
+                {
+                    isSuccessfulEnd = true;
+                    Time.timeScale = 0f;
+                    DisplayPermanentPassiveBoost();
                 }
                 break;
 
@@ -201,7 +213,8 @@ public class GameManager : MonoBehaviour
         levelUpScreen.SetActive(false);
         changeWeaponScreen.SetActive(false);
         risingWeaponScreen.SetActive(false);
-}
+        getPassiveBonusScreen.SetActive(false);
+    }
 
     public void GameOver()
     {
@@ -214,6 +227,11 @@ public class GameManager : MonoBehaviour
     void DisplayResults()
     {
         resultScreen.SetActive(true);
+    }
+
+    void DisplayPermanentPassiveBoost()
+    {
+        getPassiveBonusScreen.SetActive(true);
     }
 
     public void AssignLevelReachedUI(int levelReachedData)
@@ -359,6 +377,19 @@ public class GameManager : MonoBehaviour
     }
 
     
+    public void StartChosePermanentPassiveBoost()
+    {
+        player.SendMessage("SetPossiblePermanentPassiveBonuses");
+        ChangeState(GameState.SuccessfulEnd);
+    }
+
+    public void EndChosePermanentPassiveBoost()
+    {
+        isSuccessfulEnd = false;
+        getPassiveBonusScreen.SetActive(false);
+        GameOver();
+    }
+
     public void SavePlayerProgress()
     {
         SaveAndLoadManager.SaveRunProgress(pd.actualStats.specialSouls, pd.actualStats.commonSouls);
