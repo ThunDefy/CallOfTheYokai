@@ -27,11 +27,11 @@ public class WeaponParent : MonoBehaviour
         Vector2 scale = transform.localScale;
         if (direction.x < 0)
         {
-            scale.y = -1;
+            scale.y = -1*Math.Abs(scale.y);
         }
         else if (direction.x > 0)
         {
-            scale.y = 1;
+            scale.y = Math.Abs(scale.y);
         }
         transform.localScale = scale;
 
