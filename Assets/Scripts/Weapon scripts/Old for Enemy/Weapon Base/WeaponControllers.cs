@@ -64,12 +64,8 @@ public class WeaponControllers : MonoBehaviour
 
     protected virtual void Attack()
     {
-        print("Controller PEW");
         attackBlocked = true;
         currentCooldown = weaponData.cooldownDuration;
     }
 
-    public virtual void LevelUp(){}
-
-    public virtual void LevelUpPassiveEffect(){}
 }

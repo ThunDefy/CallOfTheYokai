@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ProjectileWeaponBehaviour : MonoBehaviour
 {
-    //public WeaponScriptableObject weaponData;
-
     protected WeaponControllers weaponData;
 
     public Transform circleOrigin;
@@ -27,26 +25,17 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
         weaponData = FindAnyObjectByType<WeaponControllers>();
         Destroy(gameObject, destroyAfterSeconds);
     }
-    public float GetCurrentDamage()
-    {
-        return projectileDamage *= FindAnyObjectByType<PlayerStats>().actualStats.power;
-    }
+
 
     public void SetDirection()
     {
-        if (targetPos == null)
-        {
-            Vector2 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            shootDirection = (worldPosition - (Vector2)transform.position).normalized;
-        }
-        else
+        if (targetPos != null)
         {
             shootDirection = (targetPos - (Vector2)transform.position).normalized;
         }
-       
 
         float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle-90);
+        transform.rotation = Quaternion.Euler(0, 0, angle);
 
         direction = shootDirection;
 
@@ -63,28 +52,17 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
 
     public void DetectColliders()
     {
-        //foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position, radius))
-        //{
-        //    Debug.Log(collider.name);
-        //    Health health;
-        //    if (health = collider.GetComponent<Health>())
-        //    {
-        //        health.GetHit(GetCurrentDamage(), sender,transform.position);
-        //    }
-        //    if(collider.name != "Collector") 
-        //        Destroy(gameObject);
-        //}
 
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, radius))
         {
             Debug.Log(collider.name);
             PlayerStats player;
-            if (collider.tag == "player" && (player = collider.GetComponent<PlayerStats>()))
+            if (collider.tag == "Player" && (player = collider.GetComponent<PlayerStats>()))
             {
-                player.TakeDamage(GetCurrentDamage(), transform.parent.gameObject, transform.position);
+                print("POPAAL");
+                player.TakeDamage(projectileDamage, gameObject, transform.position);
                 Destroy(gameObject);
             }
-            else Destroy(gameObject);
 
         }
     }

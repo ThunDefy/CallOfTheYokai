@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f12e2546fcc0e72479b59cb2a7ec52e3, type: 3}
+  m_Name: KamaYari
+  m_EditorClassIdentifier: 
+  weaponName: 
+  weaponDescription: 
+  prefab: {fileID: 6871592463286859803, guid: 49eab83d2e7fe5f42b5de8fad2099325, type: 3}
+  target: Player
+  damage: 10
+  speed: 10
+  cooldownDuration: 0.5
+  pierce: 0
+  knockback: 5
+  Icon: {fileID: 0}

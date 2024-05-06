@@ -24,7 +24,7 @@ public class IllusionWarior : WeaponEffect
             
         }
 
-        KatanaController weaponStat = GetComponentInChildren<KatanaController>();
+        MeleWeaponController weaponStat = GetComponentInChildren<MeleWeaponController>();
         weaponStat.currentDamage = GetDamage();
         weaponStat.currentCooldown = stats.projectileInterval;
         weaponStat.currentPierce = stats.pircing;

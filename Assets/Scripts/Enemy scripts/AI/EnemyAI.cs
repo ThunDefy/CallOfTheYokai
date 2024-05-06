@@ -34,6 +34,10 @@ public class EnemyAI : MonoBehaviour
 
     WeaponControllers wc;
 
+    public bool randomWalkAfterAttak = false;
+    //public float randomMoveDuration = 0.5f; // Продолжительность случайного движения в с econds
+    public float randomMoveRadius = 0.5f;
+
     private void Start()
     {
         wc = GetComponentInChildren<WeaponControllers>();
@@ -64,14 +68,16 @@ public class EnemyAI : MonoBehaviour
             if (following == false)
             {
                 following = true;
-                StartCoroutine(ChaseAndAttack());
+                StartCoroutine(ChaseAndAttack());  
             }
+            
         }
         else if (aiData.GetTargetsCount() > 0)
         {
             //Target acquisition logic
             aiData.currentTarget = aiData.targets[0];
         }
+
         //Moving the Agent
         OnMovementInput?.Invoke(movementInput);
     }
@@ -92,10 +98,26 @@ public class EnemyAI : MonoBehaviour
 
             if (distance < attackDistance)
             {
+                ////Random Movement before attack
+                //Vector2 randomDirection = Random.insideUnitCircle.normalized * randomMoveRadius;
+                //MoveInRandomDirection(randomDirection);
+
                 //Attack logic
                 movementInput = Vector2.zero;
+                wc.PointerPosition = aiData.currentTarget.position;
                 OnAttack?.Invoke();
+
+                if (randomWalkAfterAttak)
+                {
+                    //Random Movement after attack
+                    Vector2 randomDirectionAfterAttack = Random.insideUnitCircle.normalized * randomMoveRadius;
+                    StartCoroutine(MoveRandomlyForDuration(randomDirectionAfterAttack, attackDelay));
+                }
+               
+
                 yield return new WaitForSeconds(attackDelay);
+
+               
                 StartCoroutine(ChaseAndAttack());
             }
             else
@@ -108,5 +130,21 @@ public class EnemyAI : MonoBehaviour
 
         }
 
+    }
+
+    private IEnumerator MoveRandomlyForDuration(Vector2 direction, float duration)
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            // Двигать врага в указанном направлении
+            movementInput = new Vector2(direction.x, direction.y).normalized;
+            // Увеличить прошедшее время на время, прошедшее с предыдущего кадра
+            elapsedTime += Time.deltaTime;
+
+            // Ждать до следующего кадра
+            yield return null;
+        }
     }
 }
