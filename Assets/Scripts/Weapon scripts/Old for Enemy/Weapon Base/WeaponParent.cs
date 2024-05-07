@@ -7,6 +7,7 @@ using static GameManager;
 public class WeaponParent : MonoBehaviour
 {
     public Vector2 PointerPosition { get; set; }
+    public int mapLevel = 0;
 
     private void Update()
     {

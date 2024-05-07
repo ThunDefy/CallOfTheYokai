@@ -71,7 +71,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a8166de226285964da24a6a18ddfd446, type: 2}
+  m_Motion: {fileID: 7400000, guid: d23858d65b7f089448569c0a7c286b82, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -98,7 +98,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9356753b99f73fb45bac21a8a6fb3414, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2ea74123addbc5f40b8c05840cf88559, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -110,7 +110,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: KamaYariAnimator
+  m_Name: FistsAnimator
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Attack

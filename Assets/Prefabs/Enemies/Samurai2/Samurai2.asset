@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ac1ae8b5004dd24082fdddf691e6fcd, type: 3}
-  m_Name: BlackRonin
+  m_Name: Samurai2
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1683007050878759650, guid: 65a190a8b4298cc4aab13c20b132e5c8, type: 3}
+  enemyPrefab: {fileID: 7307384476569266983, guid: db2d091085b926f48a212b3e585a7e88, type: 3}
   enemyType: 0

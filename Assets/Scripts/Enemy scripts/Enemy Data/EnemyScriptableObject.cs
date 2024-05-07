@@ -15,4 +15,6 @@ public class EnemyScriptableObject : ScriptableObject
 
     public GameObject enemyPrefab;
     public EnemyType enemyType;
+
+    public int[] healthStats;
 }

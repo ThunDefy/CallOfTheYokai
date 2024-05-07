@@ -19,15 +19,17 @@ public class WeaponControllers : MonoBehaviour
 
     private bool attackBlocked;
 
+    public int currentMapLevel = 0;
+
     protected virtual void Start()
     {
+        currentMapLevel = transform.parent.GetComponent<WeaponParent>().mapLevel;
         Transform parent2 = transform.parent;
         characterRenderer = parent2.parent.GetComponent<SpriteRenderer>();
-
-        currentCooldown = weaponData.cooldownDuration;
-        currentDamage = weaponData.damage;
-        currentSpeed = weaponData.speed;
-        currentPierce = weaponData.pierce;
+        
+        currentCooldown = weaponData.weaponStats[currentMapLevel].cooldownDuration;
+        currentDamage = weaponData.weaponStats[currentMapLevel].damage;
+        currentSpeed = weaponData.weaponStats[currentMapLevel].speed;
 
         attackBlocked = true;
 
@@ -65,7 +67,7 @@ public class WeaponControllers : MonoBehaviour
     protected virtual void Attack()
     {
         attackBlocked = true;
-        currentCooldown = weaponData.cooldownDuration;
+        currentCooldown = weaponData.weaponStats[currentMapLevel].cooldownDuration;
     }
 
 }

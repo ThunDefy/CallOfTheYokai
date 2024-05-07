@@ -168,6 +168,8 @@ public class AgentPlacer : MonoBehaviour
                         GameObject enemy = Instantiate(actualEnemys[j].enemyPrefab);
                         enemy.transform.localPosition = (Vector2)room.PositionsAccessibleFromPath[i] + Vector2.one * 0.5f;
                         room.EnemiesInTheRoom.Add(enemy);
+                        enemy.GetComponentInChildren<WeaponParent>().mapLevel = mapManager.CurrentLevelIndex; ///////////////////////////////
+                        enemy.GetComponent<Health>().SetMaxHealth(actualEnemys[j].healthStats[mapManager.CurrentLevelIndex]);
                         break;
                     }
                 }
@@ -177,6 +179,8 @@ public class AgentPlacer : MonoBehaviour
         {
             GameObject enemy = Instantiate(currentLevelData.bossEnemy.enemyPrefab);
             enemy.transform.localPosition = (Vector2)room.PositionsAccessibleFromPath[0] + Vector2.one * 0.5f;
+            enemy.GetComponentInChildren<WeaponParent>().mapLevel = mapManager.CurrentLevelIndex;
+            enemy.GetComponent<Health>().SetMaxHealth(currentLevelData.bossEnemy.healthStats[mapManager.CurrentLevelIndex]);
             room.EnemiesInTheRoom.Add(enemy);
         }
         

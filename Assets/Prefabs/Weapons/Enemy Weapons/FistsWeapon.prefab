@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 2298992235993181317}
   - component: {fileID: 2831993483922843904}
   - component: {fileID: 972258640417097787}
-  - component: {fileID: -2377024854056180190}
-  - component: {fileID: 1288924726489478116}
+  - component: {fileID: 6351162372304651575}
   m_Layer: 13
-  m_Name: KamaYariWeapon
+  m_Name: FistsWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6871592463286859803}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.043819852, w: 0.99903953}
+  m_LocalPosition: {x: -0.45300007, y: -0.197, z: 0}
+  m_LocalScale: {x: 0.86149055, y: 1.0307188, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.023}
 --- !u!212 &2298992235993181317
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -77,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -917294845
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -836956697, guid: 233c1c7c7c07f214bbb551e2594a3af6, type: 3}
+  m_Sprite: {fileID: -1118056667, guid: bc3b598168949b240872283d62d153f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 0}
   weaponRenderer: {fileID: 2298992235993181317}
-  weaponData: {fileID: 11400000, guid: 0f2062df9fee57d479d64bf8dbc57adc, type: 2}
+  weaponData: {fileID: 11400000, guid: 0443989be5d5f88479dc2e8bbc7a1b5a, type: 2}
   currentCooldown: 0
   currentDamage: 0
   currentSpeed: 0
@@ -119,7 +118,7 @@ Animator:
   m_GameObject: {fileID: 6871592463286859803}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 459a479a1fa04ba4ea5048f7e8c73ee0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0825d90dfda17af4cb6855bdc32fd724, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -130,7 +129,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-2377024854056180190
+--- !u!114 &6351162372304651575
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,21 +142,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 0}
-  radius: 0.3
-  xOffset: 1.5
-  yOffset: 0
+  radius: 1.3
   drawGizmo: 1
-  agentIsCenter: 0
---- !u!114 &1288924726489478116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6871592463286859803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d902bcb7830e71845be220ef88da1fc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _xOffset: 0

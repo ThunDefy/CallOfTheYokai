@@ -22,11 +22,25 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fb59f363bd42b5a458474455cac216ac, type: 2}
   - {fileID: 11400000, guid: ef4a8332ce4495840a0a801974913e0d, type: 2}
   normalEnemys:
-  - {fileID: 11400000, guid: 8d245f492523abe499214a63c9086af6, type: 2}
+  - {fileID: 11400000, guid: 4b14ce0f8fd69b7478f2adc63ceae508, type: 2}
+  - {fileID: 11400000, guid: 65959ceddaecbac4f8c49274596fc403, type: 2}
+  - {fileID: 11400000, guid: 21aded50800883e4da2706d9305df608, type: 2}
+  - {fileID: 11400000, guid: 3941e2c6820983e4d81426b2dd0b7040, type: 2}
+  - {fileID: 11400000, guid: d6d809d35dd27784e91541ed050fd618, type: 2}
+  - {fileID: 11400000, guid: d05e7576616da084bafa3093df58e690, type: 2}
+  - {fileID: 11400000, guid: a0ba7b1209484a74ca24d384a338e75a, type: 2}
+  - {fileID: 11400000, guid: 7332de5fba8994a43856ee34c0ce3648, type: 2}
   - {fileID: 11400000, guid: c433268e326f8434fa3ac08f80c19501, type: 2}
   normalEnemySpawnChance:
-  - 0.5
-  - 0.5
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
   specialEnemys:
   - {fileID: 11400000, guid: fb6f34afb53e06e458bbf7433d000001, type: 2}
   specialEnemySpawnChance:

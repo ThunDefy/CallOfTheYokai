@@ -126,4 +126,10 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void SetMaxHealth(int amount)
+    {
+        maxHealth = amount;
+        currentHealth = amount;
+    }
+
 }
