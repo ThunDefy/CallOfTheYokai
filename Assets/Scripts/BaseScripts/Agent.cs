@@ -18,6 +18,12 @@ public class Agent : MonoBehaviour
     Vector2 knockbackVelocity;
     float knockbackDuration;
 
+    [Header("Dash Settings")]
+    public float dashSpeed =10f;
+    public float dashDuration = 1f;
+    public float dashCooldown = 1f;
+
+
     [HideInInspector]
     public Vector2 moveDir;
     private Vector2 movementInput, pointerInput;
@@ -31,6 +37,8 @@ public class Agent : MonoBehaviour
     public Vector2 PointerInput { get => pointerInput; set => pointerInput = value; }
 
     private bool moveIsBlock = false;
+    private bool isDashing = false;
+    private bool canDash = true;
 
     protected virtual void Awake()
     {
@@ -42,6 +50,7 @@ public class Agent : MonoBehaviour
     }
     private void Start()
     {
+        canDash = true;
         weaponController = GetComponentInChildren<WeaponControllers>();
         playerWeapon = GetComponentInChildren<Weapon>();
     }
@@ -76,6 +85,7 @@ public class Agent : MonoBehaviour
     // Передвежение игрока
     void FixedUpdate()
     {
+        if (isDashing) return;
         Move();
     }
 
@@ -97,6 +107,42 @@ public class Agent : MonoBehaviour
         }
         else rb.velocity = moveDir * DEFUALT_MOVESPEED * moveSpeed;
 
+    }
+
+    public void DoDash()
+    {
+        if (canDash)
+        {
+            print("DASSSH");
+            StartCoroutine(Dash());
+        }else print("NO DASSSH");
+
+    }
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true); // Игнорировать коллизии игрока с определенным слоем
+       
+
+        float timePassed = 0f;
+        Vector2 initialVelocity = rb.velocity;
+
+        while (timePassed < dashDuration)
+        {
+            float t = timePassed / dashDuration;
+            rb.velocity = Vector2.Lerp(initialVelocity, new Vector2(moveDir.x * dashSpeed, moveDir.y * dashSpeed), t);
+            timePassed += Time.fixedDeltaTime; // Используйте фиксированное обновление времени
+
+            yield return new WaitForFixedUpdate(); // Для фиксированного обновления
+        }
+
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
+        rb.velocity = Vector2.zero; // Обнуляем скорость по завершении рывка
+        isDashing = false;
+
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
 
     public void PerformAttack()

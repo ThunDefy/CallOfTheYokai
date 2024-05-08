@@ -41,6 +41,9 @@ public class AgentPlacer : MonoBehaviour
     private int maxRoomEnemiesCount=10;
 
     [SerializeField]
+    private int guardiansCount = 2;
+
+    [SerializeField]
     private List<int> roomsWithEnemies = new List<int>();
 
     MapData dungeonData;
@@ -68,6 +71,9 @@ public class AgentPlacer : MonoBehaviour
     public void UpdateLevelData()
     {
         currentLevelData = mapManager.GetCurrentLevelData();
+        minRoomEnemiesCount = currentLevelData.minRoomEnemiesCount;
+        maxRoomEnemiesCount = currentLevelData.maxRoomEnemiesCount;
+        guardiansCount = currentLevelData.guardiansCount;
     }
 
     public void PlaceAgents()
@@ -79,7 +85,11 @@ public class AgentPlacer : MonoBehaviour
         {
             if (i != playerRoomIndex)
             {
-                roomsWithEnemies.Add(Random.Range(minRoomEnemiesCount, maxRoomEnemiesCount + 1));
+                if (dungeonData.Rooms[i].Type == RoomType.Treasure)
+                {
+                    roomsWithEnemies.Add(guardiansCount);
+                }else
+                    roomsWithEnemies.Add(Random.Range(minRoomEnemiesCount, maxRoomEnemiesCount + 1));
             }
             else
             {
@@ -110,7 +120,13 @@ public class AgentPlacer : MonoBehaviour
             //добавили ли мы эту комнату в список RoomEnemiesCount?
             if (roomsWithEnemies.Count > i)
             {
-                PlaceEnemies(room, roomsWithEnemies[i]);
+                if (room.Type == RoomType.Treasure)
+                {
+                    if (i != playerRoomIndex)
+                        PlaceEnemies(room, guardiansCount);
+                }
+                else
+                    PlaceEnemies(room, roomsWithEnemies[i]);
             }
 
             //—павним игрока 
@@ -166,10 +182,11 @@ public class AgentPlacer : MonoBehaviour
                     if (randomValue <= cumulativeChance)
                     {
                         GameObject enemy = Instantiate(actualEnemys[j].enemyPrefab);
-                        enemy.transform.localPosition = (Vector2)room.PositionsAccessibleFromPath[i] + Vector2.one * 0.5f;
-                        room.EnemiesInTheRoom.Add(enemy);
                         enemy.GetComponentInChildren<WeaponParent>().mapLevel = mapManager.CurrentLevelIndex; ///////////////////////////////
                         enemy.GetComponent<Health>().SetMaxHealth(actualEnemys[j].healthStats[mapManager.CurrentLevelIndex]);
+                        enemy.transform.localPosition = (Vector2)room.PositionsAccessibleFromPath[i] + Vector2.one * 0.5f;
+                        room.EnemiesInTheRoom.Add(enemy);
+
                         break;
                     }
                 }
@@ -178,9 +195,9 @@ public class AgentPlacer : MonoBehaviour
         else
         {
             GameObject enemy = Instantiate(currentLevelData.bossEnemy.enemyPrefab);
-            enemy.transform.localPosition = (Vector2)room.PositionsAccessibleFromPath[0] + Vector2.one * 0.5f;
             enemy.GetComponentInChildren<WeaponParent>().mapLevel = mapManager.CurrentLevelIndex;
             enemy.GetComponent<Health>().SetMaxHealth(currentLevelData.bossEnemy.healthStats[mapManager.CurrentLevelIndex]);
+            enemy.transform.localPosition = (Vector2)room.PositionsAccessibleFromPath[0] + Vector2.one * 0.5f;
             room.EnemiesInTheRoom.Add(enemy);
         }
         

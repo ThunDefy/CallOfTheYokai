@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12e2546fcc0e72479b59cb2a7ec52e3, type: 3}
   m_Name: Kunai
   m_EditorClassIdentifier: 
-  weaponName: 
-  weaponDescription: 
   prefab: {fileID: 6642081747638214494, guid: 2727b53448221c04cbb526ada1bca6e3, type: 3}
   target: Player
   damage: 10
   speed: 10
   cooldownDuration: 1
-  pierce: 0
-  knockback: 0
-  Icon: {fileID: -1610587141, guid: 2e7f3da684debd74f87677964da8e344, type: 3}
+  weaponStats:
+  - prefab: {fileID: 6642081747638214494, guid: 2727b53448221c04cbb526ada1bca6e3, type: 3}
+    target: Player
+    damage: 10
+    speed: 10
+    cooldownDuration: 1

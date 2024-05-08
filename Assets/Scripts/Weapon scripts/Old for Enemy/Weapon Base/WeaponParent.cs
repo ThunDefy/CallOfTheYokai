@@ -36,7 +36,6 @@ public class WeaponParent : MonoBehaviour
         }
         transform.localScale = scale;
 
-        
 
     }
 

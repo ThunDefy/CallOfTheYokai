@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2028b119238afc44b82baf704a7851c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.2
+  moveSpeed: 1
   moveDir: {x: 0, y: 0}
   OnAnimationEventTriggered:
     m_PersistentCalls:
@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee50ed5c3f11b3e4bb344ffd2416241b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapLevel: 0
 --- !u!1 &5213409283073513295
 GameObject:
   m_ObjectHideFlags: 0

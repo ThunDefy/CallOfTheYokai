@@ -127,4 +127,5 @@ MonoBehaviour:
   currentSpeed: 0
   currentColldownDuration: 0
   currentPierce: 0
+  currentMapLevel: 0
   animator: {fileID: 4203816605063914690}

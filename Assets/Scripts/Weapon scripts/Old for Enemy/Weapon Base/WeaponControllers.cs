@@ -30,6 +30,7 @@ public class WeaponControllers : MonoBehaviour
         currentCooldown = weaponData.weaponStats[currentMapLevel].cooldownDuration;
         currentDamage = weaponData.weaponStats[currentMapLevel].damage;
         currentSpeed = weaponData.weaponStats[currentMapLevel].speed;
+        print("spawn with " + currentSpeed);
 
         attackBlocked = true;
 

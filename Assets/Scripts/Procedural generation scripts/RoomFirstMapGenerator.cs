@@ -36,6 +36,13 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
         currentLevelData = mapManager.GetCurrentLevelData();
         currentTresureRoomCount = currentLevelData.tresureRoomCount;
         if (mapManager.CurrentLevelIndex == 0) currentTresureRoomCount -= 1;
+
+        randomWalkParameters = currentLevelData.randomWalkParameters;
+        minRoomWidth = currentLevelData.minRoomWidth;
+        minRoomHeight = currentLevelData.minRoomHeight;
+        dungeonWidth = currentLevelData.dungeonWidth;
+        dungeonHeight = currentLevelData.dungeonHeight;
+        offset = currentLevelData.offset;
     }
 
 

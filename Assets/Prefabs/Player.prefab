@@ -325,15 +325,16 @@ MonoBehaviour:
     power: 0
     area: 0
     speed: 0
-    duration: 0
-    amount: 0
     cooldown: 0
     luck: 0
     growth: 0
-    greed: 0
-    curse: 0
     magnet: 0
     revival: 0
+    commonSouls: 0
+    specialSouls: 0
+    availableSlots: 0
+    startingYokaiID: 0
+    availableStartingWeaponsID: 
   actualStats:
     maxHealth: 0
     recovery: 0
@@ -342,16 +343,28 @@ MonoBehaviour:
     power: 2.63
     area: 0
     speed: 0
-    duration: 1.5
-    amount: 0
     cooldown: 0
     luck: 0
     growth: 0
-    greed: 0
-    curse: 0
     magnet: 0
     revival: 0
+    commonSouls: 0
+    specialSouls: 0
+    availableSlots: 0
+    startingYokaiID: 0
+    availableStartingWeaponsID: 
   weaponIndex: 0
+  allWeapons:
+  - {fileID: 11400000, guid: f1971f69f80377b47b73fa36146370a8, type: 2}
+  - {fileID: 11400000, guid: 6a81c5a7691858c40b846c1988aadb29, type: 2}
+  - {fileID: 11400000, guid: 7f10338b817be8b45a71bae6aaecf54b, type: 2}
+  - {fileID: 11400000, guid: 5ea2656354c44134fb282d3be343d9e0, type: 2}
+  - {fileID: 11400000, guid: 12a896b957cee1c43ba85e9f6ab7eab5, type: 2}
+  - {fileID: 11400000, guid: f3f3e856028a1ad4ab4f568c67903f0a, type: 2}
+  - {fileID: 11400000, guid: 417e735061a195e4d97733686c6cc0c4, type: 2}
+  - {fileID: 11400000, guid: 7746cbc09f3ebe0409a65733623742e4, type: 2}
+  - {fileID: 11400000, guid: 8035c769c99e67e499a5e5cc9219c4e8, type: 2}
+  - {fileID: 11400000, guid: d32bbfbcd2af49a45a973cf5f8493869, type: 2}
   player: {fileID: 11400000, guid: 9d96e993ac909f940b3c02562352dcec, type: 2}
   availableSlotsCount: 4
   experience: 0
@@ -663,6 +676,42 @@ MonoBehaviour:
     PassiveEffect2Display: {fileID: 0}
     changeButton: {fileID: 0}
     nopeButton: {fileID: 0}
+  possiblePermBonusUI:
+  - weaponPanel: {fileID: 0}
+    weaponIcon: {fileID: 0}
+    weaponNameDisplay: {fileID: 0}
+    risingLevelDisplay: {fileID: 0}
+    levelDisplay: {fileID: 0}
+    PassiveEffectDisplay: {fileID: 0}
+    saveButton: {fileID: 0}
+  - weaponPanel: {fileID: 0}
+    weaponIcon: {fileID: 0}
+    weaponNameDisplay: {fileID: 0}
+    risingLevelDisplay: {fileID: 0}
+    levelDisplay: {fileID: 0}
+    PassiveEffectDisplay: {fileID: 0}
+    saveButton: {fileID: 0}
+  - weaponPanel: {fileID: 0}
+    weaponIcon: {fileID: 0}
+    weaponNameDisplay: {fileID: 0}
+    risingLevelDisplay: {fileID: 0}
+    levelDisplay: {fileID: 0}
+    PassiveEffectDisplay: {fileID: 0}
+    saveButton: {fileID: 0}
+  - weaponPanel: {fileID: 0}
+    weaponIcon: {fileID: 0}
+    weaponNameDisplay: {fileID: 0}
+    risingLevelDisplay: {fileID: 0}
+    levelDisplay: {fileID: 0}
+    PassiveEffectDisplay: {fileID: 0}
+    saveButton: {fileID: 0}
+  - weaponPanel: {fileID: 0}
+    weaponIcon: {fileID: 0}
+    weaponNameDisplay: {fileID: 0}
+    risingLevelDisplay: {fileID: 0}
+    levelDisplay: {fileID: 0}
+    PassiveEffectDisplay: {fileID: 0}
+    saveButton: {fileID: 0}
 --- !u!114 &1196761433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -695,7 +744,7 @@ MonoBehaviour:
   - {x: 0.16736507, y: -0.3809986, z: 0}
   m_ShapePathHash: -1106941395
   m_Mesh: {fileID: 0}
-  m_InstanceId: 30446
+  m_InstanceId: -1294
   m_LocalBounds:
     m_Center: {x: 0.016703606, y: -0.0016040802, z: 0}
     m_Extent: {x: 0.1801548, y: 0.37939453, z: 0}
@@ -757,6 +806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee50ed5c3f11b3e4bb344ffd2416241b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapLevel: 0
 --- !u!1 &8403437080760574819
 GameObject:
   m_ObjectHideFlags: 0

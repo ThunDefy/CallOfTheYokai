@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30260cc9f7445da43859c32a829a9994, type: 3}
-  m_Name: SimpleRandomWalkParameters_BigForest
+  m_Name: SimpleRandomNoraml
   m_EditorClassIdentifier: 
-  iterations: 15
-  walkLength: 50
+  iterations: 10
+  walkLength: 30
   startRandomlyEachIteration: 0

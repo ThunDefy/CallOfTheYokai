@@ -10,39 +10,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 511ecd52941cd7a4b909c1f2c7f34974, type: 3}
-  m_Name: Level1Data
+  m_Name: Level1_Data
   m_EditorClassIdentifier: 
-  tresureRoomCount: 1
-  haveBoss: 0
+  randomWalkParameters: {fileID: 11400000, guid: a2986f8c069092042bc7d5ad41d45aa1, type: 2}
+  minRoomWidth: 13
+  minRoomHeight: 13
+  dungeonWidth: 70
+  dungeonHeight: 70
+  offset: 1
   biomeData: {fileID: 11400000, guid: 0e977bc93cc7ba2448eaf8671d76b51a, type: 2}
+  tresureRoomCount: 2
+  haveBoss: 0
   propsToPlace:
   - {fileID: 11400000, guid: 210405e3b74c4f445b9a8bbcd12beb81, type: 2}
   - {fileID: 11400000, guid: 9412c81a9c930b74981786823378bb87, type: 2}
   - {fileID: 11400000, guid: 0a91c0861836c9f488508f79f5b749f7, type: 2}
   - {fileID: 11400000, guid: fb59f363bd42b5a458474455cac216ac, type: 2}
   - {fileID: 11400000, guid: ef4a8332ce4495840a0a801974913e0d, type: 2}
+  minRoomEnemiesCount: 3
+  maxRoomEnemiesCount: 10
+  guardiansCount: 3
   normalEnemys:
-  - {fileID: 11400000, guid: 4b14ce0f8fd69b7478f2adc63ceae508, type: 2}
-  - {fileID: 11400000, guid: 65959ceddaecbac4f8c49274596fc403, type: 2}
-  - {fileID: 11400000, guid: 21aded50800883e4da2706d9305df608, type: 2}
-  - {fileID: 11400000, guid: 3941e2c6820983e4d81426b2dd0b7040, type: 2}
-  - {fileID: 11400000, guid: d6d809d35dd27784e91541ed050fd618, type: 2}
-  - {fileID: 11400000, guid: d05e7576616da084bafa3093df58e690, type: 2}
-  - {fileID: 11400000, guid: a0ba7b1209484a74ca24d384a338e75a, type: 2}
-  - {fileID: 11400000, guid: 7332de5fba8994a43856ee34c0ce3648, type: 2}
   - {fileID: 11400000, guid: c433268e326f8434fa3ac08f80c19501, type: 2}
+  - {fileID: 11400000, guid: d6d809d35dd27784e91541ed050fd618, type: 2}
   normalEnemySpawnChance:
-  - 0.1
-  - 0.1
-  - 0.1
-  - 0.1
-  - 0.1
-  - 0.1
-  - 0.1
-  - 0.1
-  - 0.1
+  - 0.5
+  - 0.5
   specialEnemys:
-  - {fileID: 11400000, guid: fb6f34afb53e06e458bbf7433d000001, type: 2}
+  - {fileID: 11400000, guid: b7994f46a7c046c459ca59e87322298c, type: 2}
   specialEnemySpawnChance:
   - 1
-  bossEnemy: {fileID: 11400000, guid: 1d5468d827dfe854c9636f458b6ddd38, type: 2}
+  bossEnemy: {fileID: 0}

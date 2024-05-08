@@ -12,13 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12e2546fcc0e72479b59cb2a7ec52e3, type: 3}
   m_Name: Katana
   m_EditorClassIdentifier: 
-  weaponName: 
-  weaponDescription: 
   prefab: {fileID: 6871592463286859803, guid: 82a8b4debf752cf44b7f47dbe47e12f2, type: 3}
   target: Player
   damage: 10
   speed: 10
   cooldownDuration: 1
-  pierce: 0
-  knockback: 5
-  Icon: {fileID: 0}
+  weaponStats:
+  - prefab: {fileID: 6871592463286859803, guid: 82a8b4debf752cf44b7f47dbe47e12f2, type: 3}
+    target: Player
+    damage: 12
+    speed: 0
+    cooldownDuration: 1.2
+  - prefab: {fileID: 6871592463286859803, guid: 82a8b4debf752cf44b7f47dbe47e12f2, type: 3}
+    target: Player
+    damage: 14
+    speed: 0
+    cooldownDuration: 1.2
+  - prefab: {fileID: 6871592463286859803, guid: 82a8b4debf752cf44b7f47dbe47e12f2, type: 3}
+    target: Player
+    damage: 16
+    speed: 0
+    cooldownDuration: 1.1
+  - prefab: {fileID: 6871592463286859803, guid: 82a8b4debf752cf44b7f47dbe47e12f2, type: 3}
+    target: Player
+    damage: 17
+    speed: 0
+    cooldownDuration: 1.1
+  - prefab: {fileID: 6871592463286859803, guid: 82a8b4debf752cf44b7f47dbe47e12f2, type: 3}
+    target: Player
+    damage: 18
+    speed: 0
+    cooldownDuration: 1

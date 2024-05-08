@@ -32,7 +32,7 @@ MonoBehaviour:
     lifespan: 2
     damage: 18
     damageVariance: 2
-    area: 2
+    area: 1
     speed: 10
     cooldown: 1.8
     projectileInterval: -1

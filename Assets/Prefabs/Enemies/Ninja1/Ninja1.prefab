@@ -659,7 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2028b119238afc44b82baf704a7851c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.2
+  moveSpeed: 1.1
   moveDir: {x: 0, y: 0}
   OnAnimationEventTriggered:
     m_PersistentCalls:

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements.Experimental;
@@ -213,12 +214,12 @@ public class PlayerInventory : MonoBehaviour
         {
             // Создаем объект оружия в WeaponParent
             GameObject go = Instantiate(data.yokaiPrefab);
+            go.transform.localRotation = Quaternion.identity;
             go.name = data.baseStats.name + " Controller";
             Weapon spawnedWeapon = (Weapon)go.AddComponent(weaponType);
             spawnedWeapon.transform.SetParent(GetComponentInChildren<WeaponParent>().transform);
-            spawnedWeapon.transform.localPosition = Vector2.zero;
-            spawnedWeapon.transform.localPosition += new Vector3(0.8f, 0f, 0f);
-            spawnedWeapon.transform.rotation = Quaternion.identity;
+            spawnedWeapon.transform.localRotation = Quaternion.identity;
+            spawnedWeapon.transform.localPosition = new Vector3(0.8f, 0f, 0f);
             spawnedWeapon.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             spawnedWeapon.Initialise(data);
             spawnedWeapon.OnEquip();
@@ -246,6 +247,8 @@ public class PlayerInventory : MonoBehaviour
             player.RecalculateStats();
 
             SetActiveWeapon(slotNum);
+
+            
             return slotNum;
         }
         else

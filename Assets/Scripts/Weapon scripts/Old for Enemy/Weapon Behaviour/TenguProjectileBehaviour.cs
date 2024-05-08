@@ -13,7 +13,8 @@ public class TenguProjectileBehaviour : ProjectileWeaponBehaviour
 
     void Update()
     {
-        transform.position += direction * weaponData.currentSpeed * Time.deltaTime;
+        transform.position += direction * weaponData.weaponData.weaponStats[weaponData.currentMapLevel].speed * Time.deltaTime;
+
         DetectColliders();
     }
 

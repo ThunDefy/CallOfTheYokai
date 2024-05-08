@@ -12,13 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12e2546fcc0e72479b59cb2a7ec52e3, type: 3}
   m_Name: Fists
   m_EditorClassIdentifier: 
-  weaponName: 
-  weaponDescription: 
   prefab: {fileID: 6871592463286859803, guid: 30792fa5d941f734eb275559f2891022, type: 3}
   target: Player
   damage: 10
   speed: 10
   cooldownDuration: 1
-  pierce: 0
-  knockback: 5
-  Icon: {fileID: 0}
+  weaponStats:
+  - prefab: {fileID: 6871592463286859803, guid: 30792fa5d941f734eb275559f2891022, type: 3}
+    target: Player
+    damage: 0
+    speed: 0
+    cooldownDuration: 0
+  - prefab: {fileID: 6871592463286859803, guid: 30792fa5d941f734eb275559f2891022, type: 3}
+    target: Player
+    damage: 0
+    speed: 0
+    cooldownDuration: 0
+  - prefab: {fileID: 6871592463286859803, guid: 30792fa5d941f734eb275559f2891022, type: 3}
+    target: Player
+    damage: 8
+    speed: 0
+    cooldownDuration: 0.5
+  - prefab: {fileID: 6871592463286859803, guid: 30792fa5d941f734eb275559f2891022, type: 3}
+    target: Player
+    damage: 10
+    speed: 0
+    cooldownDuration: 0.5
+  - prefab: {fileID: 6871592463286859803, guid: 30792fa5d941f734eb275559f2891022, type: 3}
+    target: Player
+    damage: 9
+    speed: 0
+    cooldownDuration: 0.5

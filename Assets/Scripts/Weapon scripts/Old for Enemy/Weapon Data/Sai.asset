@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12e2546fcc0e72479b59cb2a7ec52e3, type: 3}
   m_Name: Sai
   m_EditorClassIdentifier: 
-  weaponName: 
-  weaponDescription: 
   prefab: {fileID: 6871592463286859803, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
   target: Player
   damage: 10
   speed: 10
   cooldownDuration: 0.5
-  pierce: 0
-  knockback: 5
-  Icon: {fileID: 0}
+  weaponStats:
+  - prefab: {fileID: 6871592463286859803, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
+    target: Player
+    damage: 10
+    speed: 10
+    cooldownDuration: 0.5

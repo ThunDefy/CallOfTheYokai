@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileWeaponBehaviour : MonoBehaviour
 {
-    protected WeaponControllers weaponData;
+    public WeaponControllers weaponData;
 
     public Transform circleOrigin;
     public float radius;
@@ -22,7 +22,7 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
 
     protected virtual void Start()
     {
-        weaponData = FindAnyObjectByType<WeaponControllers>();
+        //weaponData = GetComponentInParent<WeaponControllers>();
         Destroy(gameObject, destroyAfterSeconds);
     }
 

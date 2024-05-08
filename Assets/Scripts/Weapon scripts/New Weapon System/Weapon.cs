@@ -67,11 +67,14 @@ public class Weapon : Yokai
         //player = GetComponentInParent<Agent>();
         inventory = GetComponentInParent<PlayerInventory>();
         animator = GetComponent<Animator>();
-       
+
+        print("go.transform.rotation " + transform.rotation.z);
+
     }
 
     protected virtual void Awake()
     {
+        
         if (data)
         {
             Initialise(data);
@@ -81,6 +84,7 @@ public class Weapon : Yokai
 
     protected virtual void Update()
     {
+        
         //if (currentCoolDown >= 0)
         //{
         //    currentCoolDown -= Time.deltaTime;

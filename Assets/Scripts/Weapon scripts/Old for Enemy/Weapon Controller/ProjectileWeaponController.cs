@@ -25,11 +25,13 @@ public class ProjectileWeaponController : WeaponControllers
         if(animator) animator.SetTrigger("Attack");
 
         GameObject spawnedTile = Instantiate(weaponData.prefab);
-        spawnedTile.transform.position = transform.position;
-        spawnedTile.GetComponent<TenguProjectileBehaviour>().projectileDamage = currentDamage;
-        spawnedTile.GetComponent<TenguProjectileBehaviour>().sender = parent.gameObject;
-        spawnedTile.GetComponent<TenguProjectileBehaviour>().targetPos = PointerPosition;
-        spawnedTile.GetComponent<TenguProjectileBehaviour>().SetDirection();
+        TenguProjectileBehaviour spawnedTileBehaviour = spawnedTile.GetComponent<TenguProjectileBehaviour>();
+        spawnedTileBehaviour.weaponData = GetComponent<WeaponControllers>();
+        spawnedTileBehaviour.transform.position = transform.position;
+        spawnedTileBehaviour.projectileDamage = currentDamage;
+        spawnedTileBehaviour.sender = parent.gameObject;
+        spawnedTileBehaviour.targetPos = PointerPosition;
+        spawnedTileBehaviour.SetDirection();
     }
 
 }
