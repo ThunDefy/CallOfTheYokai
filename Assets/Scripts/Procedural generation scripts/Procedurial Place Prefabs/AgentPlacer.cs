@@ -140,6 +140,7 @@ public class AgentPlacer : MonoBehaviour
                 dungeonData.PlayerReference = player;
             }
         }
+        GameManager.instance.EndLoading();
     }
 
     List<float> actualEnemySpawnChance = new List<float>();
@@ -182,8 +183,16 @@ public class AgentPlacer : MonoBehaviour
                     if (randomValue <= cumulativeChance)
                     {
                         GameObject enemy = Instantiate(actualEnemys[j].enemyPrefab);
-                        enemy.GetComponentInChildren<WeaponParent>().mapLevel = mapManager.CurrentLevelIndex; ///////////////////////////////
-                        enemy.GetComponent<Health>().SetMaxHealth(actualEnemys[j].healthStats[mapManager.CurrentLevelIndex]);
+                        if (mapManager.CurrentLevelIndex < 9)
+                        {
+                            enemy.GetComponentInChildren<WeaponParent>().mapLevel = mapManager.CurrentLevelIndex; 
+                            enemy.GetComponent<Health>().SetMaxHealth(actualEnemys[j].healthStats[mapManager.CurrentLevelIndex]);
+                        }else if(room.Type == RoomType.Treasure)
+                        {
+                            enemy.GetComponentInChildren<WeaponParent>().mapLevel = mapManager.CurrentLevelIndex+1;
+                            enemy.GetComponent<Health>().SetMaxHealth(actualEnemys[j].healthStats[mapManager.CurrentLevelIndex + 1]);
+                        }
+                        
                         enemy.transform.localPosition = (Vector2)room.PositionsAccessibleFromPath[i] + Vector2.one * 0.5f;
                         room.EnemiesInTheRoom.Add(enemy);
 

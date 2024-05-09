@@ -623,6 +623,8 @@ public class PlayerInventory : MonoBehaviour
             print("slotIndx = " + slotIndx);
             weaponSlots[slotIndx].currentLevel++;
         }
+
+        player.healthData.RestoreAllHealth();
         return true;
     }
 
@@ -711,13 +713,17 @@ public class PlayerInventory : MonoBehaviour
 
     void SetActiveWeapon(int weaponIndx)
     {
-        //print("Μενÿώ " + activeWeaponIndx + " Νΰ "+ weaponIndx);
-        weaponSlots[activeWeaponIndx].image.transform.parent.gameObject.GetComponent<Image>().enabled = false; 
-        weaponSlots[weaponIndx].image.transform.parent.gameObject.GetComponent<Image>().enabled = true ;
+        if(!weaponSlots[weaponIndx].IsEmpty())
+        {
+            //print("Μενÿώ " + activeWeaponIndx + " Νΰ "+ weaponIndx);
+            weaponSlots[activeWeaponIndx].image.transform.parent.gameObject.GetComponent<Image>().enabled = false;
+            weaponSlots[weaponIndx].image.transform.parent.gameObject.GetComponent<Image>().enabled = true;
 
-        weaponSlots[activeWeaponIndx].yokai.transform.gameObject.SetActive(false);
-        weaponSlots[weaponIndx].yokai.transform.gameObject.SetActive(true);
-        activeWeaponIndx=weaponIndx;
+            weaponSlots[activeWeaponIndx].yokai.transform.gameObject.SetActive(false);
+            weaponSlots[weaponIndx].yokai.transform.gameObject.SetActive(true);
+            activeWeaponIndx = weaponIndx;
+        }
+       
     }
 
     public void YokaiActivateColldown(Weapon sender, float cooldown)

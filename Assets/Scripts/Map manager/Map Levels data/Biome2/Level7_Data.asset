@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 511ecd52941cd7a4b909c1f2c7f34974, type: 3}
-  m_Name: Level0_Data
+  m_Name: Level7_Data
   m_EditorClassIdentifier: 
-  randomWalkParameters: {fileID: 11400000, guid: c3ca95423e3a48a49a08b17fb380e0c1, type: 2}
+  randomWalkParameters: {fileID: 11400000, guid: a2986f8c069092042bc7d5ad41d45aa1, type: 2}
   minRoomWidth: 10
   minRoomHeight: 10
-  dungeonWidth: 65
-  dungeonHeight: 65
+  dungeonWidth: 90
+  dungeonHeight: 90
   offset: 1
   biomeData: {fileID: 11400000, guid: 0e977bc93cc7ba2448eaf8671d76b51a, type: 2}
-  tresureRoomCount: 2
+  tresureRoomCount: 5
   haveBoss: 0
   propsToPlace:
   - {fileID: 11400000, guid: 210405e3b74c4f445b9a8bbcd12beb81, type: 2}
@@ -27,17 +27,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0a91c0861836c9f488508f79f5b749f7, type: 2}
   - {fileID: 11400000, guid: fb59f363bd42b5a458474455cac216ac, type: 2}
   - {fileID: 11400000, guid: ef4a8332ce4495840a0a801974913e0d, type: 2}
-  minRoomEnemiesCount: 2
-  maxRoomEnemiesCount: 8
-  guardiansCount: 2
+  minRoomEnemiesCount: 6
+  maxRoomEnemiesCount: 15
+  guardiansCount: 4
   normalEnemys:
-  - {fileID: 11400000, guid: c433268e326f8434fa3ac08f80c19501, type: 2}
-  - {fileID: 11400000, guid: d6d809d35dd27784e91541ed050fd618, type: 2}
+  - {fileID: 11400000, guid: 21aded50800883e4da2706d9305df608, type: 2}
+  - {fileID: 11400000, guid: a0ba7b1209484a74ca24d384a338e75a, type: 2}
+  - {fileID: 11400000, guid: 65959ceddaecbac4f8c49274596fc403, type: 2}
+  - {fileID: 11400000, guid: 3941e2c6820983e4d81426b2dd0b7040, type: 2}
   normalEnemySpawnChance:
-  - 0.6
-  - 0.4
+  - 0.25
+  - 0.15
+  - 0.25
+  - 0.35
   specialEnemys:
-  - {fileID: 11400000, guid: b7994f46a7c046c459ca59e87322298c, type: 2}
+  - {fileID: 11400000, guid: f48167973aee14a46a95ff9cb664a001, type: 2}
+  - {fileID: 11400000, guid: da2fcccf62ace094b81db9c3a31b16b5, type: 2}
   specialEnemySpawnChance:
-  - 1
+  - 0.5
+  - 0.5
   bossEnemy: {fileID: 0}

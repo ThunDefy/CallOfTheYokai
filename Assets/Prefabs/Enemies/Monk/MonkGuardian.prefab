@@ -564,7 +564,7 @@ Transform:
   m_GameObject: {fileID: 7307384476569266983}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.991737, y: 7.472944, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7307384476338571688}
@@ -660,6 +660,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1.15
+  dashSpeed: 10
+  dashDuration: 1
+  dashCooldown: 1
   moveDir: {x: 0, y: 0}
   OnAnimationEventTriggered:
     m_PersistentCalls:

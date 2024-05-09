@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac1ae8b5004dd24082fdddf691e6fcd, type: 3}
   m_Name: BossRonin
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3256645509849599061, guid: 5aa67c349e1462146b0c35484ff8ccd1, type: 3}
+  enemyPrefab: {fileID: 1683007050878759650, guid: d9e2b8e4ce50b4349ad91585675f0809, type: 3}
   enemyType: 1
-  healthStats: f4010000
+  healthStats: 000000000000000000000000000000000000000000000000000000000000000000000000c2010000

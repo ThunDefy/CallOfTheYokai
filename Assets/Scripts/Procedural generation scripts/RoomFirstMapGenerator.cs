@@ -27,6 +27,7 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
 
     private void Start()
     {
+        GameManager.instance.StartLoading();
         mapManager = FindObjectOfType<MapManager>();
         UpdateLevelData();
         GenerateMap();

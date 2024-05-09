@@ -26,6 +26,8 @@ public class Health : MonoBehaviour
 
     
 
+    
+
     Color originalColor;
     SpriteRenderer sr;
     Agent agent;
@@ -130,6 +132,11 @@ public class Health : MonoBehaviour
     {
         maxHealth = amount;
         currentHealth = amount;
+    }
+
+    public void RestoreAllHealth()
+    {
+        currentHealth = maxHealth;
     }
 
 }

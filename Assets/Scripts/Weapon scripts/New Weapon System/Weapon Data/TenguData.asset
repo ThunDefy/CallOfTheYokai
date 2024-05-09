@@ -29,11 +29,11 @@ MonoBehaviour:
       y: 0
       width: 0
       height: 0
-    lifespan: -1
+    lifespan: 2
     damage: 10
     damageVariance: 2
     area: 1
-    speed: -1
+    speed: 0
     cooldown: 1.8
     projectileInterval: -1
     knockback: 15

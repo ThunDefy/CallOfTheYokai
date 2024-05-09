@@ -40,6 +40,8 @@ public class Agent : MonoBehaviour
     private bool isDashing = false;
     private bool canDash = true;
 
+    private PlayerStats playerStats;
+
     protected virtual void Awake()
     {
         originalSpeed = moveSpeed;
@@ -53,6 +55,7 @@ public class Agent : MonoBehaviour
         canDash = true;
         weaponController = GetComponentInChildren<WeaponControllers>();
         playerWeapon = GetComponentInChildren<Weapon>();
+        playerStats = GetComponent<PlayerStats>();
     }
 
     private void Update()
@@ -91,8 +94,7 @@ public class Agent : MonoBehaviour
 
     void InputManagement()
     {
-        if (moveIsBlock || GameManager.instance.isGameOver || GameManager.instance.currentState == GameState.Paused
-            || GameManager.instance.currentState == GameState.LevelUp)
+        if (moveIsBlock || GameManager.instance.currentState != GameState.Gameplay)
         {
             return;
         }
@@ -100,8 +102,7 @@ public class Agent : MonoBehaviour
     }
     protected virtual void Move()
     {
-        if (moveIsBlock || GameManager.instance.isGameOver || GameManager.instance.currentState == GameState.Paused
-            || GameManager.instance.currentState == GameState.LevelUp)
+        if (moveIsBlock || GameManager.instance.currentState != GameState.Gameplay)
         {
             return;
         }
@@ -111,6 +112,10 @@ public class Agent : MonoBehaviour
 
     public void DoDash()
     {
+        if (moveIsBlock || GameManager.instance.currentState != GameState.Gameplay)
+        {
+            return;
+        }
         if (canDash)
         {
             print("DASSSH");
@@ -122,8 +127,9 @@ public class Agent : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
+        playerStats.canTakeDamage = false;
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true); // »гнорировать коллизии игрока с определенным слоем
-       
+
 
         float timePassed = 0f;
         Vector2 initialVelocity = rb.velocity;
@@ -138,6 +144,7 @@ public class Agent : MonoBehaviour
         }
 
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
+        playerStats.canTakeDamage = true;
         rb.velocity = Vector2.zero; // ќбнул€ем скорость по завершении рывка
         isDashing = false;
 
@@ -147,8 +154,7 @@ public class Agent : MonoBehaviour
 
     public void PerformAttack()
     {
-        if (GameManager.instance.isGameOver || GameManager.instance.currentState == GameState.Paused
-            || GameManager.instance.currentState == GameState.LevelUp)
+        if (GameManager.instance.currentState != GameState.Gameplay)
         {
             return;
         }

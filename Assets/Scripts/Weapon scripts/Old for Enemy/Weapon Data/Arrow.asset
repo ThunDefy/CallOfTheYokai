@@ -43,3 +43,28 @@ MonoBehaviour:
     damage: 15
     speed: 10
     cooldownDuration: 1.3
+  - prefab: {fileID: 6642081747638214494, guid: 4bea4b2072a5e7f44989ed003b56647d, type: 3}
+    target: Player
+    damage: 18
+    speed: 12
+    cooldownDuration: 1.2
+  - prefab: {fileID: 6642081747638214494, guid: 4bea4b2072a5e7f44989ed003b56647d, type: 3}
+    target: Player
+    damage: 18
+    speed: 12
+    cooldownDuration: 1.2
+  - prefab: {fileID: 6642081747638214494, guid: 4bea4b2072a5e7f44989ed003b56647d, type: 3}
+    target: Player
+    damage: 18
+    speed: 12
+    cooldownDuration: 1.2
+  - prefab: {fileID: 6642081747638214494, guid: 4bea4b2072a5e7f44989ed003b56647d, type: 3}
+    target: Player
+    damage: 18
+    speed: 12
+    cooldownDuration: 1.2
+  - prefab: {fileID: 6642081747638214494, guid: 4bea4b2072a5e7f44989ed003b56647d, type: 3}
+    target: Player
+    damage: 20
+    speed: 13
+    cooldownDuration: 1

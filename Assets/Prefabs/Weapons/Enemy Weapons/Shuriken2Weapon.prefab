@@ -121,10 +121,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 0}
   weaponRenderer: {fileID: 4203816605063914689}
-  weaponData: {fileID: 11400000, guid: 2135ce767881e174fbd259928f17292c, type: 2}
+  weaponData: {fileID: 11400000, guid: 46a2e92eee1438a44932982c4d36e981, type: 2}
   currentCooldown: 0
   currentDamage: 0
   currentSpeed: 0
   currentColldownDuration: 0
   currentPierce: 0
+  currentMapLevel: 0
   animator: {fileID: 4203816605063914690}

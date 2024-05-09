@@ -23,3 +23,48 @@ MonoBehaviour:
     damage: 10
     speed: 10
     cooldownDuration: 0.5
+  - prefab: {fileID: 6871592463286859803, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
+    target: Player
+    damage: 10
+    speed: 10
+    cooldownDuration: 0.5
+  - prefab: {fileID: 6871592463286859803, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
+    target: Player
+    damage: 10
+    speed: 10
+    cooldownDuration: 0.5
+  - prefab: {fileID: 6871592463286859803, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
+    target: Player
+    damage: 10
+    speed: 10
+    cooldownDuration: 0.5
+  - prefab: {fileID: 6871592463286859803, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
+    target: Player
+    damage: 10
+    speed: 10
+    cooldownDuration: 0.5
+  - prefab: {fileID: 6871592463286859803, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
+    target: Player
+    damage: 10
+    speed: 0
+    cooldownDuration: 0.7
+  - prefab: {fileID: 6871592463286859803, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
+    target: Player
+    damage: 15
+    speed: 0
+    cooldownDuration: 0.6
+  - prefab: {fileID: 6871592463286859803, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
+    target: Player
+    damage: 18
+    speed: 0
+    cooldownDuration: 0.5
+  - prefab: {fileID: 6871592463286859803, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
+    target: Player
+    damage: 20
+    speed: 0
+    cooldownDuration: 0.5
+  - prefab: {fileID: 6871592463286859803, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
+    target: Player
+    damage: 20
+    speed: 0
+    cooldownDuration: 0.5

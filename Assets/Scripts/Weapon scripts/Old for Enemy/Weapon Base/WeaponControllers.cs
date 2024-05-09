@@ -26,8 +26,9 @@ public class WeaponControllers : MonoBehaviour
         currentMapLevel = transform.parent.GetComponent<WeaponParent>().mapLevel;
         Transform parent2 = transform.parent;
         characterRenderer = parent2.parent.GetComponent<SpriteRenderer>();
-        
-        currentCooldown = weaponData.weaponStats[currentMapLevel].cooldownDuration;
+
+        currentColldownDuration = weaponData.weaponStats[currentMapLevel].cooldownDuration;
+        currentCooldown = currentColldownDuration;
         currentDamage = weaponData.weaponStats[currentMapLevel].damage;
         currentSpeed = weaponData.weaponStats[currentMapLevel].speed;
         print("spawn with " + currentSpeed);
@@ -68,7 +69,7 @@ public class WeaponControllers : MonoBehaviour
     protected virtual void Attack()
     {
         attackBlocked = true;
-        currentCooldown = weaponData.weaponStats[currentMapLevel].cooldownDuration;
+        currentCooldown = currentColldownDuration;
     }
 
 }

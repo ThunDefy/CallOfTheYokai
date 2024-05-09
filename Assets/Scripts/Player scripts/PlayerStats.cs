@@ -86,7 +86,10 @@ public class PlayerStats : MonoBehaviour
     [Header("Other stats")]
     public float invincibilityDuration;
     float invincibilityTimer;
+
     bool isInvincible;
+    [HideInInspector]
+    public bool canTakeDamage = true;
 
     [Header("Visuals")]
     public ParticleSystem blockedEffect;
@@ -177,6 +180,7 @@ public class PlayerStats : MonoBehaviour
     {
         if(force || experience >= experienceCap)
         {
+            
             level++;
             experience -= experienceCap;
             int experienceCapIncrease = 0;
@@ -264,12 +268,6 @@ public class PlayerStats : MonoBehaviour
                 actualStats += p.GetBoosts();
             }
         }
-        //GameManager.instance.currentHealthDisplay.text = "Health: " + CurrentMaxHealth;
-        //GameManager.instance.currentRecoveryDisplay.text = "Recovery: " + CurrentRecovery;
-        //GameManager.instance.currentMoveSpeedDisplay.text = "Move Speed: " + CurrentMoveSpeed;
-        //GameManager.instance.currentPowerDisplay.text = "Power: " + CurrentPower;
-        //GameManager.instance.currentMagnetDisplay.text = "Magnet: " + CurrentMagnet;
-
         playerAgentData.moveSpeed = actualStats.moveSpeed;
         healthData.maxHealth = actualStats.maxHealth;
 
@@ -277,7 +275,7 @@ public class PlayerStats : MonoBehaviour
 
     internal void TakeDamage(float dmg, GameObject gameObject, Vector3 position)
     {
-        if (!isInvincible)
+        if (!isInvincible && canTakeDamage)
         {
             dmg -= actualStats.armor;
             if(dmg > 0)

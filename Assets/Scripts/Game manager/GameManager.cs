@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     public enum GameState
     {
+        Loading,
         Gameplay,
         Paused,
         GameOver,
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
     public Camera referenceCamera;
 
     [Header("Screens")]
+    public GameObject loadingScreen;
     public GameObject pauseScreen;
     public GameObject resultScreen;
     public GameObject getPassiveBonusScreen;
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
 
     float timer;
 
+    public bool isGameLoading = false;
     public bool isGameOver = false;
     public bool isSuccessfulEnd = false;
     public bool choosingUpgrade;
@@ -87,6 +90,14 @@ public class GameManager : MonoBehaviour
     {
         switch (currentState)
         {
+            case GameState.Loading:
+                if (!isGameLoading)
+                {
+                    isGameLoading = true;
+                    loadingScreen.SetActive(true);
+                }
+                break;
+
             case GameState.Gameplay:
                 CheckForPauseAndResume();
                 UpdateTimer();
@@ -208,6 +219,7 @@ public class GameManager : MonoBehaviour
 
     private void DisableScreens()
     {
+        loadingScreen.SetActive(false);
         pauseScreen.SetActive(false);
         resultScreen.SetActive(false);
         levelUpScreen.SetActive(false);
@@ -269,6 +281,25 @@ public class GameManager : MonoBehaviour
         int seconds = Mathf.FloorToInt(timer % 60);
 
         timerDisplay.text = string.Format("{0:00}:{1:00}",minutes,seconds);
+    }
+
+    public void StartLoading()
+    {
+        ChangeState(GameState.Loading);
+
+    }
+
+    public void EndLoading()
+    {
+        StartCoroutine(LittleWaiting());
+    }
+
+    private IEnumerator LittleWaiting()
+    {
+        yield return new WaitForSeconds(1f);
+        isGameLoading = false;
+        loadingScreen.SetActive(false);
+        ChangeState(GameState.Gameplay);
     }
 
     public void StartLevelUp()
@@ -361,7 +392,7 @@ public class GameManager : MonoBehaviour
         WaitForEndOfFrame wait = new WaitForEndOfFrame();
         float time = 0;
         float yOffset = 0;
-        while(time < duration-0.2f)
+        while(time < duration-0.3f)
         {
             yield return wait;
             time += Time.deltaTime;

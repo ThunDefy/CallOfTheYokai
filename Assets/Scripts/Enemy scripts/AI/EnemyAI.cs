@@ -41,7 +41,7 @@ public class EnemyAI : MonoBehaviour
     private void Start()
     {
         wc = GetComponentInChildren<WeaponControllers>();
-        attackDelay = wc.weaponData.cooldownDuration;
+        attackDelay = wc.currentColldownDuration;
 
         //Detecting Player and Obstacles around
         InvokeRepeating("PerformDetection", 0, detectionDelay);
