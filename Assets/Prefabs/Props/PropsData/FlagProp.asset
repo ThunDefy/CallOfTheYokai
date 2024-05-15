@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8986f62cc25c245b14512b0ae91bc1, type: 3}
+  m_Name: FlagProp
+  m_EditorClassIdentifier: 
+  PropPrefabs:
+  - {fileID: 2697669426608529594, guid: 6db5b06ae1b83324684a351d8e31fee3, type: 3}
+  - {fileID: 2697669426608529594, guid: ecdf217012c0fcb41b3d9f1a6a874489, type: 3}
+  - {fileID: 2697669426608529594, guid: 76dc5e10aa811d6488b9b43e5e840239, type: 3}
+  - {fileID: 2697669426608529594, guid: b2fd04c301034e746b134dcd0e52c97f, type: 3}
+  - {fileID: 2697669426608529594, guid: c98ef413f6fe97e4fa64baa3d633d570, type: 3}
+  - {fileID: 2697669426608529594, guid: 201a181c8b6be2c4e836404ec353728c, type: 3}
+  PropSprite: {fileID: 0}
+  PropSize: {x: 2, y: 2}
+  SpecialProp: 1
+  RoomType: 2
+  Corner: 0
+  NearWallUP: 0
+  NearWallDown: 0
+  NearWallRight: 0
+  NearWallLeft: 0
+  Inner: 1
+  PlacementQuantityMin: 0
+  PlacementQuantityMax: 2
+  PlaceAsGroup: 0
+  GroupMinCount: 1
+  GroupMaxCount: 1

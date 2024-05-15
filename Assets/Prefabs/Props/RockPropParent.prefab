@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3333654846702388127}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RockPropParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,8 +42,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8820581362927421068}
   - component: {fileID: 2403815713074375010}
-  - component: {fileID: 5216679401964009318}
   - component: {fileID: 9131904401479983088}
+  - component: {fileID: 8630206313311736370}
   m_Layer: 12
   m_Name: RockPrefab
   m_TagString: Untagged
@@ -118,40 +118,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &5216679401964009318
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6592414088292104355}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8125, y: 0.875}
-    newSize: {x: 0.8125, y: 0.875}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.25, y: 0.4375}
-      - {x: -0.3125, y: 0.375}
-      - {x: -0.40625, y: 0.09375}
-      - {x: -0.40625, y: -0.28125}
-      - {x: -0.3125, y: -0.4375}
-      - {x: 0.3125, y: -0.4375}
-      - {x: 0.40625, y: -0.34375}
-      - {x: 0.40625, y: 0.21875}
-      - {x: 0.34375, y: 0.4375}
 --- !u!114 &9131904401479983088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +125,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6592414088292104355}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e3b592025396c848ae97e1a4a991697, type: 3}
   m_Name: 
@@ -176,3 +142,19 @@ MonoBehaviour:
   onComplete:
     m_PersistentCalls:
       m_Calls: []
+--- !u!70 &8630206313311736370
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6592414088292104355}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.005617559, y: 0.013572335}
+  m_Size: {x: 0.6754316, y: 0.81639695}
+  m_Direction: 0

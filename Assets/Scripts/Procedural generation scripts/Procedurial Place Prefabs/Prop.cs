@@ -6,7 +6,7 @@ using UnityEngine;
 public class Prop : ScriptableObject
 {
     [Header("Prop data:")]
-    public GameObject PropPrefab;
+    public GameObject[] PropPrefabs;
     public Sprite PropSprite;
     public Vector2Int PropSize = Vector2Int.one;
     public bool SpecialProp = false;

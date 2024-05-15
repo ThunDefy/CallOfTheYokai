@@ -47,8 +47,6 @@ public class Agent : MonoBehaviour
         originalSpeed = moveSpeed;
         weaponParent = GetComponentInChildren<WeaponParent>();
         rb = GetComponent<Rigidbody2D>();
-
-
     }
     private void Start()
     {
@@ -57,7 +55,6 @@ public class Agent : MonoBehaviour
         playerWeapon = GetComponentInChildren<Weapon>();
         playerStats = GetComponent<PlayerStats>();
     }
-
     private void Update()
     {
         InputManagement();
@@ -80,18 +77,15 @@ public class Agent : MonoBehaviour
 
             GetComponent<Rigidbody2D>().MovePosition(nextPosition);
             knockbackDuration -= Time.deltaTime;
-
         }
-
     }
 
-    // Передвежение игрока
+    // Передвежение 
     void FixedUpdate()
     {
         if (isDashing) return;
         Move();
     }
-
     void InputManagement()
     {
         if (moveIsBlock || GameManager.instance.currentState != GameState.Gameplay)
@@ -107,9 +101,7 @@ public class Agent : MonoBehaviour
             return;
         }
         else rb.velocity = moveDir * DEFUALT_MOVESPEED * moveSpeed;
-
     }
-
     public void DoDash()
     {
         if (moveIsBlock || GameManager.instance.currentState != GameState.Gameplay)
@@ -118,10 +110,8 @@ public class Agent : MonoBehaviour
         }
         if (canDash)
         {
-            print("DASSSH");
             StartCoroutine(Dash());
-        }else print("NO DASSSH");
-
+        }
     }
     private IEnumerator Dash()
     {
@@ -129,7 +119,6 @@ public class Agent : MonoBehaviour
         isDashing = true;
         playerStats.canTakeDamage = false;
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true); // Игнорировать коллизии игрока с определенным слоем
-
 
         float timePassed = 0f;
         Vector2 initialVelocity = rb.velocity;

@@ -8,21 +8,6 @@ using Random = UnityEngine.Random;
 
 public class AgentPlacer : MonoBehaviour
 {
-    //[Header("Enemys")]
-    //[SerializeField]
-    //private List<EnemyScriptableObject> normalEnemys;
-
-    //[SerializeField]
-    //private List<float> normalEnemySpawnChance;
-
-    //[SerializeField]
-    //private List<EnemyScriptableObject> specialEnemys;
-
-    //[SerializeField]
-    //private List<float> specialEnemySpawnChance;
-
-    //[SerializeField]
-    //private EnemyScriptableObject bossEnemy;
 
     [Header("Placer data")]
     [SerializeField]

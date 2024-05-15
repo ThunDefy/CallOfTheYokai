@@ -776,7 +776,4 @@ public class PlayerInventory : MonoBehaviour
         ((Weapon)weaponSlots[slotIndex].yokai).currentCoolDown = 0;
     }
 
-   
-
-
 }

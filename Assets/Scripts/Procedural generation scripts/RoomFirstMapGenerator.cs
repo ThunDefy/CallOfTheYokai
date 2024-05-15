@@ -164,7 +164,9 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
                 if (currentLevelData.haveBoss)
                     mapData.Rooms.Add(new Room(roomCenter, roomTiles, RoomType.Boss));
                 else
+                {
                     mapData.Rooms.Add(new Room(roomCenter, roomTiles, RoomType.Portal));
+                }
             }
                
             else mapData.Rooms.Add(new Room(roomCenter, roomTiles, RoomType.Normal));

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: MenreikiData
   m_EditorClassIdentifier: 
   yokaiID: 4
-  icon: {fileID: 327107110, guid: 2e7f3da684debd74f87677964da8e344, type: 3}
+  icon: {fileID: -2001454868, guid: 1c6b0269579fedb42b46d340bc904618, type: 3}
   maxRisingLevel: 3
   behaviour: MultiProjectileWeapon
-  yokaiPrefab: {fileID: 4203816605063914695, guid: 7741d93e57837614689397712f8f7074, type: 3}
+  yokaiPrefab: {fileID: 4203816605063914695, guid: ddbc0779d11900749999dafe20417a3f, type: 3}
   baseStats:
     name: Menreiki
     description: Throws illusory projectiles at enemies

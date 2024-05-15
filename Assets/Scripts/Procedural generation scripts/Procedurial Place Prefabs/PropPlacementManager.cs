@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class PropPlacementManager : MonoBehaviour
 {
@@ -327,9 +328,15 @@ public class PropPlacementManager : MonoBehaviour
             room.PropPositions.Add(placementPostion);
             return prop;
         }
-        else if(propToPlace.PropPrefab!= null)
+        else if(propToPlace.PropPrefabs!= null)
         {
-            GameObject PropPrefab = Instantiate(propToPlace.PropPrefab);
+            GameObject PropPrefab;
+            if (propToPlace.PropPrefabs.Length > 1)
+            {
+                PropPrefab = Instantiate(propToPlace.PropPrefabs[Random.Range(0, propToPlace.PropPrefabs.Length)]);
+            }else
+                PropPrefab = Instantiate(propToPlace.PropPrefabs[0]);
+
             PropPrefab.transform.localPosition = (Vector2)placementPostion;
             SpriteRenderer propSpriteRenderer = PropPrefab.GetComponentInChildren<SpriteRenderer>();
             propSpriteRenderer.transform.localPosition = (Vector2)propToPlace.PropSize * 0.5f;

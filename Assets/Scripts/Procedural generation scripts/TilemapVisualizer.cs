@@ -11,14 +11,6 @@ public class TilemapVisualizer : MonoBehaviour
 {
     [SerializeField]
     private Tilemap floorTilemap, wallTilemap;
-    //[SerializeField]
-    //private List<TileBase> floorTiles;
-    //[SerializeField]
-    //private TileBase floorTile, wallTop, wallSideRight, wallSideLeft, wallBottom, wall, wallFloor,
-    //    wallInnerCornerDownLeft, wallInnerCornerDownRight,
-    //    wallDiagonalCornerDownRight, wallDiagonalCornerDownLeft,
-    //    wallDiagonalCornerUpRight, wallDiagonalCornerUpLeft,
-    //    wallTopRightEnd;
 
     private MapManager mapManager;
     BiomeData currentBiomeData;
