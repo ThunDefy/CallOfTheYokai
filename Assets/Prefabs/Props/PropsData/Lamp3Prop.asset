@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8986f62cc25c245b14512b0ae91bc1, type: 3}
+  m_Name: Lamp3Prop
+  m_EditorClassIdentifier: 
+  PropPrefabs:
+  - {fileID: 3383320592827594451, guid: 957aa301c81ff064993f1a65b03be280, type: 3}
+  PropSprite: {fileID: 0}
+  PropSize: {x: 2, y: 2}
+  isInfluenceOfLuck: 0
+  RoomType: 3
+  Corner: 0
+  NearWallUP: 0
+  NearWallDown: 0
+  NearWallRight: 1
+  NearWallLeft: 0
+  Inner: 1
+  PlacementQuantityMin: 0
+  PlacementQuantityMax: 2
+  PlaceAsGroup: 0
+  GroupMinCount: 1
+  GroupMaxCount: 1

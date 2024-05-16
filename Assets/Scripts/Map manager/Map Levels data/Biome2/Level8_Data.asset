@@ -22,11 +22,19 @@ MonoBehaviour:
   tresureRoomCount: 5
   haveBoss: 0
   propsToPlace:
-  - {fileID: 11400000, guid: 210405e3b74c4f445b9a8bbcd12beb81, type: 2}
-  - {fileID: 11400000, guid: 9412c81a9c930b74981786823378bb87, type: 2}
-  - {fileID: 11400000, guid: 0a91c0861836c9f488508f79f5b749f7, type: 2}
-  - {fileID: 11400000, guid: fb59f363bd42b5a458474455cac216ac, type: 2}
   - {fileID: 11400000, guid: ef4a8332ce4495840a0a801974913e0d, type: 2}
+  - {fileID: 11400000, guid: 0a91c0861836c9f488508f79f5b749f7, type: 2}
+  - {fileID: 11400000, guid: 210405e3b74c4f445b9a8bbcd12beb81, type: 2}
+  - {fileID: 11400000, guid: 1294ffc31109426448bbc1dc653c2efe, type: 2}
+  - {fileID: 11400000, guid: e0ca86991ec88054180f65b6a40f36e3, type: 2}
+  - {fileID: 11400000, guid: 62f4a1805f356e44285deb5ab2d9c2a7, type: 2}
+  - {fileID: 11400000, guid: b742872622fd765449068ef5d2cf84ba, type: 2}
+  - {fileID: 11400000, guid: 7ce604b9627911248a435d95bda78f9e, type: 2}
+  - {fileID: 11400000, guid: c7d9bd72f0eb50e459310c8d88e1db77, type: 2}
+  - {fileID: 11400000, guid: cfde50a0a088bac43879432c6054fc14, type: 2}
+  - {fileID: 11400000, guid: 52fa6fa1080ae8a41b0fae99bec1c0de, type: 2}
+  - {fileID: 11400000, guid: 1aba66428f8b95b4a8dd76a1a4c7d1c3, type: 2}
+  - {fileID: 11400000, guid: e917c0b51d0e8d148b1ab3e784b9fae4, type: 2}
   minRoomEnemiesCount: 6
   maxRoomEnemiesCount: 15
   guardiansCount: 4

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3333654846702388127}
   m_Layer: 12
-  m_Name: RockPropParent
+  m_Name: RockPropParent 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 2403815713074375010}
   - component: {fileID: 9131904401479983088}
   - component: {fileID: 8630206313311736370}
+  - component: {fileID: 3852464351047020360}
   m_Layer: 12
   m_Name: RockPrefab
   m_TagString: Untagged
@@ -59,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6592414088292104355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -107,7 +108,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: -1921032098, guid: 0fbfa31672826c8448807e2ed9f35f90, type: 3}
+  m_Sprite: {fileID: 1051762435, guid: 0fbfa31672826c8448807e2ed9f35f90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,6 +156,54 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.005617559, y: 0.013572335}
-  m_Size: {x: 0.6754316, y: 0.81639695}
-  m_Direction: 0
+  m_Offset: {x: -0.010891917, y: -0.010334507}
+  m_Size: {x: 0.35885945, y: 0.2780333}
+  m_Direction: 1
+--- !u!114 &3852464351047020360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6592414088292104355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000bf7d843d879698cc5f6a0c76033153c9a7d3d4663d12a8bb
+  m_ShapePath:
+  - {x: -0.17995039, y: -0.09955421, z: 0}
+  - {x: -0.19849882, y: -0.042392075, z: 0}
+  - {x: -0.19720551, y: -0.013939023, z: 0}
+  - {x: -0.17015457, y: 0.058977146, z: 0}
+  - {x: -0.09588453, y: 0.14870042, z: 0}
+  - {x: -0.06787345, y: 0.15936595, z: 0}
+  - {x: -0.009674013, y: 0.15936595, z: 0}
+  - {x: 0.05369866, y: 0.15289932, z: 0}
+  - {x: 0.10616686, y: 0.14090559, z: 0}
+  - {x: 0.14327477, y: 0.119593985, z: 0}
+  - {x: 0.16376725, y: 0.09310711, z: 0}
+  - {x: 0.18436506, y: 0.05271471, z: 0}
+  - {x: 0.18044412, y: 0.01580739, z: 0}
+  - {x: 0.17527086, y: -0.03721878, z: 0}
+  - {x: 0.17139089, y: -0.07601839, z: 0}
+  - {x: 0.1481111, y: -0.10576478, z: 0}
+  - {x: 0.11965805, y: -0.1199913, z: 0}
+  - {x: 0.0932979, y: -0.14870036, z: 0}
+  - {x: 0.051112056, y: -0.15749758, z: 0}
+  - {x: 0.0006725192, y: -0.15491095, z: 0}
+  - {x: -0.08597994, y: -0.15103099, z: 0}
+  - {x: -0.118312955, y: -0.13680446, z: 0}
+  m_ShapePathHash: 689646481
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 227084
+  m_LocalBounds:
+    m_Center: {x: -0.0070668757, y: 0.0009341836, z: 0}
+    m_Extent: {x: 0.19143194, y: 0.15843177, z: 0}

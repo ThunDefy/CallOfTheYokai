@@ -18,8 +18,8 @@ MonoBehaviour:
   - {fileID: 2697669426608529594, guid: c532e5be331279e41b211ad823e8f616, type: 3}
   - {fileID: 2697669426608529594, guid: a9a3a6cd2f9c28546ab2d706a694113c, type: 3}
   PropSprite: {fileID: 0}
-  PropSize: {x: 2, y: 2}
-  SpecialProp: 0
+  PropSize: {x: 1, y: 1}
+  isInfluenceOfLuck: 0
   RoomType: 0
   Corner: 0
   NearWallUP: 0

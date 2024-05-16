@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e8986f62cc25c245b14512b0ae91bc1, type: 3}
-  m_Name: BigRockProp
+  m_Name: MiniLamp2Prop
   m_EditorClassIdentifier: 
   PropPrefabs:
-  - {fileID: 2697669426608529594, guid: 8033fc667679382419918132cc14296f, type: 3}
-  PropSprite: {fileID: 1051762435, guid: 0fbfa31672826c8448807e2ed9f35f90, type: 3}
+  - {fileID: 3383320592827594451, guid: 4cebe84d7c3318542b4e4331992e534a, type: 3}
+  PropSprite: {fileID: 0}
   PropSize: {x: 1, y: 1}
   SpecialProp: 0
-  RoomType: 0
+  RoomType: 3
   Corner: 0
   NearWallUP: 1
   NearWallDown: 0
   NearWallRight: 1
   NearWallLeft: 0
   Inner: 0
-  PlacementQuantityMin: 1
-  PlacementQuantityMax: 6
+  PlacementQuantityMin: 0
+  PlacementQuantityMax: 3
   PlaceAsGroup: 0
   GroupMinCount: 1
   GroupMaxCount: 1

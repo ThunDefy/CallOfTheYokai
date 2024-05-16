@@ -168,7 +168,7 @@ MonoBehaviour:
   - {x: -0.38735652, y: -0.8307412, z: 0}
   m_ShapePathHash: -2078345145
   m_Mesh: {fileID: 0}
-  m_InstanceId: 168908
+  m_InstanceId: -1500
   m_LocalBounds:
     m_Center: {x: 0.0018094778, y: 0.0000022053719, z: 0}
     m_Extent: {x: 0.6087152, y: 0.83367693, z: 0}

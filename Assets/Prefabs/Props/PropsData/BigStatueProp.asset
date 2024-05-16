@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PropPrefabs:
   - {fileID: 2697669426608529594, guid: 4547e4347f90a234bad0b9edb86cda94, type: 3}
+  - {fileID: 2697669426608529594, guid: a225490f9a4334c46bcfd31d21c6e8af, type: 3}
   PropSprite: {fileID: 0}
-  PropSize: {x: 2, y: 2}
-  SpecialProp: 1
+  PropSize: {x: 3, y: 2}
+  isInfluenceOfLuck: 0
   RoomType: 4
   Corner: 0
   NearWallUP: 0

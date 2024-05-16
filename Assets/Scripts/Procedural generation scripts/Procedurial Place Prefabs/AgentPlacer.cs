@@ -135,15 +135,15 @@ public class AgentPlacer : MonoBehaviour
     {
         if(room.Type != RoomType.Boss)
         {
-            if (room.Type == RoomType.Normal)
-            {
-                actualEnemySpawnChance = currentLevelData.normalEnemySpawnChance;
-                actualEnemys = currentLevelData.normalEnemys;
-            }
-            else if (room.Type == RoomType.Treasure)
+            if (room.Type == RoomType.Treasure)
             {
                 actualEnemySpawnChance = currentLevelData.specialEnemySpawnChance;
                 actualEnemys = currentLevelData.specialEnemys;
+            }
+            else
+            {
+                actualEnemySpawnChance = currentLevelData.normalEnemySpawnChance;
+                actualEnemys = currentLevelData.normalEnemys;
             }
 
             float totalSpawnChance = 0f;

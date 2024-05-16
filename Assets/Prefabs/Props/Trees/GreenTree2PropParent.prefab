@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 2403815713074375010}
   - component: {fileID: 2476184238456162007}
   - component: {fileID: 861245259167090934}
+  - component: {fileID: 590418769991558497}
   m_Layer: 12
   m_Name: RockPrefab
   m_TagString: Untagged
@@ -204,7 +205,23 @@ MonoBehaviour:
   - {x: -0.34238866, y: -0.8596937, z: 0}
   m_ShapePathHash: 808916043
   m_Mesh: {fileID: 0}
-  m_InstanceId: -135900
+  m_InstanceId: -1582
   m_LocalBounds:
     m_Center: {x: 0.032404125, y: 0.0019630194, z: 0}
     m_Extent: {x: 0.8928878, y: 0.99761105, z: 0}
+--- !u!70 &590418769991558497
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6592414088292104355}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.31}
+  m_Size: {x: 1.79, y: 1.15}
+  m_Direction: 1

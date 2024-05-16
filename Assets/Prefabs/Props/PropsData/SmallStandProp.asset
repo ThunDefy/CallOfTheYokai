@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8986f62cc25c245b14512b0ae91bc1, type: 3}
+  m_Name: SmallStandProp
+  m_EditorClassIdentifier: 
+  PropPrefabs:
+  - {fileID: 2697669426608529594, guid: 349a8ae8c74cff24396cf5096bb5f02c, type: 3}
+  - {fileID: 2697669426608529594, guid: d0f8336b88bc18c4b9881a8da3ce83e5, type: 3}
+  PropSprite: {fileID: 0}
+  PropSize: {x: 1, y: 1}
+  isInfluenceOfLuck: 0
+  RoomType: 4
+  Corner: 0
+  NearWallUP: 1
+  NearWallDown: 0
+  NearWallRight: 1
+  NearWallLeft: 0
+  Inner: 0
+  PlacementQuantityMin: 0
+  PlacementQuantityMax: 2
+  PlaceAsGroup: 1
+  GroupMinCount: 1
+  GroupMaxCount: 2

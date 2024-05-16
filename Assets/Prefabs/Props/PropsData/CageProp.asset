@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 6482067668208822434, guid: fdfb440220f622b42a103786fd6ab6a2, type: 3}
   PropSprite: {fileID: 0}
   PropSize: {x: 1, y: 1}
-  SpecialProp: 1
+  isInfluenceOfLuck: 1
   RoomType: 2
   Corner: 0
   NearWallUP: 0

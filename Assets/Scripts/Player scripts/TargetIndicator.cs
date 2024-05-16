@@ -16,7 +16,7 @@ public class TargetIndicator : MonoBehaviour
 
     //private void Start()
     //{
-    //    portal = FindObjectOfType<Portal>();
+        
     //}
     void Update()
     {
@@ -35,10 +35,15 @@ public class TargetIndicator : MonoBehaviour
                 }
                 else
                 {
-                    if(boss = GameObject.FindWithTag("Boss"))
+                    if (boss = GameObject.FindWithTag("Boss"))
                     {
                         currentTarget = boss.transform;
-                    }else if(portal = FindObjectOfType<Portal>()) currentTarget = portal.transform;
+                    }
+                    else if (portal)
+                    {
+                        portal.transform.gameObject.SetActive(true);
+                        currentTarget = portal.transform;
+                    }
                     else
                         arrowImg.enabled = false; // иначе отключаем индикатор
                 }
@@ -101,6 +106,8 @@ public class TargetIndicator : MonoBehaviour
 
     public void StartIndicator()
     {
+        portal = FindObjectOfType<Portal>();
+        if(portal) portal.transform.gameObject.SetActive(false);
         FindAllTargetObjects(); // находим все объекты, удовлетвор€ющие критери€м, при запуске
         FindClosestTarget(); // находим ближайшую цель
     }

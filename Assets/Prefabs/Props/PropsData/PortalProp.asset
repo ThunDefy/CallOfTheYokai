@@ -16,14 +16,14 @@ MonoBehaviour:
   - {fileID: 7701580103501846109, guid: 31fae805afca00e4ba9f86e5e8335f51, type: 3}
   PropSprite: {fileID: 0}
   PropSize: {x: 1, y: 1}
-  SpecialProp: 1
+  isInfluenceOfLuck: 0
   RoomType: 4
   Corner: 0
   NearWallUP: 0
   NearWallDown: 0
   NearWallRight: 0
-  NearWallLeft: 1
-  Inner: 0
+  NearWallLeft: 0
+  Inner: 1
   PlacementQuantityMin: 1
   PlacementQuantityMax: 1
   PlaceAsGroup: 0

@@ -9,7 +9,8 @@ public class Prop : ScriptableObject
     public GameObject[] PropPrefabs;
     public Sprite PropSprite;
     public Vector2Int PropSize = Vector2Int.one;
-    public bool SpecialProp = false;
+    //public bool SpecialProp = false;
+    public bool isInfluenceOfLuck = false;
     public RoomType RoomType;
 
 

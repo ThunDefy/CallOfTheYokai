@@ -67,6 +67,7 @@ public class PropPlacementManager : MonoBehaviour
             //¬озле верхней стены
             List<Prop> topWallProps = currentLevelData.propsToPlace.Where(x => x.NearWallUP).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
             if (topWallProps.Count != 0) PlaceProps(room, topWallProps, room.NearWallTilesUp, PlacementOriginCorner.TopLeft);
+            print("topWallProps.Count = " + topWallProps.Count);
 
             //¬озле нижней стены
             List<Prop> downWallProps = currentLevelData.propsToPlace.Where(x => x.NearWallDown).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
@@ -101,34 +102,32 @@ public class PropPlacementManager : MonoBehaviour
             //хотим разместить только определенное количество каждого объекта
             int quantity = UnityEngine.Random.Range(propToPlace.PlacementQuantityMin, propToPlace.PlacementQuantityMax + 1);
 
-            if (propToPlace.SpecialProp)
-            {
-                // вз€ть удачу игрока и с таким процентом прибавить 1 доп копию объекта
-                quantity+= UnityEngine.Random.Range(0, 100) < (ps.actualStats.luck % 1) *100 ? 1 : 0 ;
 
-                if (propToPlace.RoomType == room.Type)
-                {
-                    for (int i = 0; i < quantity; i++)
-                    {
-                        tempPositons.ExceptWith(room.PropPositions);
-                        List<Vector2Int> availablePositions = tempPositons.OrderBy(x => Guid.NewGuid()).ToList();
-                        if (TryPlacingPropBruteForce(room, propToPlace, availablePositions, placement) == false)break;
-                    }
-                }
-            }
-            else
+            // вз€ть удачу игрока и с таким процентом прибавить 1 доп копию объекта
+            if(propToPlace.isInfluenceOfLuck) quantity+= UnityEngine.Random.Range(0, 100) < (ps.actualStats.luck % 1) *100 ? 1 : 0 ;
+
+            if (propToPlace.RoomType == room.Type || propToPlace.RoomType == RoomType.All)
             {
                 for (int i = 0; i < quantity; i++)
                 {
-                    //удалить зан€тые позиции
                     tempPositons.ExceptWith(room.PropPositions);
-                    //перетасовать позиции
                     List<Vector2Int> availablePositions = tempPositons.OrderBy(x => Guid.NewGuid()).ToList();
-                    //≈сли размещение не удалось, нет смысла пытатьс€ разместить тот же самый реквизит снова
-                    if (TryPlacingPropBruteForce(room, propToPlace, availablePositions, placement) == false)
-                        break;
+                    if (TryPlacingPropBruteForce(room, propToPlace, availablePositions, placement) == false)break;
                 }
             }
+            
+            //else
+            //{
+            //    for (int i = 0; i < quantity; i++)
+            //    {
+            //        //удалить зан€тые позиции
+            //        tempPositons.ExceptWith(room.PropPositions);
+            //        //перетасовать позиции
+            //        List<Vector2Int> availablePositions = tempPositons.OrderBy(x => Guid.NewGuid()).ToList();
+            //        //≈сли размещение не удалось, нет смысла пытатьс€ разместить тот же самый реквизит снова
+            //        if (TryPlacingPropBruteForce(room, propToPlace, availablePositions, placement) == false)break;
+            //    }
+            //}
             
 
         }

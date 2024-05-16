@@ -18,15 +18,18 @@ MonoBehaviour:
   dungeonWidth: 70
   dungeonHeight: 70
   offset: 1
-  biomeData: {fileID: 11400000, guid: 0e977bc93cc7ba2448eaf8671d76b51a, type: 2}
+  biomeData: {fileID: 11400000, guid: a66955ffcc945774089fc2a928039834, type: 2}
   tresureRoomCount: 2
   haveBoss: 0
   propsToPlace:
-  - {fileID: 11400000, guid: 210405e3b74c4f445b9a8bbcd12beb81, type: 2}
-  - {fileID: 11400000, guid: 9412c81a9c930b74981786823378bb87, type: 2}
-  - {fileID: 11400000, guid: 0a91c0861836c9f488508f79f5b749f7, type: 2}
-  - {fileID: 11400000, guid: fb59f363bd42b5a458474455cac216ac, type: 2}
   - {fileID: 11400000, guid: ef4a8332ce4495840a0a801974913e0d, type: 2}
+  - {fileID: 11400000, guid: 0a91c0861836c9f488508f79f5b749f7, type: 2}
+  - {fileID: 11400000, guid: 2f09be6a33f7a6b4f8b4b80575b58f45, type: 2}
+  - {fileID: 11400000, guid: 2f09be6a33f7a6b4f8b4b80575b58f45, type: 2}
+  - {fileID: 11400000, guid: 1aba66428f8b95b4a8dd76a1a4c7d1c3, type: 2}
+  - {fileID: 11400000, guid: 5ddf48982b3ddcd4daa8966b5969e6cf, type: 2}
+  - {fileID: 11400000, guid: 58494fc988e8a1445bcbad8886f49c45, type: 2}
+  - {fileID: 11400000, guid: 752c60ea7c0af804ab34c506e194a624, type: 2}
   minRoomEnemiesCount: 3
   maxRoomEnemiesCount: 10
   guardiansCount: 3
