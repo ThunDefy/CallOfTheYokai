@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3333654846702388127}
   m_Layer: 12
   m_Name: GreenTree2PropParent
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 590418769991558497}
   m_Layer: 12
   m_Name: RockPrefab
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!70 &2476184238456162007
 CapsuleCollider2D:
@@ -205,7 +205,7 @@ MonoBehaviour:
   - {x: -0.34238866, y: -0.8596937, z: 0}
   m_ShapePathHash: 808916043
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1582
+  m_InstanceId: -316706
   m_LocalBounds:
     m_Center: {x: 0.032404125, y: 0.0019630194, z: 0}
     m_Extent: {x: 0.8928878, y: 0.99761105, z: 0}

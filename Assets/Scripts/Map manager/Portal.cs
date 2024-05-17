@@ -23,6 +23,7 @@ public class Portal : MonoBehaviour
         {
             if (mapManager != null)
             {
+                
                 mapManager.SwitchToNextLevel();
             }
         }

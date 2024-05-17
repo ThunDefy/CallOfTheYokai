@@ -17,24 +17,25 @@ MonoBehaviour:
   maxRisingLevel: 0
   baseStats:
     name: Kitsune Passive
-    description: 3 recovery
+    description: 2.5 recovery
     boosts:
       maxHealth: 0
-      recovery: 3
+      recovery: 2.5
       armor: 0
       moveSpeed: 0
       power: 0
       area: 0
       speed: 0
-      duration: 0
-      amount: 0
       cooldown: 0
       luck: 0
       growth: 0
-      greed: 0
-      curse: 0
       magnet: 0
       revival: 0
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 
   growth:
   - name: I will heal you
     description: +0.5 recovery
@@ -46,15 +47,16 @@ MonoBehaviour:
       power: 0
       area: 0
       speed: 0
-      duration: 0
-      amount: 0
       cooldown: 0
       luck: 0
       growth: 0
-      greed: 0
-      curse: 0
       magnet: 0
       revival: 0
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 
   - name: They can't kill you that easily
     description: +10 max health
     boosts:
@@ -65,12 +67,13 @@ MonoBehaviour:
       power: 0
       area: 0
       speed: 0
-      duration: 0
-      amount: 0
       cooldown: 0
       luck: 0
       growth: 0
-      greed: 0
-      curse: 0
       magnet: 0
       revival: 0
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 

@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using TMPro;
+using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -744,6 +745,18 @@ public class PlayerInventory : MonoBehaviour
     private void StartCooldownAnimation(float cooldownTime, int slotIndex)
     {
         StartCoroutine(CooldownAnimationTimer(cooldownTime, slotIndex));
+    }
+
+    public void InstantRecharge()
+    {
+        StopAllCoroutines();
+        for (int i = 0; i < availableSlotsCount; i++)
+        {
+            if (!weaponSlots[i].IsEmpty())
+            {
+                StartCoroutine(CooldownAnimationTimer(0.1f, i));
+            }
+        }
     }
 
     public void RisingActiveYokai()

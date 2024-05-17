@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using Random = UnityEngine.Random;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -143,6 +144,7 @@ public class PlayerStats : MonoBehaviour
         weaponIndex = allWeapons.FindIndex(weapon => weapon.yokaiID == playerData.stats.startingYokaiID);
         if(weaponIndex != -1)
             playerInventory.AddYokai(allWeapons[weaponIndex]);
+        
 
         //experienceCap += levelRanges[0].experienceCapIncrease;
 
@@ -163,13 +165,16 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseExperience(int amount, bool isRareSoul = false)
     {
         experience += (int)Mathf.Round(amount * actualStats.growth);
+
         if (isRareSoul)
         {
             actualStats.specialSouls += amount;
+            StatisticsCollector.instance.IncreaseRareSoulsCount();
         }
         else
         {
             actualStats.commonSouls += amount;
+            StatisticsCollector.instance.IncreaseCommonSoulsCount();
         }
         
         LevelUpChecker();
@@ -195,6 +200,7 @@ public class PlayerStats : MonoBehaviour
             experienceCap += experienceCapIncrease;
 
             UpdateLevelText();
+            StatisticsCollector.instance.UpdatelevelReached(level);
             GameManager.instance.StartLevelUp();
 
         }
@@ -290,5 +296,10 @@ public class PlayerStats : MonoBehaviour
             isInvincible = true;
         }
         
+    }
+
+    public void DoInstantRecharge()
+    {
+        playerInventory.InstantRecharge();
     }
 }

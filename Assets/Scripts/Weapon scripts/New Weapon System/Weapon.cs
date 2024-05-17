@@ -154,26 +154,4 @@ public class Weapon : Yokai
         return true;
     }
 
-
-    //protected virtual void OnDisable()
-    //{
-    //    StartCoroutine(CoolDownTimer());
-    //}
-
-    //protected virtual void OnEnable()
-    //{
-    //    StopAllCoroutines();
-    //}
-
-    //IEnumerator CoolDownTimer()
-    //{
-    //    while (true)
-    //    {
-    //        if (currentCoolDown >= 0)
-    //        {
-    //            currentCoolDown -= Time.deltaTime;
-    //        }
-    //        yield return null;
-    //    }
-    //}
 }

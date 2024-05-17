@@ -567,13 +567,40 @@ MonoBehaviour:
   levelRanges:
   - startLevel: 1
     endLevel: 5
-    experienceCapIncrease: 2
+    experienceCapIncrease: 0
   - startLevel: 6
     endLevel: 10
-    experienceCapIncrease: 5
-  - startLevel: 11
+    experienceCapIncrease: 1
+  - startLevel: 10
+    endLevel: 12
+    experienceCapIncrease: 0
+  - startLevel: 13
+    endLevel: 15
+    experienceCapIncrease: 2
+  - startLevel: 16
+    endLevel: 18
+    experienceCapIncrease: 0
+  - startLevel: 19
     endLevel: 20
-    experienceCapIncrease: 10
+    experienceCapIncrease: 5
+  - startLevel: 21
+    endLevel: 23
+    experienceCapIncrease: 1
+  - startLevel: 24
+    endLevel: 30
+    experienceCapIncrease: 0
+  - startLevel: 31
+    endLevel: 35
+    experienceCapIncrease: 3
+  - startLevel: 36
+    endLevel: 40
+    experienceCapIncrease: 3
+  - startLevel: 41
+    endLevel: 50
+    experienceCapIncrease: 0
+  - startLevel: 50
+    endLevel: 80
+    experienceCapIncrease: 2
 --- !u!114 &1196761415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -937,7 +964,7 @@ MonoBehaviour:
   - {x: 0.05130577, y: -0.33981037, z: 0}
   m_ShapePathHash: -1784980499
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1518
+  m_InstanceId: -1524
   m_LocalBounds:
     m_Center: {x: -0.0024499893, y: -0.013154507, z: 0}
     m_Extent: {x: 0.09166908, y: 0.33289385, z: 0}

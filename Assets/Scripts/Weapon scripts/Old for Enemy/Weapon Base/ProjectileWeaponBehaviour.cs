@@ -59,8 +59,12 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
             PlayerStats player;
             if (collider.tag == "Player" && (player = collider.GetComponent<PlayerStats>()))
             {
-                print("POPAAL");
+                //print("POPAAL");
                 player.TakeDamage(projectileDamage, gameObject, transform.position);
+                Destroy(gameObject);
+            }
+            else if (collider.tag == "Obstacle")
+            {
                 Destroy(gameObject);
             }
 

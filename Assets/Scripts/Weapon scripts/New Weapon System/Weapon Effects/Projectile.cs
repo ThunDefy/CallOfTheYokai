@@ -14,17 +14,19 @@ public class Projectile : WeaponEffect
     protected Rigidbody2D rb;
     protected int piercing;
 
+    Weapon.Stats wStats;
+
     protected virtual void Start()
     {
         print(transform.localScale);
         rb = GetComponent<Rigidbody2D>();
-        
-        Weapon.Stats stats = weapon.GetStats();
+
+        wStats = weapon.GetStats();
 
         if(rb.bodyType == RigidbodyType2D.Dynamic)
         {
             rb.angularVelocity = rotationSpeed.z;
-            rb.velocity = transform.right * stats.speed * weapon.Owner.actualStats.speed;
+            rb.velocity = transform.right * wStats.speed * weapon.Owner.actualStats.speed;
         }
 
         float area = weapon.GetArea();
@@ -35,8 +37,8 @@ public class Projectile : WeaponEffect
 
         //transform.localRotation = Quaternion.Euler(0, 0, -90);
 
-        piercing = stats.pircing;
-        if (stats.lifespan > 0) Destroy(gameObject, stats.lifespan);
+        piercing = wStats.pircing;
+        if (wStats.lifespan > 0) Destroy(gameObject, wStats.lifespan);
         if (hasAutoAim) AcquireAutoAimFacing();
         
     }
@@ -81,18 +83,19 @@ public class Projectile : WeaponEffect
         Health enemy = collider.GetComponent<Health>();
         if (enemy && !enemy.isPlayer)
         {
-            Weapon.Stats stats = weapon.GetStats();
             Vector3 source = damageSource == DamageSource.owner && owner ? owner.transform.position : transform.position;
-            enemy.GetHit(GetDamage(), this.gameObject, source, stats.knockback);
+            enemy.GetHit(GetDamage(), this.gameObject, source, wStats.knockback);
 
             piercing--;
-            if (stats.hitEffect)
+            if (wStats.hitEffect)
             {
-                Destroy(Instantiate(stats.hitEffect, transform.position, Quaternion.identity), 5f);
+                Destroy(Instantiate(wStats.hitEffect, transform.position, Quaternion.identity), 5f);
             }
         }
         if(piercing <0) Destroy(gameObject);
-       
+
+        if(collider.tag == "Obstacle") Destroy(Instantiate(wStats.hitEffect, transform.position, Quaternion.identity), 5f);
+
     }
 
 }

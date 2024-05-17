@@ -26,8 +26,8 @@ public class Pickup : MonoBehaviour
 
     [Header("Bonuses")]
     public bool isRareSoul = false;
-    public int experience;
-    public int health;
+    public int experience=0;
+    public int health =0;
 
     private void Awake()
     {
@@ -65,7 +65,8 @@ public class Pickup : MonoBehaviour
         {
             this.target = target;
             this.speed = speed;
-            anim.EndingAnimation();
+            if(anim) anim.EndingAnimation();
+            else Destroy(gameObject);
             return true;
         }
         return false;

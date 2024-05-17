@@ -31,13 +31,6 @@ public class VFXProjectileWeapon : ProjectileWeapon
 
         ActivateCoolDown(true);
 
-        //attackCount--;
-
-        //if (attackCount > 0)
-        //{
-        //    currentAttackCount = attackCount;
-        //    currentAttackInterval = data.baseStats.projectileInterval;
-        //}
         return true;
     }
 

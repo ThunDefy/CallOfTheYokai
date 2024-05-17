@@ -90,6 +90,7 @@ public class Health : MonoBehaviour
 
             if (!isPlayer)
             {
+                StatisticsCollector.instance.IncreaseKillCount(); // +1 труп в копилку 
                 isDead = true;
                 StartCoroutine(KillFade());
             }

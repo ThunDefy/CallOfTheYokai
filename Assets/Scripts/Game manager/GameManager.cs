@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     {
         Loading,
         Gameplay,
+        MovingToNextLevel,
         Paused,
         GameOver,
         SuccessfulEnd,
@@ -38,24 +39,27 @@ public class GameManager : MonoBehaviour
     public GameObject loadingScreen;
     public GameObject pauseScreen;
     public GameObject resultScreen;
+    public GameObject levelResultScreen;
     public GameObject getPassiveBonusScreen;
     public GameObject levelUpScreen;
     public GameObject changeWeaponScreen;
     public GameObject risingWeaponScreen;
     public GameObject newWeaponScreen;
 
-    public TMP_Text timerDisplay;
-
     [Header("Result Screen Displays")]
     public TMP_Text levelReachedDisplay;
     public List<Image> chosenWeaponsUI = new List<Image>(2);
     public TMP_Text gameTimeDisplay;
+    public TMP_Text timerDisplay;
+    public TMP_Text levelTimerDisplay;
 
-    float timer;
+    float sessionTimer;
+    float levelTimer;
 
     public bool isGameLoading = false;
     public bool isGameOver = false;
     public bool isSuccessfulEnd = false;
+    public bool isMovingToNextLevel = false;
     public bool choosingUpgrade;
     public bool changingWeapon = false;
     public bool risingWeapon = false;
@@ -100,7 +104,8 @@ public class GameManager : MonoBehaviour
 
             case GameState.Gameplay:
                 CheckForPauseAndResume();
-                UpdateTimer();
+                UpdateSessionTimer();
+                UpdateLevelTimer();
                 break;
 
             case GameState.Paused:
@@ -115,6 +120,15 @@ public class GameManager : MonoBehaviour
                     Time.timeScale = 0f;
                     //Debug.Log("Game over"); 
                     DisplayResults();
+                }
+                break;
+
+            case GameState.MovingToNextLevel:
+                if (!isMovingToNextLevel)
+                {
+                    isMovingToNextLevel = true;
+                    Time.timeScale = 0f;
+                    DisplayLevelResults();
                 }
                 break;
 
@@ -211,7 +225,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                UpdateTimerDisplay();
+                UpdateSessionTimerDisplay();
                 PauseGame();
             }
         }
@@ -226,11 +240,12 @@ public class GameManager : MonoBehaviour
         changeWeaponScreen.SetActive(false);
         risingWeaponScreen.SetActive(false);
         getPassiveBonusScreen.SetActive(false);
+        levelResultScreen.SetActive(false);
     }
 
     public void GameOver()
     {
-        UpdateTimerDisplay();
+        UpdateSessionTimerDisplay();
         gameTimeDisplay.text = timerDisplay.text;
         ChangeState(GameState.GameOver);
         SavePlayerProgress();
@@ -239,6 +254,14 @@ public class GameManager : MonoBehaviour
     void DisplayResults()
     {
         resultScreen.SetActive(true);
+        StatisticsCollector.instance.ShowGameResult();
+    }
+
+    void DisplayLevelResults()
+    {
+        levelResultScreen.SetActive(true);
+        StatisticsCollector.instance.ShowLevelResult();
+        UpdateLevelTimerDisplay();
     }
 
     void DisplayPermanentPassiveBoost()
@@ -270,18 +293,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void UpdateTimer()
+    void UpdateSessionTimer()
     {
-        timer += Time.deltaTime;
+        sessionTimer += Time.deltaTime;
     }
 
-    void UpdateTimerDisplay()
+    void UpdateLevelTimer()
     {
-        int minutes = Mathf.FloorToInt(timer / 60);
-        int seconds = Mathf.FloorToInt(timer % 60);
+        levelTimer += Time.deltaTime;
+    }
+
+    void UpdateSessionTimerDisplay()
+    {
+        int minutes = Mathf.FloorToInt(sessionTimer / 60);
+        int seconds = Mathf.FloorToInt(sessionTimer % 60);
 
         timerDisplay.text = string.Format("{0:00}:{1:00}",minutes,seconds);
     }
+
+    void UpdateLevelTimerDisplay()
+    {
+        int minutes = Mathf.FloorToInt(levelTimer / 60);
+        int seconds = Mathf.FloorToInt(levelTimer % 60);
+
+        levelTimerDisplay.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
 
     public void StartLoading()
     {
@@ -292,6 +329,7 @@ public class GameManager : MonoBehaviour
     public void EndLoading()
     {
         StartCoroutine(LittleWaiting());
+        levelTimer = 0f;
     }
 
     private IEnumerator LittleWaiting()
@@ -347,6 +385,18 @@ public class GameManager : MonoBehaviour
     public void StartRisingWeapon()
     {
         ChangeState(GameState.RisingWeapon);
+    }
+
+    public void StartMovingToNextLevel()
+    {
+        ChangeState(GameState.MovingToNextLevel);
+    }
+    public void EndMovingToNextLevel()
+    {
+        isMovingToNextLevel = false;
+        Time.timeScale = 1f;
+        levelResultScreen.SetActive(false);
+        StartLoading();
     }
 
     public void EndRisingWeapon()
