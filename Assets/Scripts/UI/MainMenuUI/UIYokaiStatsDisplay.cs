@@ -28,8 +28,8 @@ public class UIYokaiStatsDisplay : MonoBehaviour
 
         if (!yokaiData) return;
 
-        if(!statNames) statNames = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        if (!statValues) statValues = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        if(!statNames) statNames = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        if (!statValues) statValues = transform.GetChild(2).GetComponent<TextMeshProUGUI>();
 
         StringBuilder names = new StringBuilder();
         StringBuilder values = new StringBuilder();
