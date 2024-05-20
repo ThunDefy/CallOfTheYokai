@@ -6,6 +6,6 @@ public class KiseruRest : Pickup
 {
     protected override void OnDestroy()
     {
-        target.DoInstantRecharge();
+        if(target)target.DoInstantRecharge();
     }
 }

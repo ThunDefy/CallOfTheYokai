@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
         ShowNewWeapon
     }
 
+    public List<GameObject> slots;
+
     [Header("Damage Text Settings")]
     public Canvas damageTextCanvas;
     public float textFontSize = 20;
@@ -86,9 +88,14 @@ public class GameManager : MonoBehaviour
 
         DisableScreens();
         pd = player.GetComponent<PlayerStats>();
+        //ActivateSlots();
     }
 
-    
+    private void Start()
+    {
+        ActivateSlots();
+    }
+
 
     private void Update()
     {
@@ -480,5 +487,14 @@ public class GameManager : MonoBehaviour
     {
         pd.playerData.stats = SaveAndLoadManager.LoadPlayerData();
         print("now specialSouls = " + pd.playerData.stats.specialSouls);
+    }
+
+    
+    private void ActivateSlots()
+    {
+        for (int i = 0; i < pd.actualStats.availableSlots; i++)
+        {
+            slots[i].SetActive(true);
+        }
     }
 }

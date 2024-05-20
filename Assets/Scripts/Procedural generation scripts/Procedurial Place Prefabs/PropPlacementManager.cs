@@ -104,7 +104,7 @@ public class PropPlacementManager : MonoBehaviour
 
 
             // взять удачу игрока и с таким процентом прибавить 1 доп копию объекта
-            if(propToPlace.isInfluenceOfLuck) quantity+= UnityEngine.Random.Range(0, 100) < (ps.actualStats.luck % 1) *100 ? 1 : 0 ;
+            if (propToPlace.isInfluenceOfLuck) quantity += 2;//UnityEngine.Random.Range(0, 100) < (ps.actualStats.luck % 1) *100 ? 1 : 0 ;
 
             if (propToPlace.RoomType == room.Type || propToPlace.RoomType == RoomType.All)
             {

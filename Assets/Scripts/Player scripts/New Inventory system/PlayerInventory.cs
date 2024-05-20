@@ -59,9 +59,14 @@ public class PlayerInventory : MonoBehaviour
         public bool IsEmpty() { return yokai == null; }
     }
 
+    public Sprite activeFrame;
+    public Sprite unActiveFrame;
 
+    public Slot activeYokaiSlot = new Slot();
     public List<Slot> weaponSlots = new List<Slot>(4);
     public List<Slot> passiveSlots = new List<Slot>(4);
+
+    
 
     int activeWeaponIndx = 0;
 
@@ -712,18 +717,31 @@ public class PlayerInventory : MonoBehaviour
         SetActiveWeapon(newActiveWeaponIndx);
     }
 
+    
     void SetActiveWeapon(int weaponIndx)
     {
-        if(!weaponSlots[weaponIndx].IsEmpty())
+        if (!weaponSlots[weaponIndx].IsEmpty())
         {
             //print("Μενÿώ " + activeWeaponIndx + " Νΰ "+ weaponIndx);
-            weaponSlots[activeWeaponIndx].image.transform.parent.gameObject.GetComponent<Image>().enabled = false;
-            weaponSlots[weaponIndx].image.transform.parent.gameObject.GetComponent<Image>().enabled = true;
+
+            //weaponSlots[activeWeaponIndx].image.transform.parent.gameObject.GetComponent<Image>().enabled = false;
+            //weaponSlots[weaponIndx].image.transform.parent.gameObject.GetComponent<Image>().enabled = true;
+
+            weaponSlots[activeWeaponIndx].image.transform.parent.gameObject.transform.localScale = new Vector3(1f, 1f, 1);
+            weaponSlots[weaponIndx].image.transform.parent.gameObject.transform.localScale = new Vector3(1.7f, 1.7f, 1);
+
+            weaponSlots[activeWeaponIndx].image.transform.parent.gameObject.GetComponent<Image>().sprite = unActiveFrame;
+            weaponSlots[weaponIndx].image.transform.parent.gameObject.GetComponent<Image>().sprite = activeFrame;
 
             weaponSlots[activeWeaponIndx].yokai.transform.gameObject.SetActive(false);
             weaponSlots[weaponIndx].yokai.transform.gameObject.SetActive(true);
+
+            weaponSlots[activeWeaponIndx].yokai.transform.gameObject.SetActive(false);
+            weaponSlots[weaponIndx].yokai.transform.gameObject.SetActive(true);
+
             activeWeaponIndx = weaponIndx;
         }
+        else return;
        
     }
 

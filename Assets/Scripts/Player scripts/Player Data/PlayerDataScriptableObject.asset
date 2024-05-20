@@ -18,11 +18,11 @@ MonoBehaviour:
   startingWeapon3: {fileID: 0}
   startingWeapon4: {fileID: 0}
   stats:
-    maxHealth: 100
+    maxHealth: 200
     recovery: 1
     armor: 0
     moveSpeed: 1
-    power: 1
+    power: 1.1
     area: 1
     speed: 1
     cooldown: 1
@@ -30,7 +30,7 @@ MonoBehaviour:
     growth: 1
     magnet: 1
     revival: 0
-    commonSouls: 0
+    commonSouls: 19
     specialSouls: 0
     availableSlots: 2
     startingYokaiID: 0
