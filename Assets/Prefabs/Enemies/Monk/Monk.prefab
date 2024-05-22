@@ -660,6 +660,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1.1
+  dashSpeed: 10
+  dashDuration: 1
+  dashCooldown: 1
   moveDir: {x: 0, y: 0}
   OnAnimationEventTriggered:
     m_PersistentCalls:
@@ -731,9 +734,15 @@ MonoBehaviour:
   canDrop: 1
   randomDrop: 1
   drops:
-  - name: PurpleSoul
+  - name: Common soul
     itemPrefab: {fileID: 5001092401595562335, guid: d4e282f0318657e4a88d452a6eceaff9, type: 3}
     dropRate: 100
+  - name: Food
+    itemPrefab: {fileID: 5001092401595562335, guid: 9b0768e6e7395c84585b32733ce52831, type: 3}
+    dropRate: 15
+  - name: Kisure
+    itemPrefab: {fileID: 5001092401595562335, guid: 1857ac259464b364fbfcd48fcaa2ee90, type: 3}
+    dropRate: 5
 --- !u!114 &2247422405235932297
 MonoBehaviour:
   m_ObjectHideFlags: 0

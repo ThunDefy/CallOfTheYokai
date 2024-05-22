@@ -433,16 +433,20 @@ public class PlayerInventory : MonoBehaviour
             weaponInfo.risingLevelDisplay.text = ((Weapon)weaponSlots[slotNum].yokai).currentRisingLevel.ToString();
         }else weaponInfo.risingLevelDisplay.transform.parent.gameObject.SetActive(false);
 
-
+        float dmg = ((Weapon)weaponSlots[slotNum].yokai).currentStats.damage;
+        float dmgVariance = ((Weapon)weaponSlots[slotNum].yokai).currentStats.damageVariance;
+        float pircing = ((Weapon)weaponSlots[slotNum].yokai).currentStats.pircing;
+        float knockback = ((Weapon)weaponSlots[slotNum].yokai).currentStats.knockback;
+        float speed = ((Weapon)weaponSlots[slotNum].yokai).currentStats.speed;
         weaponInfo.weaponIcon.sprite = ((PlayerWeaponData)weaponSlots[slotNum].yokaiData).icon;
         weaponInfo.weaponNameDisplay.text = ((PlayerWeaponData)weaponSlots[slotNum].yokaiData).baseStats.name + " Lvl " + weaponSlots[slotNum].currentLevel;
         if(weaponInfo.weaponDiscription!=null) weaponInfo.weaponDiscription.text = ((PlayerWeaponData)weaponSlots[slotNum].yokaiData).baseStats.description;
-        weaponInfo.damageStatDisplay.text = (!onlyStat ?"Damage: ":"") + ((Weapon)weaponSlots[slotNum].yokai).currentStats.damage;
+        weaponInfo.damageStatDisplay.text = (!onlyStat ?"Damage: ":"")+dmg+(dmgVariance!=0?"-" +(dmg + dmgVariance):"") ;
         weaponInfo.areaStatDisplay.text = (!onlyStat ? "Area: ":"") + ((Weapon)weaponSlots[slotNum].yokai).currentStats.area;
-        weaponInfo.speedStatDisplay.text = (!onlyStat ? "Speed: ":"") + ((Weapon)weaponSlots[slotNum].yokai).currentStats.speed;
+        weaponInfo.speedStatDisplay.text = (!onlyStat ? "Speed: ":"") + (speed==-1?"-":speed);
         weaponInfo.cooldownStatDisplay.text = (!onlyStat ? "Cooldown: ":"") + ((Weapon)weaponSlots[slotNum].yokai).currentStats.cooldown;
-        weaponInfo.knockbackStatDisplay.text = (!onlyStat ? "Knockback: ":"") + ((Weapon)weaponSlots[slotNum].yokai).currentStats.knockback;
-        weaponInfo.pircingStatDisplay.text = (!onlyStat ? "Pircing: ":"") + ((Weapon)weaponSlots[slotNum].yokai).currentStats.pircing;
+        weaponInfo.knockbackStatDisplay.text = (!onlyStat ? "Knockback: ":"") + (knockback == -1 ? "-" : knockback);
+        weaponInfo.pircingStatDisplay.text = (!onlyStat ? "Pircing: ":"") + (pircing == -1 ? "-" : pircing);
         List<string> boosts = ((Passive)passiveSlots[slotNum].yokai).GetBoostsInfo();
         if(boosts.Count == 1) weaponInfo.PassiveEffect1Display.text = boosts[0];
         else
@@ -723,9 +727,6 @@ public class PlayerInventory : MonoBehaviour
         if (!weaponSlots[weaponIndx].IsEmpty())
         {
             //print("Μενÿώ " + activeWeaponIndx + " Νΰ "+ weaponIndx);
-
-            //weaponSlots[activeWeaponIndx].image.transform.parent.gameObject.GetComponent<Image>().enabled = false;
-            //weaponSlots[weaponIndx].image.transform.parent.gameObject.GetComponent<Image>().enabled = true;
 
             weaponSlots[activeWeaponIndx].image.transform.parent.gameObject.transform.localScale = new Vector3(1f, 1f, 1);
             weaponSlots[weaponIndx].image.transform.parent.gameObject.transform.localScale = new Vector3(1.7f, 1.7f, 1);

@@ -18,7 +18,7 @@ MonoBehaviour:
   behaviour: VFXProjectileWeapon
   yokaiPrefab: {fileID: 4203816605063914695, guid: 7741d93e57837614689397712f8f7074, type: 3}
   baseStats:
-    name: Tengu
+    name: Fujin
     description: Releases a stream of wind that knocks back enemies
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 4742822842378266817, guid: b20e122d2087e2c439138431bdc02162, type: 3}

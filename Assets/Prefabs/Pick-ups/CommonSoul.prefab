@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 4798947114314102567}
   - component: {fileID: -8240079157101460912}
   m_Layer: 14
-  m_Name: PurpleSoul
+  m_Name: CommonSoul
   m_TagString: Pick-Ups
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

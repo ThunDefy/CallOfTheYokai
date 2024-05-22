@@ -18,7 +18,7 @@ MonoBehaviour:
   behaviour: HairHookWeapon
   yokaiPrefab: {fileID: 4203816605063914695, guid: 2e29f0e5e397f98419c53b31383f8473, type: 3}
   baseStats:
-    name: Okabe
+    name: Daishou
     description: Launches strands of hair that stop enemys and damage
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 2490563873545524358, guid: d5b30cb73b699e141b07cfbec559d0b8, type: 3}

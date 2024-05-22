@@ -26,6 +26,7 @@ public class MainMenuManager : MonoBehaviour
     {
         public Button choseButton;
         public PlayerWeaponData yokaiData;
+        [TextAreaAttribute]
         public string lore;
     }
 

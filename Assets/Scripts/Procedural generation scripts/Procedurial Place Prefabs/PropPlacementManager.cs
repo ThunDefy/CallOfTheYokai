@@ -52,6 +52,10 @@ public class PropPlacementManager : MonoBehaviour
 
         foreach (Room room in dungeonData.Rooms)
         {
+            //Внутри комнаты
+            List<Prop> innerProps = currentLevelData.propsToPlace.Where(x => x.Inner).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
+            if (innerProps.Count != 0) PlaceProps(room, innerProps, room.InnerTiles, PlacementOriginCorner.BottomLeft);
+
             //Расставить объекты по углам
             List<Prop> cornerProps = currentLevelData.propsToPlace.Where(x => x.Corner).ToList();
             if(cornerProps.Count!=0) PlaceCornerProps(room, cornerProps);
@@ -72,11 +76,6 @@ public class PropPlacementManager : MonoBehaviour
             //Возле нижней стены
             List<Prop> downWallProps = currentLevelData.propsToPlace.Where(x => x.NearWallDown).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
             if (downWallProps.Count != 0) PlaceProps(room, downWallProps, room.NearWallTilesDown, PlacementOriginCorner.BottomLeft);
-
-            //Внутри комнаты
-            List<Prop> innerProps = currentLevelData.propsToPlace.Where(x => x.Inner).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
-            if (innerProps.Count != 0) PlaceProps(room, innerProps, room.InnerTiles, PlacementOriginCorner.BottomLeft);
-
         }
 
         Invoke("RunEvent", 1);
@@ -104,7 +103,7 @@ public class PropPlacementManager : MonoBehaviour
 
 
             // взять удачу игрока и с таким процентом прибавить 1 доп копию объекта
-            if (propToPlace.isInfluenceOfLuck) quantity += 2;//UnityEngine.Random.Range(0, 100) < (ps.actualStats.luck % 1) *100 ? 1 : 0 ;
+            if (propToPlace.isInfluenceOfLuck) quantity += UnityEngine.Random.Range(0, 100) < (ps.actualStats.luck % 1) *100 ? 1 : 0 ;
 
             if (propToPlace.RoomType == room.Type || propToPlace.RoomType == RoomType.All)
             {

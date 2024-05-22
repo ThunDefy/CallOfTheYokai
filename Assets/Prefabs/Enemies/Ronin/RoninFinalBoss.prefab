@@ -205,8 +205,8 @@ MonoBehaviour:
   canDrop: 1
   randomDrop: 1
   drops:
-  - name: PurpleSoul
-    itemPrefab: {fileID: 5001092401595562335, guid: d4e282f0318657e4a88d452a6eceaff9, type: 3}
+  - name: Rare Soul
+    itemPrefab: {fileID: 5001092401595562335, guid: 5457440a34399f74b89e8ec02224b645, type: 3}
     dropRate: 100
 --- !u!114 &7854915796941743436
 MonoBehaviour:

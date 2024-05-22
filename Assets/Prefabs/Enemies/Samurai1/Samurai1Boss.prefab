@@ -734,8 +734,14 @@ MonoBehaviour:
   canDrop: 1
   randomDrop: 1
   drops:
-  - name: PurpleSoul
-    itemPrefab: {fileID: 5001092401595562335, guid: d4e282f0318657e4a88d452a6eceaff9, type: 3}
+  - name: RareSoul
+    itemPrefab: {fileID: 5001092401595562335, guid: 5457440a34399f74b89e8ec02224b645, type: 3}
+    dropRate: 100
+  - name: Food
+    itemPrefab: {fileID: 5001092401595562335, guid: 9b0768e6e7395c84585b32733ce52831, type: 3}
+    dropRate: 100
+  - name: Kiseru
+    itemPrefab: {fileID: 5001092401595562335, guid: 9b0768e6e7395c84585b32733ce52831, type: 3}
     dropRate: 100
 --- !u!114 &2247422405235932297
 MonoBehaviour:
