@@ -26,15 +26,16 @@ MonoBehaviour:
       power: 0
       area: 0
       speed: 0
-      duration: 0
-      amount: 0
-      cooldown: -0.2
+      cooldown: 0.2
       luck: 0
       growth: 0
-      greed: 0
-      curse: 0
       magnet: 0
       revival: 0
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 
   growth:
   - name: Attack at lightning speed
     description: '- 5% cooldown'
@@ -46,15 +47,16 @@ MonoBehaviour:
       power: 0
       area: 0
       speed: 0
-      duration: 0
-      amount: 0
-      cooldown: -0.05
+      cooldown: 0.05
       luck: 0
       growth: 0
-      greed: 0
-      curse: 0
       magnet: 0
       revival: 0
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 
   - name: Static voltage
     description: + 0.5 magnet power
     boosts:
@@ -65,12 +67,13 @@ MonoBehaviour:
       power: 0
       area: 0
       speed: 0
-      duration: 0
-      amount: 0
       cooldown: 0
       luck: 0
       growth: 0
-      greed: 0
-      curse: 0
       magnet: 0.5
       revival: 0
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 

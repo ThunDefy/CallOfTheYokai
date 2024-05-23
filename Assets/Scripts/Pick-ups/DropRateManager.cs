@@ -29,6 +29,7 @@ public class DropRateManager : MonoBehaviour
         if (canDrop)
         {
             PlayerStats playerStats = FindAnyObjectByType<PlayerStats>();
+
             if (randomDrop)
             {
                 float randomNumber = UnityEngine.Random.Range(0f, 100f);
@@ -42,15 +43,20 @@ public class DropRateManager : MonoBehaviour
                 }
                 if (possibleDrops.Count > 0)
                 {
-                    Drops drops = possibleDrops[UnityEngine.Random.Range(0, possibleDrops.Count)];
-                    Instantiate(drops.itemPrefab, transform.position, Quaternion.identity);
-                    if (playerStats)
+                    foreach (Drops drop in possibleDrops)
                     {
-                        float randomValue = Random.value;
-                        if (randomValue < (playerStats.actualStats.luck / 100))
-                            Instantiate(drops.itemPrefab, transform.position, Quaternion.identity); // повезло, еще одна копия
-                    }
+                        Vector3 randomOffset = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
+                        Vector3 spawnPosition = transform.position + randomOffset;
 
+                        Instantiate(drop.itemPrefab, spawnPosition, Quaternion.identity);
+
+                        if (playerStats)
+                        {
+                            float randomValue = Random.value;
+                            if (randomValue < playerStats.actualStats.luck)
+                                Instantiate(drop.itemPrefab, transform.position, Quaternion.identity); // повезло, еще одна копия
+                        }
+                    }
                 }
             }
             else
@@ -63,7 +69,7 @@ public class DropRateManager : MonoBehaviour
                     if (playerStats)
                     {
                         float randomValue = Random.value;
-                        if (randomValue < (playerStats.actualStats.luck/100))
+                        if (randomValue < playerStats.actualStats.luck)
                             Instantiate(drop.itemPrefab, spawnPosition, Quaternion.identity); // повезло, еще одна копия
                     }
                 }

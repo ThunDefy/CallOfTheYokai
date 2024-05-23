@@ -30,19 +30,23 @@ public class SpriteMaskController : MonoBehaviour
         {
             foreach (SpriteRenderer renderer in otherRenderers)
             {
-                if (playerSpriteRenderer.sortingLayerName == renderer.sortingLayerName
+                if (renderer) 
+                {
+                    if (playerSpriteRenderer.sortingLayerName == renderer.sortingLayerName
                     && playerSpriteRenderer.sortingOrder <= renderer.sortingOrder
                     && playerSpriteRenderer.transform.position.y > renderer.transform.position.y)
-                {
-                    spriteMask.enabled = true;
-                    playerSpriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
-                    return;
+                    {
+                        spriteMask.enabled = true;
+                        playerSpriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+                        return;
+                    }
+                    else
+                    {
+                        spriteMask.enabled = false;
+                        playerSpriteRenderer.maskInteraction = SpriteMaskInteraction.None;
+                    }
                 }
-                else
-                {
-                    spriteMask.enabled = false;
-                    playerSpriteRenderer.maskInteraction = SpriteMaskInteraction.None;
-                }
+                
             }
         }
     }

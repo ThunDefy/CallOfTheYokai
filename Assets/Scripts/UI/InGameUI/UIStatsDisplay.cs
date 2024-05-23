@@ -52,7 +52,9 @@ public class UIStatsDisplay : MonoBehaviour
                 PropertyAttribute attribure = (PropertyAttribute)PropertyAttribute.GetCustomAttribute(field, typeof(PropertyAttribute));
                 if (attribure != null && field.FieldType == typeof(float))
                 {
-                    float percentage = Mathf.Round(fval * 100 - 100);
+                    float percentage;
+                    if (field.Name == "luck") percentage = Mathf.Round(fval * 100*-1);
+                    else percentage = Mathf.Round(fval * 100 - 100);
                     if (Mathf.Approximately(percentage, 0))
                     {
                         values.Append("-").Append("\n");
@@ -61,7 +63,7 @@ public class UIStatsDisplay : MonoBehaviour
                     {
                         if (percentage > 0) values.Append("+");
 
-                        values.Append(percentage).Append("%").Append("\n");
+                        values.Append(Mathf.Abs(percentage)).Append("%").Append("\n");
                     }
                 }
                 else

@@ -26,15 +26,16 @@ MonoBehaviour:
       power: 0
       area: 0
       speed: 0
-      duration: 0
-      amount: 0
       cooldown: 0
       luck: 0
       growth: 0
-      greed: 0
-      curse: 0
       magnet: 0
       revival: 0
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 
   growth:
   - name: More moove speed
     description: +5% moove speed
@@ -46,15 +47,16 @@ MonoBehaviour:
       power: 0
       area: 0
       speed: 0
-      duration: 0
-      amount: 0
       cooldown: 0
       luck: 0
       growth: 0
-      greed: 0
-      curse: 0
       magnet: 0
       revival: 0
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 
   - name: Less cooldown
     description: -3% cooldown
     boosts:
@@ -65,12 +67,13 @@ MonoBehaviour:
       power: 0
       area: 0
       speed: 0
-      duration: 0
-      amount: 0
-      cooldown: -0.03
+      cooldown: 0.03
       luck: 0
       growth: 0
-      greed: 0
-      curse: 0
       magnet: 0
       revival: 0
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 

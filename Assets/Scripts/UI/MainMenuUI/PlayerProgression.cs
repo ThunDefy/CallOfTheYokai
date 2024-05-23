@@ -34,6 +34,8 @@ public class PlayerProgression : MonoBehaviour
         private float newValue;
         private int currentPrice;
         private int currentSoulsCount;
+
+        public bool isChanged = false;
         public void SetButtons()
         {
             if (changeButtons)
@@ -53,6 +55,7 @@ public class PlayerProgression : MonoBehaviour
             newValue = currentValue;
             currentPrice = increasePrice;
             RecalculatePrice();
+            
         }
 
         public float GetNewValue()
@@ -70,27 +73,37 @@ public class PlayerProgression : MonoBehaviour
                 currentPrice += increaseCup;
                 UpdateUI();    
             }
-            
+            isChanged = true;
+
+
         }
 
         public void CancelLastIncrease()
         {
 
-            if (newValue > currentValue)
+            if (newValue > currentValue && isChanged)
             {
                 newValue -= increaseValue;
                 currentPrice -= increaseCup;
                 playerProgressionData.SoulsPay(-currentPrice, isSpecialStats);
+                //isChanged = false;
             }
             UpdateUI();
         }
 
         public void CancelAllIncrease()
         {
-            newValue = currentValue;
-            currentPrice = increasePrice;
-            UpdateData();
-            UpdateUI();
+            if (isChanged)
+            {
+                newValue = currentValue;
+                currentPrice = increasePrice;
+                RecalculatePrice();
+                UpdateData();
+                UpdateUI();
+                
+                isChanged =false;
+            }
+            
         }
 
         public void UpdateUI()
@@ -264,6 +277,19 @@ public class PlayerProgression : MonoBehaviour
         SaveAndLoadManager.SavePlayerData(newPlayerStats);
         SetCurrentValues();
         UpdateSoulsDisplays();
+
+       
+
+        foreach (var item in playerCommonStatsUpgradeUI)
+        {
+            item.isChanged = false;
+            item.UpdateUI();
+        }
+        foreach (var item in playerSpecialStatsUpgradeUI)
+        {
+            item.isChanged = false;
+            item.UpdateUI();
+        }
     }
 
     public void UndoChanges()

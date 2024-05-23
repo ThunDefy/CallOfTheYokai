@@ -22,6 +22,9 @@ public class MultiProjectileWeapon : VFXProjectileWeapon
         List<Vector2> spreads = GenerateTriangleSpread(attackCount);
         int num = 0;
 
+        float area = GetArea();
+        if (area <= 0) area = 1;
+
         while (attackCount > 0)
         {
 
@@ -29,6 +32,8 @@ public class MultiProjectileWeapon : VFXProjectileWeapon
             prefab.targetPos = spreads[num++];
             prefab.weapon = this;
             prefab.owner = owner;
+
+            prefab.transform.localScale = new Vector3(area, area, 1);
 
             RotateVFX(prefab);
 

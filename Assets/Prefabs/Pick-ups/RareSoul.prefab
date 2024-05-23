@@ -300,6 +300,6 @@ MonoBehaviour:
   bobbingAnimation:
     frequency: 2
     direction: {x: 0, y: 0.3}
-  isRareSoul: 0
+  isRareSoul: 1
   experience: 1
   health: 0

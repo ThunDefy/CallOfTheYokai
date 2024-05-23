@@ -25,8 +25,9 @@ public class PlayerData : ScriptableObject
         public float maxHealth, recovery, armor;
         [Range(-1, 10)] public float moveSpeed, power, area;
         [Range(-1, 5)] public float speed;
-        [Range(-1, 1)] public float cooldown;
-        [Min(-1)] public float luck, growth;
+        [Range(0, 1)] public float cooldown;
+        [Range(0, 1)] public float luck;
+        [Min(-1)] public float growth;
         public float magnet;
         public int revival;
         public int commonSouls, specialSouls,  availableSlots, startingYokaiID;
@@ -59,7 +60,7 @@ public class PlayerData : ScriptableObject
     {
         maxHealth = 100, moveSpeed = 1, recovery = 1, power = 1, 
         area = 1, speed = 1,  cooldown = 1,
-        luck = 1,  growth = 1, 
+        luck = 0,  growth = 1, 
         specialSouls = 0, commonSouls = 0,
         availableSlots = 2,
         startingYokaiID = 0

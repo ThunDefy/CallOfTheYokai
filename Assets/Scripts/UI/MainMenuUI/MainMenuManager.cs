@@ -12,6 +12,7 @@ public class MainMenuManager : MonoBehaviour
     [Header("UI Panels")]
     public GameObject mainMenuScreen;
     public GameObject choosingYokaiScreen;
+    public Button playerProgressionButton;
     public GameObject playerProgressionScreen;
 
     [Header("Chose yokai UI elements")]
@@ -51,6 +52,7 @@ public class MainMenuManager : MonoBehaviour
         else
         {
             currentPlayerData = defaultPlayerData.stats;
+            playerProgressionButton.interactable = false;
         }
 
         foreach (var item in yoakiDescriptions)
@@ -99,6 +101,7 @@ public class MainMenuManager : MonoBehaviour
 
             Debug.Log("Новая игра начата, новый PlayerStats создан.");
             sceneController.SceneChange("Game");
+            playerProgressionButton.interactable = true;
         }
         
     }

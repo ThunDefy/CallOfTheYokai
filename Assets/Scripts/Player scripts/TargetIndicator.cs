@@ -72,7 +72,8 @@ public class TargetIndicator : MonoBehaviour
 
     void FindClosestTarget()
     {
-        float closestDistance = Mathf.Infinity; 
+        float closestDistance = Mathf.Infinity;
+        List<Transform> objectsToRemove = new List<Transform>(); // создаем список для элементов, которые нужно удалить
 
         foreach (Transform targetObject in targetObjects)
         {
@@ -80,15 +81,25 @@ public class TargetIndicator : MonoBehaviour
             {
                 float distanceToTarget = Vector3.Distance(transform.position, targetObject.position); // расстояние до цели
 
-                if (distanceToTarget < closestDistance) 
+                if (distanceToTarget < closestDistance)
                 {
-                    closestDistance = distanceToTarget; 
+                    closestDistance = distanceToTarget;
                     currentTarget = targetObject; // обновляем текущую цель
                 }
-            }else targetObjects.Remove(targetObject);
+            }
+            else
+            {
+                objectsToRemove.Add(targetObject); // добавляем элемент в список для удаления
+            }
         }
 
-        UpdateIndicator(); 
+        // удаляем элементы после завершения перебора
+        foreach (Transform objectToRemove in objectsToRemove)
+        {
+            targetObjects.Remove(objectToRemove);
+        }
+
+        UpdateIndicator();
     }
 
     void UpdateIndicator()

@@ -145,11 +145,12 @@ public class Weapon : Yokai
         print("Вызываю куладун");
         if (strict && currentCoolDown > 0) return false;
 
-        float actualCooldown = currentStats.cooldown * Owner.actualStats.cooldown;
+        float actualCooldown = currentStats.cooldown * (-1*Owner.actualStats.cooldown);
 
-        currentCoolDown = Mathf.Min(actualCooldown, currentCoolDown + actualCooldown);
+        //currentCoolDown = Mathf.Min(actualCooldown, currentCoolDown + actualCooldown);
+        currentCoolDown = currentStats.cooldown + actualCooldown;
 
-        if(inventory!=null) inventory.YokaiActivateColldown(this, currentCoolDown);
+        if (inventory!=null) inventory.YokaiActivateColldown(this, currentCoolDown);
 
         return true;
     }
