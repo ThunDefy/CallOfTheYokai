@@ -13,6 +13,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance; // Делаем класс синглтон
 
+    public enum ControlType { PC,Android}
+    public ControlType controlType;
+
+    public Joystick moveJoystick, shootJoystick;
+
     public UnityEvent<GameObject> OnSceneLoad;
 
     public enum GameState

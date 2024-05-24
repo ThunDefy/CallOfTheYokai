@@ -141,15 +141,10 @@ public class PlayerStats : MonoBehaviour
         //playerInventory.AddYokai(playerData.startingWeapon3);
         //playerInventory.AddYokai(playerData.startingWeapon4);
 
-        weaponIndex = allWeapons.FindIndex(weapon => weapon.yokaiID == playerData.stats.startingYokaiID);
-        if(weaponIndex != -1)
-            playerInventory.AddYokai(allWeapons[weaponIndex]);
-        
-
-        //experienceCap += levelRanges[0].experienceCapIncrease;
-
         UpdateExpBar();
         UpdateLevelText();
+
+        StartCoroutine(GetStartWeapon());
     }
 
     private void Update()
@@ -159,6 +154,22 @@ public class PlayerStats : MonoBehaviour
         else if(isInvincible) 
             isInvincible = false;
         Recover();
+    }
+
+    IEnumerator GetStartWeapon()
+    {
+        while (GameManager.instance.currentState != GameManager.GameState.Gameplay)  // условие, которое должно выполниться
+        {
+            // выполняемая часть кода
+            yield return null; // пауза до следующего кадра
+        }
+        if (playerData.stats.startingYokaiID != -1)
+        {
+            weaponIndex = allWeapons.FindIndex(weapon => weapon.yokaiID == playerData.stats.startingYokaiID);
+            if (weaponIndex != -1)
+                playerInventory.AddYokai(allWeapons[weaponIndex]);
+        }
+        
     }
 
    

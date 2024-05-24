@@ -18,6 +18,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0b3fee72b2c7196499c57bdbc589315e, type: 2}
   - {fileID: 11400000, guid: 574711a652c1b5c4e8d35e88b7e9984e, type: 2}
   - {fileID: 11400000, guid: 574711a652c1b5c4e8d35e88b7e9984e, type: 2}
+  - {fileID: 11400000, guid: 2f02bc4ae7f35954580a0e1aab51539c, type: 2}
   floorTile: {fileID: 0}
   wallTop: {fileID: 11400000, guid: fd47e784c93693a47a3395fbda9259c6, type: 2}
   wallSideRight: {fileID: 11400000, guid: 8ab2f3c6681a0c547ac52cb1d7afa6a5, type: 2}

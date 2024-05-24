@@ -31,6 +31,7 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
         mapManager = FindObjectOfType<MapManager>();
         UpdateLevelData();
         GenerateMap();
+        
     }
     public void UpdateLevelData()
     {

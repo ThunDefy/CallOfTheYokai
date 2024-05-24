@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: "ForestTilesNoLine \u2014 \u043A\u043E\u043F\u0438\u044F_0"
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -2082981460, guid: d5d6147183adda14b8d0ea1ba96c0000, type: 3}
+  m_Sprite: {fileID: 1105065223, guid: f5d99811b4c77d446b0c32f96b53d675, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

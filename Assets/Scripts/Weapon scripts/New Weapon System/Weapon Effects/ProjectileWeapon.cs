@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
 public class ProjectileWeapon : Weapon
 {
@@ -54,9 +55,21 @@ public class ProjectileWeapon : Weapon
     
     protected virtual float GetSpawnAngle()
     {
-        Vector2 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        shootDirection = (worldPosition - (Vector2)transform.position).normalized;
-        return Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
+        //float agle = prefab.transform.rotation.eulerAngles.z;
+        if(GameManager.instance.controlType == ControlType.Android)
+        {
+
+            shootDirection = new Vector2(GameManager.instance.moveJoystick.Horizontal, GameManager.instance.moveJoystick.Vertical);
+            return Mathf.Atan2(GameManager.instance.moveJoystick.Vertical, GameManager.instance.moveJoystick.Horizontal) * Mathf.Rad2Deg;
+            
+        }
+        else
+        {
+            Vector2 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            shootDirection = (worldPosition - (Vector2)transform.position).normalized;
+            return Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg; 
+        }
+       
     }
 
     protected virtual Vector2 GetSpawnOffset(float spawnAngle = 0)

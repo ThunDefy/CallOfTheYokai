@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: OgumoData
   m_EditorClassIdentifier: 
   yokaiID: 9
-  icon: {fileID: -1607263603, guid: 2e7f3da684debd74f87677964da8e344, type: 3}
+  icon: {fileID: 693507061, guid: 30f4c177ff2ee1740995e38ad2f0003d, type: 3}
   maxRisingLevel: 3
   behaviour: SpiderWebWeapon
-  yokaiPrefab: {fileID: 4203816605063914695, guid: 7741d93e57837614689397712f8f7074, type: 3}
+  yokaiPrefab: {fileID: 4203816605063914695, guid: c934d0f828d3c2646a851c490de29eae, type: 3}
   baseStats:
     name: Ogumo
     description: Creates a web that slows down and damages enemies

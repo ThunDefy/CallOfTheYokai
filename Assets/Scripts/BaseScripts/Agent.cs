@@ -6,11 +6,13 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using static GameManager;
+using Unity.Burst;
 
 public class Agent : MonoBehaviour
 {
     public const float DEFUALT_MOVESPEED = 4f;
-    
+
+    public bool isPlayer = false;
     public float moveSpeed;
     float originalSpeed;
     protected Rigidbody2D rb;
@@ -92,7 +94,14 @@ public class Agent : MonoBehaviour
         {
             return;
         }
-        else moveDir = movementInput;
+        else
+        {
+            if (GameManager.instance.controlType == ControlType.Android && isPlayer)
+            {
+                moveDir = new Vector2(Mathf.Round(GameManager.instance.moveJoystick.Horizontal), Mathf.Round(GameManager.instance.moveJoystick.Vertical));
+            }
+            else moveDir = movementInput;
+        }
     }
     protected virtual void Move()
     {

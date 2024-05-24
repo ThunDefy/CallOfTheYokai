@@ -24,12 +24,12 @@ MonoBehaviour:
   wallSideRight: {fileID: 11400000, guid: 6882658ec149c1f4c9d0dc715929b11d, type: 2}
   wallSideLeft: {fileID: 11400000, guid: 3918f1caf87d4314091fe9ca1ba6b117, type: 2}
   wallBottom: {fileID: 11400000, guid: a6220057deac5be4e9b29a8bdc071436, type: 2}
-  wall: {fileID: 11400000, guid: bfa04135c9893c140afa65f32a371597, type: 2}
+  wall: {fileID: 11400000, guid: a42e80cc81b7e7a4d92cb7b0cc4e78cb, type: 2}
   wallFloor: {fileID: 11400000, guid: 4fddf082f80b5ca47b80a7f897193fbd, type: 2}
-  wallInnerCornerDownLeft: {fileID: 11400000, guid: 2d7a5b8535c425749a22677cdea05d64, type: 2}
-  wallInnerCornerDownRight: {fileID: 11400000, guid: 0394c23acbd28d141ab000cf95dfaf6f, type: 2}
+  wallInnerCornerDownLeft: {fileID: 11400000, guid: 154856c75784735409911de7753968fe, type: 2}
+  wallInnerCornerDownRight: {fileID: 11400000, guid: a66311223160c984595e38962561996b, type: 2}
   wallDiagonalCornerDownRight: {fileID: 11400000, guid: a66311223160c984595e38962561996b, type: 2}
-  wallDiagonalCornerDownLeft: {fileID: 11400000, guid: b803fcfd501bcf74db55c0bd8bc66865, type: 2}
-  wallDiagonalCornerUpRight: {fileID: 11400000, guid: 31283b5636057484c9f6d17b9bfedcdf, type: 2}
-  wallDiagonalCornerUpLeft: {fileID: 11400000, guid: 3dd703f71ba65dd49a75a7a42884134f, type: 2}
-  wallTopRightEnd: {fileID: 11400000, guid: 31283b5636057484c9f6d17b9bfedcdf, type: 2}
+  wallDiagonalCornerDownLeft: {fileID: 11400000, guid: 78146c379b7bbc6489e433a15c4f45af, type: 2}
+  wallDiagonalCornerUpRight: {fileID: 11400000, guid: e88b672954894074fb9bba05aeecde2b, type: 2}
+  wallDiagonalCornerUpLeft: {fileID: 11400000, guid: 3acf9ee47f745ad41a76b5fd5f4304ac, type: 2}
+  wallTopRightEnd: {fileID: 11400000, guid: e88b672954894074fb9bba05aeecde2b, type: 2}

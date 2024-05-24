@@ -36,6 +36,7 @@ public class MainMenuManager : MonoBehaviour
     private PlayerData.Stats currentPlayerData;
     private SceneController sceneController;
     private int chosenStartYokai;
+    private int setStartYokai = -1;
 
     private void Awake()
     {
@@ -125,9 +126,28 @@ public class MainMenuManager : MonoBehaviour
 
     }
 
-    public void SetStartYokai()
+    public void SetStartYokai(GameObject sender)
     {
-        SaveAndLoadManager.SaveStartYokai(chosenStartYokai);  
+        if (setStartYokai == -1)
+        {
+            SaveAndLoadManager.SaveStartYokai(chosenStartYokai);
+            setStartYokai = chosenStartYokai;
+            sender.GetComponent<Image>().color = Color.yellow;
+        }
+        else
+        {
+            UnSetStartYokai();
+            sender.GetComponent<Image>().color = Color.green;
+        }
+
+
+        print(setStartYokai);
+    }
+
+    public void UnSetStartYokai()
+    {
+        SaveAndLoadManager.SaveStartYokai(-1);
+        setStartYokai = -1;
     }
 
     private void HideAllScreens()

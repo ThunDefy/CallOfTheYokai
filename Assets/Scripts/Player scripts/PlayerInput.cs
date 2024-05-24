@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using static GameManager;
+using TouchPhase = UnityEngine.TouchPhase;
 
 public class PlayerInput : MonoBehaviour
 {
-    public UnityEvent<Vector2> OnMovementInput, onPointerInput;
+    public UnityEvent<Vector2> OnMovementInput, onPointerInput, onTouchInput;
     public UnityEvent OnAttack;
     public UnityEvent OnWeaponSwap;
     public UnityEvent OnDash;
+
 
     [SerializeField]
     private InputActionReference movement, Attack, pointerPosition, swapActiveWeapon, dash;
@@ -18,15 +21,52 @@ public class PlayerInput : MonoBehaviour
     {
         OnMovementInput?.Invoke(movement.action.ReadValue<Vector2>());
         onPointerInput?.Invoke(GetPointerInput());
+        //onTouchInput?.Invoke(GetTouchInput());
+
+        if(GameManager.instance.controlType == ControlType.Android)
+        {
+            if (GameManager.instance.shootJoystick.Horizontal != 0 || GameManager.instance.shootJoystick.Vertical != 0)
+            {
+                OnAttack?.Invoke();
+            }
+        }
     }
 
     // Определение места нахождения курсора
     private Vector2 GetPointerInput()
     {
-        Vector3 mousePos = pointerPosition.action.ReadValue<Vector2>();
-        mousePos.z = Camera.main.nearClipPlane;
-        return Camera.main.ScreenToWorldPoint(mousePos);
+        if (GameManager.instance.controlType == ControlType.Android)
+        {
+            //Vector3 stick = new Vector3();
+            //stick.z = Mathf.Atan2(GameManager.instance.shootJoystick.Vertical, GameManager.instance.shootJoystick.Horizontal) * Mathf.Rad2Deg;
+            //return Camera.main.ScreenToWorldPoint(stick);
+            return Vector2.zero;
+        }
+        else
+        {
+            Vector3 mousePos = pointerPosition.action.ReadValue<Vector2>();
+            mousePos.z = Camera.main.nearClipPlane;
+            return Camera.main.ScreenToWorldPoint(mousePos);
+        }
+
     }
+
+    //private Vector3 touchPos;
+    //private Vector2 GetTouchInput()
+    //{
+    //    if (Input.touchCount > 0) // Проверяем, произошло ли касание
+    //    {
+    //        Touch touch = Input.GetTouch(0); // Получаем информацию о первом касании
+
+    //        if (touch.phase == TouchPhase.Began) // Проверяем, что касание началось
+    //        {
+    //            touchPos = touch.position; // Получаем позицию касания
+    //            touchPos.z = Camera.main.nearClipPlane;   
+    //        }
+    //    }
+
+    //    return Camera.main.ScreenToWorldPoint(touchPos); // Преобразуем позицию экрана в мировые координаты
+    //}
 
     // Атака игрока
     private void OnEnable()
