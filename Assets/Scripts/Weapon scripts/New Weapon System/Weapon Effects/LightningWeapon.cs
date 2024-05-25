@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
 public class LightningWeapon : ProjectileWeapon
 {
@@ -22,8 +23,17 @@ public class LightningWeapon : ProjectileWeapon
 
         float area = GetArea();
 
-        targerPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        targerPosition.z = transform.position.z;
+        if (GameManager.instance.controlType == ControlType.Android)
+        {
+            targerPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            targerPosition.z = transform.position.z;
+
+        }
+        else
+        {
+            targerPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            targerPosition.z = transform.position.z;
+        }
 
         if (animator != null) animator.SetTrigger("Attack");
 

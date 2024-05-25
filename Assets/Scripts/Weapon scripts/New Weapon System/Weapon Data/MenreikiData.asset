@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: -2001454868, guid: 1c6b0269579fedb42b46d340bc904618, type: 3}
   maxRisingLevel: 3
   behaviour: MultiProjectileWeapon
+  shootControlType: 0
   yokaiPrefab: {fileID: 4203816605063914695, guid: ddbc0779d11900749999dafe20417a3f, type: 3}
   baseStats:
     name: Menreiki

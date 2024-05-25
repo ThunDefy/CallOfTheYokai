@@ -24,7 +24,8 @@ public class VFXProjectileWeapon : ProjectileWeapon
         prefab.targetPos = shootDirection;
         prefab.weapon = this;
         prefab.owner = owner;
-        if(data.baseStats.speed == 0) prefab.transform.SetParent(this.transform);
+        if (data.baseStats.speed == 0) prefab.transform.SetParent(this.transform);
+        //prefab.transform.rotation = transform.rotation;
 
         RotateVFX(prefab);
 

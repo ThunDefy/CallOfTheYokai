@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: -1607263603, guid: 2e7f3da684debd74f87677964da8e344, type: 3}
   maxRisingLevel: 3
   behaviour: LightningWeapon
+  shootControlType: 1
   yokaiPrefab: {fileID: 4203816605063914695, guid: 7741d93e57837614689397712f8f7074, type: 3}
   baseStats:
     name: Raidzin

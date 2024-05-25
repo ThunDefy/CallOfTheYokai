@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: 693507061, guid: 30f4c177ff2ee1740995e38ad2f0003d, type: 3}
   maxRisingLevel: 3
   behaviour: SpiderWebWeapon
+  shootControlType: 1
   yokaiPrefab: {fileID: 4203816605063914695, guid: c934d0f828d3c2646a851c490de29eae, type: 3}
   baseStats:
     name: Ogumo

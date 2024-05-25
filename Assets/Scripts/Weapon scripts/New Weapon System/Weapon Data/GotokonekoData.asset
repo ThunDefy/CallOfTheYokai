@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: 288574185, guid: 35b9b1e0e46acd147abe66589f4bfa37, type: 3}
   maxRisingLevel: 3
   behaviour: FlamethrowerWeapon
+  shootControlType: 0
   yokaiPrefab: {fileID: 4203816605063914695, guid: b694816773055cd4396736c2270aff90, type: 3}
   baseStats:
     name: Gotokoneko

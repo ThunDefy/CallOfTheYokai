@@ -18,7 +18,7 @@ public class Projectile : WeaponEffect
 
     protected virtual void Start()
     {
-        print(transform.localScale);
+        //print(transform.localScale);
         rb = GetComponent<Rigidbody2D>();
 
         wStats = weapon.GetStats();

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
 public class Weapon : Yokai
 {
@@ -9,7 +10,6 @@ public class Weapon : Yokai
     public struct Stats
     {
         public string name, description;
-
         [Header("Visuals")]
         public GameObject prefab;
         public Projectile projectilePrefab;
@@ -63,6 +63,7 @@ public class Weapon : Yokai
         print(name + " Initialised");
         base.Initialise(data);
         this.data = data;
+        GameManager.instance.ChangeShootControlType(data.shootControlType);
         currentStats = data.baseStats;
         //player = GetComponentInParent<Agent>();
         inventory = GetComponentInParent<PlayerInventory>();
@@ -91,7 +92,11 @@ public class Weapon : Yokai
         //}
     }
 
-
+    void OnEnable()
+    {
+        if(data)
+            GameManager.instance.ChangeShootControlType(data.shootControlType);  
+    }
     public override bool DoLevelUp(int upgradeIndx)
     {
         
@@ -142,7 +147,7 @@ public class Weapon : Yokai
 
     public virtual bool ActivateCoolDown(bool strict = false)
     {
-        print("Вызываю куладун");
+        //print("Вызываю куладун");
         if (strict && currentCoolDown > 0) return false;
 
         float actualCooldown = currentStats.cooldown * (-1*Owner.actualStats.cooldown);

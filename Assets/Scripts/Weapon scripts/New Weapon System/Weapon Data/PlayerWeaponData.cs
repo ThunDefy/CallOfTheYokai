@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using static GameManager;
 
 [CreateAssetMenu(fileName = "PlayerWeaponScriptableObject", menuName = "ScriptableObjects/PlayerWeaponData")]
 public class PlayerWeaponData : YokaiData
 {
 
     public string behaviour;
+    public ShootControlType shootControlType;
     public GameObject yokaiPrefab;
     public Weapon.Stats baseStats;
     public Weapon.Stats[] risingGrowth;

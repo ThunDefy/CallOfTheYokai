@@ -704,20 +704,26 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    public void SwapActiveWeapon()
+    public void SwapActiveWeapon(int slotNum = -1)
     {
-        int newActiveWeaponIndx=0;
-        if (activeWeaponIndx+1 < availableSlotsCount)
+        int newActiveWeaponIndx = 0;
+        if (slotNum == -1)
         {
-            if (weaponSlots[activeWeaponIndx + 1].IsEmpty())
+            if (activeWeaponIndx + 1 < availableSlotsCount)
             {
-                newActiveWeaponIndx = 0;
+                if (weaponSlots[activeWeaponIndx + 1].IsEmpty())
+                {
+                    newActiveWeaponIndx = 0;
+                }
+                else
+                {
+                    newActiveWeaponIndx = activeWeaponIndx + 1;
+                }
             }
-            else
-            {
-                newActiveWeaponIndx = activeWeaponIndx+1;
-            }
-        }else newActiveWeaponIndx = 0;
+            else newActiveWeaponIndx = 0;
+        }
+        else newActiveWeaponIndx = slotNum;
+
         SetActiveWeapon(newActiveWeaponIndx);
     }
 

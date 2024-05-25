@@ -58,10 +58,8 @@ public class ProjectileWeapon : Weapon
         //float agle = prefab.transform.rotation.eulerAngles.z;
         if(GameManager.instance.controlType == ControlType.Android)
         {
-
-            shootDirection = new Vector2(GameManager.instance.moveJoystick.Horizontal, GameManager.instance.moveJoystick.Vertical);
-            return Mathf.Atan2(GameManager.instance.moveJoystick.Vertical, GameManager.instance.moveJoystick.Horizontal) * Mathf.Rad2Deg;
-            
+            shootDirection = GameManager.instance.shootJoystick.Direction.normalized; 
+            return Mathf.Atan2(GameManager.instance.shootJoystick.Vertical, GameManager.instance.shootJoystick.Horizontal) * Mathf.Rad2Deg;           
         }
         else
         {

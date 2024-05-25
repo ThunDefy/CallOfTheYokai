@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: 1596963700, guid: e6d45425773b1154f8b24f39748d2372, type: 3}
   maxRisingLevel: 3
   behaviour: FallingWeapon
+  shootControlType: 1
   yokaiPrefab: {fileID: 4203816605063914695, guid: 5a5c1a8e1c4e2e442a959f26223ca85c, type: 3}
   baseStats:
     name: Tsurube

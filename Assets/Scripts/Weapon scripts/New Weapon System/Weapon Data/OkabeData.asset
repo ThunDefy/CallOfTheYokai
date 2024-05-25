@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: -1819647085, guid: 9e48f1b6ff3d8fe4cba6e648c4f11b7b, type: 3}
   maxRisingLevel: 3
   behaviour: HairHookWeapon
+  shootControlType: 0
   yokaiPrefab: {fileID: 4203816605063914695, guid: 2e29f0e5e397f98419c53b31383f8473, type: 3}
   baseStats:
     name: Daishou

@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: 1777984723, guid: ad915661728eaa34bb5d722a205a3413, type: 3}
   maxRisingLevel: 3
   behaviour: VFXProjectileWeapon
+  shootControlType: 0
   yokaiPrefab: {fileID: 4203816605063914695, guid: 0cfbd89016e1a0d4fb676bfc132a21fd, type: 3}
   baseStats:
     name: Kitsune

@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: -156681416, guid: dddcd2016c88bb846b6993783a987dbf, type: 3}
   maxRisingLevel: 3
   behaviour: IllusionWariorSpawnerWeapon
+  shootControlType: 1
   yokaiPrefab: {fileID: 4203816605063914695, guid: ff63c55673ac566449048b5e3d049b45, type: 3}
   baseStats:
     name: Obusarity

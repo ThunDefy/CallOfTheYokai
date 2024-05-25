@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: 134244406, guid: 6c20de2a724930e47ac9f8e983b1a9c5, type: 3}
   maxRisingLevel: 3
   behaviour: VFXProjectileWeapon
+  shootControlType: 0
   yokaiPrefab: {fileID: 4203816605063914695, guid: 8ab5179dab43dad48b1ccce5a3cf4419, type: 3}
   baseStats:
     name: Bake Zori

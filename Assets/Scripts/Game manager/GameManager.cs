@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance; // Делаем класс синглтон
 
+    public enum ShootControlType { Joystick, Touch }
     public enum ControlType { PC,Android}
     public ControlType controlType;
 
@@ -77,6 +78,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     PlayerStats pd;
+    PlayerInput pi;
 
     private void Awake()
     {
@@ -93,6 +95,7 @@ public class GameManager : MonoBehaviour
 
         DisableScreens();
         pd = player.GetComponent<PlayerStats>();
+        pi = player.GetComponent<PlayerInput>();
         //ActivateSlots();
     }
 
@@ -502,4 +505,13 @@ public class GameManager : MonoBehaviour
             slots[i].SetActive(true);
         }
     }
+
+    public void ChangeShootControlType(ShootControlType type)
+    {
+        if(pi)
+            pi.cType = type;
+    }
+
+    
+
 }
