@@ -59,7 +59,7 @@ public class Agent : MonoBehaviour
     }
     private void Update()
     {
-        InputManagement();
+        
         weaponParent.PointerPosition = pointerInput;
 
         if(knockbackDuration > 0)
@@ -86,6 +86,7 @@ public class Agent : MonoBehaviour
     void FixedUpdate()
     {
         if (isDashing) return;
+        InputManagement();
         Move();
     }
     void InputManagement()
@@ -98,7 +99,7 @@ public class Agent : MonoBehaviour
         {
             if (GameManager.instance.controlType == ControlType.Android && isPlayer)
             {
-                moveDir = new Vector2(Mathf.Round(GameManager.instance.moveJoystick.Horizontal), Mathf.Round(GameManager.instance.moveJoystick.Vertical));
+                moveDir = new Vector2(GameManager.instance.moveJoystick.Horizontal, GameManager.instance.moveJoystick.Vertical);
             }
             else moveDir = movementInput;
         }

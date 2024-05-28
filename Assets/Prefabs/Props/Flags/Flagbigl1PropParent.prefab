@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3333654846702388127
 Transform:
@@ -49,7 +49,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8820581362927421068
 Transform:
@@ -168,7 +168,7 @@ MonoBehaviour:
   - {x: -0.38735652, y: -0.8307412, z: 0}
   m_ShapePathHash: -2078345145
   m_Mesh: {fileID: 0}
-  m_InstanceId: 168852
+  m_InstanceId: 389058
   m_LocalBounds:
     m_Center: {x: 0.0018094778, y: 0.0000022053719, z: 0}
     m_Extent: {x: 0.6087152, y: 0.83367693, z: 0}

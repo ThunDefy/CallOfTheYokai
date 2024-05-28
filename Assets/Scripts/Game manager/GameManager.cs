@@ -102,6 +102,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ActivateSlots();
+        if(controlType == ControlType.PC)
+        {
+            moveJoystick.GameObject().SetActive(false);
+            shootJoystick.GameObject().SetActive(false);
+        }
     }
 
 
