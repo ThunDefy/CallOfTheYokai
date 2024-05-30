@@ -37,29 +37,30 @@ public class PlayerInput : MonoBehaviour
                     OnAttack?.Invoke();
                 }
             }
-            else if (Input.touchCount > 0)
+            else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                for (int i = 0; i < Input.touchCount; i++)
+                //for (int i = 0; i < Input.touchCount; i++)
+                //{
+                List<RaycastResult> results = new List<RaycastResult>();
+                PointerEventData eventData = new PointerEventData(EventSystem.current);
+                eventData.position = Input.GetTouch(0).position;
+
+                EventSystem.current.RaycastAll(eventData, results);
+
+                if (results.Count > 0)
                 {
-                    List<RaycastResult> results = new List<RaycastResult>();
-                    PointerEventData eventData = new PointerEventData(EventSystem.current);
-                    eventData.position = Input.GetTouch(i).position;
-
-                    EventSystem.current.RaycastAll(eventData, results);
-
-                    if (results.Count > 0)
+                    // Получаем информацию о нажатом объекте
+                    GameObject tappedObject = results[0].gameObject;
+                    if (tappedObject.GetComponent<DeadShootTouchZone>())
                     {
-                        // Получаем информацию о нажатом объекте
-                        GameObject tappedObject = results[0].gameObject;
-                        if (tappedObject.GetComponent<DeadShootTouchZone>())
-                        {
-                            Debug.Log("Касание по объекту: " + tappedObject.name);
-                            return;
-                        }
-                    }
-
-                    OnAttack?.Invoke();
+                        Debug.Log("Касание по объекту: " + tappedObject.name);
+                        return;
+                    } 
                 }
+                OnAttack?.Invoke();
+
+
+                //}
             }
 
         }

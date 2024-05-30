@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     public enum ControlType { PC,Android}
     public ControlType controlType;
 
+    public AudioSource bgm;
+
+    public GameObject androidControll;
     public Joystick moveJoystick, shootJoystick;
 
     public UnityEvent<GameObject> OnSceneLoad;
@@ -104,9 +107,11 @@ public class GameManager : MonoBehaviour
         ActivateSlots();
         if(controlType == ControlType.PC)
         {
-            moveJoystick.GameObject().SetActive(false);
-            shootJoystick.GameObject().SetActive(false);
+            androidControll.SetActive(false);
+            //moveJoystick.GameObject().SetActive(false);
+            //shootJoystick.GameObject().SetActive(false);
         }
+        bgm.Play();
     }
 
 

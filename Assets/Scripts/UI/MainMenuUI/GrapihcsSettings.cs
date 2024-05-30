@@ -8,51 +8,23 @@ using UnityEngine.UI;
 
 public class GrapihcsSettings : MonoBehaviour
 {
-    //public AudioMixer audioMixer;
-    //public Dropdown resolutionDropdown;
     public TMP_Dropdown qualityDropdown;
-    //public Slider volumeSlider;
-    //float currentVolume;
-    //Resolution[] resolutions;
+    public Slider musicVolumeSlider, soundVolumeSlider;
+    float currentMusicVolume, currentSoundVolume;
 
     void Start()
     {
-        //resolutionDropdown.ClearOptions();
-        List<string> options = new List<string>();
-        //resolutions = Screen.resolutions;
-        int currentResolutionIndex = 0;
-
-        //for (int i = 0; i < resolutions.Length; i++)
-        //{
-        //    string option = resolutions[i].width + "x" + resolutions[i].height + " " + resolutions[i].refreshRate + "Hz";
-        //    options.Add(option);
-        //    if (resolutions[i].width == Screen.currentResolution.width
-        //          && resolutions[i].height == Screen.currentResolution.height)
-        //        currentResolutionIndex = i;
-        //}
-
-        //resolutionDropdown.AddOptions(options);
-        //resolutionDropdown.RefreshShownValue();
-        LoadSettings(currentResolutionIndex);
+        LoadSettings();
     }
 
-    //public void SetVolume(float volume)
-    //{
-    //    audioMixer.SetFloat("Volume", volume);
-    //    currentVolume = volume;
-    //}
-    public void SetFullscreen(bool isFullscreen)
+    public void SetMusicVolume(float volume)
     {
-        Screen.fullScreen = isFullscreen;
+        currentMusicVolume = volume;
     }
-
-    //public void SetResolution(int resolutionIndex)
-    //{
-    //    Resolution resolution = resolutions[resolutionIndex];
-    //    Screen.SetResolution(resolution.width,
-    //              resolution.height, Screen.fullScreen);
-    //}
-
+    public void SetSoundVolume(float volume)
+    {
+        currentSoundVolume = volume;
+    }
 
     public void SetQuality(int qualityIndex)
     {
@@ -63,35 +35,25 @@ public class GrapihcsSettings : MonoBehaviour
     public void SaveSettings()
     {
         PlayerPrefs.SetInt("QualitySettingPreference",qualityDropdown.value);
-        //PlayerPrefs.SetInt("ResolutionPreference",
-        //           resolutionDropdown.value);
-        //PlayerPrefs.SetInt("FullscreenPreference",
-        //           System.Convert.ToInt32(Screen.fullScreen));
-        //PlayerPrefs.SetFloat("VolumePreference",
-        //           currentVolume);
+        PlayerPrefs.SetFloat("MusicVolumePreference", currentMusicVolume);
+        PlayerPrefs.SetFloat("SoundVolumePreference", currentSoundVolume);
     }
 
-    public void LoadSettings(int currentResolutionIndex)
+    public void LoadSettings()
     {
         if (PlayerPrefs.HasKey("QualitySettingPreference"))
             qualityDropdown.value = PlayerPrefs.GetInt("QualitySettingPreference");
-        //else
-        //    qualityDropdown.value = 3;
-        //if (PlayerPrefs.HasKey("ResolutionPreference"))
-        //    resolutionDropdown.value =
-        //                 PlayerPrefs.GetInt("ResolutionPreference");
-        //else
-        //    resolutionDropdown.value = currentResolutionIndex;
-        //if (PlayerPrefs.HasKey("FullscreenPreference"))
-        //    Screen.fullScreen =
-        //    System.Convert.ToBoolean(PlayerPrefs.GetInt("FullscreenPreference"));
-        //else
-        //    Screen.fullScreen = true;
-        //if (PlayerPrefs.HasKey("VolumePreference"))
-        //    volumeSlider.value =
-        //                PlayerPrefs.GetFloat("VolumePreference");
-        //else
-        //    volumeSlider.value =
-        //                PlayerPrefs.GetFloat("VolumePreference");
+        else
+            qualityDropdown.value = 3;
+
+        if (PlayerPrefs.HasKey("MusicVolumePreference"))
+            musicVolumeSlider.value =PlayerPrefs.GetFloat("MusicVolumePreference");
+        else
+            musicVolumeSlider.value = 1;
+
+        if (PlayerPrefs.HasKey("SoundVolumePreference"))
+            soundVolumeSlider.value = PlayerPrefs.GetFloat("SoundVolumePreference");
+        else
+            soundVolumeSlider.value = 1;
     }
 }

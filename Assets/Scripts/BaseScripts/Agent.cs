@@ -20,6 +20,7 @@ public class Agent : MonoBehaviour
     Vector2 knockbackVelocity;
     float knockbackDuration;
 
+    public Sounds sounds;
     [Header("Dash Settings")]
     public float dashSpeed =10f;
     public float dashDuration = 1f;
@@ -102,6 +103,7 @@ public class Agent : MonoBehaviour
                 moveDir = new Vector2(GameManager.instance.moveJoystick.Horizontal, GameManager.instance.moveJoystick.Vertical);
             }
             else moveDir = movementInput;
+
         }
     }
     protected virtual void Move()
@@ -110,9 +112,16 @@ public class Agent : MonoBehaviour
         {
             return;
         }
-        else rb.velocity = moveDir * DEFUALT_MOVESPEED * moveSpeed;
-    }
-    public void DoDash()
+        else
+        {
+            rb.velocity = moveDir * DEFUALT_MOVESPEED * moveSpeed;
+            if(moveDir != Vector2.zero)
+                if (sounds) sounds.PlaySound(0,volume:SoundsController.instance.currentSoundVolume, destroyed:true,p1:0.8f,p2:2.5f);
+
+        }
+
+        }
+        public void DoDash()
     {
         if (moveIsBlock || GameManager.instance.currentState != GameState.Gameplay)
         {
