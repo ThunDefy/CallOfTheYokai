@@ -20,7 +20,7 @@ public class Agent : MonoBehaviour
     Vector2 knockbackVelocity;
     float knockbackDuration;
 
-    public Sounds sounds;
+    public Sounds sounds => GetComponent<Sounds>();
     [Header("Dash Settings")]
     public float dashSpeed =10f;
     public float dashDuration = 1f;
@@ -115,8 +115,15 @@ public class Agent : MonoBehaviour
         else
         {
             rb.velocity = moveDir * DEFUALT_MOVESPEED * moveSpeed;
-            if(moveDir != Vector2.zero)
-                if (sounds) sounds.PlaySound(0,volume:SoundsController.instance.currentSoundVolume, destroyed:true,p1:0.8f,p2:2.5f);
+            if (moveDir != Vector2.zero)
+            {
+                if (sounds)
+                {
+                    sounds.PlaySound(0, volume: SoundsController.instance.currentSoundVolume-0.1f, p1: 0.85f, p2: 1.2f);
+                }      
+            }
+               
+            
 
         }
 
@@ -180,6 +187,9 @@ public class Agent : MonoBehaviour
         {
             playerWeapon.Attack(playerWeapon.currentStats.number);
         }
+        
+            
+        
     }
 
     public void Knockback(Vector2 velocity, float duration)

@@ -8,6 +8,7 @@ public class TenguProjectileBehaviour : ProjectileWeaponBehaviour
     protected override void Start()
     {
         base.Start();
+        sounds = GetComponent<Sounds>();
 
     }
 

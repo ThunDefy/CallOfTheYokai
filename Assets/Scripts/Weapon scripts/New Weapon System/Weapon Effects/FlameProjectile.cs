@@ -15,11 +15,13 @@ public class FlameProjectile : WeaponEffect
     private Weapon.Stats stats;
     private Vector3 source;
     public Animator animator;
+    Sounds sounds => GetComponent<Sounds>();
 
     protected Rigidbody2D rb;
 
     protected virtual void Start()
     {
+
         animator.SetBool("CoolDown",false);
         source = damageSource == DamageSource.owner && owner ? owner.transform.position : transform.position;
         rb = GetComponent<Rigidbody2D>();
@@ -29,6 +31,10 @@ public class FlameProjectile : WeaponEffect
         float area = weapon.GetArea();
         if (area <= 0) area = 1;
         transform.localScale = new Vector3(area, area, 1);
+
+        if (sounds)
+            if (sounds.sounds.Length > 0)
+                sounds.PlaySound(0, volume: SoundsController.instance.currentSoundVolume);
 
         Invoke("DestroyObjectWithDelay", stats.lifespan);
 

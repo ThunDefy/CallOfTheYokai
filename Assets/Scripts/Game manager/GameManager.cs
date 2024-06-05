@@ -17,8 +17,6 @@ public class GameManager : MonoBehaviour
     public enum ControlType { PC,Android}
     public ControlType controlType;
 
-    public AudioSource bgm;
-
     public GameObject androidControll;
     public Joystick moveJoystick, shootJoystick;
 
@@ -111,7 +109,7 @@ public class GameManager : MonoBehaviour
             //moveJoystick.GameObject().SetActive(false);
             //shootJoystick.GameObject().SetActive(false);
         }
-        bgm.Play();
+
     }
 
 

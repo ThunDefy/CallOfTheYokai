@@ -8,6 +8,8 @@ public class SpiderWepProjectile : Projectile
     [HideInInspector]
     public Vector3 targerPosition;
 
+    Sounds sounds => GetComponent<Sounds>();
+
 
     protected override void Start()
     {
@@ -18,6 +20,10 @@ public class SpiderWepProjectile : Projectile
         float area = weapon.GetArea();
         if (area <= 0) area = 1;
         transform.localScale = new Vector3(area, area, 1);
+
+        if (sounds)
+            if (sounds.sounds.Length > 0)
+                sounds.PlaySound(0, volume: SoundsController.instance.currentSoundVolume);
 
         InvokeRepeating("BiteDamage", 0f, stats.projectileInterval);
         Invoke("DestroyObjectWithDelay", stats.lifespan);

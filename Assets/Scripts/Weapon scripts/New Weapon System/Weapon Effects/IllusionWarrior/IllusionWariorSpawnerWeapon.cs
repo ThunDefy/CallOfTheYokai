@@ -6,6 +6,7 @@ using UnityEngine;
 public class IllusionWariorSpawnerWeapon : Weapon
 {
     private Vector3 targerPosition;
+    Sounds sounds => GetComponent<Sounds>();
     public override bool Attack(int attackCount = 1)
     {
 
@@ -28,6 +29,10 @@ public class IllusionWariorSpawnerWeapon : Weapon
         IllusionWarior warior = wariorPrefab.GetComponent<IllusionWarior>();
         warior.weapon = this;
         warior.owner = owner;
+
+        if (sounds)
+            if (sounds.sounds.Length > 0)
+                sounds.PlaySound(0, volume: SoundsController.instance.currentSoundVolume);
 
         ActivateCoolDown();
 

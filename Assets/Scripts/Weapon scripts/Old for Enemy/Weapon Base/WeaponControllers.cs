@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WeaponControllers : MonoBehaviour
@@ -21,6 +22,8 @@ public class WeaponControllers : MonoBehaviour
 
     public int currentMapLevel = 0;
 
+    private Sounds sounds => GetComponent<Sounds>();
+
     protected virtual void Start()
     {
         currentMapLevel = transform.parent.GetComponent<WeaponParent>().mapLevel;
@@ -31,7 +34,7 @@ public class WeaponControllers : MonoBehaviour
         currentCooldown = currentColldownDuration;
         currentDamage = weaponData.weaponStats[currentMapLevel].damage;
         currentSpeed = weaponData.weaponStats[currentMapLevel].speed;
-        print("spawn with " + currentSpeed);
+        //print("spawn with " + currentSpeed);
 
         attackBlocked = true;
 
@@ -62,6 +65,9 @@ public class WeaponControllers : MonoBehaviour
     {
         if (attackBlocked == false)
         {
+            if (sounds)
+                if (sounds.sounds.Length > 0)
+                    sounds.PlaySound(0, volume: SoundsController.instance.currentSoundVolume);
             Attack();
         }
     }
@@ -70,6 +76,7 @@ public class WeaponControllers : MonoBehaviour
     {
         attackBlocked = true;
         currentCooldown = currentColldownDuration;
+        
     }
 
 }

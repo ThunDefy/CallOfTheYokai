@@ -19,6 +19,8 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
 
     private Vector2 shootDirection;
 
+    protected Sounds sounds;
+
 
     protected virtual void Start()
     {
@@ -61,10 +63,24 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
             {
                 //print("POPAAL");
                 player.TakeDamage(projectileDamage, gameObject, transform.position);
+                if (sounds)
+                {
+                    if (sounds.sounds.Length > 0)
+                    {
+                        sounds.PlaySound(0, volume: SoundsController.instance.currentSoundVolume, destroyed: true);
+                    }
+                        
+                }
+
+                    
+
                 Destroy(gameObject);
             }
             else if (collider.tag == "Obstacle")
             {
+                if (sounds)
+                    if (sounds.sounds.Length > 0)
+                        sounds.PlaySound(0, volume: SoundsController.instance.currentSoundVolume,destroyed:true);
                 Destroy(gameObject);
             }
 

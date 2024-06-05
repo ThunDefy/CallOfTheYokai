@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee50ed5c3f11b3e4bb344ffd2416241b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapLevel: 0
+  isPlayer: 0
 --- !u!1 &3256645509849599061
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,6 +66,8 @@ GameObject:
   - component: {fileID: 6298447236141341691}
   - component: {fileID: 6298447236141341680}
   - component: {fileID: 6298447236141341681}
+  - component: {fileID: -4648063661768214388}
+  - component: {fileID: 5708994964755538114}
   m_Layer: 10
   m_Name: RoninBoss
   m_TagString: Boss
@@ -175,7 +179,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2028b119238afc44b82baf704a7851c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
   moveSpeed: 0.7
+  dashSpeed: 10
+  dashDuration: 1
+  dashCooldown: 1
   moveDir: {x: 0, y: 0}
   OnAnimationEventTriggered:
     m_PersistentCalls:
@@ -349,6 +357,8 @@ MonoBehaviour:
         m_CallState: 2
   movementInput: {x: 0, y: 0}
   movementDirectionSolver: {fileID: 6298447237555004647}
+  randomWalkAfterAttak: 0
+  randomMoveRadius: 0.5
 --- !u!114 &6298447236141341681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,6 +374,118 @@ MonoBehaviour:
   targets: []
   obstacles: []
   currentTarget: {fileID: 0}
+--- !u!82 &-4648063661768214388
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3256645509849599061}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &5708994964755538114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3256645509849599061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3170cf3a73ca8564dae456918986d4fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: bb6f07c7b2aabc241a9704a8624305ff, type: 3}
+  - {fileID: 8300000, guid: 1bc68b94b0beef6478e83ce0bb462fe1, type: 3}
+  randSound: []
 --- !u!1 &4854442700060123009
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +593,7 @@ MonoBehaviour:
   currentSpeed: 0
   currentColldownDuration: 0
   currentPierce: 0
+  currentMapLevel: 0
   animator: {fileID: 1260045888541765537}
 --- !u!95 &1260045888541765537
 Animator:
@@ -845,7 +968,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 2b9f35e9ba23fda45884bde6f83fe894, type: 2}
   radius: 0.5
+  xOffset: 0
+  yOffset: 0
   drawGizmo: 1
+  agentIsCenter: 1
 --- !u!1 &8228938776198375928
 GameObject:
   m_ObjectHideFlags: 0

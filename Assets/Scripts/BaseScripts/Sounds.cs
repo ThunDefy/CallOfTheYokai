@@ -9,8 +9,12 @@ public class Sounds : MonoBehaviour
 
     private AudioSource audioSrc => GetComponent<AudioSource>();
 
-    private bool isPlaying = false;
+    public bool isPlaying = false;
 
+    private void Start()
+    {
+        if(!audioSrc) gameObject.AddComponent<AudioSource>();
+    }
     public void PlaySound(int i, float volume = 1f, bool random = false, bool destroyed = false, float p1 = 0.85f, float p2 = 1.2f)
     {
         if (!isPlaying)  // Check if the audio source is currently playing a sound

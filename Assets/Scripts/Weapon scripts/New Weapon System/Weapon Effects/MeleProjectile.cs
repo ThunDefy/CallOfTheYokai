@@ -8,6 +8,7 @@ public class MeleProjectile : Projectile
     private Transform parentTransform;
     public Vector3 scale;
     Weapon.Stats stats;
+    Sounds sounds => GetComponent<Sounds>();
 
     protected override void Start()
     {
@@ -19,6 +20,13 @@ public class MeleProjectile : Projectile
         {
             transform.localScale = new Vector3(Math.Abs(transform.localScale.x) * scale.x, Math.Abs(transform.localScale.x) * scale.y, scale.z);
         }
+        if (sounds)
+            if (sounds.sounds.Length > 0)
+                sounds.PlaySound(0, volume: SoundsController.instance.currentSoundVolume, destroyed:true);
+            
+                
+
+
     }
     bool alreadyScaled = false;
     protected override void FixedUpdate()
@@ -53,6 +61,12 @@ public class MeleProjectile : Projectile
             {
                 Destroy(Instantiate(stats.hitEffect, transform.position, Quaternion.identity), 5f);
             }
+            if (sounds)
+                if (sounds.sounds.Length > 1)
+                {
+                    sounds.isPlaying = false;
+                    sounds.PlaySound(1, volume: SoundsController.instance.currentSoundVolume);
+                }
         }
         StartCoroutine(WaitAndDestroy(stats.lifespan)); // Запускаем корутину для удаления объекта после выполнения анимации
     }

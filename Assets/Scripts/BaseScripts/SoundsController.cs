@@ -8,6 +8,9 @@ public class SoundsController : MonoBehaviour
 
     public float currentSoundVolume;
     public float currentMusicVolume;
+
+    private AudioSource audioSrc => GetComponent<AudioSource>();
+    private Sounds sounds => GetComponent<Sounds>();
     public void LoadCurrentVolumes()
     {
         if (PlayerPrefs.HasKey("SoundVolumePreference"))
@@ -17,6 +20,8 @@ public class SoundsController : MonoBehaviour
         if(PlayerPrefs.HasKey("MusicVolumePreference"))
             currentMusicVolume = PlayerPrefs.GetFloat("MusicVolumePreference");
         else currentMusicVolume = 1f;
+
+        audioSrc.volume = currentMusicVolume;
     }
 
     private void Awake()
@@ -30,5 +35,6 @@ public class SoundsController : MonoBehaviour
     private void Start()
     {
         LoadCurrentVolumes();
+        sounds.PlaySound(0, volume: SoundsController.instance.currentMusicVolume);
     }
 }

@@ -529,6 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapLevel: 0
+  isPlayer: 0
 --- !u!1 &7307384476569266983
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +549,7 @@ GameObject:
   - component: {fileID: 2247422405235932297}
   - component: {fileID: 2247422405235932290}
   - component: {fileID: 2247422405235932291}
+  - component: {fileID: 6241785919887920445}
   m_Layer: 10
   m_Name: Dude
   m_TagString: Enemy
@@ -659,6 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2028b119238afc44b82baf704a7851c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
   moveSpeed: 1.15
   dashSpeed: 10
   dashDuration: 1
@@ -856,6 +859,21 @@ MonoBehaviour:
   targets: []
   obstacles: []
   currentTarget: {fileID: 0}
+--- !u!114 &6241785919887920445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7307384476569266983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3170cf3a73ca8564dae456918986d4fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: bb6f07c7b2aabc241a9704a8624305ff, type: 3}
+  randSound: []
 --- !u!1001 &1768731813171904409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -863,33 +881,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7307384476338571688}
     m_Modifications:
-    - target: {fileID: -2377024854056180190, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
-      propertyPath: radius
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: -2377024854056180190, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
-      propertyPath: xOffset
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: -2377024854056180190, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
-      propertyPath: drawGizmo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -2377024854056180190, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
-      propertyPath: agentIsCenter
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2842328433519086114, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2842328433519086114, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2842328433519086114, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2842328433519086114, guid: 8ffffb38960cb7d46b886cee64232cd8, type: 3}
       propertyPath: m_LocalPosition.x

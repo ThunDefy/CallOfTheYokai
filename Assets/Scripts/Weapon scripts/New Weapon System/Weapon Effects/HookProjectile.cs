@@ -12,6 +12,8 @@ public class HookProjectile : Projectile
     Vector3 source;
     Agent enemyAgent;
 
+    Sounds sounds => GetComponent<Sounds>();
+
     protected override void Start()
     {
         trail = GetComponent<TrailRenderer>();
@@ -23,6 +25,10 @@ public class HookProjectile : Projectile
         if (area <= 0) area = 1;
         transform.localScale = new Vector3(area * transform.localScale.x,area * transform.localScale.y, 1);
         trail.startWidth *= weapon.GetArea();
+
+        if (sounds)
+            if (sounds.sounds.Length > 0)
+                sounds.PlaySound(0, volume: SoundsController.instance.currentSoundVolume);
 
         if (stats.lifespan > 0) Invoke("DestroyObjectWithDelay", stats.lifespan);
 

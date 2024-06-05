@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static Unity.VisualScripting.Member;
 
@@ -11,6 +12,7 @@ public class FallingProjectile : Projectile
 
     ParticleSystem zone;
     float area;
+    Sounds sounds => GetComponent<Sounds>();
 
     protected override void Start()
     {
@@ -26,6 +28,9 @@ public class FallingProjectile : Projectile
 
     private void CallFalling()
     {
+        if (sounds)
+            if (sounds.sounds.Length > 0)
+                sounds.PlaySound(0, volume: SoundsController.instance.currentSoundVolume, destroyed: true);
         FallDamageArea();
         InvokeRepeating("BiteDamageArea", 0f, stats.projectileInterval);
         Invoke("DestroyObjectWithDelay", stats.lifespan);

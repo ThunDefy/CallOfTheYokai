@@ -15,6 +15,7 @@ public class Projectile : WeaponEffect
     protected int piercing;
 
     Weapon.Stats wStats;
+    Sounds sounds => GetComponent<Sounds>();
 
     protected virtual void Start()
     {
@@ -40,7 +41,11 @@ public class Projectile : WeaponEffect
         piercing = wStats.pircing;
         if (wStats.lifespan > 0) Destroy(gameObject, wStats.lifespan);
         if (hasAutoAim) AcquireAutoAimFacing();
-        
+
+        if (sounds)
+            if (sounds.sounds.Length > 0)
+                sounds.PlaySound(0, volume: SoundsController.instance.currentSoundVolume, destroyed: true);
+
     }
 
     public virtual void AcquireAutoAimFacing()

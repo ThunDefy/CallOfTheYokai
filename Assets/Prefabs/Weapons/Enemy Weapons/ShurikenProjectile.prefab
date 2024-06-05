@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 80554506732437175}
   - component: {fileID: 6230206923088458204}
   - component: {fileID: -3833905793635490901}
+  - component: {fileID: -3278722118655243153}
   m_Layer: 11
   m_Name: ShurikenProjectile
   m_TagString: Untagged
@@ -130,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e5da13b8f7e2b5419ce255601bb22cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponData: {fileID: 0}
   circleOrigin: {fileID: 8557551021680904662}
   radius: 0.14
   projectileDamage: 0
@@ -157,3 +159,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-3278722118655243153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6642081747638214494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3170cf3a73ca8564dae456918986d4fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: e5b09a6aec3ea524b8a4c464a01f3970, type: 3}
+  randSound: []

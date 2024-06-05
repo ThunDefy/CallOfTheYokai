@@ -71,7 +71,7 @@ public class PropPlacementManager : MonoBehaviour
             //Возле верхней стены
             List<Prop> topWallProps = currentLevelData.propsToPlace.Where(x => x.NearWallUP).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();
             if (topWallProps.Count != 0) PlaceProps(room, topWallProps, room.NearWallTilesUp, PlacementOriginCorner.TopLeft);
-            print("topWallProps.Count = " + topWallProps.Count);
+            //print("topWallProps.Count = " + topWallProps.Count);
 
             //Возле нижней стены
             List<Prop> downWallProps = currentLevelData.propsToPlace.Where(x => x.NearWallDown).OrderByDescending(x => x.PropSize.x * x.PropSize.y).ToList();

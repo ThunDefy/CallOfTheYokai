@@ -8,6 +8,8 @@ public class LightningWeapon : ProjectileWeapon
 {
     private Vector3 targerPosition;
     public ParticleSystem zoneVfx;
+
+    Sounds sounds => GetComponent<Sounds>();
     public override bool Attack(int attackCount = 1)
     {
 
@@ -39,6 +41,14 @@ public class LightningWeapon : ProjectileWeapon
 
         DamageArea(targerPosition, area, GetDamage());
         Instantiate(currentStats.hitEffect, targerPosition, Quaternion.identity);
+
+        if (sounds)
+            if (sounds.sounds.Length > 0)
+            {
+                sounds.PlaySound(0, volume: SoundsController.instance.currentSoundVolume,p1:1f, p2:2f);
+                sounds.isPlaying = false;
+            }
+                
 
         ActivateCoolDown(true);
 

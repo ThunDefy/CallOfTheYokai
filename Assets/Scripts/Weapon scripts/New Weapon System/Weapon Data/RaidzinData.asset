@@ -17,7 +17,7 @@ MonoBehaviour:
   maxRisingLevel: 3
   behaviour: LightningWeapon
   shootControlType: 1
-  yokaiPrefab: {fileID: 4203816605063914695, guid: 7741d93e57837614689397712f8f7074, type: 3}
+  yokaiPrefab: {fileID: 4203816605063914695, guid: e039b87bbef11ae4a879a7bbc561043c, type: 3}
   baseStats:
     name: Raidzin
     description: Strikes with lightning

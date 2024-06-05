@@ -529,6 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapLevel: 0
+  isPlayer: 0
 --- !u!1 &7307384476569266983
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +549,7 @@ GameObject:
   - component: {fileID: 2247422405235932297}
   - component: {fileID: 2247422405235932290}
   - component: {fileID: 2247422405235932291}
+  - component: {fileID: 1098346621333783829}
   m_Layer: 10
   m_Name: Samurai1
   m_TagString: Enemy
@@ -659,6 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2028b119238afc44b82baf704a7851c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
   moveSpeed: 0.8
   dashSpeed: 10
   dashDuration: 1
@@ -856,6 +859,21 @@ MonoBehaviour:
   targets: []
   obstacles: []
   currentTarget: {fileID: 0}
+--- !u!114 &1098346621333783829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7307384476569266983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3170cf3a73ca8564dae456918986d4fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: bb6f07c7b2aabc241a9704a8624305ff, type: 3}
+  randSound: []
 --- !u!1001 &2995417170530961374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -866,14 +884,6 @@ PrefabInstance:
     - target: {fileID: 2842328433519086114, guid: e5d9996c364b95d45b2ad46b2eeb877c, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2842328433519086114, guid: e5d9996c364b95d45b2ad46b2eeb877c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 2842328433519086114, guid: e5d9996c364b95d45b2ad46b2eeb877c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 2842328433519086114, guid: e5d9996c364b95d45b2ad46b2eeb877c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -914,10 +924,6 @@ PrefabInstance:
     - target: {fileID: 2842328433519086114, guid: e5d9996c364b95d45b2ad46b2eeb877c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 5.023
-      objectReference: {fileID: 0}
-    - target: {fileID: 6351162372304651575, guid: e5d9996c364b95d45b2ad46b2eeb877c, type: 3}
-      propertyPath: radius
-      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 6871592463286859803, guid: e5d9996c364b95d45b2ad46b2eeb877c, type: 3}
       propertyPath: m_Name
