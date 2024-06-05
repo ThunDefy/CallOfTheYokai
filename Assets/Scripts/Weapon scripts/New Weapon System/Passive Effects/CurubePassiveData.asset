@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 0779ad3feec52124e97114bcbb12ef13, type: 3}
   maxRisingLevel: 0
   baseStats:
-    name: Curube PassiveEffect
+    name: Tsurube PassiveEffect
     description: +20% growth
     boosts:
       maxHealth: 0
@@ -26,17 +26,18 @@ MonoBehaviour:
       power: 0
       area: 0
       speed: 0
-      duration: 0
-      amount: 0
       cooldown: 0
       luck: 0
       growth: 0.2
-      greed: 0
-      curse: 0
       magnet: 0
       revival: 0
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 
   growth:
-  - name: More growth
+  - name: It's so delicious
     description: +5% growth
     boosts:
       maxHealth: 0
@@ -46,16 +47,17 @@ MonoBehaviour:
       power: 0
       area: 0
       speed: 0
-      duration: 0
-      amount: 0
       cooldown: 0
       luck: 0
       growth: 0.05
-      greed: 0
-      curse: 0
       magnet: 0
       revival: 0
-  - name: More  recovery
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 
+  - name: I'll share it with you
     description: +0.3 recovery
     boosts:
       maxHealth: 0
@@ -65,12 +67,13 @@ MonoBehaviour:
       power: 0
       area: 0
       speed: 0
-      duration: 0
-      amount: 0
       cooldown: 0
       luck: 0
       growth: 0
-      greed: 0
-      curse: 0
       magnet: 0
       revival: 0
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 

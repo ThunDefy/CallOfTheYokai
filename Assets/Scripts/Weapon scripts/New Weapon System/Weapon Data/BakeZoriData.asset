@@ -42,7 +42,7 @@ MonoBehaviour:
     pircing: -1
   risingGrowth:
   - name: Bake Zori Rising 1
-    description: 
+    description: 'Kiri-geta  '
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 5072304832357939961, guid: 69c14f3a0c740b844a0d67f76503b601, type: 3}
     hitEffect: {fileID: 0}
@@ -63,7 +63,7 @@ MonoBehaviour:
     number: 0
     pircing: 0
   - name: Bake Zori Rising 2
-    description: 
+    description: Nomeri-geta
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 5072304832357939961, guid: 69c14f3a0c740b844a0d67f76503b601, type: 3}
     hitEffect: {fileID: 0}
@@ -84,7 +84,7 @@ MonoBehaviour:
     number: 0
     pircing: 0
   - name: Bake Zori Rising 3
-    description: 
+    description: Yukon-gate
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 5072304832357939961, guid: 69c14f3a0c740b844a0d67f76503b601, type: 3}
     hitEffect: {fileID: 0}
@@ -105,7 +105,7 @@ MonoBehaviour:
     number: 0
     pircing: 0
   randomGrowth:
-  - name: More dmage
+  - name: Reinforcement of the sole
     description: +2 damage
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 5072304832357939961, guid: 69c14f3a0c740b844a0d67f76503b601, type: 3}
@@ -126,7 +126,7 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-  - name: More dmg variance
+  - name: Tweak the balance
     description: +3 dmg variance
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 5072304832357939961, guid: 69c14f3a0c740b844a0d67f76503b601, type: 3}
@@ -147,7 +147,7 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-  - name: More area
+  - name: Matching shoe size
     description: +0.1 area
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 5072304832357939961, guid: 69c14f3a0c740b844a0d67f76503b601, type: 3}
@@ -168,7 +168,7 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-  - name: More knockback
+  - name: Raise the spanking sound
     description: +2  knockback
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 5072304832357939961, guid: 69c14f3a0c740b844a0d67f76503b601, type: 3}

@@ -37,7 +37,7 @@ MonoBehaviour:
       startingYokaiID: 0
       availableStartingWeaponsID: 
   growth:
-  - name: More Power
+  - name: The flame in you
     description: + 5% power
     boosts:
       maxHealth: 0
@@ -57,7 +57,7 @@ MonoBehaviour:
       availableSlots: 0
       startingYokaiID: 0
       availableStartingWeaponsID: 
-  - name: More move speed
+  - name: Don't get burned
     description: + 3% move speed
     boosts:
       maxHealth: 0

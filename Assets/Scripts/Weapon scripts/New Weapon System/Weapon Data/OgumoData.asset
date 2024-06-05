@@ -42,7 +42,7 @@ MonoBehaviour:
     pircing: -1
   risingGrowth:
   - name: Ogumo Rising 1
-    description: 
+    description: Joro-gumo
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 48515879811063116, guid: 9b972e1681b13e74da7ba06e1003d298, type: 3}
     hitEffect: {fileID: 0}
@@ -63,7 +63,7 @@ MonoBehaviour:
     number: 0
     pircing: 0
   - name: Ogumo Rising 2
-    description: 
+    description: Neoscona punctigera
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 48515879811063116, guid: 9b972e1681b13e74da7ba06e1003d298, type: 3}
     hitEffect: {fileID: 0}
@@ -84,7 +84,7 @@ MonoBehaviour:
     number: 0
     pircing: 0
   - name: Ogumo Rising 3
-    description: 
+    description: Heteropoda venatoria
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 48515879811063116, guid: 9b972e1681b13e74da7ba06e1003d298, type: 3}
     hitEffect: {fileID: 0}
@@ -105,7 +105,7 @@ MonoBehaviour:
     number: 0
     pircing: 0
   randomGrowth:
-  - name: More lifespan
+  - name: They're in no hurry to leave
     description: + 0.15 lifespan
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 48515879811063116, guid: 9b972e1681b13e74da7ba06e1003d298, type: 3}
@@ -126,7 +126,7 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-  - name: More dmg varince
+  - name: Some of them are definitely poisonous
     description: + 0.25 dmg varince
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 48515879811063116, guid: 9b972e1681b13e74da7ba06e1003d298, type: 3}
@@ -147,7 +147,7 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-  - name: More area
+  - name: More webs, more victims
     description: + 0.25 area
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 48515879811063116, guid: 9b972e1681b13e74da7ba06e1003d298, type: 3}
@@ -168,7 +168,7 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-  - name: Less cooldown
+  - name: There's no holding them back
     description: '- 0.2 cooldown'
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 48515879811063116, guid: 9b972e1681b13e74da7ba06e1003d298, type: 3}

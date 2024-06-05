@@ -41,8 +41,8 @@ MonoBehaviour:
     number: -1
     pircing: -1
   risingGrowth:
-  - name: Curube Rising 1
-    description: 
+  - name: Tsurube Rising 1
+    description: Waiting for travelers in the wood
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 3143209441583962758, guid: 81f2426d6333989418ad9564437ff62d, type: 3}
     hitEffect: {fileID: 1843603232878509420, guid: f7fedeb30df6e6d41baa599787972bce, type: 3}
@@ -62,8 +62,8 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-  - name: Curube Rising 1
-    description: 
+  - name: Tsurube Rising 2
+    description: Waiting for travelers on the rooftops
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 3143209441583962758, guid: 81f2426d6333989418ad9564437ff62d, type: 3}
     hitEffect: {fileID: 1843603232878509420, guid: f7fedeb30df6e6d41baa599787972bce, type: 3}
@@ -83,8 +83,8 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-  - name: Curube Rising 1
-    description: 
+  - name: Tsurube Rising 3
+    description: It's raining heads
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 3143209441583962758, guid: 81f2426d6333989418ad9564437ff62d, type: 3}
     hitEffect: {fileID: 1843603232878509420, guid: f7fedeb30df6e6d41baa599787972bce, type: 3}
@@ -105,7 +105,7 @@ MonoBehaviour:
     number: 0
     pircing: 0
   randomGrowth:
-  - name: More  Lifespan
+  - name: Stay a little longer
     description: +0.05 lifespan
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 3143209441583962758, guid: 81f2426d6333989418ad9564437ff62d, type: 3}
@@ -126,7 +126,7 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-  - name: More  Damage
+  - name: Sharpened his teeth
     description: + 0.05 damage
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 3143209441583962758, guid: 81f2426d6333989418ad9564437ff62d, type: 3}
@@ -147,7 +147,7 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-  - name: More  Area
+  - name: Big head, big bite
     description: + 0.05 area
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 3143209441583962758, guid: 81f2426d6333989418ad9564437ff62d, type: 3}
@@ -168,7 +168,7 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-  - name: Less cooldown
+  - name: Can't stay in the tree
     description: '- 0.05 cooldown'
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 3143209441583962758, guid: 81f2426d6333989418ad9564437ff62d, type: 3}

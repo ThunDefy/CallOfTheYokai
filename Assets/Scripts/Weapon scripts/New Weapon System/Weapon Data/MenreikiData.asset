@@ -42,7 +42,7 @@ MonoBehaviour:
     pircing: 0
   risingGrowth:
   - name: Menreiki Rising 1
-    description: 
+    description: Masks of historical figures
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 7924484217912911803, guid: 661e8a17dc9f60a4095639227f3d04e5, type: 3}
     hitEffect: {fileID: 1321733344444259620, guid: 44912a86f86c5d0428804d90f2f33eed, type: 3}
@@ -63,7 +63,7 @@ MonoBehaviour:
     number: 1
     pircing: 1
   - name: Menreiki Rising 2
-    description: 
+    description: Demon masks
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 7924484217912911803, guid: 661e8a17dc9f60a4095639227f3d04e5, type: 3}
     hitEffect: {fileID: 1321733344444259620, guid: 44912a86f86c5d0428804d90f2f33eed, type: 3}
@@ -84,7 +84,7 @@ MonoBehaviour:
     number: 2
     pircing: 0
   - name: Menreiki Rising 3
-    description: 
+    description: Masks of the gods
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 7924484217912911803, guid: 661e8a17dc9f60a4095639227f3d04e5, type: 3}
     hitEffect: {fileID: 1321733344444259620, guid: 44912a86f86c5d0428804d90f2f33eed, type: 3}
@@ -105,7 +105,7 @@ MonoBehaviour:
     number: 0
     pircing: 2
   randomGrowth:
-  - name: +0.5 damage
+  - name: Let's add teeth to our masks
     description: +0.5 damage
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 7924484217912911803, guid: 661e8a17dc9f60a4095639227f3d04e5, type: 3}
@@ -126,7 +126,7 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-  - name: dmg variance
+  - name: More emotion to the masks
     description: +1 dmg variance
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 7924484217912911803, guid: 661e8a17dc9f60a4095639227f3d04e5, type: 3}
@@ -147,7 +147,7 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-  - name: speed
+  - name: Changing the shapes of the masks
     description: +0.5 speed
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 7924484217912911803, guid: 661e8a17dc9f60a4095639227f3d04e5, type: 3}
@@ -168,7 +168,7 @@ MonoBehaviour:
     knockback: 0
     number: 0
     pircing: 0
-  - name: ' knockback'
+  - name: Weighted masks
     description: +1 knockback
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 7924484217912911803, guid: 661e8a17dc9f60a4095639227f3d04e5, type: 3}

@@ -37,7 +37,7 @@ MonoBehaviour:
       startingYokaiID: 0
       availableStartingWeaponsID: 
   growth:
-  - name: Area
+  - name: It looks bigger in their heads
     description: + 5% area
     boosts:
       maxHealth: 0
@@ -57,7 +57,7 @@ MonoBehaviour:
       availableSlots: 0
       startingYokaiID: 0
       availableStartingWeaponsID: 
-  - name: Armor
+  - name: Materialize your armor
     description: + 0.15 armor
     boosts:
       maxHealth: 0

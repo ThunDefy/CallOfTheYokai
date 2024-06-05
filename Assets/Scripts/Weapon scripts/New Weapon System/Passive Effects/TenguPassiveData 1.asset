@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: 924816026, guid: 2e7f3da684debd74f87677964da8e344, type: 3}
   maxRisingLevel: 0
   baseStats:
-    name: Tengu Passive
+    name: Fujin Passive
     description: + 20%  projectile speed
     boosts:
       maxHealth: 0
@@ -26,15 +26,16 @@ MonoBehaviour:
       power: 0
       area: 0
       speed: 0.2
-      duration: 0
-      amount: 0
       cooldown: 0
       luck: 0
       growth: 0
-      greed: 0
-      curse: 0
       magnet: 0
       revival: 0
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 
   growth:
   - name: Acceleration by wind flow
     description: +5% projectile speed
@@ -46,15 +47,16 @@ MonoBehaviour:
       power: 0
       area: 0
       speed: 0.05
-      duration: 0
-      amount: 0
       cooldown: 0
       luck: 0
       growth: 0
-      greed: 0
-      curse: 0
       magnet: 0
       revival: 0
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 
   - name: Getting bigger and bigger
     description: +3% area
     boosts:
@@ -65,12 +67,13 @@ MonoBehaviour:
       power: 0
       area: 0.03
       speed: 0
-      duration: 0
-      amount: 0
       cooldown: 0
       luck: 0
       growth: 0
-      greed: 0
-      curse: 0
       magnet: 0
       revival: 0
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 

@@ -41,7 +41,7 @@ MonoBehaviour:
     number: -1
     pircing: 4
   risingGrowth:
-  - name: Tengu Rising 1
+  - name: Fujin Rising 1
     description: Whole gale
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 4742822842378266817, guid: b20e122d2087e2c439138431bdc02162, type: 3}
@@ -62,7 +62,7 @@ MonoBehaviour:
     knockback: 2
     number: 0
     pircing: 1
-  - name: Tengu Rising 2
+  - name: Fujin Rising 2
     description: Storm
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 4742822842378266817, guid: b20e122d2087e2c439138431bdc02162, type: 3}
@@ -83,7 +83,7 @@ MonoBehaviour:
     knockback: 2
     number: 0
     pircing: 1
-  - name: Tengu Rising 3
+  - name: Fujin Rising 3
     description: Hurricane
     prefab: {fileID: 0}
     projectilePrefab: {fileID: 4742822842378266817, guid: b20e122d2087e2c439138431bdc02162, type: 3}

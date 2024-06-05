@@ -26,17 +26,18 @@ MonoBehaviour:
       power: 0
       area: 0
       speed: 0
-      duration: 0
-      amount: 0
       cooldown: 0
       luck: 0
       growth: 0
-      greed: 0
-      curse: 0
       magnet: 0
       revival: 0
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 
   growth:
-  - name: More health
+  - name: Therapeutic saliva
     description: +15 max health
     boosts:
       maxHealth: 15
@@ -46,16 +47,17 @@ MonoBehaviour:
       power: 0
       area: 0
       speed: 0
-      duration: 0
-      amount: 0
       cooldown: 0
       luck: 0
       growth: 0
-      greed: 0
-      curse: 0
       magnet: 0
       revival: 0
-  - name: More growth
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 
+  - name: The cobwebs around the weapon
     description: +3% growth
     boosts:
       maxHealth: 0
@@ -65,12 +67,13 @@ MonoBehaviour:
       power: 0
       area: 0
       speed: 0
-      duration: 0
-      amount: 0
       cooldown: 0
       luck: 0
       growth: 0.03
-      greed: 0
-      curse: 0
       magnet: 0
       revival: 0
+      commonSouls: 0
+      specialSouls: 0
+      availableSlots: 0
+      startingYokaiID: 0
+      availableStartingWeaponsID: 

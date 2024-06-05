@@ -37,7 +37,7 @@ MonoBehaviour:
       startingYokaiID: 0
       availableStartingWeaponsID: 
   growth:
-  - name: More moove speed
+  - name: Comfortable for jogging
     description: +5% moove speed
     boosts:
       maxHealth: 0
@@ -57,7 +57,7 @@ MonoBehaviour:
       availableSlots: 0
       startingYokaiID: 0
       availableStartingWeaponsID: 
-  - name: Less cooldown
+  - name: Move nimbly and swiftly
     description: -3% cooldown
     boosts:
       maxHealth: 0
