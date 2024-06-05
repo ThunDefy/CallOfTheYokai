@@ -45,7 +45,7 @@ public class LightningWeapon : ProjectileWeapon
         if (sounds)
             if (sounds.sounds.Length > 0)
             {
-                sounds.PlaySound(0, volume: SoundsController.instance.currentSoundVolume,p1:1f, p2:2f);
+                sounds.PlaySound(0, destroyed:true,volume: SoundsController.instance.currentSoundVolume,p1:1f, p2:2f);
                 sounds.isPlaying = false;
             }
                 

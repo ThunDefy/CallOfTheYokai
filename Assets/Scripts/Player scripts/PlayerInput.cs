@@ -13,13 +13,13 @@ public class PlayerInput : MonoBehaviour
     public List<DeadShootTouchZone> deadTouchZone;
     public UnityEvent<Vector2> OnMovementInput, onPointerInput, onTouchInput;
     public UnityEvent OnAttack;
-    public UnityEvent OnWeaponSwap;
+    public UnityEvent OnWeaponSwap, OnWeaponSwap0, OnWeaponSwap1, OnWeaponSwap2, OnWeaponSwap3;
     public UnityEvent OnDash;
 
 
 
     [SerializeField]
-    private InputActionReference movement, Attack, pointerPosition, swapActiveWeapon, dash;
+    private InputActionReference movement, Attack, pointerPosition, dash, swapActiveWeapon,swapTo0, swapTo1, swapTo2, swapTo3;
 
     public ShootControlType cType;
 
@@ -75,9 +75,6 @@ public class PlayerInput : MonoBehaviour
     {
         if (GameManager.instance.controlType == ControlType.Android)
         {
-            //Vector3 stick = new Vector3();
-            //stick.z = Mathf.Atan2(GameManager.instance.shootJoystick.Vertical, GameManager.instance.shootJoystick.Horizontal) * Mathf.Rad2Deg;
-            //return Camera.main.ScreenToWorldPoint(stick);
             return Vector2.zero;
         }
         else
@@ -111,6 +108,10 @@ public class PlayerInput : MonoBehaviour
     {
         Attack.action.performed += PerformAttack;
         swapActiveWeapon.action.performed += PerformSwap;
+        swapTo0.action.performed += PerformSwapTo0;
+        swapTo1.action.performed += PerformSwapTo1;
+        swapTo2.action.performed += PerformSwapTo2;
+        swapTo3.action.performed += PerformSwapTo3;
         dash.action.performed += PerformDash;
     }
 
@@ -118,6 +119,10 @@ public class PlayerInput : MonoBehaviour
     {
         Attack.action.performed -= PerformAttack;
         swapActiveWeapon.action.performed -= PerformSwap;
+        swapTo0.action.performed -= PerformSwapTo0;
+        swapTo1.action.performed -= PerformSwapTo1;
+        swapTo2.action.performed -= PerformSwapTo2;
+        swapTo3.action.performed -= PerformSwapTo3;
         dash.action.performed -= PerformDash;
     }
 
@@ -130,6 +135,11 @@ public class PlayerInput : MonoBehaviour
     {
         OnWeaponSwap?.Invoke();
     }
+
+    private void PerformSwapTo0(InputAction.CallbackContext obj){ OnWeaponSwap0?.Invoke();}
+    private void PerformSwapTo1(InputAction.CallbackContext obj) { OnWeaponSwap1?.Invoke(); }
+    private void PerformSwapTo2(InputAction.CallbackContext obj) { OnWeaponSwap2?.Invoke(); }
+    private void PerformSwapTo3(InputAction.CallbackContext obj) { OnWeaponSwap3?.Invoke(); }
 
     private void PerformDash(InputAction.CallbackContext obj)
     {

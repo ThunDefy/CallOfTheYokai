@@ -30,8 +30,8 @@ MonoBehaviour:
     growth: 1
     magnet: 1
     revival: 0
-    commonSouls: 9000
-    specialSouls: 9000
+    commonSouls: 0
+    specialSouls: 0
     availableSlots: 2
     startingYokaiID: 0
     availableStartingWeaponsID: 

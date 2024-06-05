@@ -552,7 +552,7 @@ GameObject:
   - component: {fileID: 1246543763086774176}
   m_Layer: 10
   m_Name: Samurai1Boss
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -874,6 +874,7 @@ MonoBehaviour:
   sounds:
   - {fileID: 8300000, guid: bb6f07c7b2aabc241a9704a8624305ff, type: 3}
   randSound: []
+  isPlaying: 0
 --- !u!1001 &2995417170530961374
 PrefabInstance:
   m_ObjectHideFlags: 0
