@@ -82,7 +82,6 @@ public class AgentPlacer : MonoBehaviour
             }
         }
         //Цикл для каждой комнаты
-        print(dungeonData.Rooms.Count);
         for (int i = 0; i < dungeonData.Rooms.Count; i++)
         {
 
@@ -193,12 +192,8 @@ public class AgentPlacer : MonoBehaviour
             enemy.GetComponent<Health>().SetMaxHealth(currentLevelData.bossEnemy.healthStats[mapManager.CurrentLevelIndex]);
             enemy.transform.localPosition = (Vector2)room.PositionsAccessibleFromPath[0] + Vector2.one * 0.5f;
             room.EnemiesInTheRoom.Add(enemy);
-        }
-        
-        
-        
+        }    
     }
-
     // Визуальное отображение доступных для спавна плиток
     private void OnDrawGizmosSelected()
     {

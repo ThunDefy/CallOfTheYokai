@@ -22,7 +22,7 @@ public class MeleWeaponController : WeaponControllers
     protected override void Attack()
     {
         base.Attack();
-        print("Katana WHEEU");
+        //print("Katana WHEEU");
         animator.SetTrigger("Attack");
         hitRadius.DetectColliders(currentDamage, weaponData.target);
         

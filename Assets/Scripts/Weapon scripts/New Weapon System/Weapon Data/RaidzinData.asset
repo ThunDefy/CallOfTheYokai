@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RaidzinData
   m_EditorClassIdentifier: 
   yokaiID: 3
-  icon: {fileID: -1607263603, guid: 2e7f3da684debd74f87677964da8e344, type: 3}
+  icon: {fileID: -310244121, guid: d10ce62a86680404b91e6f2a10904158, type: 3}
   maxRisingLevel: 3
   behaviour: LightningWeapon
   shootControlType: 1

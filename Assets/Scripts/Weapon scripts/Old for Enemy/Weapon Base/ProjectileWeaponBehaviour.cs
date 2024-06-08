@@ -57,7 +57,7 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
 
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, radius))
         {
-            Debug.Log(collider.name);
+            //Debug.Log(collider.name);
             PlayerStats player;
             if (collider.tag == "Player" && (player = collider.GetComponent<PlayerStats>()))
             {

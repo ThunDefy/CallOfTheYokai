@@ -46,10 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
   m_LightType: 3
-  m_BlendStyleIndex: 1
-  m_FalloffIntensity: 0.787
-  m_Color: {r: 0.08962262, g: 0.19068953, b: 1, a: 1}
-  m_Intensity: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.799
+  m_Color: {r: 1, g: 0.09019607, b: 0.16144413, a: 0.7019608}
+  m_Intensity: 0.7
   m_LightVolumeIntensity: 0.5
   m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 00000000bf7d843d879698cc5f6a0c76033153c9a7d3d4663d12a8bb
@@ -716,7 +716,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.68888444, b: 0.9528302, a: 1}
+      maxColor: {r: 1, g: 0.074074075, b: 0, a: 0.7882353}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5495,8 +5495,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -422075276, guid: c897fb3ff00c2ff4db8b86c52427e212, type: 3}
-  m_Color: {r: 0.6933962, g: 0.8924049, b: 1, a: 0.46666667}
+  m_Sprite: {fileID: 372088148, guid: 9f80ce0997a184542b0e1858f653378b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5555,7 +5555,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2028b119238afc44b82baf704a7851c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
   moveSpeed: 0.9
+  dashSpeed: 10
+  dashDuration: 1
+  dashCooldown: 1
   moveDir: {x: 0, y: 0}
   OnAnimationEventTriggered:
     m_PersistentCalls:
@@ -5573,7 +5577,7 @@ Animator:
   m_GameObject: {fileID: 7553775948631733786}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 13e3b62e27df51b43a4f2b5859579801, type: 2}
+  m_Controller: {fileID: 9100000, guid: 33e3f547269530c44b7bf4c6c30dc142, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5785,6 +5789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapLevel: 0
+  isPlayer: 0
 --- !u!1001 &2498169003794523560
 PrefabInstance:
   m_ObjectHideFlags: 0

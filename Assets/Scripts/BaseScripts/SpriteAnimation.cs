@@ -57,7 +57,6 @@ public class SpriteAnimation : MonoBehaviour
     {
         if (haveEndSprites)
         {
-            print("EndingAnimation");
             currentSprites = endSprites;
             currentSpriteIndex = 0;
             loop = false;

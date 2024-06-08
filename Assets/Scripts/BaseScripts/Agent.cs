@@ -122,13 +122,10 @@ public class Agent : MonoBehaviour
                     sounds.PlaySound(0, volume: SoundsController.instance.currentSoundVolume-0.1f, p1: 0.85f, p2: 1.2f);
                 }      
             }
-               
-            
-
         }
 
-        }
-        public void DoDash()
+    }
+    public void DoDash()
     {
         if (moveIsBlock || GameManager.instance.currentState != GameState.Gameplay)
         {
@@ -186,10 +183,7 @@ public class Agent : MonoBehaviour
         else
         {
             playerWeapon.Attack(playerWeapon.currentStats.number);
-        }
-        
-            
-        
+        }    
     }
 
     public void Knockback(Vector2 velocity, float duration)

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TenguData
   m_EditorClassIdentifier: 
   yokaiID: 2
-  icon: {fileID: -1037926960, guid: 2e7f3da684debd74f87677964da8e344, type: 3}
+  icon: {fileID: -861432348, guid: 65b4ba355ef66e342b243edf292420ca, type: 3}
   maxRisingLevel: 3
   behaviour: VFXProjectileWeapon
   shootControlType: 0

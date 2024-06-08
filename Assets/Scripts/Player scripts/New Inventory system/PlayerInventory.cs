@@ -42,7 +42,7 @@ public class PlayerInventory : MonoBehaviour
             {
                 Passive p = yokai as Passive;
             }
-            Debug.Log(string.Format("Assigned {0} to player.", yokai.name));
+            //Debug.Log(string.Format("Assigned {0} to player.", yokai.name));
         }
 
         public void Clear()

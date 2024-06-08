@@ -31,7 +31,7 @@ public class TargetIndicator : MonoBehaviour
                 {
                     targetObjects.Remove(currentTarget.transform); 
                     FindClosestTarget(); // находим следующую ближайшую цель
-                    print("Цель достигнута");
+                    //print("Цель достигнута");
                 }
                 else
                 {
@@ -65,7 +65,6 @@ public class TargetIndicator : MonoBehaviour
 
         foreach (GameObject obj in allObjects)
         {
-            print(obj.name);
             targetObjects.Add(obj.transform); // добавляем объект в список целей
         }
     }

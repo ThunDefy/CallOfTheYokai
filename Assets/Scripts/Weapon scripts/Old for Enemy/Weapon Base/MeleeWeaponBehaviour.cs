@@ -53,7 +53,7 @@ public class MeleeWeaponBehaviour : MonoBehaviour
 
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(center, radius))
         {
-            print(collider.tag + " ? "+ target);
+            //print(collider.tag + " ? "+ target);
             if (collider.tag == target)
             {
 

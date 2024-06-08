@@ -23,7 +23,7 @@ public class SpiderWepProjectile : Projectile
 
         if (sounds)
             if (sounds.sounds.Length > 0)
-                sounds.PlaySound(0, volume: SoundsController.instance.currentSoundVolume);
+                sounds.PlaySound(0, volume: SoundsController.instance.currentSoundVolume-0.15f);
 
         InvokeRepeating("BiteDamage", 0f, stats.projectileInterval);
         Invoke("DestroyObjectWithDelay", stats.lifespan);

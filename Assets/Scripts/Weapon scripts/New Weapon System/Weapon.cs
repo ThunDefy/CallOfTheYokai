@@ -60,7 +60,6 @@ public class Weapon : Yokai
     PlayerInventory inventory;
     public virtual void Initialise(PlayerWeaponData data)
     {
-        print(name + " Initialised");
         base.Initialise(data);
         this.data = data;
         GameManager.instance.ChangeShootControlType(data.shootControlType);
@@ -68,8 +67,6 @@ public class Weapon : Yokai
         //player = GetComponentInParent<Agent>();
         inventory = GetComponentInParent<PlayerInventory>();
         animator = GetComponent<Animator>();
-
-        print("go.transform.rotation " + transform.rotation.z);
 
     }
 
