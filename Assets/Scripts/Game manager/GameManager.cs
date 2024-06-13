@@ -306,12 +306,12 @@ public class GameManager : MonoBehaviour
         {
             if (chosenWeaponsData[i].image.sprite != null)
             {
-                chosenWeaponsUI[i].enabled = true;
-                chosenWeaponsUI[i].sprite = chosenWeaponsData[i].image.sprite;
+                //chosenWeaponsUI[i].enabled = true;
+                //chosenWeaponsUI[i].sprite = chosenWeaponsData[i].image.sprite;
             }
             else
             {
-                chosenWeaponsUI[i].enabled = false;
+                //chosenWeaponsUI[i].enabled = false;
             }
         }
     }
@@ -496,7 +496,9 @@ public class GameManager : MonoBehaviour
 
     public void SavePlayerProgress()
     {
-        SaveAndLoadManager.SaveRunProgress(pd.actualStats.specialSouls, pd.actualStats.commonSouls);
+        //SaveAndLoadManager.SaveRunProgress(pd.actualStats.specialSouls, pd.actualStats.commonSouls);
+        StatisticsCollector.instance.UpdateSessionStatistics();
+        SaveAndLoadManager.SaveRunProgress(StatisticsCollector.instance.sessionStats.totalRareSoulsCount,StatisticsCollector.instance.sessionStats.totalCommonSoulsCount);
     }
 
     public void LoadPlayerProgress()

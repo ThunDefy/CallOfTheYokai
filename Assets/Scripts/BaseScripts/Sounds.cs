@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Sounds : MonoBehaviour
 {
@@ -10,13 +11,16 @@ public class Sounds : MonoBehaviour
     private AudioSource audioSrc => GetComponent<AudioSource>();
 
     public bool isPlaying = false;
+    private bool isLoop = false;
 
     private void Start()
     {
         if(!audioSrc) gameObject.AddComponent<AudioSource>();
     }
+
     public void PlaySound(int i, float volume = 1f, bool random = false, bool destroyed = false, float p1 = 0.85f, float p2 = 1.2f)
     {
+       
         if (!isPlaying)  // Check if the audio source is currently playing a sound
         {
             AudioClip clip = random ? randSound[i].soundArray[Random.Range(0, randSound[i].soundArray.Length)] : sounds[i];

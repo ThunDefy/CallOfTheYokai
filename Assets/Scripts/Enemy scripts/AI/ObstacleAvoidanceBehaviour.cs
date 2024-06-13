@@ -17,31 +17,34 @@ public class ObstacleAvoidanceBehaviour : SteeringBehaviour
     {
         foreach (Collider2D obstacleCollider in aiData.obstacles)
         {
-            Vector2 directionToObstacle
-                = obstacleCollider.ClosestPoint(transform.position) - (Vector2)transform.position;
-            float distanceToObstacle = directionToObstacle.magnitude;
-
-            //рассчиет веса на основе расстояния до враг <---> препятствие
-            float weight
-                = distanceToObstacle <= agentColliderSize
-                ? 1
-                : (radius - distanceToObstacle) / radius;
-
-            Vector2 directionToObstacleNormalized = directionToObstacle.normalized;
-
-            //добавим параметры препятствия в массив опасностей
-            for (int i = 0; i < Directions.eightDirections.Count; i++)
+            if (obstacleCollider != null)
             {
-                float result = Vector2.Dot(directionToObstacleNormalized, Directions.eightDirections[i]);
-                // скалярное произведение 2х векторов по направлению к препядствию и одного из направлений
-                // что бы найти на сколько близко мы к препядствию
+                Vector2 directionToObstacle
+                    = obstacleCollider.ClosestPoint(transform.position) - (Vector2)transform.position;
+                float distanceToObstacle = directionToObstacle.magnitude;
 
-                float valueToPutIn = result * weight;
+                //рассчиет веса на основе расстояния до враг <---> препятствие
+                float weight
+                    = distanceToObstacle <= agentColliderSize
+                    ? 1
+                    : (radius - distanceToObstacle) / radius;
 
-                //переопределять значение только в том случае, если оно выше текущего, сохраненного в массиве опасностей
-                if (valueToPutIn > danger[i])
+                Vector2 directionToObstacleNormalized = directionToObstacle.normalized;
+
+                //добавим параметры препятствия в массив опасностей
+                for (int i = 0; i < Directions.eightDirections.Count; i++)
                 {
-                    danger[i] = valueToPutIn;
+                    float result = Vector2.Dot(directionToObstacleNormalized, Directions.eightDirections[i]);
+                    // скалярное произведение 2х векторов по направлению к препядствию и одного из направлений
+                    // что бы найти на сколько близко мы к препядствию
+
+                    float valueToPutIn = result * weight;
+
+                    //переопределять значение только в том случае, если оно выше текущего, сохраненного в массиве опасностей
+                    if (valueToPutIn > danger[i])
+                    {
+                        danger[i] = valueToPutIn;
+                    }
                 }
             }
         }

@@ -11,7 +11,7 @@ public class StatisticsCollector : MonoBehaviour
 
     
     [System.Serializable]
-    private class GameSessionStatistics
+    public class GameSessionStatistics
     {
         public int totalEnemyKillCount = 0;
         public int levelReached = 0;
@@ -26,7 +26,7 @@ public class StatisticsCollector : MonoBehaviour
         public int currentRareSoulsCount = 0;
     }
 
-    private GameSessionStatistics sessionStats;
+    public GameSessionStatistics sessionStats;
     private CurrentLevelStatistics levelStats;
 
     [Header("Game Session Result Screen Displays")]
@@ -96,7 +96,7 @@ public class StatisticsCollector : MonoBehaviour
         sessionStats.levelReached = newLevel;
     }
 
-    private void UpdateSessionStatistics()
+    public void UpdateSessionStatistics()
     {
         sessionStats.totalEnemyKillCount += levelStats.currentEnemyKillCount;
         sessionStats.totalCommonSoulsCount += levelStats.currentCommonSoulsCount;

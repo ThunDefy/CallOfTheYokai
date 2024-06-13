@@ -211,8 +211,10 @@ public class PlayerStats : MonoBehaviour
             experienceCap += experienceCapIncrease;
 
             UpdateLevelText();
+            healthData.RestoreAllHealth();
             StatisticsCollector.instance.UpdatelevelReached(level);
             GameManager.instance.StartLevelUp();
+           
 
         }
     }

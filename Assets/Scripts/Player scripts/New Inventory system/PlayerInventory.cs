@@ -634,7 +634,7 @@ public class PlayerInventory : MonoBehaviour
             weaponSlots[slotIndx].currentLevel++;
         }
 
-        player.healthData.RestoreAllHealth();
+        
         return true;
     }
 

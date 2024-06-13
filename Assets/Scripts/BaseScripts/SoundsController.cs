@@ -32,9 +32,14 @@ public class SoundsController : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (!sounds.isPlaying) sounds.PlaySound(0, volume: SoundsController.instance.currentMusicVolume,p1:1f,p2:1f);
+    }
+
     private void Start()
     {
         LoadCurrentVolumes();
-        sounds.PlaySound(0, volume: SoundsController.instance.currentMusicVolume);
+        sounds.PlaySound(0, volume: SoundsController.instance.currentMusicVolume, p1: 1f, p2: 1f);
     }
 }

@@ -37,6 +37,7 @@ public class GrapihcsSettings : MonoBehaviour
         PlayerPrefs.SetInt("QualitySettingPreference",qualityDropdown.value);
         PlayerPrefs.SetFloat("MusicVolumePreference", currentMusicVolume);
         PlayerPrefs.SetFloat("SoundVolumePreference", currentSoundVolume);
+
     }
 
     public void LoadSettings()

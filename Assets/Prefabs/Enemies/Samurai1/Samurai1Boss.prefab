@@ -259,7 +259,7 @@ MonoBehaviour:
   detectionRadius: 2
   layerMask:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 5120
   showGizmos: 0
 --- !u!1 &2247422406537249684
 GameObject:
@@ -745,6 +745,12 @@ MonoBehaviour:
     dropRate: 100
   - name: Kiseru
     itemPrefab: {fileID: 5001092401595562335, guid: 9b0768e6e7395c84585b32733ce52831, type: 3}
+    dropRate: 100
+  - name: Kiseru
+    itemPrefab: {fileID: 5001092401595562335, guid: 9b0768e6e7395c84585b32733ce52831, type: 3}
+    dropRate: 100
+  - name: Portal
+    itemPrefab: {fileID: 7701580103501846109, guid: 31fae805afca00e4ba9f86e5e8335f51, type: 3}
     dropRate: 100
 --- !u!114 &2247422405235932297
 MonoBehaviour:

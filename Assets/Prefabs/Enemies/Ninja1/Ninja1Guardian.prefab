@@ -259,7 +259,7 @@ MonoBehaviour:
   detectionRadius: 2
   layerMask:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 5120
   showGizmos: 0
 --- !u!1 &2247422406537249684
 GameObject:
@@ -529,6 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapLevel: 0
+  isPlayer: 0
 --- !u!1 &7307384476569266983
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,6 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2028b119238afc44b82baf704a7851c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
   moveSpeed: 1.15
   dashSpeed: 10
   dashDuration: 1

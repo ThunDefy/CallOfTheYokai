@@ -33,7 +33,7 @@ public class IllusionWariorSpawnerWeapon : Weapon
         if (sounds)
             if (sounds.sounds.Length > 0)
             {
-                print("Plaayyayaa0");
+
                 sounds.PlaySound(0, volume: SoundsController.instance.currentSoundVolume, destroyed: true);
                 sounds.isPlaying = false;
             }
