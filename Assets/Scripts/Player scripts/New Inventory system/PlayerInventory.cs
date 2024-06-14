@@ -298,13 +298,14 @@ public class PlayerInventory : MonoBehaviour
             if (!weaponSlots[i].IsEmpty())
             {
                 activeWeaponCount++;
-                levelOfNewYokai+=Get(weaponSlots[i].yokaiData).currentLevel;
+                levelOfNewYokai+=weaponSlots[i].currentLevel;
                 
             }
         }
         int mod = Random.Range(-1, 2);
         levelOfNewYokai = ((int)levelOfNewYokai / activeWeaponCount) + mod;
         if (levelOfNewYokai <= 0) levelOfNewYokai = 1;
+        print(levelOfNewYokai);
 
         // “еперь повысить уровень оружи€ случайным образом
         int randomUpgradeIndx=0;

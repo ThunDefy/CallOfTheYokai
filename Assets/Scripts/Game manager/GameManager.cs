@@ -212,6 +212,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentState != GameState.Paused)
         {
+            UpdateSessionTimerDisplay();
             previousState = currentState;
             ChangeState(GameState.Paused);
             pauseScreen.SetActive(true);
@@ -248,7 +249,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                UpdateSessionTimerDisplay();
+                //UpdateSessionTimerDisplay();
                 PauseGame();
             }
         }
