@@ -35,7 +35,6 @@ public class MapManager : MonoBehaviour
     public void SwitchToNextLevel()
     {
         GameManager.instance.StartMovingToNextLevel();
-        //GameManager.instance.StartLoading();
         currentLevelIndex++;
         if (currentLevelIndex >= levelsData.Count)
         {

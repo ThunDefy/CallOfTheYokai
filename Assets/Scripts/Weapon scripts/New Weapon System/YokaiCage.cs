@@ -30,16 +30,12 @@ public class YokaiCage : MonoBehaviour
         if(result == -2)
         {
             //Debug.LogWarning("У тебя уже есть этот Ёкай");
-            // Открыть окно улучшения этого ёкая
         }else if (result != -1)
         {
-            //Debug.LogWarning("На мужик тебе демона хентайного " + rndmIndexOfYokai);
             Destroy(gameObject);
         }
         else
         {
-            //Debug.LogWarning("Нет места для нового Ёкая");
-            // Открыть окно выбора на кого заменить ёкая или сделать с ним что то
         }
         Destroy(gameObject);
 

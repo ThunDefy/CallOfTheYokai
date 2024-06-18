@@ -6,7 +6,7 @@ public class FlamethrowerWeapon : VFXProjectileWeapon
 {
     public bool isAttacking = false;
 
-    protected override void Update()
+    protected void Update()
     {
         if (currentCoolDown <= 0f)
         {

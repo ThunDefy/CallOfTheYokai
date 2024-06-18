@@ -44,11 +44,8 @@ public class EnemyAI : MonoBehaviour
         attackDelay = wc.currentColldownDuration;
 
         //Detecting Player and Obstacles around
-        InvokeRepeating("PerformDetection", 0, detectionDelay);
-
-        
+        InvokeRepeating("PerformDetection", 0, detectionDelay);    
     }
-
     private void PerformDetection()
     {
         foreach (Detector detector in detectors)
@@ -77,7 +74,6 @@ public class EnemyAI : MonoBehaviour
             //Target acquisition logic
             aiData.currentTarget = aiData.targets[0];
         }
-
         //Moving the Agent
         OnMovementInput?.Invoke(movementInput);
     }
@@ -87,7 +83,6 @@ public class EnemyAI : MonoBehaviour
         if (aiData.currentTarget == null)
         {
             //Stopping Logic
-            //Debug.Log("Stopping");
             movementInput = Vector2.zero;
             following = false;
             yield break;
@@ -98,9 +93,6 @@ public class EnemyAI : MonoBehaviour
 
             if (distance < attackDistance)
             {
-                ////Random Movement before attack
-                //Vector2 randomDirection = Random.insideUnitCircle.normalized * randomMoveRadius;
-                //MoveInRandomDirection(randomDirection);
 
                 //Attack logic
                 movementInput = Vector2.zero;
@@ -127,15 +119,12 @@ public class EnemyAI : MonoBehaviour
                 yield return new WaitForSeconds(aiUpdateDelay);
                 StartCoroutine(ChaseAndAttack());
             }
-
         }
-
     }
 
     private IEnumerator MoveRandomlyForDuration(Vector2 direction, float duration)
     {
         float elapsedTime = 0f;
-
         while (elapsedTime < duration)
         {
             // Двигать врага в указанном направлении

@@ -113,22 +113,7 @@ public class PropPlacementManager : MonoBehaviour
                     List<Vector2Int> availablePositions = tempPositons.OrderBy(x => Guid.NewGuid()).ToList();
                     if (TryPlacingPropBruteForce(room, propToPlace, availablePositions, placement) == false)break;
                 }
-            }
-            
-            //else
-            //{
-            //    for (int i = 0; i < quantity; i++)
-            //    {
-            //        //удалить занятые позиции
-            //        tempPositons.ExceptWith(room.PropPositions);
-            //        //перетасовать позиции
-            //        List<Vector2Int> availablePositions = tempPositons.OrderBy(x => Guid.NewGuid()).ToList();
-            //        //Если размещение не удалось, нет смысла пытаться разместить тот же самый реквизит снова
-            //        if (TryPlacingPropBruteForce(room, propToPlace, availablePositions, placement) == false)break;
-            //    }
-            //}
-            
-
+            }  
         }
     }
 
@@ -296,9 +281,7 @@ public class PropPlacementManager : MonoBehaviour
             PlacePropGameObjectAt(room, availableSpaces[i], propToPlace);
             // Размещаем объект
         }
-
     }
-
 
     // Помещает объекты как новый объект GameObject в указанную позицию
     private GameObject PlacePropGameObjectAt(Room room, Vector2Int placementPostion, Prop propToPlace)
@@ -354,10 +337,8 @@ public class PropPlacementManager : MonoBehaviour
     }
 }
 
-
 //Где начать размещение реквизита, например, начать с левого нижнего угла и искать есть ли свободное
 //пространство справа и сверху в случае размещения стойки большого размера
-
 public enum PlacementOriginCorner
 {
     BottomLeft,

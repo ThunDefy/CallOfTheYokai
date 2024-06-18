@@ -12,29 +12,24 @@ public class PlayerProgression : MonoBehaviour
         public TMP_Text statNameDisplay;
         public TMP_Text currentValueDisplay;
         public TMP_Text currentPriceDisplay;
-        public GameObject changeButtons;
-
-        
+        public GameObject changeButtons;  
         public bool isSpecialStats;
         public float increaseValue;
         public int increasePrice;
         public int increaseCup;
         public float maxValue;
-
         [HideInInspector]
         public Button plusButton;
         [HideInInspector]
         public Button minusButton;
         [HideInInspector]
         public PlayerProgression playerProgressionData;
-
         [HideInInspector]
         public float defaultValue;
         private float currentValue;
         private float newValue;
         private int currentPrice;
         private int currentSoulsCount;
-
         public bool isChanged = false;
         public void SetButtons()
         {
@@ -54,10 +49,8 @@ public class PlayerProgression : MonoBehaviour
             currentValue = value;
             newValue = currentValue;
             currentPrice = increasePrice;
-            RecalculatePrice();
-            
+            RecalculatePrice();          
         }
-
         public float GetNewValue()
         {
             return newValue;
@@ -74,10 +67,7 @@ public class PlayerProgression : MonoBehaviour
                 UpdateUI();    
             }
             isChanged = true;
-
-
         }
-
         public void CancelLastIncrease()
         {
 
@@ -102,10 +92,8 @@ public class PlayerProgression : MonoBehaviour
                 UpdateUI();
                 
                 isChanged =false;
-            }
-            
+            }           
         }
-
         public void UpdateUI()
         {
             currentValueDisplay.text = newValue.ToString();
@@ -144,8 +132,6 @@ public class PlayerProgression : MonoBehaviour
             else
                 currentSoulsCount = playerProgressionData.currentCommonSoulCount;
             UpdateUI();
-
-            //print("Now i think you have = " + currentSoulsCount);
         }
 
         private void RecalculatePrice()
@@ -209,14 +195,12 @@ public class PlayerProgression : MonoBehaviour
             }
         }
         UpdateSoulsDisplays();
-        //print("PAYDAY = " + currentCommonSoulCount + " and " + currentRareSoulCount);
     }
 
     private void SetCurrentValues()
     {
         currentPlayerStats = SaveAndLoadManager.LoadPlayerData();
         newPlayerStats = currentPlayerStats;
-
         playerCommonStatsUpgradeUI[0].defaultValue = defaultPlayerStats.stats.maxHealth;
         playerCommonStatsUpgradeUI[0].SetCurrentValue(currentPlayerStats.maxHealth);
         playerCommonStatsUpgradeUI[1].defaultValue = defaultPlayerStats.stats.recovery;
@@ -235,18 +219,14 @@ public class PlayerProgression : MonoBehaviour
         playerCommonStatsUpgradeUI[7].SetCurrentValue(currentPlayerStats.growth);
         playerCommonStatsUpgradeUI[8].defaultValue = defaultPlayerStats.stats.magnet;
         playerCommonStatsUpgradeUI[8].SetCurrentValue(currentPlayerStats.magnet);
-
         playerSpecialStatsUpgradeUI[0].defaultValue = defaultPlayerStats.stats.power;
         playerSpecialStatsUpgradeUI[0].SetCurrentValue(currentPlayerStats.power);
         playerSpecialStatsUpgradeUI[1].defaultValue = defaultPlayerStats.stats.luck;
         playerSpecialStatsUpgradeUI[1].SetCurrentValue(currentPlayerStats.luck);
         playerSpecialStatsUpgradeUI[2].defaultValue = defaultPlayerStats.stats.availableSlots;
-        playerSpecialStatsUpgradeUI[2].SetCurrentValue(currentPlayerStats.availableSlots);
-        
+        playerSpecialStatsUpgradeUI[2].SetCurrentValue(currentPlayerStats.availableSlots);    
         currentCommonSoulCount = currentPlayerStats.commonSouls; 
         currentRareSoulCount = currentPlayerStats.specialSouls;
-
-        //print("NOW SOULS = " + currentCommonSoulCount);
     }
 
     private void UpdateSoulsDisplays()

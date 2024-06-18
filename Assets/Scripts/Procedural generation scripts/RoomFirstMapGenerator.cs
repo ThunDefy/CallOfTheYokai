@@ -46,9 +46,6 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
         dungeonHeight = currentLevelData.dungeonHeight;
         offset = currentLevelData.offset;
     }
-
-
-
     protected override void RunProceduralGeneration()
     {
         
@@ -257,7 +254,4 @@ public class RoomFirstMapGenerator : SimpleRandomWalkMapGenerator
         }
         return newCorridor;
     }
-
-
-
 }

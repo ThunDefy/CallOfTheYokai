@@ -13,14 +13,14 @@ public class SeekBehaviour : SteeringBehaviour
 
     bool reachedLastTarget = true;
 
-    //gizmo parameters
+    //параемтры гизмо
     private Vector2 targetPositionCached;
     private float[] interestsTemp;
 
     public override (float[] danger, float[] interest) GetSteering(float[] danger, float[] interest, AIData aiData)
     {
-        //if we don't have a target stop seeking
-        //else set a new target
+        // ≈сли больше нет целей приследовани€ прекратить это дело
+        // ≈сли еще есть, то выбрать новую цель 
         if (reachedLastTarget)
         {
             if (aiData.targets == null || aiData.targets.Count <= 0)
@@ -36,11 +36,11 @@ public class SeekBehaviour : SteeringBehaviour
 
         }
 
-        //cache the last position only if we still see the target (if the targets collection is not empty)
+        //кэшировать последнюю позицию, только если мы все еще видим цель (если коллекци€ целей не пуста)
         if (aiData.currentTarget != null && aiData.targets != null && aiData.targets.Contains(aiData.currentTarget))
             targetPositionCached = aiData.currentTarget.position;
 
-        //First check if we have reached the target
+        //—начала проверить, достигли ли мы цели
         if (Vector2.Distance(transform.position, targetPositionCached) < targetRechedThreshold)
         {
             reachedLastTarget = true;
@@ -48,13 +48,13 @@ public class SeekBehaviour : SteeringBehaviour
             return (danger, interest);
         }
 
-        //If we havent yet reached the target do the main logic of finding the interest directions
+        //≈сли еще не достигли цели, создаем основную логику поиска направлений интереса
         Vector2 directionToTarget = (targetPositionCached - (Vector2)transform.position);
         for (int i = 0; i < interest.Length; i++)
         {
             float result = Vector2.Dot(directionToTarget.normalized, Directions.eightDirections[i]);
 
-            //accept only directions at the less than 90 degrees to the target direction
+            // только направлени€, расположенные под углом менее 90 градусов к целевому направлению
             if (result > 0)
             {
                 float valueToPutIn = result;

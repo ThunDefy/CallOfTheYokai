@@ -13,11 +13,6 @@ public class TargetIndicator : MonoBehaviour
 
     GameObject boss;
     Portal portal;
-
-    //private void Start()
-    //{
-        
-    //}
     void Update()
     {
         if (currentTarget != null)
@@ -110,8 +105,6 @@ public class TargetIndicator : MonoBehaviour
             // ѕоворачиваем стрелку, чтобы она смотрела на цель
             arrowImg.transform.up = directionToTarget.normalized;
         }
-        
-
     }
 
     public void StartIndicator()

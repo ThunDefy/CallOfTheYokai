@@ -42,10 +42,8 @@ public class FlameProjectile : WeaponEffect
 
     protected virtual void FixedUpdate()
     {
-        //transform.position = new Vector3(weapon.transform.position.x+0.2f, weapon.transform.position.y - 0.2f, weapon.transform.position.z);
         transform.position = weapon.transform.position;
         transform.rotation = weapon.transform.rotation;
-
     }
 
     private float timer = 0f;
@@ -66,7 +64,6 @@ public class FlameProjectile : WeaponEffect
                 Destroy(Instantiate(stats.hitEffect, enemy.transform.position, Quaternion.identity), 5f);
             }
         }
-
     }
 
     void DestroyObjectWithDelay()
@@ -77,6 +74,4 @@ public class FlameProjectile : WeaponEffect
         animator.SetBool("CoolDown", true);
         Destroy(gameObject);
     }
-
-
 }

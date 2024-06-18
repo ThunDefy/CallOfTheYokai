@@ -3,9 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-//using static UnityEditor.Progress;
-
-
 
 public class MapData : MonoBehaviour
 {
@@ -52,10 +49,6 @@ public enum RoomType
     Portal,
     // Другие типы комнат по мере необходимости
 }
-
-/// <summary>
-/// Holds all the data about the room
-/// </summary>
 public class Room
 {
     public RoomType Type { get; set; }

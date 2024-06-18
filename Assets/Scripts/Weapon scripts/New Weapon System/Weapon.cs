@@ -6,7 +6,6 @@ using static GameManager;
 public class Weapon : Yokai
 {
     [System.Serializable]
-
     public struct Stats
     {
         public string name, description;
@@ -69,24 +68,12 @@ public class Weapon : Yokai
         animator = GetComponent<Animator>();
 
     }
-
     protected virtual void Awake()
-    {
-        
+    {      
         if (data)
         {
             Initialise(data);
         }
-
-    }
-
-    protected virtual void Update()
-    {
-        
-        //if (currentCoolDown >= 0)
-        //{
-        //    currentCoolDown -= Time.deltaTime;
-        //}
     }
 
     void OnEnable()
@@ -96,7 +83,6 @@ public class Weapon : Yokai
     }
     public override bool DoLevelUp(int upgradeIndx)
     {
-        
         currentStats += data.GetLevelData(upgradeIndx);
         return true;
     }
@@ -132,11 +118,9 @@ public class Weapon : Yokai
 
     public virtual float GetArea()
     {
-        //return currentStats.area * Owner.actualStats.area; 
         float percentageIncrease = Owner.actualStats.area; // Значение процентного увеличения (например, 0.05 - что соответствует 5%)
         float currentArea = currentStats.area * Owner.actualStats.area; 
         float increaseAmount = currentArea * percentageIncrease;
-        //return currentArea + increaseAmount;
         return currentStats.area * Owner.actualStats.area;
     }
 
@@ -144,17 +128,10 @@ public class Weapon : Yokai
 
     public virtual bool ActivateCoolDown(bool strict = false)
     {
-        //print("Вызываю куладун");
         if (strict && currentCoolDown > 0) return false;
-
         float actualCooldown = currentStats.cooldown * (-1*Owner.actualStats.cooldown);
-
-        //currentCoolDown = Mathf.Min(actualCooldown, currentCoolDown + actualCooldown);
         currentCoolDown = currentStats.cooldown + actualCooldown;
-
         if (inventory!=null) inventory.YokaiActivateColldown(this, currentCoolDown);
-
         return true;
     }
-
 }

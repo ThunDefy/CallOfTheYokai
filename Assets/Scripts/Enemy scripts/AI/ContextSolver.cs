@@ -7,7 +7,7 @@ public class ContextSolver : MonoBehaviour
     [SerializeField]
     private bool showGizmos = true;
 
-    //gizmo parameters
+    //настройки отрисовки гизмо
     float[] interestGizmo = new float[0];
     Vector2 resultDirection = Vector2.zero;
     private float rayLength = 2;
@@ -22,13 +22,13 @@ public class ContextSolver : MonoBehaviour
         float[] danger = new float[8];
         float[] interest = new float[8];
 
-        //Loop through each behaviour
+        //Цикл для каждого поведения
         foreach (SteeringBehaviour behaviour in behaviours)
         {
             (danger, interest) = behaviour.GetSteering(danger, interest, aiData);
         }
 
-        //subtract danger values from interest array
+        //Вычесть значения опасности из массива интересов
         for (int i = 0; i < 8; i++)
         {
             interest[i] = Mathf.Clamp01(interest[i] - danger[i]);
@@ -36,7 +36,7 @@ public class ContextSolver : MonoBehaviour
 
         interestGizmo = interest;
 
-        //get the average direction
+        //Получить среднее направление 
         Vector2 outputDirection = Vector2.zero;
         for (int i = 0; i < 8; i++)
         {
@@ -47,10 +47,9 @@ public class ContextSolver : MonoBehaviour
 
         resultDirection = outputDirection;
 
-        //return the selected movement direction
+        //Вернуть выбранное направление
         return resultDirection;
     }
-
 
     private void OnDrawGizmos()
     {

@@ -332,10 +332,10 @@ public class PlayerInventory : MonoBehaviour
         changeUIOptions[0].weaponDiscription.text = data.baseStats.description;
         changeUIOptions[0].damageStatDisplay.text = "Damage: " + w.currentStats.damage;
         changeUIOptions[0].areaStatDisplay.text = "Area: " + w.currentStats.area;
-        changeUIOptions[0].speedStatDisplay.text = "Speed: " + w.currentStats.speed;
+        changeUIOptions[0].speedStatDisplay.text = "Speed: " +(w.currentStats.speed == -1 ? "-" : w.currentStats.speed);
         changeUIOptions[0].cooldownStatDisplay.text = "Cooldown: " + w.currentStats.cooldown;
-        changeUIOptions[0].knockbackStatDisplay.text = "Knockback: " + w.currentStats.knockback;
-        changeUIOptions[0].pircingStatDisplay.text = "Pircing: " + w.currentStats.pircing;
+        changeUIOptions[0].knockbackStatDisplay.text = "Knockback: " + (w.currentStats.knockback == -1 ? "-" : w.currentStats.knockback);
+        changeUIOptions[0].pircingStatDisplay.text = "Pircing: " + (w.currentStats.pircing == -1 ? "-" : w.currentStats.pircing);
 
         List<string> possibleBoost = p.GetBoostsInfo();
         if (possibleBoost.Count == 1) changeUIOptions[0].PassiveEffect1Display.text = possibleBoost[0];
@@ -478,7 +478,7 @@ public class PlayerInventory : MonoBehaviour
                     }
                     else
                     {
-                        newText.color = Color.white;
+                        newText.color = Color.black;
                     }
                 }
             }

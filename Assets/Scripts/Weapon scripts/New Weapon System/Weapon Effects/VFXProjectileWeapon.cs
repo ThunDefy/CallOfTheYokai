@@ -25,13 +25,8 @@ public class VFXProjectileWeapon : ProjectileWeapon
         prefab.weapon = this;
         prefab.owner = owner;
         if (data.baseStats.speed == 0) prefab.transform.SetParent(this.transform);
-        //prefab.transform.rotation = transform.rotation;
-
         RotateVFX(prefab);
-
-
         ActivateCoolDown(true);
-
         return true;
     }
 

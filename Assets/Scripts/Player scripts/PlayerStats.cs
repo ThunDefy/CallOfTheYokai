@@ -15,23 +15,15 @@ public class PlayerStats : MonoBehaviour
     [HideInInspector]
     public WeaponParent weaponParent;
 
-
     public PlayerData playerData;
     public PlayerData.Stats baseStats;
     [SerializeField] 
     public PlayerData.Stats actualStats;
     float currentHealth;
 
-
     PlayerCollector collector;
-
-    //public List<GameObject> spawnedWeapons;
-
     public int weaponIndex;
     public List<PlayerWeaponData> allWeapons;
-
-    //public GameObject startingWeapon;
-    
 
     [Header("Player stats")]
     public PlayerData player;
@@ -49,7 +41,6 @@ public class PlayerStats : MonoBehaviour
             }
         }
     }
-
     public float CurrentMaxHealth
     {
         get { return actualStats.maxHealth; }
@@ -71,12 +62,10 @@ public class PlayerStats : MonoBehaviour
             {
                 actualStats.moveSpeed = value;
                 playerAgentData.moveSpeed = actualStats.moveSpeed;
-
             }
         }
     }
     #endregion
-
 
     // Опыт и повышение уровня
     [Header("Experience and Level")]
@@ -131,22 +120,14 @@ public class PlayerStats : MonoBehaviour
         playerAgentData.moveSpeed = actualStats.moveSpeed;
 
         collector.SetRadius(actualStats.magnet);
-
     }
 
     private void Start()
     {
-        //playerInventory.AddYokai(playerData.startingWeapon1);
-        //playerInventory.AddYokai(playerData.startingWeapon2);
-        //playerInventory.AddYokai(playerData.startingWeapon3);
-        //playerInventory.AddYokai(playerData.startingWeapon4);
-
         UpdateExpBar();
         UpdateLevelText();
-
         StartCoroutine(GetStartWeapon());
     }
-
     private void Update()
     {
         if(invincibilityTimer > 0)
@@ -168,11 +149,8 @@ public class PlayerStats : MonoBehaviour
             weaponIndex = allWeapons.FindIndex(weapon => weapon.yokaiID == playerData.stats.startingYokaiID);
             if (weaponIndex != -1)
                 playerInventory.AddYokai(allWeapons[weaponIndex]);
-        }
-        
+        }  
     }
-
-   
     public void IncreaseExperience(int amount, bool isRareSoul = false)
     {
         experience += (int)Mathf.Round(amount * actualStats.growth);
@@ -191,7 +169,6 @@ public class PlayerStats : MonoBehaviour
         LevelUpChecker();
         UpdateExpBar();
     }
-
     public void LevelUpChecker(bool force = false)
     {
         if(force || experience >= experienceCap)
@@ -214,8 +191,6 @@ public class PlayerStats : MonoBehaviour
             healthData.RestoreAllHealth();
             StatisticsCollector.instance.UpdatelevelReached(level);
             GameManager.instance.StartLevelUp();
-           
-
         }
     }
 
@@ -255,7 +230,6 @@ public class PlayerStats : MonoBehaviour
         }
         CurrentHealth = healthData.currentHealth;
         healthData.UpdateHealthBar();
-
     }
 
     public void PlayerDie()
@@ -271,11 +245,9 @@ public class PlayerStats : MonoBehaviour
             healthData.isDead = true;
             GameManager.instance.AssignLevelReachedUI(level);
             GameManager.instance.AssignChosenWeaponsUI(playerInventory.weaponSlots);
-            GameManager.instance.GameOver();
-            
+            GameManager.instance.GameOver();       
         }
     }
-
     public void RecalculateStats() 
     {
         actualStats = baseStats;
@@ -308,9 +280,7 @@ public class PlayerStats : MonoBehaviour
             invincibilityTimer = invincibilityDuration;
             isInvincible = true;
         }
-        
     }
-
     public void DoInstantRecharge()
     {
         playerInventory.InstantRecharge();
